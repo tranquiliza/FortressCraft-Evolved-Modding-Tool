@@ -74,6 +74,9 @@
     <Compile Include="Forms\Form_PathSelector.Designer.cs">
       <DependentUpon>Form_PathSelector.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserControl_Research.xaml.cs">
+      <DependentUpon>UserControl_Research.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameLogics\ItemEntry.cs" />
     <Compile Include="GameLogics\ManufacturerEntry.cs" />
     <Compile Include="GameLogics\ProjectItemRequirements.cs" />
@@ -86,6 +89,10 @@
     <Compile Include="XmlLogic\ItemsReader.cs" />
     <Compile Include="XmlLogic\ManufacturerRecipesReader.cs" />
     <Compile Include="XmlLogic\ResearchReader.cs" />
+    <Page Include="Forms\UserControl_Research.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

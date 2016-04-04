@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using MahApps.Metro.Controls;
-using FortressCraftEvolved_Modding_Tool.Data;
+using FortressCraftEvolved_Modding_Tool.Forms;
+using FortressCraftEvolved_Modding_Tool.XmlLogic;
 
 namespace FortressCraftEvolved_Modding_Tool
 {
@@ -12,7 +13,10 @@ namespace FortressCraftEvolved_Modding_Tool
         public MainWindow()
         {
             InitializeComponent();
-            XmlLogic.ResearchReader.ReadResearchXML();
+
+            ResearchReader.ReadResearchXML();
+            
+            //Let the user know to update the paths, mainly ownly shows on first time use!
             if (User.Default.ResearchXmlPath == "")
             {
                 MessageBox.Show("Research.XML path not found, please check settings!");
@@ -21,19 +25,23 @@ namespace FortressCraftEvolved_Modding_Tool
             {
                 MessageBox.Show("ManufacturerRecipes.xml path not found, please check settings!");
             }
+            //A nice welcome message! :D -> Could display version name here?!
+            textBlock_Welcome.Text += "\n Browse the application by using the buttons below!";
         }
 
-        //When user clicks the settings button: Do this;
+
+        //When user clicks the settings button currently only shows path. Maybe add possible change of style (Dark / Light?)
         private void Button_Settings(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show("This Will Prompt people with settings window for selecting File paths!");
-            Forms.Form_PathSelector Popup = new Forms.Form_PathSelector();
-            Popup.ShowDialog();
+            //Prompts people with the fileselector Windows Form. This is a windows form cause they have OpenFileDialog Controls!!
+            Form_PathSelector Settings = new Forms.Form_PathSelector();
+            Settings.ShowDialog();
         }
 
         private void button_LoadResearch_Click(object sender, RoutedEventArgs e)
         {
-
+            //This takes the UserControl_Research and displays it on the MainWindow! No need for millions of windows! Woot!
+            ContentMain.Content = new UserControl_Research();
         }
     }
 }

@@ -6,26 +6,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FortressCraftEvolved_Modding_Tool"
         mc:Ignorable="d"
-        Title="FortressCraft Evolved Modding Tool" Visibility="Visible" Icon="Resources/MynockIcon.ico" WindowStartupLocation="CenterScreen">
+        Title="FortressCraft Evolved Modding Tool" Visibility="Visible" Icon="Resources/MynockIcon.ico" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button Content="Settings" Click="Button_Settings" />
-            <!--
-            <Button>
-                <StackPanel Orientation="Horizontal">
-                    <Rectangle Width="20" Height="20" Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
-                        <Rectangle.OpacityMask>
-                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_cupcake}" />
-                        </Rectangle.OpacityMask>
-                    </Rectangle>
-                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="deploy cupcakes" />
-                </StackPanel>
-            </Button>
-        -->
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid>
         <Image Grid.Column="0" x:Name="image_FeedTheMynock" Margin="10,0,0,10" Source="Resources/570x570 preview mynock.png" HorizontalAlignment="Left" Width="75" Height="75" VerticalAlignment="Bottom"/>
-        <Button x:Name="button_LoadResearch" Content="Get Research" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Click="button_LoadResearch_Click" Height="25"/>
+        <Button x:Name="button_LoadResearch" Content="Research" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="125" Click="button_LoadResearch_Click" Height="35" FontSize="12"/>
+        <TextBlock x:Name="textBlock_Welcome" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Welcome to the FortressCraft Evolved Modding tool!" VerticalAlignment="Top" Height="75" Width="500" FontSize="16"/>
+        <ContentControl Name="ContentMain" Margin="140,90,10,10"  Width="Auto" Height="Auto" Opacity="1" Background="Transparent" >
+            
+        </ContentControl>
     </Grid>
 </Controls:MetroWindow>
