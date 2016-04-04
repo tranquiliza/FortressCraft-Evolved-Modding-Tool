@@ -8,5 +8,6 @@ namespace FortressCraftEvolved_Modding_Tool.GameLogics
 {
     class ItemEntry
     {
+
     }
 }

@@ -68,8 +68,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\DataHolder.cs" />
+    <Compile Include="Forms\Form_PathSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PathSelector.Designer.cs">
+      <DependentUpon>Form_PathSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameLogics\ItemEntry.cs" />
     <Compile Include="GameLogics\ManufacturerEntry.cs" />
+    <Compile Include="GameLogics\ProjectItemRequirements.cs" />
     <Compile Include="GameLogics\ResearchEntry.cs" />
     <Compile Include="User.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -110,6 +117,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Forms\Form_PathSelector.resx">
+      <DependentUpon>Form_PathSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

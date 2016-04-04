@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FortressCraftEvolved_Modding_Tool"
         mc:Ignorable="d"
-        Title="FortressCraft Evolved Modding Tool" Height="600" Width="800" Visibility="Visible" ResizeMode="NoResize" Icon="Resources/MynockIcon.ico" WindowStartupLocation="CenterScreen">
+        Title="FortressCraft Evolved Modding Tool" Visibility="Visible" Icon="Resources/MynockIcon.ico" WindowStartupLocation="CenterScreen">
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button Content="Settings" Click="Button_Settings" />
@@ -24,11 +24,8 @@
         -->
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
-    <Grid >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100*"/>
-            <ColumnDefinition Width="600*"/>
-        </Grid.ColumnDefinitions>
+    <Grid>
         <Image Grid.Column="0" x:Name="image_FeedTheMynock" Margin="10,0,0,10" Source="Resources/570x570 preview mynock.png" HorizontalAlignment="Left" Width="75" Height="75" VerticalAlignment="Bottom"/>
+        <Button x:Name="button_LoadResearch" Content="Get Research" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Click="button_LoadResearch_Click" Height="25"/>
     </Grid>
 </Controls:MetroWindow>

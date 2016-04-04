@@ -10,8 +10,8 @@ namespace FortressCraftEvolved_Modding_Tool.Data
     static class DataHolder
     {
         //These hold all the data, and only needs to be assigned values once per run!
-        public static List<ItemEntry> ItemEntries;
-        public static List<ManufacturerEntry> ManufacturerEntries;
-        public static List<ResearchEntry> ResearchEntries;
+        public static List<ItemEntry> ItemEntries = new List<ItemEntry>();
+        public static List<ManufacturerEntry> ManufacturerEntries = new List<ManufacturerEntry>();
+        public static List<ResearchEntry> ResearchEntries = new List<ResearchEntry>();
     }
 }

@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using MahApps.Metro.Controls;
+using FortressCraftEvolved_Modding_Tool.Data;
 
 namespace FortressCraftEvolved_Modding_Tool
 {
@@ -24,11 +12,28 @@ namespace FortressCraftEvolved_Modding_Tool
         public MainWindow()
         {
             InitializeComponent();
+            XmlLogic.ResearchReader.ReadResearchXML();
+            if (User.Default.ResearchXmlPath == "")
+            {
+                MessageBox.Show("Research.XML path not found, please check settings!");
+            }
+            if (User.Default.ManufactorerXmlPath == "")
+            {
+                MessageBox.Show("ManufacturerRecipes.xml path not found, please check settings!");
+            }
         }
 
+        //When user clicks the settings button: Do this;
         private void Button_Settings(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("This Will Prompt people with settings window for selecting File paths!");   
+            //MessageBox.Show("This Will Prompt people with settings window for selecting File paths!");
+            Forms.Form_PathSelector Popup = new Forms.Form_PathSelector();
+            Popup.ShowDialog();
+        }
+
+        private void button_LoadResearch_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
