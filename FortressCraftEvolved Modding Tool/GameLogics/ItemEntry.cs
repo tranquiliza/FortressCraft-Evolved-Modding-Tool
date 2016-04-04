@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FortressCraftEvolved_Modding_Tool.XmlLogic
+namespace FortressCraftEvolved_Modding_Tool.GameLogics
 {
-    class ItemsReader
+    class ItemEntry
     {
-
     }
 }

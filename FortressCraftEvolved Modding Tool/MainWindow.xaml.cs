@@ -28,7 +28,7 @@ namespace FortressCraftEvolved_Modding_Tool
 
         private void Button_Settings(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("This Will Prompt people with settings window for selecting File paths!");
+            MessageBox.Show("This Will Prompt people with settings window for selecting File paths!");   
         }
     }
 }
