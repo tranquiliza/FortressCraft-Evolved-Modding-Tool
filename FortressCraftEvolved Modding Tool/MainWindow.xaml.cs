@@ -15,6 +15,7 @@ namespace FortressCraftEvolved_Modding_Tool
             InitializeComponent();
 
             ResearchReader.ReadResearchXML();
+            ManufacturerRecipesReader.ReadManufactoringXML();
             
             //Let the user know to update the paths, mainly ownly shows on first time use!
             if (User.Default.ResearchXmlPath == "")
@@ -42,6 +43,14 @@ namespace FortressCraftEvolved_Modding_Tool
         {
             //This takes the UserControl_Research and displays it on the MainWindow! No need for millions of windows! Woot!
             ContentMain.Content = new UserControl_Research();
+        }
+
+        private void KeyPress(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.F5)
+            {
+                ContentMain.Content = null;
+            }
         }
     }
 }

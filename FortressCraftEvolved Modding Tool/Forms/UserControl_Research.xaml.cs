@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Controls;
 using FortressCraftEvolved_Modding_Tool.Data;
+using FortressCraftEvolved_Modding_Tool.GameLogics;
 
 namespace FortressCraftEvolved_Modding_Tool.Forms
 {
@@ -30,6 +31,8 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
         //When We select an item from the list:
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ResearchEntry SelectedEntry = null; //In hindsight this should have been used everywhere!!
+            
             //When we select something, find the one we selected!
             for (int i = 0; i < DataHolder.ResearchEntries.Count; i++)
             {
@@ -41,80 +44,100 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                 //If the name matches:
                 if (DataHolder.ResearchEntries[i].Name == listBox_ResearchEntries.SelectedItem.ToString())
                 {
-                    textBlock_Key.Text = DataHolder.ResearchEntries[i].Key;
-                    textBlock_Name.Text = DataHolder.ResearchEntries[i].Name;
-                    textBlock_IconName.Text = DataHolder.ResearchEntries[i].IconName;
+                    //Using this later for Unlocked items!
+                    SelectedEntry = DataHolder.ResearchEntries[i];
+                }
+            }
 
-                    if (DataHolder.ResearchEntries[i].ResearchCost > 0)
-                    {
-                        label_ResearchCost.Content = "Research Cost:";
-                        textBlock_ReseachCost.Text = DataHolder.ResearchEntries[i].ResearchCost.ToString();
-                    }
-                    else
-                    {
-                        label_ResearchCost.Content = "";
-                        textBlock_ReseachCost.Text = "Requires Lab";
-                    }
+            //UI Work Woo!
+            textBlock_Key.Text = SelectedEntry.Key;
+            textBlock_Name.Text = SelectedEntry.Name;
+            textBlock_IconName.Text = SelectedEntry.IconName;
+            if (SelectedEntry.ResearchCost > 0)
+            {
+                label_ResearchCost.Content = "Research Cost:";
+                textBlock_ReseachCost.Text = SelectedEntry.ResearchCost.ToString();
+            }
+            else
+            {
+                label_ResearchCost.Content = "";
+                textBlock_ReseachCost.Text = "Requires Lab";
+            }
+            textBlock_PreDesc.Text = SelectedEntry.PreDescription;
+            textBlock_PostDesc.Text = SelectedEntry.PostDescription;
 
-                    textBlock_PreDesc.Text = DataHolder.ResearchEntries[i].PreDescription;
-                    textBlock_PostDesc.Text = DataHolder.ResearchEntries[i].PostDescription;
+            if (SelectedEntry.LabResearchItems.Count == 0)
+            {
+                label_PodRequirements.Content = "";
+            }
+            else
+            {
+                label_PodRequirements.Content = "Pod Requirements:";
+            }
+
+            //Pod Requirements
+            //Clear the Listbox, so we dont get multiples
+            listBox_ResearchPods.Items.Clear();
+            for (int i = 0; i < SelectedEntry.LabResearchItems.Count; i++)
+            {
+                listBox_ResearchPods.Items.Add(SelectedEntry.LabResearchItems[i].Text());
+            }
+
+            if (SelectedEntry.ResearchRequirements.Count == 0)
+            {
+                label_ResearchReq.Content = "";
+            }
+            else
+            {
+                label_ResearchReq.Content = "Research Requirements:";
+            }
+
+            //Research Req
+            //Clear the Listbox, so we dont get multiples
+            listBox_ResearchReq.Items.Clear();
+            for (int j = 0; j < SelectedEntry.ResearchRequirements.Count; j++)
+            {
+                for (int k = 0; k < DataHolder.ResearchEntries.Count; k++)
+                {
+                    //A bit complex: Basicly shows the Friendly Name instead of the ResearchEntry <Key>Text</Key>
+                    if (DataHolder.ResearchEntries[k].Key == SelectedEntry.ResearchRequirements[j])
+                    {
+                        listBox_ResearchReq.Items.Add(DataHolder.ResearchEntries[k].Name);
+                    }
+                }
+                //(Debug Line)
+                //listBox_ResearchReq.Items.Add("   - Key:" + DataHolder.ResearchEntries[i].ResearchRequirements[j]);
+            }
 
 
-                    if (DataHolder.ResearchEntries[i].LabResearchItems.Count == 0)
-                    {
-                        label_PodRequirements.Content = "";
-                    }
-                    else
-                    {
-                        label_PodRequirements.Content = "Pod Requirements:";
-                    }
+            //Scan requirements
+            if (SelectedEntry.ScanRequirements.Count == 0)
+            {
+                label_ScanReq.Content = "";
+            }
+            else
+            {
+                label_ScanReq.Content = "Scan Requirements:";
+            }
 
-                    //Clear the Listbox, so we dont get multiples
-                    listBox_ResearchPods.Items.Clear();
-                    for (int j = 0; j < DataHolder.ResearchEntries[i].LabResearchItems.Count; j++)
-                    {
-                        listBox_ResearchPods.Items.Add(DataHolder.ResearchEntries[i].LabResearchItems[j].Text());
-                    }
+            //Clear the list.
+            listBox_ScanReq.Items.Clear();
+            for (int i = 0; i < SelectedEntry.ScanRequirements.Count; i++)
+            {
+                listBox_ScanReq.Items.Add(SelectedEntry.ScanRequirements[i]);
+            }
 
-                    if (DataHolder.ResearchEntries[i].ResearchRequirements.Count == 0)
-                    {
-                        label_ResearchReq.Content = "";
-                    }
-                    else
-                    {
-                        label_ResearchReq.Content = "Research Requirements:";
-                    }
 
-                    //Clear the Listbox, so we dont get multiples
-                    listBox_ResearchReq.Items.Clear();
-                    for (int j = 0; j < DataHolder.ResearchEntries[i].ResearchRequirements.Count; j++)
+            //Unlocked Items;
+            //Clear the list:
+            listBox_ItemsUnlocked.Items.Clear();
+            for (int i = 0; i < DataHolder.ManufacturerEntries.Count; i++)
+            {
+                for (int j = 0; j < DataHolder.ManufacturerEntries[i].ResearchRequirement.Count; j++)
+                {
+                    if (DataHolder.ManufacturerEntries[i].ResearchRequirement[j] == SelectedEntry.Key)
                     {
-                        for (int k = 0; k < DataHolder.ResearchEntries.Count; k++)
-                        {
-                            //A bit complex: Basicly shows the Friendly Name instead of the ResearchEntry <Key>Text</Key>
-                            if (DataHolder.ResearchEntries[k].Key == DataHolder.ResearchEntries[i].ResearchRequirements[j])
-                            {
-                                listBox_ResearchReq.Items.Add(DataHolder.ResearchEntries[k].Name);
-                            }
-                        }
-                        //(Debug Line)
-                        //listBox_ResearchReq.Items.Add("   - Key:" + DataHolder.ResearchEntries[i].ResearchRequirements[j]);
-                    }
-
-                    if (DataHolder.ResearchEntries[i].ScanRequirements.Count == 0)
-                    {
-                        label_ScanReq.Content = "";
-                    }
-                    else
-                    {
-                        label_ScanReq.Content = "Scan Requirements:";
-                    }
-
-                    //Clear the list.
-                    listBox_ScanReq.Items.Clear();
-                    for (int j = 0; j < DataHolder.ResearchEntries[i].ScanRequirements.Count; j++)
-                    {
-                        listBox_ScanReq.Items.Add(DataHolder.ResearchEntries[i].ScanRequirements[j]);
+                        listBox_ItemsUnlocked.Items.Add(DataHolder.ManufacturerEntries[i].CraftedName);
                     }
                 }
             }
