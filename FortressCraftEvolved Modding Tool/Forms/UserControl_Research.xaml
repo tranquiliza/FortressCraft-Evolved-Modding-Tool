@@ -12,21 +12,23 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="353*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="290*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60*"/>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="150*"/>
-            <ColumnDefinition Width="170*"/>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="listBox_ResearchEntries" HorizontalAlignment="Left" Margin="13,46,0,10" Width="200" SelectionChanged="listBox_SelectionChanged" Grid.RowSpan="5" Grid.ColumnSpan="3"/>
+        <ListBox x:Name="listBox_ResearchEntries" HorizontalAlignment="Left" Margin="13,46,0,10" Width="200" SelectionChanged="listBox_SelectionChanged" Grid.RowSpan="7"/>
         <Label x:Name="label_Key" Content="Key:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="31"/>
         <Label x:Name="label_Name" Content="Name:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Height="26" Width="44"/>
         <Label x:Name="label_IconName" Content="Icon Name:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Height="26" Width="70"/>
-        <Label x:Name="label_ResearchCost" Content="Research Cost:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Height="26" Width="87" Grid.ColumnSpan="2"/>
-        <Label x:Name="label_PreDesc" Content="Pre Description" Grid.Column="1" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="91" Grid.ColumnSpan="2"/>
-        <Label x:Name="label_PostDesc" Content="Post Description" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Height="26" Width="96" Grid.ColumnSpan="2"/>
+        <Label x:Name="label_ResearchCost" Content="Research Cost:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Height="26" Width="87"/>
+        <Label x:Name="label_PreDesc" Content="Pre Description" Grid.Column="1" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="91"/>
+        <Label x:Name="label_PostDesc" Content="Post Description" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Height="26" Width="96"/>
 
         <TextBlock x:Name="textBlock_Key" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="16" Width="200"/>
         <TextBlock x:Name="textBlock_Name" Grid.Column="2" HorizontalAlignment="Left" Margin="10,46,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="16" Width="200"/>
@@ -36,9 +38,15 @@
         <TextBlock x:Name="textBlock_PostDesc" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="auto" Width="auto"/>
 
         <Label x:Name="label_PodRequirements" Content="Pods Required" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top"/>
-        <ListBox x:Name="listBox_ResearchPods" Grid.Column="2" HorizontalAlignment="Left" Height="auto" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="259"/>
-        <TextBox x:Name="SearchBar" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="23" Margin="13,10,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="200" TextChanged="textBox_TextChanged"/>
+        <ListBox x:Name="listBox_ResearchPods" Grid.Column="2" HorizontalAlignment="Left" Height="auto" Margin="9,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="Auto"/>
+
         <Label x:Name="label_ResearchReq" Content="Research Requirement" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top"/>
-        <ListBox x:Name="listBox_ResearchReq" Grid.Column="2" HorizontalAlignment="Left" Height="Auto" Margin="13,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="259"/>
+        <ListBox x:Name="listBox_ResearchReq" Grid.Column="2" HorizontalAlignment="Left" Height="Auto" Margin="9,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="Auto"/>
+
+        <TextBox x:Name="SearchBar" HorizontalAlignment="Left" Height="23" Margin="13,10,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="200" TextChanged="textBox_TextChanged"/>
+
+        <Label x:Name="label_ScanReq" Content="Scan Requirements" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="5" VerticalAlignment="Top"/>
+        <ListBox x:Name="listBox_ScanReq" Grid.Column="2" HorizontalAlignment="Left" Height="Auto" Margin="9,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="Auto"/>
+
     </Grid>
 </UserControl>

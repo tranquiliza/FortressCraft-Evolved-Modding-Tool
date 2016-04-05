@@ -60,11 +60,29 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                     textBlock_PostDesc.Text = DataHolder.ResearchEntries[i].PostDescription;
 
 
+                    if (DataHolder.ResearchEntries[i].LabResearchItems.Count == 0)
+                    {
+                        label_PodRequirements.Content = "";
+                    }
+                    else
+                    {
+                        label_PodRequirements.Content = "Pod Requirements:";
+                    }
+
                     //Clear the Listbox, so we dont get multiples
                     listBox_ResearchPods.Items.Clear();
                     for (int j = 0; j < DataHolder.ResearchEntries[i].LabResearchItems.Count; j++)
                     {
                         listBox_ResearchPods.Items.Add(DataHolder.ResearchEntries[i].LabResearchItems[j].Text());
+                    }
+
+                    if (DataHolder.ResearchEntries[i].ResearchRequirements.Count == 0)
+                    {
+                        label_ResearchReq.Content = "";
+                    }
+                    else
+                    {
+                        label_ResearchReq.Content = "Research Requirements:";
                     }
 
                     //Clear the Listbox, so we dont get multiples
@@ -81,6 +99,22 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                         }
                         //(Debug Line)
                         //listBox_ResearchReq.Items.Add("   - Key:" + DataHolder.ResearchEntries[i].ResearchRequirements[j]);
+                    }
+
+                    if (DataHolder.ResearchEntries[i].ScanRequirements.Count == 0)
+                    {
+                        label_ScanReq.Content = "";
+                    }
+                    else
+                    {
+                        label_ScanReq.Content = "Scan Requirements:";
+                    }
+
+                    //Clear the list.
+                    listBox_ScanReq.Items.Clear();
+                    for (int j = 0; j < DataHolder.ResearchEntries[i].ScanRequirements.Count; j++)
+                    {
+                        listBox_ScanReq.Items.Add(DataHolder.ResearchEntries[i].ScanRequirements[j]);
                     }
                 }
             }
