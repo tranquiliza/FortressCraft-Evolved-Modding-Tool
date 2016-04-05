@@ -1,5 +1,6 @@
 ﻿using System.Windows.Controls;
 using FortressCraftEvolved_Modding_Tool.Data;
+using FortressCraftEvolved_Modding_Tool.GameLogics;
 
 
 namespace FortressCraftEvolved_Modding_Tool.Forms
@@ -11,19 +12,34 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
     {
         bool CanCraftAnywhere = false;
         int Tier = -1;
+        string SearchString = "";
         public UserControl_Manufacturer()
         {
             InitializeComponent();
             for (int i = 0; i < DataHolder.ManufacturerEntries.Count; i++)
             {
-                listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedName);
+                if (DataHolder.ManufacturerEntries[i].CanCraftAnywhere == CanCraftAnywhere)
+                {
+                    listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedName);
+                }
             }
+            
+
+            textBlock_Category.Text = "";
+            textBlock_CraftAnywhere.Text = "";
+            textBlock_CraftedAmount.Text = "";
+            textBlock_CraftedName.Text = "";
+            textBlock_Desc.Text = "";
+            textBlock_Hint.Text = "";
+            textBlock_Key.Text = "";
+            textBlock_ResearchCost.Text = "";
+            textBlock_Tier.Text = "";
         }
 
-        private void Searchbar_TextChanged(object sender, TextChangedEventArgs e)
+        private void SearchFunction()
         {
             listBox_ManufacturerEntries.Items.Clear();
-            string SearchString = Searchbar.Text.ToLower();
+            listBox_ManufacturerEntries.SelectedItem = null;
             if (SearchString == "" || SearchString == "search")
             {
                 for (int i = 0; i < DataHolder.ManufacturerEntries.Count; i++)
@@ -88,6 +104,125 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                         }
                     }
                 }
+            }
+        }
+
+        //Search Bar
+        private void Searchbar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SearchString = Searchbar.Text.ToLower();
+            SearchFunction();
+        }
+
+        private void listBox_ManufacturerEntries_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ManufacturerEntry SelectedEntry = null;
+            if (listBox_ManufacturerEntries.SelectedItem == null)
+            {
+                return;
+            }
+
+            for (int i = 0; i < DataHolder.ManufacturerEntries.Count; i++)
+            {
+                if (DataHolder.ManufacturerEntries[i].CraftedName == listBox_ManufacturerEntries.SelectedItem.ToString())
+                {
+                    if (DataHolder.ManufacturerEntries[i].CanCraftAnywhere == CanCraftAnywhere)
+                    {
+                        SelectedEntry = DataHolder.ManufacturerEntries[i];
+                    }
+                }
+            }
+
+            //Textblock stuff!
+            textBlock_Category.Text = SelectedEntry.Category;
+            textBlock_CraftAnywhere.Text = SelectedEntry.CanCraftAnywhere.ToString();
+            textBlock_CraftedAmount.Text = SelectedEntry.CraftedAmount.ToString();
+            textBlock_CraftedName.Text = SelectedEntry.CraftedName;
+            textBlock_Desc.Text = SelectedEntry.Description;
+            textBlock_Hint.Text = SelectedEntry.Hint;
+            textBlock_Key.Text = SelectedEntry.Key;
+            textBlock_ResearchCost.Text = SelectedEntry.ResearchCost.ToString();
+            textBlock_Tier.Text = SelectedEntry.Tier.ToString();
+
+            //Clear list and Add ResearchReqs
+            if (SelectedEntry.ResearchRequirement.Count == 0)
+            {
+                label_ResearchReq.Content = "";
+            }
+            else
+            {
+                label_ResearchReq.Content = "Research Requirements:";
+            }
+            listBox_ResearchReq.Items.Clear();
+            for (int i = 0; i < SelectedEntry.ResearchRequirement.Count; i++)
+            {
+                listBox_ResearchReq.Items.Add(SelectedEntry.ResearchRequirement[i]);
+            }
+
+            //Clear list and Add ScanReqs
+            if (SelectedEntry.ScanRequirement.Count == 0)
+            {
+                label_ScanReq.Content = "";
+            }
+            else
+            {
+                label_ScanReq.Content = "Scan Requirements:";
+            }
+            listBox_ScanReq.Items.Clear();
+            for (int i = 0; i < SelectedEntry.ScanRequirement.Count; i++)
+            {
+                listBox_ScanReq.Items.Add(SelectedEntry.ScanRequirement[i]);
+            }
+        }
+
+        private void radioButton_ManufacturerPlant_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            CanCraftAnywhere = false;
+            SearchFunction();
+        }
+
+        private void radioButton_CraftAnywhere_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            CanCraftAnywhere = true;
+            SearchFunction();
+        }
+
+        private void comboBox_TierSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (comboBox_TierSelect.SelectedItem == null)
+            {
+                return;
+            }
+            switch (comboBox_TierSelect.SelectedIndex)
+            {
+                case 0:
+                    Tier = 0;
+                    SearchFunction();
+                    break;
+                case 1:
+                    Tier = 1;
+                    SearchFunction();
+                    break;
+                case 2:
+                    Tier = 2;
+                    SearchFunction();
+                    break;
+                case 3:
+                    Tier = 3;
+                    SearchFunction();
+                    break;
+                case 4:
+                    Tier = 4;
+                    SearchFunction();
+                    break;
+                case 5:
+                    Tier = -1;
+                    SearchFunction();
+                    break;
+                default:
+                    Tier = -1;
+                    SearchFunction();
+                    break;
             }
         }
     }
