@@ -16,14 +16,6 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
         public UserControl_Manufacturer()
         {
             InitializeComponent();
-            for (int i = 0; i < DataHolder.ManufacturerEntries.Count; i++)
-            {
-                if (DataHolder.ManufacturerEntries[i].CanCraftAnywhere == CanCraftAnywhere)
-                {
-                    listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedName);
-                }
-            }
-            
 
             textBlock_Category.Text = "";
             textBlock_CraftAnywhere.Text = "";
@@ -141,9 +133,19 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             textBlock_Desc.Text = SelectedEntry.Description;
             textBlock_Hint.Text = SelectedEntry.Hint;
             textBlock_Key.Text = SelectedEntry.Key;
-            textBlock_ResearchCost.Text = SelectedEntry.ResearchCost.ToString();
-            textBlock_Tier.Text = SelectedEntry.Tier.ToString();
 
+            if (SelectedEntry.ResearchCost == 0)
+            {
+                textBlock_ResearchCost.Text = "Free";
+                label_ResearchReq.Content = "";
+            }
+            else
+            {
+                textBlock_ResearchCost.Text = SelectedEntry.ResearchCost.ToString();
+                label_ResearchReq.Content = "Research Cost:";
+            }
+
+            textBlock_Tier.Text = SelectedEntry.Tier.ToString();
             //Clear list and Add ResearchReqs
             if (SelectedEntry.ResearchRequirement.Count == 0)
             {
@@ -172,6 +174,21 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             for (int i = 0; i < SelectedEntry.ScanRequirement.Count; i++)
             {
                 listBox_ScanReq.Items.Add(SelectedEntry.ScanRequirement[i]);
+            }
+
+            //Clear List and Add crafting costs
+            if (SelectedEntry.CraftingCosts.Count == 0)
+            {
+                label_CraftingCost.Content = "";
+            }
+            else
+            {
+                label_CraftingCost.Content = "Crafting Costs:";
+            }
+            listBox_CraftingCost.Items.Clear();
+            for (int i = 0; i < SelectedEntry.CraftingCosts.Count; i++)
+            {
+                listBox_CraftingCost.Items.Add(SelectedEntry.CraftingCosts[i].Text());
             }
         }
 
