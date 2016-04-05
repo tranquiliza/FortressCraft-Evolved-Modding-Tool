@@ -50,6 +50,11 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             }
 
             //UI Work Woo!
+            if (SelectedEntry == null)
+            {
+                return;
+            }
+
             textBlock_Key.Text = SelectedEntry.Key;
             textBlock_Name.Text = SelectedEntry.Name;
             textBlock_IconName.Text = SelectedEntry.IconName;
@@ -153,7 +158,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             //Clear the list
             listBox_ResearchEntries.Items.Clear();
             String UserSearchString = SearchBar.Text.ToLower();
-            if (UserSearchString == "")
+            if (UserSearchString == "" || UserSearchString == "search")
             {
                 for (int i = 0; i < DataHolder.ResearchEntries.Count; i++)
                 {

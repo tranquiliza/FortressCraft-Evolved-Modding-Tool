@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="FortressCraftEvolved_Modding_Tool.Forms.UserControl_Manufacturer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FortressCraftEvolved_Modding_Tool.Forms"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="491*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="listBox_ManufacturerEntries" HorizontalAlignment="Left" Margin="10,40,0,10" Width="200"/>
+        <TextBox x:Name="Searchbar" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="200" TextChanged="Searchbar_TextChanged"/>
+
+    </Grid>
+</UserControl>

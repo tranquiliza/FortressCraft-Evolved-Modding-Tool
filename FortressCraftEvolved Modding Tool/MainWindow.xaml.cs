@@ -10,13 +10,17 @@ namespace FortressCraftEvolved_Modding_Tool
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        UserControl_Research ResearchWindow;
+        UserControl_Manufacturer ManufacturerWindow;
         public MainWindow()
         {
             InitializeComponent();
 
             ResearchReader.ReadResearchXML();
             ManufacturerRecipesReader.ReadManufactoringXML();
-            
+
+            ResearchWindow = new UserControl_Research();
+            ManufacturerWindow = new UserControl_Manufacturer();
             //Let the user know to update the paths, mainly ownly shows on first time use!
             if (User.Default.ResearchXmlPath == "")
             {
@@ -28,6 +32,7 @@ namespace FortressCraftEvolved_Modding_Tool
             }
             //A nice welcome message! :D -> Could display version name here?!
             textBlock_Welcome.Text += "\n Browse the application by using the buttons below!";
+            textBlock_Welcome.Text += "\n Use F5 to reset this window!";
         }
 
 
@@ -42,7 +47,7 @@ namespace FortressCraftEvolved_Modding_Tool
         private void button_LoadResearch_Click(object sender, RoutedEventArgs e)
         {
             //This takes the UserControl_Research and displays it on the MainWindow! No need for millions of windows! Woot!
-            ContentMain.Content = new UserControl_Research();
+            ContentMain.Content = ResearchWindow;
         }
 
         private void KeyPress(object sender, System.Windows.Input.KeyEventArgs e)
@@ -51,6 +56,11 @@ namespace FortressCraftEvolved_Modding_Tool
             {
                 ContentMain.Content = null;
             }
+        }
+
+        private void button_LoadManufacturer_Click(object sender, RoutedEventArgs e)
+        {
+            ContentMain.Content = ManufacturerWindow;
         }
     }
 }
