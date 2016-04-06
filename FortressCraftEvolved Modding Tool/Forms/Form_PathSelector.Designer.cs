@@ -37,6 +37,10 @@
             this.button_Close = new System.Windows.Forms.Button();
             this.openFileDialog_Research = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog_Manufacturer = new System.Windows.Forms.OpenFileDialog();
+            this.label_Items = new System.Windows.Forms.Label();
+            this.textBox_ItemsPath = new System.Windows.Forms.TextBox();
+            this.button_SelectItems = new System.Windows.Forms.Button();
+            this.openFileDialog_Items = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // button_SelectResearch
@@ -95,7 +99,7 @@
             // 
             // button_Close
             // 
-            this.button_Close.Location = new System.Drawing.Point(480, 91);
+            this.button_Close.Location = new System.Drawing.Point(480, 130);
             this.button_Close.Name = "button_Close";
             this.button_Close.Size = new System.Drawing.Size(75, 23);
             this.button_Close.TabIndex = 6;
@@ -111,6 +115,37 @@
             // 
             this.openFileDialog_Manufacturer.FileName = "ManufacturerRecipes";
             // 
+            // label_Items
+            // 
+            this.label_Items.AutoSize = true;
+            this.label_Items.Location = new System.Drawing.Point(12, 87);
+            this.label_Items.Name = "label_Items";
+            this.label_Items.Size = new System.Drawing.Size(57, 13);
+            this.label_Items.TabIndex = 8;
+            this.label_Items.Text = "Items Path";
+            // 
+            // textBox_ItemsPath
+            // 
+            this.textBox_ItemsPath.Location = new System.Drawing.Point(12, 103);
+            this.textBox_ItemsPath.Name = "textBox_ItemsPath";
+            this.textBox_ItemsPath.ReadOnly = true;
+            this.textBox_ItemsPath.Size = new System.Drawing.Size(462, 20);
+            this.textBox_ItemsPath.TabIndex = 7;
+            // 
+            // button_SelectItems
+            // 
+            this.button_SelectItems.Location = new System.Drawing.Point(480, 101);
+            this.button_SelectItems.Name = "button_SelectItems";
+            this.button_SelectItems.Size = new System.Drawing.Size(75, 23);
+            this.button_SelectItems.TabIndex = 9;
+            this.button_SelectItems.Text = "Select";
+            this.button_SelectItems.UseVisualStyleBackColor = true;
+            this.button_SelectItems.Click += new System.EventHandler(this.button_SelectItems_Click);
+            // 
+            // openFileDialog_Items
+            // 
+            this.openFileDialog_Items.FileName = "Items";
+            // 
             // Form_PathSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,6 +154,9 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(567, 205);
             this.ControlBox = false;
+            this.Controls.Add(this.button_SelectItems);
+            this.Controls.Add(this.label_Items);
+            this.Controls.Add(this.textBox_ItemsPath);
             this.Controls.Add(this.button_Close);
             this.Controls.Add(this.label_Manufacturer);
             this.Controls.Add(this.label_ResearchXML);
@@ -146,5 +184,9 @@
         private System.Windows.Forms.Button button_Close;
         private System.Windows.Forms.OpenFileDialog openFileDialog_Research;
         private System.Windows.Forms.OpenFileDialog openFileDialog_Manufacturer;
+        private System.Windows.Forms.Label label_Items;
+        private System.Windows.Forms.TextBox textBox_ItemsPath;
+        private System.Windows.Forms.Button button_SelectItems;
+        private System.Windows.Forms.OpenFileDialog openFileDialog_Items;
     }
 }

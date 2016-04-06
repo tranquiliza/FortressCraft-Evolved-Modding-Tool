@@ -74,6 +74,9 @@
     <Compile Include="Forms\Form_PathSelector.Designer.cs">
       <DependentUpon>Form_PathSelector.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserControl_Items.xaml.cs">
+      <DependentUpon>UserControl_Items.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserControl_Manufacturer.xaml.cs">
       <DependentUpon>UserControl_Manufacturer.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,11 @@
     <Compile Include="XmlLogic\ItemsReader.cs" />
     <Compile Include="XmlLogic\ManufacturerRecipesReader.cs" />
     <Compile Include="XmlLogic\ResearchReader.cs" />
+    <Compile Include="XmlLogic\XMLSerializer.cs" />
+    <Page Include="Forms\UserControl_Items.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\UserControl_Manufacturer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

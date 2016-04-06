@@ -11,7 +11,7 @@ namespace FortressCraftEvolved_Modding_Tool.XmlLogic
             ResearchEntry NewResearchEntry = new ResearchEntry();
             //NewResearchEntry.dirty = true;
             //These are only used when we're reading Research Reqs!
-            Boolean ReadingLabReq = false;
+            bool ReadingLabReq = false;
             int Amount = -1;
             String ResearchKey = "Empty";
             if (User.Default.ResearchXmlPath == "")

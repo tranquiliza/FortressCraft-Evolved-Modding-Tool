@@ -12,15 +12,19 @@ namespace FortressCraftEvolved_Modding_Tool
     {
         UserControl_Research ResearchWindow;
         UserControl_Manufacturer ManufacturerWindow;
+        UserControl_Items ItemsWindow;
+
         public MainWindow()
         {
             InitializeComponent();
 
             ResearchReader.ReadResearchXML();
             ManufacturerRecipesReader.ReadManufactoringXML();
+            ItemsReader.ReadItems();
 
             ResearchWindow = new UserControl_Research();
             ManufacturerWindow = new UserControl_Manufacturer();
+            ItemsWindow = new UserControl_Items();
             //Let the user know to update the paths, mainly ownly shows on first time use!
             if (User.Default.ResearchXmlPath == "")
             {
@@ -29,6 +33,10 @@ namespace FortressCraftEvolved_Modding_Tool
             if (User.Default.ManufactorerXmlPath == "")
             {
                 MessageBox.Show("ManufacturerRecipes.xml path not found, please check settings!");
+            }
+            if (User.Default.ItemsXmlPath == "")
+            {
+                MessageBox.Show("Items.xml path not found, please check settings!");
             }
             //A nice welcome message! :D -> Could display version name here?!
             textBlock_Welcome.Text += "\n Browse the application by using the buttons below!";
@@ -61,6 +69,11 @@ namespace FortressCraftEvolved_Modding_Tool
         private void button_LoadManufacturer_Click(object sender, RoutedEventArgs e)
         {
             ContentMain.Content = ManufacturerWindow;
+        }
+
+        private void button_LoadItems_Click(object sender, RoutedEventArgs e)
+        {
+            ContentMain.Content = ItemsWindow;
         }
     }
 }
