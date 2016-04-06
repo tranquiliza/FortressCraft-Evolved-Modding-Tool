@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace FortressCraftEvolved_Modding_Tool.GameLogics
 {
+	[Serializable()]
+	[System.Xml.Serialization.XmlRoot("ArrayOfItemEntry")]
 	public class ArrayOfItemEntry
 	{
-		public ItemEntry[] ItemEntries { get; set; }
+		[XmlArray("ArrayOfItemEntry")]
+		[XmlArrayItem("ItemEntry", typeof(ItemEntry))]
+		public ItemEntry[] ItemEntry { get; set; }
 	}
 
-    public class ItemEntry
+	[Serializable()]
+	public class ItemEntry
     {
         public int ItemID { get; set; }
         public string Key { get; set; }
@@ -22,7 +28,11 @@ namespace FortressCraftEvolved_Modding_Tool.GameLogics
         public string Object { get; set; }
         public string Sprite { get; set; }
         public string Category { get; set; }
-        public List<string> ResearchRequirements { get; set; }
-        public List<string> ScanRequirements { get; set; }
+		[XmlArray("ResearchRequirements")]
+		[XmlArrayItem("Research", typeof(string))]
+        public string[] ResearchRequirements { get; set; }
+		[XmlArray("ScanRequirements")]
+		[XmlArrayItem("Scan", typeof(string))]
+		public string[] ScanRequirements { get; set; }
     }
 }

@@ -15,9 +15,8 @@ namespace Tests
 		{
 			ArrayOfItemEntry arrayOfItemEntry = XMLSerializer.Deserialize<ArrayOfItemEntry>(File.ReadAllText("Items.xml"));
 			Assert.IsNotNull(arrayOfItemEntry);
-			Assert.IsNotNull(arrayOfItemEntry.ItemEntries[0]);
-			Assert.IsNotNull(arrayOfItemEntry.ItemEntries[0].ScanRequirements[0].Scan[0]);
+			Assert.IsNotNull(arrayOfItemEntry.ItemEntry[0]);
+			Assert.IsNotNull(arrayOfItemEntry.ItemEntry[0].ScanRequirements[0]);
 		}
 	}
 }
-
