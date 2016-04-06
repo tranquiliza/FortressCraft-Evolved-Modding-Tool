@@ -8,16 +8,16 @@ namespace FortressCraftEvolved_Modding_Tool.XmlLogic
 {
     class ManufacturerRecipesReader
     {
-        public static void ReadManufactoringXML()
+		public static void ReadManufactoringXML(string ManufactorerXmlPath)
         {
             ManufacturerEntry Item = new ManufacturerEntry();
             String ItemName = null;
             uint Amount = 0;
-            if (User.Default.ManufactorerXmlPath == "")
+            if (ManufactorerXmlPath == "")
             {
                 return;
             }
-            using (XmlReader reader = XmlReader.Create(User.Default.ManufactorerXmlPath))
+            using (XmlReader reader = XmlReader.Create(ManufactorerXmlPath))
             {
                 while (reader.Read())
                 {

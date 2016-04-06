@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -23,7 +23,6 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +31,6 @@
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MahApps.Metro, Version=1.2.4.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
@@ -67,7 +65,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Data\DataHolder.cs" />
     <Compile Include="Forms\Form_PathSelector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,20 +80,11 @@
     <Compile Include="Forms\UserControl_Research.xaml.cs">
       <DependentUpon>UserControl_Research.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GameLogics\CraftCost.cs" />
-    <Compile Include="GameLogics\ItemEntry.cs" />
-    <Compile Include="GameLogics\ManufacturerEntry.cs" />
-    <Compile Include="GameLogics\ProjectItemRequirements.cs" />
-    <Compile Include="GameLogics\ResearchEntry.cs" />
     <Compile Include="User.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>User.settings</DependentUpon>
     </Compile>
-    <Compile Include="XmlLogic\ItemsReader.cs" />
-    <Compile Include="XmlLogic\ManufacturerRecipesReader.cs" />
-    <Compile Include="XmlLogic\ResearchReader.cs" />
-    <Compile Include="XmlLogic\XMLSerializer.cs" />
     <Page Include="Forms\UserControl_Items.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

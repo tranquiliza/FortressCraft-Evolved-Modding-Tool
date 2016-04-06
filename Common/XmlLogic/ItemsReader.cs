@@ -13,9 +13,9 @@ namespace FortressCraftEvolved_Modding_Tool.XmlLogic
 {
     class ItemsReader
     {
-        public static void ReadItems()
+		public static void ReadItems(string path)
         {
-            DataHolder.ItemEntries = XMLSerializer.Deserialize<List<ItemEntry>>(File.ReadAllText(User.Default.ItemsXmlPath));
+            DataHolder.ItemEntries = XMLSerializer.Deserialize<List<ItemEntry>>(File.ReadAllText(path));
         }
     }
 }

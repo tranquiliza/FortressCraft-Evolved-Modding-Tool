@@ -6,7 +6,7 @@ namespace FortressCraftEvolved_Modding_Tool.XmlLogic
 {
     static class ResearchReader
     {
-        public static void ReadResearchXML()
+		public static void ReadResearchXML(string ResearchXmlPath)
         {
             ResearchEntry NewResearchEntry = new ResearchEntry();
             //NewResearchEntry.dirty = true;
@@ -14,11 +14,11 @@ namespace FortressCraftEvolved_Modding_Tool.XmlLogic
             bool ReadingLabReq = false;
             int Amount = -1;
             String ResearchKey = "Empty";
-            if (User.Default.ResearchXmlPath == "")
+            if (ResearchXmlPath == "")
             {
                 return;
             }
-            using (XmlReader reader = XmlReader.Create(User.Default.ResearchXmlPath)) //Currently Reads The Debug Folder. Perhabs can make a static string for specifying path
+            using (XmlReader reader = XmlReader.Create(ResearchXmlPath)) //Currently Reads The Debug Folder. Perhabs can make a static string for specifying path
             {
                 while (reader.Read())
                 {

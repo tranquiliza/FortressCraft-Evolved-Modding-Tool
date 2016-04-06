@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace FortressCraftEvolved_Modding_Tool.GameLogics
 {
+	public class ArrayOfItemEntry
+	{
+		public ItemEntry[] ItemEntries { get; set; }
+	}
+
     public class ItemEntry
     {
         public int ItemID { get; set; }

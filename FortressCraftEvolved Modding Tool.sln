@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
+# Visual Studio 2012
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortressCraftEvolved Modding Tool", "FortressCraftEvolved Modding Tool\FortressCraftEvolved Modding Tool.csproj", "{3ACB7BC3-EFC1-46C7-A5CE-17DA99F8CD48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossPlatformUI", "CrossPlatformUI\CrossPlatformUI.csproj", "{8D5E2736-3517-404E-8C16-8FAB11B97885}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{B0E2687A-2160-4B64-AD61-9CDFDC031E03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{A193D042-9201-4529-A88C-266C0C38412B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{3ACB7BC3-EFC1-46C7-A5CE-17DA99F8CD48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3ACB7BC3-EFC1-46C7-A5CE-17DA99F8CD48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3ACB7BC3-EFC1-46C7-A5CE-17DA99F8CD48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D5E2736-3517-404E-8C16-8FAB11B97885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D5E2736-3517-404E-8C16-8FAB11B97885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D5E2736-3517-404E-8C16-8FAB11B97885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D5E2736-3517-404E-8C16-8FAB11B97885}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A193D042-9201-4529-A88C-266C0C38412B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A193D042-9201-4529-A88C-266C0C38412B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A193D042-9201-4529-A88C-266C0C38412B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A193D042-9201-4529-A88C-266C0C38412B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0E2687A-2160-4B64-AD61-9CDFDC031E03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0E2687A-2160-4B64-AD61-9CDFDC031E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0E2687A-2160-4B64-AD61-9CDFDC031E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0E2687A-2160-4B64-AD61-9CDFDC031E03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
