@@ -18,9 +18,9 @@ namespace FortressCraftEvolved_Modding_Tool
         {
             InitializeComponent();
 
-            ResearchReader.ReadResearchXML();
-            ManufacturerRecipesReader.ReadManufactoringXML();
-            ItemsReader.ReadItems();
+            ResearchReader.ReadResearchXML(User.Default.ResearchXmlPath);
+            ManufacturerRecipesReader.ReadManufactoringXML(User.Default.ManufactorerXmlPath);
+            ItemsReader.ReadItems(User.Default.ItemsXmlPath);
 
             ResearchWindow = new UserControl_Research();
             ManufacturerWindow = new UserControl_Manufacturer();

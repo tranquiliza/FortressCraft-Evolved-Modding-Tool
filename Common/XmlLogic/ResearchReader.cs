@@ -4,7 +4,7 @@ using FortressCraftEvolved_Modding_Tool.GameLogics;
 
 namespace FortressCraftEvolved_Modding_Tool.XmlLogic
 {
-    static class ResearchReader
+    public static class ResearchReader
     {
 		public static void ReadResearchXML(string ResearchXmlPath)
         {

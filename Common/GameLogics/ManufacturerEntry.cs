@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FortressCraftEvolved_Modding_Tool.GameLogics
 {
-    class ManufacturerEntry
+    public class ManufacturerEntry
     {
         public String Key;
         public String Category;

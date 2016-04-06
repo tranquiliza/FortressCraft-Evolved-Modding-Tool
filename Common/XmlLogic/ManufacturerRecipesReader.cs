@@ -6,7 +6,7 @@ using FortressCraftEvolved_Modding_Tool.GameLogics;
 
 namespace FortressCraftEvolved_Modding_Tool.XmlLogic
 {
-    class ManufacturerRecipesReader
+    public class ManufacturerRecipesReader
     {
 		public static void ReadManufactoringXML(string ManufactorerXmlPath)
         {

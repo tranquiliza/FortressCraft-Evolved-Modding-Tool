@@ -17,7 +17,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
         private void button_Close_Click(object sender, EventArgs e)
         {
             User.Default.Save();
-            ResearchReader.ReadResearchXML();
+            ResearchReader.ReadResearchXML(User.Default.ResearchXmlPath);
             this.Close();
         }
 

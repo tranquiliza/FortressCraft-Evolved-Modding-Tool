@@ -11,7 +11,7 @@ using System.IO;
 
 namespace FortressCraftEvolved_Modding_Tool.XmlLogic
 {
-    class ItemsReader
+    public class ItemsReader
     {
 		public static void ReadItems(string path)
         {

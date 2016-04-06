@@ -7,7 +7,7 @@ using FortressCraftEvolved_Modding_Tool.GameLogics;
 
 namespace FortressCraftEvolved_Modding_Tool.Data
 {
-    static class DataHolder
+    public static class DataHolder
     {
         //These hold all the data, and only needs to be assigned values once per run!
         public static List<ItemEntry> ItemEntries = new List<ItemEntry>();

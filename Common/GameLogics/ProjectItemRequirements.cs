@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FortressCraftEvolved_Modding_Tool.GameLogics
 {
-    class ProjectItemRequirements
+    public class ProjectItemRequirements
     {
         public String ItemKey;
         public int Amount;

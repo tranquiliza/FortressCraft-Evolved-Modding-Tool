@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FortressCraftEvolved_Modding_Tool.GameLogics
 {
-    class CraftCost
+    public class CraftCost
     {
         public String Name;
         public uint Amount;

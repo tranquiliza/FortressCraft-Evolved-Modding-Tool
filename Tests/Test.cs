@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
 using System;
-
 using FortressCraftEvolved_Modding_Tool.XmlLogic;
 using FortressCraftEvolved_Modding_Tool.GameLogics;
+using FortressCraftEvolved_Modding_Tool;
 using System.IO;
 
 namespace Tests

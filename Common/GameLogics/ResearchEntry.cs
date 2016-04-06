@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FortressCraftEvolved_Modding_Tool.GameLogics
 {
-    class ResearchEntry
+    public class ResearchEntry
     {
         public String Key;
         public String Name;
