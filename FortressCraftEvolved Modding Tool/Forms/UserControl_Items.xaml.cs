@@ -104,7 +104,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             listBox_ScanReq.Items.Clear();
             for (int i = 0; i < SelectedItem.ScanRequirements.Count; i++)
             {
-                listBox_ScanReq.Items.Add(SelectedItem.ScanRequirements[i]);
+                listBox_ScanReq.Items.Add(SelectedItem.ScanRequirements[i].Value);
             }
         }
     }

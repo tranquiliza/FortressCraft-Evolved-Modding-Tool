@@ -17,7 +17,7 @@ namespace FortressCraftEvolved_Modding_Tool.GameLogics
         public string Object { get; set; }
         public string Sprite { get; set; }
         public string Category { get; set; }
-        public List<string> ResearchRequirements { get; set; }
-        public List<string> ScanRequirements { get; set; }
+        public List<Research> ResearchRequirements { get; set; }
+        public List<Scan> ScanRequirements { get; set; }
     }
 }

@@ -33,7 +33,7 @@ namespace FortressCraftEvolved_Modding_Tool.XmlLogic
                 throw new Exception("An error occurred", ex);
             }
         }
-
+        
         public static T Deserialize<T>(String xml)
         {
             byte[] byteArray = Encoding.UTF8.GetBytes(xml);

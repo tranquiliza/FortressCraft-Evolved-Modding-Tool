@@ -87,7 +87,9 @@
     <Compile Include="GameLogics\ItemEntry.cs" />
     <Compile Include="GameLogics\ManufacturerEntry.cs" />
     <Compile Include="GameLogics\ProjectItemRequirements.cs" />
+    <Compile Include="GameLogics\Research.cs" />
     <Compile Include="GameLogics\ResearchEntry.cs" />
+    <Compile Include="GameLogics\Scan.cs" />
     <Compile Include="User.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
