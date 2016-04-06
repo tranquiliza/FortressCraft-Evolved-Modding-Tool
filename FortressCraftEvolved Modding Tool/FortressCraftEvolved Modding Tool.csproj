@@ -83,6 +83,7 @@
     <Compile Include="Forms\UserControl_Research.xaml.cs">
       <DependentUpon>UserControl_Research.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GameLogics\ArrayOfItemEntry.cs" />
     <Compile Include="GameLogics\CraftCost.cs" />
     <Compile Include="GameLogics\ItemEntry.cs" />
     <Compile Include="GameLogics\ManufacturerEntry.cs" />
