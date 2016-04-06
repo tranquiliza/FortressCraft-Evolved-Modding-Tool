@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ArrayOfItemEntry" type="ArrayOfItemEntryType">
+    <xs:annotation>
+      <xs:documentation>MOD Items start at 10000 so DO NOT add any items to this file with item ids of 10000 or higher
+	     In the unlikely event you run out of space then leave the item id blank and update the item loading
+	     code to assign per-world item ids in the same way that it currently does for mods</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="ScanRequirementsType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Scan" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemEntryType">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element type="xs:string" name="ItemID">
+        <xs:annotation>
+          <xs:documentation>ItemSingle example</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="Key"/>
+      <xs:element type="xs:string" name="Name">
+        <xs:annotation>
+          <xs:documentation>this will prevent this from being used in recipes shortly. Need a solution for this  this will prevent this from being used in recipes shortly. Need a solution for this</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="Plural"/>
+      <xs:element name="Type">
+        <xs:annotation>
+          <xs:documentation>outdated  outdated</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="ItemStack"/>
+            <xs:enumeration value="ItemSingle"/>
+            <xs:enumeration value="ItemDurability"/>
+            <xs:enumeration value="ItemLocation"/>
+            <xs:enumeration value="ItemCharge"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Hidden">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="Object"/>
+      <xs:element type="xs:string" name="Sprite">
+        <xs:annotation>
+          <xs:documentation>Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped   we display this when it's dropped  we display this when it's dropped  we display this when it's dropped   we display this when it's dropped  we display this when it's dropped  we display this when it's dropped  This may need to be a specific one  This may need to be a specific one  This may need to be a specific one  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped  Obviously placeholder :D we display this when it's dropped</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Category">
+        <xs:annotation>
+          <xs:documentation>Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  100 bars worth on Greg, cost is about 25,000 power  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Todd to change  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional  Atlas optional</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="CraftingIngredient"/>
+            <xs:enumeration value="Minecarts"/>
+            <xs:enumeration value="MachineUpgrade"/>
+            <xs:enumeration value="Consumable"/>
+            <xs:enumeration value="SuitUpgrade"/>
+            <xs:enumeration value="ArtherUpgrade"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="ScanRequirementsType" name="ScanRequirements">
+        <xs:annotation>
+          <xs:documentation>Name of ore voxel to ping  Name of ore voxel to ping  Name of ore voxel to ping  Name of ore voxel to ping  Name of ore voxel to ping  Name of ore voxel to ping  Name of ore voxel to ping  Name of ore voxel to ping  Name of ore voxel to ping  Name of ore voxel to ping  Name of ore voxel to ping</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="ResearchRequirementsType" name="ResearchRequirements">
+        <xs:annotation>
+          <xs:documentation>What  What  What  Name of cube to build  no name here means blank</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="MaxDurability">
+        <xs:annotation>
+          <xs:documentation>Atlas optional  Atlas optional  Atlas optional  Atlas optional</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="15000"/>
+            <xs:enumeration value="7500"/>
+            <xs:enumeration value="2500"/>
+            <xs:enumeration value="2000"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ItemAction">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="MarkLocation"/>
+            <xs:enumeration value="ThrowGlowStick"/>
+            <xs:enumeration value="BuildBlock"/>
+            <xs:enumeration value="OrePing"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="ActionParameter"/>
+      <xs:element type="xs:string" name="DecomposeValue"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfItemEntryType">
+    <xs:sequence>
+      <xs:element type="ItemEntryType" name="ItemEntry" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation><![CDATA[Leave room here for more drill heads - consumables. 3xx range  I'm unsure why I ever made this into an item
+	<ItemEntry>
+		<ItemID>349</ItemID>
+		<Name>Research Assembler DO NOT USE</Name>
+		<Plural>Research Assembler</Plural>
+		<Type>ItemStack</Type>	
+		<Object>UnknownItem</Object>
+		<Sprite>Solar Cell MK1</Sprite>
+		<Category>CraftingIngredient</Category>
+	</ItemEntry>	 These components are roughly arranged in complexity order 
+	<ItemEntry>
+		<ItemID>360</ItemID>
+		<Name>Copper Wire</Name>
+		<Plural>Copper Wires</Plural>
+		<Type>ItemStack</Type>	
+		<Object>UnknownItem</Object>
+		<Sprite>Copper Wire</Sprite>
+		<Category>CraftingIngredient</Category>
+	</ItemEntry>	
+	 Made from Copper  Made from Tin  Made from Iron  Made from Gold  Made from Lithium  Made from Nickel  Made from Titanium Suit upgrades are in the 1??? rangeARTHER upgrades are in the 2??? rangeSpiderBot upgrades are in the 2??? rangeOre Extractor Updates are in the 3???rangeLEAVE A GAP FOR MORE LENSES PLEASE!MobDrops are in the 4??? range Rare drop from Heavies  Rare drop from Bosses  Research drop from hives  gives 10 research points when analysed  Spoiled Item  Cold Hoppers convert anything from 4000 upwards into Ruined]]></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResearchRequirementsType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Research" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
