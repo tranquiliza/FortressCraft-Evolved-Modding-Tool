@@ -23,4 +23,18 @@ namespace FortressCraftEvolved_Modding_Tool.GameLogics
         {
         }
     }
+    public class ProjectItemRequirements
+    {
+        public String ItemKey;
+        public int Amount;
+        public ProjectItemRequirements(String ItemKey, int Amount)
+        {
+            this.ItemKey = ItemKey;
+            this.Amount = Amount;
+        }
+        public String Text()
+        {
+            return ItemKey + " x " + Amount;
+        }
+    }
 }
