@@ -13,5 +13,6 @@ namespace FortressCraftEvolved_Modding_Tool.Data
         public static List<ItemEntry> ItemEntries = new List<ItemEntry>();
         public static List<ManufacturerEntry> ManufacturerEntries = new List<ManufacturerEntry>();
         public static List<ResearchEntry> ResearchEntries = new List<ResearchEntry>();
+        public static List<TerrainDataEntry> TerrainDataEntries = new List<TerrainDataEntry>();
     }
 }

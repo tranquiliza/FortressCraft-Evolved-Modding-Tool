@@ -38,6 +38,10 @@ namespace FortressCraftEvolved_Modding_Tool
             {
                 MessageBox.Show("Items.xml path not found, please check settings!");
             }
+            if (User.Default.TerrainDataXmlPath == "")
+            {
+                MessageBox.Show("TerrainData.xml path not found, please check settings!");
+            }
             //A nice welcome message! :D -> Could display version name here?!
             textBlock_Welcome.Text += "\n Browse the application by using the buttons below!";
             textBlock_Welcome.Text += "\n Use F5 to reset this window!";

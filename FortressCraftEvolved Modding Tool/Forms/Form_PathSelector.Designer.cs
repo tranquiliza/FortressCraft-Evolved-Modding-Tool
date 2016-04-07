@@ -41,6 +41,10 @@
             this.textBox_ItemsPath = new System.Windows.Forms.TextBox();
             this.button_SelectItems = new System.Windows.Forms.Button();
             this.openFileDialog_Items = new System.Windows.Forms.OpenFileDialog();
+            this.label_DataEntriesPath = new System.Windows.Forms.Label();
+            this.textBox_DataEntries = new System.Windows.Forms.TextBox();
+            this.button_DataEntrySelect = new System.Windows.Forms.Button();
+            this.openFileDialog_DataEntry = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // button_SelectResearch
@@ -99,7 +103,7 @@
             // 
             // button_Close
             // 
-            this.button_Close.Location = new System.Drawing.Point(480, 130);
+            this.button_Close.Location = new System.Drawing.Point(480, 170);
             this.button_Close.Name = "button_Close";
             this.button_Close.Size = new System.Drawing.Size(75, 23);
             this.button_Close.TabIndex = 6;
@@ -146,6 +150,37 @@
             // 
             this.openFileDialog_Items.FileName = "Items";
             // 
+            // label_DataEntriesPath
+            // 
+            this.label_DataEntriesPath.AutoSize = true;
+            this.label_DataEntriesPath.Location = new System.Drawing.Point(12, 126);
+            this.label_DataEntriesPath.Name = "label_DataEntriesPath";
+            this.label_DataEntriesPath.Size = new System.Drawing.Size(87, 13);
+            this.label_DataEntriesPath.TabIndex = 11;
+            this.label_DataEntriesPath.Text = "DataEntries Path";
+            // 
+            // textBox_DataEntries
+            // 
+            this.textBox_DataEntries.Location = new System.Drawing.Point(12, 142);
+            this.textBox_DataEntries.Name = "textBox_DataEntries";
+            this.textBox_DataEntries.ReadOnly = true;
+            this.textBox_DataEntries.Size = new System.Drawing.Size(462, 20);
+            this.textBox_DataEntries.TabIndex = 10;
+            // 
+            // button_DataEntrySelect
+            // 
+            this.button_DataEntrySelect.Location = new System.Drawing.Point(480, 140);
+            this.button_DataEntrySelect.Name = "button_DataEntrySelect";
+            this.button_DataEntrySelect.Size = new System.Drawing.Size(75, 23);
+            this.button_DataEntrySelect.TabIndex = 12;
+            this.button_DataEntrySelect.Text = "Select";
+            this.button_DataEntrySelect.UseVisualStyleBackColor = true;
+            this.button_DataEntrySelect.Click += new System.EventHandler(this.button_DataEntrySelect_Click);
+            // 
+            // openFileDialog_DataEntry
+            // 
+            this.openFileDialog_DataEntry.FileName = "TerrainData";
+            // 
             // Form_PathSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,6 +189,9 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(567, 205);
             this.ControlBox = false;
+            this.Controls.Add(this.button_DataEntrySelect);
+            this.Controls.Add(this.label_DataEntriesPath);
+            this.Controls.Add(this.textBox_DataEntries);
             this.Controls.Add(this.button_SelectItems);
             this.Controls.Add(this.label_Items);
             this.Controls.Add(this.textBox_ItemsPath);
@@ -188,5 +226,9 @@
         private System.Windows.Forms.TextBox textBox_ItemsPath;
         private System.Windows.Forms.Button button_SelectItems;
         private System.Windows.Forms.OpenFileDialog openFileDialog_Items;
+        private System.Windows.Forms.Label label_DataEntriesPath;
+        private System.Windows.Forms.TextBox textBox_DataEntries;
+        private System.Windows.Forms.Button button_DataEntrySelect;
+        private System.Windows.Forms.OpenFileDialog openFileDialog_DataEntry;
     }
 }

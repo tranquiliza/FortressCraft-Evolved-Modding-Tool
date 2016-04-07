@@ -10,17 +10,17 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="400*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -61,11 +61,10 @@
         <TextBlock x:Name="textBlock_Category" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="9" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
 
         <Label x:Name="label_ResearchReq" Content="Research Requirements: " Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="10" VerticalAlignment="Top"/>
-        <ListBox x:Name="listBox_ResearchReq" Grid.Column="2" Margin="10" Grid.Row="10"/>
+        <ListBox x:Name="listBox_ResearchReq" Grid.Column="2" Height="Auto" Margin="10,10,10,10" Grid.Row="10"/>
 
         <Label x:Name="label_ScanReq" Content="Scan Requirement:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="11" VerticalAlignment="Top"/>
-        <ListBox x:Name="listBox_ScanReq" Grid.Column="2" Margin="10" Grid.Row="11"/>
-        <TextBlock x:Name="textBlock_Debug" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="12" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <ListBox x:Name="listBox_ScanReq" Grid.Column="2" Height="Auto" Margin="10,10,10,10" Grid.Row="11"/>
 
     </Grid>
 </UserControl>

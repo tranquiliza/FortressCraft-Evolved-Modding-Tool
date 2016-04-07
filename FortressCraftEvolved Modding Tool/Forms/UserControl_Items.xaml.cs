@@ -31,6 +31,15 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             //{
             //    listBox_ItemEntries.Items.Add(DataHolder.ItemEntries[i].Name);
             //}
+            textBlock_ItemId.Text = "";
+            textBlock_Key.Text = "";
+            textBlock_Name.Text = "";
+            textBlock_Plural.Text = "";
+            textBlock_Type.Text = "";
+            textBlock_Hidden.Text = "";
+            textBlock_Object.Text = "";
+            textBlock_Sprite.Text = "";
+            textBlock_Category.Text = "";
         }
 
         private void Searchbar_TextChanged(object sender, TextChangedEventArgs e)

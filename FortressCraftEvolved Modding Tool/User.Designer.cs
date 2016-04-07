@@ -58,5 +58,17 @@ namespace FortressCraftEvolved_Modding_Tool {
                 this["ManufactorerXmlPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TerrainDataXmlPath {
+            get {
+                return ((string)(this["TerrainDataXmlPath"]));
+            }
+            set {
+                this["TerrainDataXmlPath"] = value;
+            }
+        }
     }
 }
