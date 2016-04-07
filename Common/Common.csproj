@@ -35,7 +35,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameLogics\TerrainDataEntry.cs" />
-    <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Data\DataHolder.cs" />
     <Compile Include="GameLogics\ItemEntry.cs" />
@@ -44,6 +43,7 @@
     <Compile Include="XmlLogic\ItemsReader.cs" />
     <Compile Include="XmlLogic\ManufacturerRecipesReader.cs" />
     <Compile Include="XmlLogic\ResearchReader.cs" />
+    <Compile Include="XmlLogic\TerrainDataReader.cs" />
     <Compile Include="XmlLogic\XMLSerializer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

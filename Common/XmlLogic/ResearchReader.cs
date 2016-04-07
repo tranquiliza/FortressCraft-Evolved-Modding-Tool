@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Xml;
-using FortressCraftEvolved_Modding_Tool.GameLogics;
+using Common.GameLogics;
 
-namespace FortressCraftEvolved_Modding_Tool.XmlLogic
+namespace Common.XmlLogic
 {
     public static class ResearchReader
     {

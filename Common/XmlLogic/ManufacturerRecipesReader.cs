@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml;
-using FortressCraftEvolved_Modding_Tool.Data;
-using FortressCraftEvolved_Modding_Tool.GameLogics;
+using Common.Data;
+using Common.GameLogics;
 
-namespace FortressCraftEvolved_Modding_Tool.XmlLogic
+namespace Common.XmlLogic
 {
     public class ManufacturerRecipesReader
     {

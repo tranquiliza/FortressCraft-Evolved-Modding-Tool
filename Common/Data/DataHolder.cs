@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FortressCraftEvolved_Modding_Tool.GameLogics;
+using Common.GameLogics;
 
-namespace FortressCraftEvolved_Modding_Tool.Data
+namespace Common.Data
 {
     public static class DataHolder
     {

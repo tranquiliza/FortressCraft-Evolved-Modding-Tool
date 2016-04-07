@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FortressCraftEvolved_Modding_Tool.GameLogics
+namespace Common.GameLogics
 {
     public class ManufacturerEntry
     {

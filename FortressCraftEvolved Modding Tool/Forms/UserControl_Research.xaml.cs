@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Controls;
-using FortressCraftEvolved_Modding_Tool.Data;
-using FortressCraftEvolved_Modding_Tool.GameLogics;
+using Common.Data;
+using Common.GameLogics;
 
 namespace FortressCraftEvolved_Modding_Tool.Forms
 {

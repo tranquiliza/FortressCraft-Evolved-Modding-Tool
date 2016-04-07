@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using FortressCraftEvolved_Modding_Tool.XmlLogic;
+using Common.XmlLogic;
 
 namespace FortressCraftEvolved_Modding_Tool.Forms
 {

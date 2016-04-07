@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace FortressCraftEvolved_Modding_Tool.GameLogics
+namespace Common.GameLogics
 {
     public class TerrainDataEntry
     {

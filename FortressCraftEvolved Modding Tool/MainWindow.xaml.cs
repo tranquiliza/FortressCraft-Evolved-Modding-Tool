@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using MahApps.Metro.Controls;
 using FortressCraftEvolved_Modding_Tool.Forms;
-using FortressCraftEvolved_Modding_Tool.XmlLogic;
+using Common.XmlLogic;
 
 namespace FortressCraftEvolved_Modding_Tool
 {

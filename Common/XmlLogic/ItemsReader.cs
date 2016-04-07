@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
-using FortressCraftEvolved_Modding_Tool.GameLogics;
-using FortressCraftEvolved_Modding_Tool.Data;
+using Common.GameLogics;
+using Common.Data;
 using System.IO;
 
-namespace FortressCraftEvolved_Modding_Tool.XmlLogic
+namespace Common.XmlLogic
 {
     public class ItemsReader
     {
