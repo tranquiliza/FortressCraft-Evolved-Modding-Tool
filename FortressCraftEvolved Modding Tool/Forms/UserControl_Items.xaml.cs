@@ -83,7 +83,17 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             textBlock_ItemId.Text = SelectedItem.ItemID.ToString();
             textBlock_Key.Text = SelectedItem.Key.ToString();
             textBlock_Name.Text = SelectedItem.Name;
+
+            if (SelectedItem.Plural == null)
+            {
+                label_Plural.Content = "";
+            }
+            else
+            {
+                label_Plural.Content = "Plural:";
+            }
             textBlock_Plural.Text = SelectedItem.Plural;
+
             textBlock_Type.Text = SelectedItem.Type;
             textBlock_Hidden.Text = SelectedItem.Hidden.ToString();
             textBlock_Object.Text = SelectedItem.Object;
@@ -91,12 +101,28 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             textBlock_Category.Text = SelectedItem.Category;
 
 
+            if (SelectedItem.ResearchRequirements.Count == 0)
+            {
+                label_ResearchReq.Content = "";
+            }
+            else
+            {
+                label_ResearchReq.Content = "Research Requirements:";
+            }
             listBox_ResearchReq.Items.Clear();
             for (int i = 0; i < SelectedItem.ResearchRequirements.Count; i++)
             {
                 listBox_ResearchReq.Items.Add(SelectedItem.ResearchRequirements[i]);
             }
 
+            if (SelectedItem.ScanRequirements.Count == 0)
+            {
+                label_ScanReq.Content = "";
+            }
+            else
+            {
+                label_ScanReq.Content = "Scan Requirements";
+            }
             listBox_ScanReq.Items.Clear();
             for (int i = 0; i < SelectedItem.ScanRequirements.Count; i++)
             {

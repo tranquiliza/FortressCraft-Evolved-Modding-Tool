@@ -13,6 +13,7 @@ namespace FortressCraftEvolved_Modding_Tool
         UserControl_Research ResearchWindow;
         UserControl_Manufacturer ManufacturerWindow;
         UserControl_Items ItemsWindow;
+        UserControl_TerrainData TerrainDataWindow;
 
         public MainWindow()
         {
@@ -26,6 +27,8 @@ namespace FortressCraftEvolved_Modding_Tool
             ResearchWindow = new UserControl_Research();
             ManufacturerWindow = new UserControl_Manufacturer();
             ItemsWindow = new UserControl_Items();
+            TerrainDataWindow = new UserControl_TerrainData();
+
             //Let the user know to update the paths, mainly ownly shows on first time use!
             if (User.Default.ResearchXmlPath == "")
             {
@@ -79,6 +82,11 @@ namespace FortressCraftEvolved_Modding_Tool
         private void button_LoadItems_Click(object sender, RoutedEventArgs e)
         {
             ContentMain.Content = ItemsWindow;
+        }
+
+        private void button_LoadTerrainData_Click(object sender, RoutedEventArgs e)
+        {
+            ContentMain.Content = TerrainDataWindow;
         }
     }
 }

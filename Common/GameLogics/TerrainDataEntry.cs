@@ -18,6 +18,7 @@ namespace Common.GameLogics
         public string ObjectName { get; set; }
         public string Description { get; set; }
         public int ResearchValue { get; set; }
+        //Hardness is standard value of 400?
         public float Hardness { get; set; }
         public int MaxStack { get; set; }
         public int DecomposeValue { get; set; }

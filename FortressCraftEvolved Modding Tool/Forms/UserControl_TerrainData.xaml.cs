@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Common.Data;
 
 namespace FortressCraftEvolved_Modding_Tool.Forms
 {
@@ -20,9 +21,50 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
     /// </summary>
     public partial class UserControl_TerrainData : UserControl
     {
+        string SearchString;
         public UserControl_TerrainData()
         {
             InitializeComponent();
+            //for (int i = 0; i < DataHolder.TerrainDataEntries.Count; i++)
+            //{
+            //    listBox_TerrainData.Items.Add(DataHolder.TerrainDataEntries[i].Name);
+            //}
+        }
+
+        private void Searchbar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SearchString = Searchbar.Text.ToLower();
+            //Clear Selection: 
+            listBox_TerrainData.SelectedItem = null;
+            listBox_TerrainData.Items.Clear();
+
+            if (SearchString == "" || SearchString == "search")
+            {
+                for (int i = 0; i < DataHolder.TerrainDataEntries.Count; i++)
+                {
+                    listBox_TerrainData.Items.Add(DataHolder.TerrainDataEntries[i].Name);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < DataHolder.TerrainDataEntries.Count; i++)
+                {
+                    if (SearchString == DataHolder.TerrainDataEntries[i].Name.ToLower())
+                    {
+                        listBox_TerrainData.Items.Add(DataHolder.TerrainDataEntries[i].Name);
+                        break;
+                    }
+                    string[] ItemStrings = DataHolder.TerrainDataEntries[i].Name.Split(' ');
+                    for (int j = 0; j < ItemStrings.Length; j++)
+                    {
+                        if (SearchString == ItemStrings[j].ToLower())
+                        {
+                            listBox_TerrainData.Items.Add(DataHolder.TerrainDataEntries[i].Name);
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
 }

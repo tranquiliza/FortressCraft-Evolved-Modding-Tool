@@ -21,5 +21,6 @@
         </ContentControl>
         <Button x:Name="button_LoadManufacturer" Content="Manufacturer" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="125" Height="35" FontSize="12" Click="button_LoadManufacturer_Click"/>
         <Button x:Name="button_LoadItems" Content="Items" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" Width="125" Height="35" FontSize="12" Click="button_LoadItems_Click"/>
+        <Button x:Name="button_LoadTerrainData" Content="TerrainData" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Width="125" Height="35" FontSize="12" Click="button_LoadTerrainData_Click"/>
     </Grid>
 </Controls:MetroWindow>
