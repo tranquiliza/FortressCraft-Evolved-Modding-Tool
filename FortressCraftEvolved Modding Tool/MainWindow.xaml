@@ -13,14 +13,18 @@
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid>
-        <Image Grid.Column="0" x:Name="image_FeedTheMynock" Margin="10,0,0,10" Source="Resources/570x570 preview mynock.png" HorizontalAlignment="Left" Width="75" Height="75" VerticalAlignment="Bottom"/>
         <Button x:Name="button_LoadResearch" Content="Research" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="125" Click="button_LoadResearch_Click" Height="35" FontSize="12"/>
         <TextBlock x:Name="textBlock_Welcome" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Welcome to the FortressCraft Evolved Modding tool!" VerticalAlignment="Top" Height="75" Width="500" FontSize="16"/>
         <ContentControl Name="ContentMain" Margin="140,90,10,10"  Width="Auto" Height="Auto" Opacity="1" Background="Transparent" >
-            
+
         </ContentControl>
         <Button x:Name="button_LoadManufacturer" Content="Manufacturer" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="125" Height="35" FontSize="12" Click="button_LoadManufacturer_Click"/>
         <Button x:Name="button_LoadItems" Content="Items" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" Width="125" Height="35" FontSize="12" Click="button_LoadItems_Click"/>
         <Button x:Name="button_LoadTerrainData" Content="TerrainData" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Width="125" Height="35" FontSize="12" Click="button_LoadTerrainData_Click"/>
+        <Button Style="{DynamicResource MetroCircleButtonStyle}" x:Name="button_FeedMynock" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="100" Width="100" Margin="10,0,0,10" Click="button_FeedMynock_Click">
+            <StackPanel>
+                <Image Source="Resources/570x570 preview mynock.png" Height="Auto" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </Controls:MetroWindow>

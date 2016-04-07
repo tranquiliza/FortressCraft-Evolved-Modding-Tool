@@ -5,9 +5,6 @@ using Common.XmlLogic;
 
 namespace FortressCraftEvolved_Modding_Tool
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : MetroWindow
     {
         UserControl_Research ResearchWindow;
@@ -56,7 +53,7 @@ namespace FortressCraftEvolved_Modding_Tool
         private void Button_Settings(object sender, RoutedEventArgs e)
         {
             //Prompts people with the fileselector Windows Form. This is a windows form cause they have OpenFileDialog Controls!!
-            Form_PathSelector Settings = new Forms.Form_PathSelector();
+            Form_PathSelector Settings = new Form_PathSelector();
             Settings.ShowDialog();
         }
 
@@ -87,6 +84,12 @@ namespace FortressCraftEvolved_Modding_Tool
         private void button_LoadTerrainData_Click(object sender, RoutedEventArgs e)
         {
             ContentMain.Content = TerrainDataWindow;
+        }
+
+        private void button_FeedMynock_Click(object sender, RoutedEventArgs e)
+        {
+            string url = "www.twitchalerts.com/donate/djarcas";
+            System.Diagnostics.Process.Start(url);
         }
     }
 }

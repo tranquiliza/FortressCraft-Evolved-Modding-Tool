@@ -39,7 +39,7 @@
     <Compile Include="Data\DataHolder.cs" />
     <Compile Include="GameLogics\ItemEntry.cs" />
     <Compile Include="GameLogics\ManufacturerEntry.cs" />
-    <Compile Include="GameLogics\ResearchEntry.cs" />
+    <Compile Include="GameLogics\ResearchDataEntry.cs" />
     <Compile Include="XmlLogic\ItemsReader.cs" />
     <Compile Include="XmlLogic\ManufacturerRecipesReader.cs" />
     <Compile Include="XmlLogic\ResearchReader.cs" />

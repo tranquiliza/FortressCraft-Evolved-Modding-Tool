@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Xml;
 using Common.GameLogics;
+using Common.Data;
+using System.IO;
 
 namespace Common.XmlLogic
 {
@@ -8,6 +11,14 @@ namespace Common.XmlLogic
     {
 		public static void ReadResearchXML(string ResearchXmlPath)
         {
+            if (ResearchXmlPath == "")
+            {
+                return;
+            }
+            DataHolder.ResearchEntries = XMLSerializer.Deserialize<List<ResearchDataEntry>>(File.ReadAllText(ResearchXmlPath));
+            //Old Code:
+            #region OldCode
+            /*
             ResearchEntry NewResearchEntry = new ResearchEntry();
             //NewResearchEntry.dirty = true;
             //These are only used when we're reading Research Reqs!
@@ -138,6 +149,9 @@ namespace Common.XmlLogic
                     }
                 }
             }
+            */
+            #endregion
+
         }
 
     }

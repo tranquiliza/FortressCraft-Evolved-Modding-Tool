@@ -31,7 +31,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
         //When We select an item from the list:
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ResearchEntry SelectedEntry = null; //In hindsight this should have been used everywhere!!
+            ResearchDataEntry SelectedEntry = null; //In hindsight this should have been used everywhere!!
             
             //When we select something, find the one we selected!
             for (int i = 0; i < DataHolder.ResearchEntries.Count; i++)
@@ -71,7 +71,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             textBlock_PreDesc.Text = SelectedEntry.PreDescription;
             textBlock_PostDesc.Text = SelectedEntry.PostDescription;
 
-            if (SelectedEntry.LabResearchItems.Count == 0)
+            if (SelectedEntry.ProjectItemRequirements.Count == 0)
             {
                 label_PodRequirements.Content = "";
             }
@@ -83,9 +83,9 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             //Pod Requirements
             //Clear the Listbox, so we dont get multiples
             listBox_ResearchPods.Items.Clear();
-            for (int i = 0; i < SelectedEntry.LabResearchItems.Count; i++)
+            for (int i = 0; i < SelectedEntry.ProjectItemRequirements.Count; i++)
             {
-                listBox_ResearchPods.Items.Add(SelectedEntry.LabResearchItems[i].Text());
+                listBox_ResearchPods.Items.Add(SelectedEntry.ProjectItemRequirements[i].Readable());
             }
 
             if (SelectedEntry.ResearchRequirements.Count == 0)
