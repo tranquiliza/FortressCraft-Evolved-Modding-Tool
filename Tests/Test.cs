@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
-using FortressCraftEvolved_Modding_Tool.XmlLogic;
-using FortressCraftEvolved_Modding_Tool.GameLogics;
+using Common.XmlLogic;
+using Common.GameLogics;
 using System.IO;
 using System.Collections.Generic;
 
