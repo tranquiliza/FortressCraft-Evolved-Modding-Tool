@@ -16,8 +16,8 @@ namespace Common.XmlLogic
                 return;
             }
             DataHolder.ResearchEntries = XMLSerializer.Deserialize<List<ResearchDataEntry>>(File.ReadAllText(ResearchXmlPath));
+            
             //Old Code:
-            #region OldCode
             /*
             ResearchEntry NewResearchEntry = new ResearchEntry();
             //NewResearchEntry.dirty = true;
@@ -150,7 +150,6 @@ namespace Common.XmlLogic
                 }
             }
             */
-            #endregion
 
         }
 

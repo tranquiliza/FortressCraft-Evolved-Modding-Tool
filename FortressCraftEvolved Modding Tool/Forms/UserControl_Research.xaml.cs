@@ -138,9 +138,9 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             listBox_ItemsUnlocked.Items.Clear();
             for (int i = 0; i < DataHolder.ManufacturerEntries.Count; i++)
             {
-                for (int j = 0; j < DataHolder.ManufacturerEntries[i].ResearchRequirement.Count; j++)
+                for (int j = 0; j < DataHolder.ManufacturerEntries[i].ResearchRequirements.Count; j++)
                 {
-                    if (DataHolder.ManufacturerEntries[i].ResearchRequirement[j] == SelectedEntry.Key)
+                    if (DataHolder.ManufacturerEntries[i].ResearchRequirements[j] == SelectedEntry.Key)
                     {
                         listBox_ItemsUnlocked.Items.Add(DataHolder.ManufacturerEntries[i].CraftedName);
                     }

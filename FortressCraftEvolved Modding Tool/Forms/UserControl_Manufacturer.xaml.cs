@@ -108,7 +108,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
 
         private void listBox_ManufacturerEntries_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ManufacturerEntry SelectedEntry = null;
+            CraftData SelectedEntry = null;
             if (listBox_ManufacturerEntries.SelectedItem == null)
             {
                 return;
@@ -147,7 +147,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
 
             textBlock_Tier.Text = SelectedEntry.Tier.ToString();
             //Clear list and Add ResearchReqs
-            if (SelectedEntry.ResearchRequirement.Count == 0)
+            if (SelectedEntry.ResearchRequirements.Count == 0)
             {
                 label_ResearchReq.Content = "";
             }
@@ -156,13 +156,13 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                 label_ResearchReq.Content = "Research Requirements:";
             }
             listBox_ResearchReq.Items.Clear();
-            for (int i = 0; i < SelectedEntry.ResearchRequirement.Count; i++)
+            for (int i = 0; i < SelectedEntry.ResearchRequirements.Count; i++)
             {
-                listBox_ResearchReq.Items.Add(SelectedEntry.ResearchRequirement[i]);
+                listBox_ResearchReq.Items.Add(SelectedEntry.ResearchRequirements[i]);
             }
 
             //Clear list and Add ScanReqs
-            if (SelectedEntry.ScanRequirement.Count == 0)
+            if (SelectedEntry.ScanRequirements.Count == 0)
             {
                 label_ScanReq.Content = "";
             }
@@ -171,13 +171,13 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                 label_ScanReq.Content = "Scan Requirements:";
             }
             listBox_ScanReq.Items.Clear();
-            for (int i = 0; i < SelectedEntry.ScanRequirement.Count; i++)
+            for (int i = 0; i < SelectedEntry.ScanRequirements.Count; i++)
             {
-                listBox_ScanReq.Items.Add(SelectedEntry.ScanRequirement[i]);
+                listBox_ScanReq.Items.Add(SelectedEntry.ScanRequirements[i]);
             }
 
             //Clear List and Add crafting costs
-            if (SelectedEntry.CraftingCosts.Count == 0)
+            if (SelectedEntry.Costs.Count == 0)
             {
                 label_CraftingCost.Content = "";
             }
@@ -186,9 +186,9 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                 label_CraftingCost.Content = "Crafting Costs:";
             }
             listBox_CraftingCost.Items.Clear();
-            for (int i = 0; i < SelectedEntry.CraftingCosts.Count; i++)
+            for (int i = 0; i < SelectedEntry.Costs.Count; i++)
             {
-                listBox_CraftingCost.Items.Add(SelectedEntry.CraftingCosts[i].Text());
+                listBox_CraftingCost.Items.Add(SelectedEntry.Costs[i].Text());
             }
         }
 

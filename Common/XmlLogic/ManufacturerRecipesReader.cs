@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml;
 using Common.Data;
 using Common.GameLogics;
+using System.IO;
 
 namespace Common.XmlLogic
 {
@@ -10,7 +11,13 @@ namespace Common.XmlLogic
     {
 		public static void ReadManufactoringXML(string ManufactorerXmlPath)
         {
-            ManufacturerEntry Item = new ManufacturerEntry();
+            if (ManufactorerXmlPath == "")
+            {
+                return;
+            }
+            DataHolder.ManufacturerEntries = XMLSerializer.Deserialize<List<CraftData>>(File.ReadAllText(ManufactorerXmlPath));
+            /* OLD CODE
+            CraftData Item = new CraftData();
             String ItemName = null;
             uint Amount = 0;
             if (ManufactorerXmlPath == "")
@@ -30,7 +37,7 @@ namespace Common.XmlLogic
                                 if (Item.IsDirty == true)
                                 {
                                     DataHolder.ManufacturerEntries.Add(Item);
-                                    Item = new ManufacturerEntry();
+                                    Item = new CraftData();
                                 }
                                 Item.IsDirty = true;
                                 break;
@@ -147,6 +154,7 @@ namespace Common.XmlLogic
                     }
                 }
             }
+            */
         }
     }
 }

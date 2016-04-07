@@ -3,6 +3,7 @@ using System.Xml.Serialization;
 
 namespace Common.GameLogics
 {
+    // We dont need:
     //[Serializable()]
     //public class ArrayOfItemEntry
     //{
