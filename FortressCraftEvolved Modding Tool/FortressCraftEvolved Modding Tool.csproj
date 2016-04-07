@@ -80,6 +80,9 @@
     <Compile Include="Forms\UserControl_Research.xaml.cs">
       <DependentUpon>UserControl_Research.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserControl_TerrainData.xaml.cs">
+      <DependentUpon>UserControl_TerrainData.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -94,6 +97,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\UserControl_Research.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\UserControl_TerrainData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

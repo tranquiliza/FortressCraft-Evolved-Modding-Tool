@@ -13,7 +13,7 @@ namespace Tests
 		[Test ()]
 		public void TestCase ()
 		{
-			List<ItemEntry> arrayOfItemEntry = XMLSerializer.Deserialize<List<ItemEntry>>(File.ReadAllText("Items.xml"));
+			List<ItemEntry> arrayOfItemEntry = XMLSerializer.Deserialize<List<ItemEntry>>(File.ReadAllText("Resources\\Items.xml"));
 
 			Assert.IsNotNull(arrayOfItemEntry);
 			Assert.IsNotNull(arrayOfItemEntry[0].Name);
@@ -23,12 +23,20 @@ namespace Tests
 		[Test ()]
 		public void TestCase2 ()
 		{
-			//ArrayOfItemEntry arrayOfItemEntry = new ArrayOfItemEntry ();
-			//arrayOfItemEntry.ItemEntry = new ItemEntry[1];
-			//arrayOfItemEntry.ItemEntry [0] = new ItemEntry ();
-			//arrayOfItemEntry.ItemEntry[0].Name = "tranq";
-	
-			//File.WriteAllText ("banana.xml", XMLSerializer.Serialize (arrayOfItemEntry));
-		}
+            //ArrayOfItemEntry arrayOfItemEntry = new ArrayOfItemEntry ();
+            //arrayOfItemEntry.ItemEntry = new ItemEntry[1];
+            //arrayOfItemEntry.ItemEntry [0] = new ItemEntry ();
+            //arrayOfItemEntry.ItemEntry[0].Name = "tranq";
+
+            //File.WriteAllText ("banana.xml", XMLSerializer.Serialize (arrayOfItemEntry));
+        }
+        [Test ()]
+        public void TestTerrainDataEntry()
+        {
+            string FilePath = "Resources\\TerrainData.xml";
+            List<TerrainDataEntry> ListOfTerrainDataEntry = XMLSerializer.Deserialize<List<TerrainDataEntry>>(File.ReadAllText(FilePath));
+            Assert.IsNotNull(ListOfTerrainDataEntry[0]);
+            Assert.IsNotNull(ListOfTerrainDataEntry[0].tags[0]);
+        }
 	}
 }
