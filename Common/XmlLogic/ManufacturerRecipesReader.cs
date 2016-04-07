@@ -16,6 +16,7 @@ namespace Common.XmlLogic
                 return;
             }
             DataHolder.ManufacturerEntries = XMLSerializer.Deserialize<List<CraftData>>(File.ReadAllText(ManufactorerXmlPath));
+            
             /* OLD CODE
             CraftData Item = new CraftData();
             String ItemName = null;

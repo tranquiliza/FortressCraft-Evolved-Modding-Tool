@@ -9,6 +9,7 @@ namespace Common.XmlLogic
 {
     public static class XMLSerializer
     {
+        //This was made by Peacoq! Thanks!
         public static string Serialize<T>(this T value, bool keepXmlHeader = true)
         {
             if (value == null)
