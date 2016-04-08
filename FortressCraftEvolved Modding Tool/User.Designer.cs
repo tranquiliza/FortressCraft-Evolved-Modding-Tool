@@ -82,5 +82,17 @@ namespace FortressCraftEvolved_Modding_Tool {
                 this["RefineryXmlPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string AutoCrafterPath {
+            get {
+                return ((string)(this["AutoCrafterPath"]));
+            }
+            set {
+                this["AutoCrafterPath"] = value;
+            }
+        }
     }
 }

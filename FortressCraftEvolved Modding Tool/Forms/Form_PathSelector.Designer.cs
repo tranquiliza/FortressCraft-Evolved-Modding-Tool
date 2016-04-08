@@ -45,6 +45,10 @@
             this.textBox_DataEntries = new System.Windows.Forms.TextBox();
             this.button_DataEntrySelect = new System.Windows.Forms.Button();
             this.openFileDialog_DataEntry = new System.Windows.Forms.OpenFileDialog();
+            this.button_RefRec = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox_RefRec = new System.Windows.Forms.TextBox();
+            this.openFileDialog_RefRec = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // button_SelectResearch
@@ -103,7 +107,7 @@
             // 
             // button_Close
             // 
-            this.button_Close.Location = new System.Drawing.Point(480, 170);
+            this.button_Close.Location = new System.Drawing.Point(480, 208);
             this.button_Close.Name = "button_Close";
             this.button_Close.Size = new System.Drawing.Size(75, 23);
             this.button_Close.TabIndex = 6;
@@ -181,14 +185,48 @@
             // 
             this.openFileDialog_DataEntry.FileName = "TerrainData";
             // 
+            // button_RefRec
+            // 
+            this.button_RefRec.Location = new System.Drawing.Point(480, 179);
+            this.button_RefRec.Name = "button_RefRec";
+            this.button_RefRec.Size = new System.Drawing.Size(75, 23);
+            this.button_RefRec.TabIndex = 15;
+            this.button_RefRec.Text = "Select";
+            this.button_RefRec.UseVisualStyleBackColor = true;
+            this.button_RefRec.Click += new System.EventHandler(this.button_RefRec_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 165);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Refinery Recipe Path";
+            // 
+            // textBox_RefRec
+            // 
+            this.textBox_RefRec.Location = new System.Drawing.Point(12, 181);
+            this.textBox_RefRec.Name = "textBox_RefRec";
+            this.textBox_RefRec.ReadOnly = true;
+            this.textBox_RefRec.Size = new System.Drawing.Size(462, 20);
+            this.textBox_RefRec.TabIndex = 13;
+            // 
+            // openFileDialog_RefRec
+            // 
+            this.openFileDialog_RefRec.FileName = "RefineryRecipes";
+            // 
             // Form_PathSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(567, 205);
+            this.ClientSize = new System.Drawing.Size(567, 246);
             this.ControlBox = false;
+            this.Controls.Add(this.button_RefRec);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox_RefRec);
             this.Controls.Add(this.button_DataEntrySelect);
             this.Controls.Add(this.label_DataEntriesPath);
             this.Controls.Add(this.textBox_DataEntries);
@@ -230,5 +268,9 @@
         private System.Windows.Forms.TextBox textBox_DataEntries;
         private System.Windows.Forms.Button button_DataEntrySelect;
         private System.Windows.Forms.OpenFileDialog openFileDialog_DataEntry;
+        private System.Windows.Forms.Button button_RefRec;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox_RefRec;
+        private System.Windows.Forms.OpenFileDialog openFileDialog_RefRec;
     }
 }

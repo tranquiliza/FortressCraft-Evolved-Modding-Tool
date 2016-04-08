@@ -13,7 +13,7 @@ namespace Common.XmlLogic
     {
         public static void ReadTerrainDataEntry(string TerrainDataPath)
         {
-            if (TerrainDataPath == null)
+            if (TerrainDataPath == "")
             {
                 return;
             }

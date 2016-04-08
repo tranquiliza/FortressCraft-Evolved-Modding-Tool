@@ -13,6 +13,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             textBox_Manufacturer.Text = User.Default.ManufactorerXmlPath;
             textBox_ItemsPath.Text = User.Default.ItemsXmlPath;
             textBox_DataEntries.Text = User.Default.TerrainDataXmlPath;
+            textBox_RefRec.Text = User.Default.RefineryXmlPath;
         }
 
         private void button_Close_Click(object sender, EventArgs e)
@@ -49,6 +50,13 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             openFileDialog_DataEntry.ShowDialog();
             User.Default.TerrainDataXmlPath = openFileDialog_DataEntry.FileName;
             textBox_DataEntries.Text = User.Default.TerrainDataXmlPath;
+        }
+
+        private void button_RefRec_Click(object sender, EventArgs e)
+        {
+            openFileDialog_RefRec.ShowDialog();
+            User.Default.RefineryXmlPath = openFileDialog_RefRec.FileName;
+            textBox_RefRec.Text = User.Default.RefineryXmlPath;
         }
     }
 }

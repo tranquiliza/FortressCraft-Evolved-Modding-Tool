@@ -17,7 +17,6 @@ namespace FortressCraftEvolved_Modding_Tool
         public MainWindow()
         {
             InitializeComponent();
-            User.Default.RefineryXmlPath = "E:\\SteamLibrary\\SteamApps\\common\\FortressCraft\\64\\Default\\Data\\RefineryRecipes.xml"; //Yes this is hardcoded. Bad Tranq
 
             ResearchReader.ReadResearchXML(User.Default.ResearchXmlPath);
             ManufacturerRecipesReader.ReadManufactoringXML(User.Default.ManufactorerXmlPath);
@@ -47,6 +46,10 @@ namespace FortressCraftEvolved_Modding_Tool
             if (User.Default.TerrainDataXmlPath == "")
             {
                 MessageBox.Show("TerrainData.xml path not found, please check settings!");
+            }
+            if (User.Default.RefineryXmlPath == "")
+            {
+                MessageBox.Show("RefineryRecipes.xml path not found, Please check settings!");
             }
             //A nice welcome message! :D -> Could display version name here?!
             textBlock_Welcome.Text += "\n Browse the application by using the buttons below!";
