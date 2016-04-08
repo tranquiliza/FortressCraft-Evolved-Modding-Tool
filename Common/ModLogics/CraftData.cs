@@ -56,17 +56,6 @@ namespace Common.ModLogics
         public string Delete { get; set; }
         public string Key { get; set; }
         public uint Amount { get; set; }
-        /*
-        public CraftCost(String Name, uint Amount)
-        {
-            this.Name = Name;
-            this.Amount = Amount;
-        }
-        */
-        //public string Text()
-        //{
-        //    return Amount + " X " + Name;
-        //}
     }
     public enum eManufacturingPlantModule
     {

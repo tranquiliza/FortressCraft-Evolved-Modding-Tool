@@ -21,21 +21,6 @@ namespace Common.GameLogics
         public List<string> ResearchRequirements { get; set; }
         [XmlArray, XmlArrayItem("Requirement")]
         public List<ProjectItemRequirement> ProjectItemRequirements { get; set; }
-
-
-        /* OLD CODE
-        public String Key { get; set; }
-        public String Name { get; set; }
-        public String IconName { get; set; }
-        public uint ResearchCost { get; set; }
-        public String PreDescription { get; set; }
-        public String PostDescription { get; set; }
-        public List<String> ResearchRequirements { get; set; }
-        public List<String> ScanRequirements { get; set; }
-        public List<ProjectItemRequirements> LabResearchItems { get; set; }
-
-        public bool dirty = false;
-        */
     }
     public class ProjectItemRequirement
     {
@@ -46,17 +31,5 @@ namespace Common.GameLogics
         {
             return Amount + " x " + Key;
         }
-
-        /* OLD CODE
-        public ProjectItemRequirement(String ItemKey, int Amount)
-        {
-            this.ItemKey = ItemKey;
-            this.Amount = Amount;
-        }
-        public String Text()
-        {
-            return ItemKey + " x " + Amount;
-        }
-        */
     }
 }
