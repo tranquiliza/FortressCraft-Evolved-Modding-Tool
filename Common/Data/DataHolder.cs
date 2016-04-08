@@ -15,4 +15,8 @@ namespace Common.Data
         public static List<ResearchDataEntry> ResearchEntries = new List<ResearchDataEntry>();
         public static List<TerrainDataEntry> TerrainDataEntries = new List<TerrainDataEntry>();
     }
+    public static class ModDataHolder
+    {
+        public static List<CraftData> RefineryRecipes = new List<CraftData>();
+    }
 }

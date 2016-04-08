@@ -35,6 +35,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameLogics\TerrainDataEntry.cs" />
+    <Compile Include="ModLogics\CraftData.cs" />
+    <Compile Include="ModLogics\CreativeSurvivalMod.cs" />
+    <Compile Include="ModLogics\ItemEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Data\DataHolder.cs" />
     <Compile Include="GameLogics\ItemEntry.cs" />

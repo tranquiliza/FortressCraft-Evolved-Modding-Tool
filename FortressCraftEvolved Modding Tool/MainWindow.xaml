@@ -26,5 +26,6 @@
                 <Image Source="Resources/570x570 preview mynock.png" Height="Auto" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </StackPanel>
         </Button>
+        <Button x:Name="button_GenerateCreativeSurvival" Content="Creative Survival" HorizontalAlignment="Left" Margin="10,354,0,0" VerticalAlignment="Top" Width="125" Height="35" FontSize="12" Click="button_GenerateCreativeSurvival_Click"/>
     </Grid>
 </Controls:MetroWindow>

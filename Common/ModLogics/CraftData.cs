@@ -1,13 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Common.GameLogics
+namespace Common.ModLogics
 {
+    [Serializable]
     public class CraftData
     {
-        //This is ManufacturerEntries Class (For Some reason it has a different name!)
+        //Commented things are not needed for Mod Manufacturer Recipes!
+        //OR are illegal for us to set!
+
+        // Modded Variables:
+        public string IsOverride { get; set; }
+        [DefaultValue(false)]
+        public bool Delete { get; set; }
+        //Lists to remove Research Req and Scan Req!
+
+        [XmlArray, XmlArrayItem("Research")]
+        public List<string> RemoveResearchRequirements { get; set; }
+
+        [XmlArray, XmlArrayItem("Scan")]
+        public List<string> RemoveScanRequirements { get; set; }
+        //Modded Variables End:
+
         public string Key { get; set; }
         public string Category { get; set; }
         public ushort Tier { get; set; }
@@ -21,9 +40,9 @@ namespace Common.GameLogics
         public List<string> ResearchRequirements { get; set; }
         [XmlArray, XmlArrayItem("Scan")]
         public List<string> ScanRequirements { get; set; }
-        [DefaultValue(0)]
+        //[DefaultValue(0)]
         public int ResearchCost { get; set; }
-        public eManufacturingPlantModule RequiredModule;
+        //public eManufacturingPlantModule RequiredModule;
         public string Description { get; set; }
         public string Hint { get; set; }
         [DefaultValue(false)]
@@ -31,30 +50,10 @@ namespace Common.GameLogics
         [DefaultValue(true)]
         public bool CanBeAutomated { get; set; }
         public string MasterRecipe { get; set; }
-
-        /* OLD CODE
-        public String Key;
-        public String Category;
-        public int Tier;
-        public String CraftedName;
-        public int CraftedAmount;
-        public String Hint;
-        public String Description;
-        public int ResearchCost;
-        public List<CraftCost> CraftingCosts; // = new List<CraftCost>();
-        public List<String> ResearchRequirement = new List<string>();
-        public List<String> ScanRequirement = new List<string>();
-        public Boolean CanCraftAnywhere = false;
-        public Boolean IsDirty = false;
-        public ManufacturerEntry()
-        {
-        }
-        */
     }
-
     public class CraftCost
     {
-        public string Key { get; set; }
+        public string Delete { get; set; }
         public string Name { get; set; }
         public uint Amount { get; set; }
         /*
@@ -64,10 +63,10 @@ namespace Common.GameLogics
             this.Amount = Amount;
         }
         */
-        public string Text()
-        {
-            return Amount + " X " + Name;
-        }
+        //public string Text()
+        //{
+        //    return Amount + " X " + Name;
+        //}
     }
     public enum eManufacturingPlantModule
     {

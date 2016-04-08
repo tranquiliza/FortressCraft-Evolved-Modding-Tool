@@ -157,5 +157,13 @@ namespace Common.XmlLogic
             }
             */
         }
+        public static void ReadRefineryRecipes(string RefineryPath)
+        {
+            if (RefineryPath == "")
+            {
+                return;
+            }
+            ModDataHolder.RefineryRecipes = XMLSerializer.Deserialize<List<CraftData>>(File.ReadAllText(RefineryPath));
+        }
     }
 }

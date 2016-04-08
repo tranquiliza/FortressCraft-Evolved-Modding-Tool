@@ -2,6 +2,8 @@
 using MahApps.Metro.Controls;
 using FortressCraftEvolved_Modding_Tool.Forms;
 using Common.XmlLogic;
+using System.IO;
+using System.Collections.Generic;
 
 namespace FortressCraftEvolved_Modding_Tool
 {
@@ -15,11 +17,14 @@ namespace FortressCraftEvolved_Modding_Tool
         public MainWindow()
         {
             InitializeComponent();
+            User.Default.RefineryXmlPath = "E:\\SteamLibrary\\SteamApps\\common\\FortressCraft\\64\\Default\\Data\\RefineryRecipes.xml"; //Yes this is hardcoded. Bad Tranq
 
             ResearchReader.ReadResearchXML(User.Default.ResearchXmlPath);
             ManufacturerRecipesReader.ReadManufactoringXML(User.Default.ManufactorerXmlPath);
             ItemsReader.ReadItems(User.Default.ItemsXmlPath);
             TerrainDataReader.ReadTerrainDataEntry(User.Default.TerrainDataXmlPath);
+
+            ManufacturerRecipesReader.ReadRefineryRecipes(User.Default.RefineryXmlPath);
 
             ResearchWindow = new UserControl_Research();
             ManufacturerWindow = new UserControl_Manufacturer();
@@ -90,6 +95,20 @@ namespace FortressCraftEvolved_Modding_Tool
         {
             string url = "www.twitchalerts.com/donate/djarcas";
             System.Diagnostics.Process.Start(url);
+        }
+
+        private void button_GenerateCreativeSurvival_Click(object sender, RoutedEventArgs e)
+        {
+            Common.ModLogics.CreativeSurvivalMod.ConvertRecipes();
+            Common.ModLogics.CreativeSurvivalMod.ConvertItems();
+
+            string recipes = XMLSerializer.Serialize(Common.ModLogics.CreativeSurvivalMod.ModdedRecipes);
+            string items = XMLSerializer.Serialize(Common.ModLogics.CreativeSurvivalMod.ModdedItems);
+
+            File.WriteAllText("ManufacturerRecipes.xml", recipes);
+            File.WriteAllText("Items.xml", items);
+
+            MessageBox.Show("Generated Creative Survival!");
         }
     }
 }
