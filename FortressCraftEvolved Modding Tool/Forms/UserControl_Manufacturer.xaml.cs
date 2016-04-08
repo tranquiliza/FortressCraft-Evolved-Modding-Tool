@@ -16,7 +16,11 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
         public UserControl_Manufacturer()
         {
             InitializeComponent();
-
+            listBox_ManufacturerEntries.Items.Clear();
+            for (int i = 0; i < DataHolder.ManufacturerEntries.Count; i++)
+            {
+                listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
+            }
             textBlock_Category.Text = "";
             textBlock_CraftAnywhere.Text = "";
             textBlock_CraftedAmount.Text = "";
@@ -40,13 +44,13 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                     {
                         if (DataHolder.ManufacturerEntries[i].Tier == Tier)
                         {
-                            listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedName);
+                            listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
                         }
                         else
                         {
                             if (Tier == -1)
                             {
-                                listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedName);
+                                listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
                             }
                         }
                     }
@@ -56,25 +60,25 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             {
                 for (int i = 0; i < DataHolder.ManufacturerEntries.Count; i++)
                 {
-                    if (SearchString == DataHolder.ManufacturerEntries[i].CraftedName.ToLower()) //SearchString == Items[i].CraftedName.ToLower()
+                    if (SearchString == DataHolder.ManufacturerEntries[i].CraftedKey.ToLower()) //SearchString == Items[i].CraftedName.ToLower()
                     {
                         if (DataHolder.ManufacturerEntries[i].CanCraftAnywhere == CanCraftAnywhere)
                         {
                             if (DataHolder.ManufacturerEntries[i].Tier == Tier)
                             {
-                                listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedName);
+                                listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
                             }
                             else
                             {
                                 if (Tier == -1)
                                 {
-                                    listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedName);
+                                    listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
                                 }
                             }
                         }
                         break;
                     }
-                    string[] SearchStrings = DataHolder.ManufacturerEntries[i].CraftedName.Split(' ');
+                    string[] SearchStrings = DataHolder.ManufacturerEntries[i].CraftedKey.Split(' ');
                     for (int j = 0; j < SearchStrings.Length; j++)
                     {
                         if (SearchString.ToLower() == SearchStrings[j].ToLower()) //SearchString.ToLower() == SearchStrings[j].ToLower()
@@ -83,13 +87,13 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                             {
                                 if (DataHolder.ManufacturerEntries[i].Tier == Tier)
                                 {
-                                    listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedName);
+                                    listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
                                 }
                                 else
                                 {
                                     if (Tier == -1)
                                     {
-                                        listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedName);
+                                        listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
                                     }
                                 }
                             }
@@ -116,7 +120,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
 
             for (int i = 0; i < DataHolder.ManufacturerEntries.Count; i++)
             {
-                if (DataHolder.ManufacturerEntries[i].CraftedName == listBox_ManufacturerEntries.SelectedItem.ToString())
+                if (DataHolder.ManufacturerEntries[i].CraftedKey == listBox_ManufacturerEntries.SelectedItem.ToString())
                 {
                     if (DataHolder.ManufacturerEntries[i].CanCraftAnywhere == CanCraftAnywhere)
                     {
@@ -126,10 +130,18 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             }
 
             //Textblock stuff!
-            textBlock_Category.Text = SelectedEntry.Category;
+            if (SelectedEntry.Category != null)
+            {
+                textBlock_Category.Text = SelectedEntry.Category;
+            }
+            else
+            {
+                textBlock_Category.Text = "";
+            }
+
             textBlock_CraftAnywhere.Text = SelectedEntry.CanCraftAnywhere.ToString();
             textBlock_CraftedAmount.Text = SelectedEntry.CraftedAmount.ToString();
-            textBlock_CraftedName.Text = SelectedEntry.CraftedName;
+            textBlock_CraftedName.Text = SelectedEntry.CraftedKey;
             textBlock_Desc.Text = SelectedEntry.Description;
             textBlock_Hint.Text = SelectedEntry.Hint;
             textBlock_Key.Text = SelectedEntry.Key;

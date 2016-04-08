@@ -29,7 +29,7 @@ namespace Common.ModLogics
                 Holder.Category = DataHolder.ManufacturerEntries[i].Category;
                 Holder.Tier = DataHolder.ManufacturerEntries[i].Tier;
                 Holder.CraftedKey = DataHolder.ManufacturerEntries[i].CraftedKey;
-                Holder.CraftedName = DataHolder.ManufacturerEntries[i].CraftedName;
+                //Holder.CraftedName = DataHolder.ManufacturerEntries[i].CraftedName;
                 Holder.CraftedAmount = DataHolder.ManufacturerEntries[i].CraftedAmount;
                 Holder.CraftTime = DataHolder.ManufacturerEntries[i].CraftTime;
 
@@ -38,7 +38,7 @@ namespace Common.ModLogics
                 {
                     CraftCost CostHolder = new CraftCost();
                     CostHolder.Delete = "true";
-                    CostHolder.Name = DataHolder.ManufacturerEntries[i].Costs[j].Name;
+                    CostHolder.Key = DataHolder.ManufacturerEntries[i].Costs[j].Key;
                     CostHolder.Amount = DataHolder.ManufacturerEntries[i].Costs[j].Amount;
                     Holder.Costs.Add(CostHolder);
                 }
@@ -66,7 +66,7 @@ namespace Common.ModLogics
                 Holder.IsOverride = "false";
                 Holder.Key = "tranq." + ModDataHolder.RefineryRecipes[i].Key;
                 Holder.Category = "CraftingIngredient";
-                Holder.CraftedName = ModDataHolder.RefineryRecipes[i].CraftedName;
+                Holder.CraftedKey = ModDataHolder.RefineryRecipes[i].CraftedKey;
                 Holder.CraftedAmount = ModDataHolder.RefineryRecipes[i].CraftedAmount;
                 Holder.Description = ModDataHolder.RefineryRecipes[i].Description;
                 ModdedRecipes.Add(Holder);

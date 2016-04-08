@@ -54,7 +54,7 @@ namespace Common.ModLogics
     public class CraftCost
     {
         public string Delete { get; set; }
-        public string Name { get; set; }
+        public string Key { get; set; }
         public uint Amount { get; set; }
         /*
         public CraftCost(String Name, uint Amount)

@@ -142,7 +142,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                 {
                     if (DataHolder.ManufacturerEntries[i].ResearchRequirements[j] == SelectedEntry.Key)
                     {
-                        listBox_ItemsUnlocked.Items.Add(DataHolder.ManufacturerEntries[i].CraftedName);
+                        listBox_ItemsUnlocked.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
                     }
                 }
             }
