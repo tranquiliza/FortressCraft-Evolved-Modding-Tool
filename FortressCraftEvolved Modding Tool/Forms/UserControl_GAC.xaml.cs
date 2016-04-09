@@ -25,31 +25,31 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
         public UserControl_GAC()
         {
             InitializeComponent();
+            //GACReader.ReadGAC(User.Default.GACXmlPath);
 
-            GACReader.ReadGAC(User.Default.GACXmlPath);
-            textBlock_FriendlyName.Text = GACDataHolder.GAC.FriendlyName;
-            textBlock_SpawnObject.Text = GACDataHolder.GAC.SpawnObject.ToString();
-            textBlock_LoadingAnim.Text = GACDataHolder.GAC.LoadingAnimation;
-            textBlock_WorkingAnim.Text = GACDataHolder.GAC.WorkingAnimation;
-            textBlock_UnloadingAnim.Text = GACDataHolder.GAC.UnloadingAnimation;
-            textBlock_CraftingString.Text = GACDataHolder.GAC.CraftingString;
-            textBlock_Value.Text = GACDataHolder.GAC.Value;
-            textBlock_PowerUsePerSec.Text = GACDataHolder.GAC.PowerUsePerSecond.ToString();
-            textBlock_PowerTransferPerSec.Text = GACDataHolder.GAC.PowerTransferPerSecond.ToString();
-            textBlock_CraftTime.Text = GACDataHolder.GAC.CraftTime.ToString();
-            textBlock_MaxPowerStorage.Text = GACDataHolder.GAC.MaxPowerStorage.ToString();
-            textBlock_OptionalIngredients.Text = GACDataHolder.GAC.OptionalIngredients.ToString();
+            textBlock_FriendlyName.Text = "";// GACDataHolder.GAC.FriendlyName;
+            textBlock_SpawnObject.Text = "";// GACDataHolder.GAC.SpawnObject.ToString();
+            textBlock_LoadingAnim.Text = "";//GACDataHolder.GAC.LoadingAnimation;
+            textBlock_WorkingAnim.Text = "";//GACDataHolder.GAC.WorkingAnimation;
+            textBlock_UnloadingAnim.Text = "";//GACDataHolder.GAC.UnloadingAnimation;
+            textBlock_CraftingString.Text = "";//GACDataHolder.GAC.CraftingString;
+            textBlock_Value.Text = "";//GACDataHolder.GAC.Value;
+            textBlock_PowerUsePerSec.Text = "";//GACDataHolder.GAC.PowerUsePerSecond.ToString();
+            textBlock_PowerTransferPerSec.Text = "";//GACDataHolder.GAC.PowerTransferPerSecond.ToString();
+            textBlock_CraftTime.Text = "";//GACDataHolder.GAC.CraftTime.ToString();
+            textBlock_MaxPowerStorage.Text = "";//GACDataHolder.GAC.MaxPowerStorage.ToString();
+            textBlock_OptionalIngredients.Text = "";//GACDataHolder.GAC.OptionalIngredients.ToString();
 
             //Recipe Start;
-            textBlock_RecipeKey.Text = GACDataHolder.GAC.Recipe.Key;
-            textBlock_RecipeCraftedKey.Text = GACDataHolder.GAC.Recipe.CraftedKey;
-            textBlock_RecipeCraftedAmount.Text = GACDataHolder.GAC.Recipe.CraftedAmount.ToString();
-            textBlock_RecipeDesc.Text = GACDataHolder.GAC.Recipe.Description;
-            listBox_RecipeCosts.Items.Clear();
-            for (int i = 0; i < GACDataHolder.GAC.Recipe.Costs.Count; i++)
-            {
-                listBox_RecipeCosts.Items.Add(GACDataHolder.GAC.Recipe.Costs[i].Text());
-            }
+            textBlock_RecipeKey.Text = "";//GACDataHolder.GAC.Recipe.Key;
+            textBlock_RecipeCraftedKey.Text = "";//GACDataHolder.GAC.Recipe.CraftedKey;
+            textBlock_RecipeCraftedAmount.Text = "";//GACDataHolder.GAC.Recipe.CraftedAmount.ToString();
+            textBlock_RecipeDesc.Text = "";// GACDataHolder.GAC.Recipe.Description;
+            //listBox_RecipeCosts.Items.Clear();
+            //for (int i = 0; i < GACDataHolder.GAC.Recipe.Costs.Count; i++)
+            //{
+            //    listBox_RecipeCosts.Items.Add(GACDataHolder.GAC.Recipe.Costs[i].Text());
+            //}
 
         }
 

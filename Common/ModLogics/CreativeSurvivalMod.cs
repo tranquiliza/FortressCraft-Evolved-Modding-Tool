@@ -101,5 +101,100 @@ namespace Common.ModLogics
                 ModdedItems.Add(Holder);
             }
         }
+        public static void AddExtraRecipes()
+        {
+            string AutherID = "tranq.";
+
+            CraftData CopperOre = new CraftData();
+            CopperOre.Key = AutherID + "CopperOre";
+            CopperOre.CraftedName = "Copper Ore";
+            CopperOre.CraftedAmount = 1;
+            CopperOre.CraftTime = 0;
+            CopperOre.Category = "decoration";
+            CopperOre.Tier = 5;
+            CopperOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+
+            CraftData TinOre = new CraftData();
+            TinOre.Key = AutherID + "TinOre";
+            TinOre.CraftedName = "Tin Ore";
+            TinOre.CraftedAmount = 1;
+            TinOre.CraftTime = 0;
+            TinOre.Category = "decoration";
+            TinOre.Tier = 5;
+            TinOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+
+            CraftData IronOre = new CraftData();
+            IronOre.Key = AutherID + "IronOre";
+            IronOre.CraftedName = "Iron Ore";
+            IronOre.CraftedAmount = 1;
+            IronOre.CraftTime = 0;
+            IronOre.Category = "decoration";
+            IronOre.Tier = 5;
+            IronOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+
+            CraftData LithiumOre = new CraftData();
+            LithiumOre.Key = AutherID + "LithiumOre";
+            LithiumOre.CraftedName = "Lithium Ore";
+            LithiumOre.CraftedAmount = 1;
+            LithiumOre.CraftTime = 0;
+            LithiumOre.Category = "decoration";
+            LithiumOre.Tier = 5;
+            LithiumOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+
+            CraftData GoldOre = new CraftData();
+            GoldOre.Key = AutherID + "GoldOre";
+            GoldOre.CraftedName = "Gold Ore";
+            GoldOre.CraftedAmount = 1;
+            GoldOre.CraftTime = 0;
+            GoldOre.Category = "decoration";
+            GoldOre.Tier = 5;
+            GoldOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+
+            CraftData NickelOre = new CraftData();
+            NickelOre.Key = AutherID + "NickelOre";
+            NickelOre.CraftedName = "Nickel Ore";
+            NickelOre.CraftedAmount = 1;
+            NickelOre.CraftTime = 0;
+            NickelOre.Category = "decoration";
+            NickelOre.Tier = 5;
+            NickelOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+
+            CraftData TitaniumOre = new CraftData();
+            TitaniumOre.Key = AutherID + "TitaniumOre";
+            TitaniumOre.CraftedName = "Titanium Ore";
+            TitaniumOre.CraftedAmount = 1;
+            TitaniumOre.CraftTime = 0;
+            TitaniumOre.Category = "decoration";
+            TitaniumOre.Tier = 5;
+            TitaniumOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+
+            CraftData CrystalDeposit = new CraftData();
+            CrystalDeposit.Key = AutherID + "CrystalDeposit";
+            CrystalDeposit.CraftedName = "Crystal Deposit";
+            CrystalDeposit.CraftedAmount = 1;
+            CrystalDeposit.CraftTime = 0;
+            CrystalDeposit.Category = "decoration";
+            CrystalDeposit.Tier = 5;
+            CrystalDeposit.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+
+            CraftData BiomassGrowth = new CraftData();
+            BiomassGrowth.Key = AutherID + "BiomassGrowth";
+            BiomassGrowth.CraftedName = "Biomass Growth";
+            BiomassGrowth.CraftedAmount = 1;
+            BiomassGrowth.CraftTime = 0;
+            BiomassGrowth.Category = "decoration";
+            BiomassGrowth.Tier = 5;
+            BiomassGrowth.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+
+            ModdedRecipes.Add(CopperOre);
+            ModdedRecipes.Add(TinOre);
+            ModdedRecipes.Add(IronOre);
+            ModdedRecipes.Add(LithiumOre);
+            ModdedRecipes.Add(GoldOre);
+            ModdedRecipes.Add(NickelOre);
+            ModdedRecipes.Add(TitaniumOre);
+            ModdedRecipes.Add(CrystalDeposit);
+            ModdedRecipes.Add(BiomassGrowth);
+        }
     }
 }

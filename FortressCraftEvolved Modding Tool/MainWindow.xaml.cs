@@ -107,6 +107,7 @@ namespace FortressCraftEvolved_Modding_Tool
         {
             Common.ModLogics.CreativeSurvivalMod.ConvertRecipes();
             Common.ModLogics.CreativeSurvivalMod.ConvertItems();
+            Common.ModLogics.CreativeSurvivalMod.AddExtraRecipes(); //Currently only adds ores to ManufacturerPlant!
 
             string recipes = XMLSerializer.Serialize(Common.ModLogics.CreativeSurvivalMod.ModdedRecipes);
             string items = XMLSerializer.Serialize(Common.ModLogics.CreativeSurvivalMod.ModdedItems);
