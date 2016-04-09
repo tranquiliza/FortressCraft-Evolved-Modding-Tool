@@ -17,7 +17,7 @@
     <Setting Name="RefineryXmlPath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="AutoCrafterPath" Type="System.String" Scope="User">
+    <Setting Name="GACXmlPath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

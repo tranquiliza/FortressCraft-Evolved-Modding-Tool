@@ -65,11 +65,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Forms\Form_GACSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_GACSelector.Designer.cs">
+      <DependentUpon>Form_GACSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Form_PathSelector.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Form_PathSelector.Designer.cs">
       <DependentUpon>Form_PathSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserControl_GAC.xaml.cs">
+      <DependentUpon>UserControl_GAC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\UserControl_Items.xaml.cs">
       <DependentUpon>UserControl_Items.xaml</DependentUpon>
@@ -88,6 +97,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>User.settings</DependentUpon>
     </Compile>
+    <Page Include="Forms\UserControl_GAC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\UserControl_Items.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -135,6 +148,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Forms\Form_GACSelector.resx">
+      <DependentUpon>Form_GACSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_PathSelector.resx">
       <DependentUpon>Form_PathSelector.cs</DependentUpon>
     </EmbeddedResource>

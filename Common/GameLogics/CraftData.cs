@@ -11,7 +11,7 @@ namespace Common.GameLogics
         public string Key { get; set; }
         public string Category { get; set; }
         public ushort Tier { get; set; }
-        //public string CraftedName { get; set; }
+        public string CraftedName { get; set; }
         public string CraftedKey { get; set; }
         public int CraftedAmount { get; set; }
         public float CraftTime { get; set; }
@@ -40,7 +40,14 @@ namespace Common.GameLogics
         public uint Amount { get; set; }
         public string Text()
         {
-            return Amount + " X " + Key;
+            if (Key == null)
+            {
+                return Amount + " x " + Name;
+            }
+            else
+            {
+                return Amount + " x " + Key;
+            }
         }
     }
     public enum eManufacturingPlantModule

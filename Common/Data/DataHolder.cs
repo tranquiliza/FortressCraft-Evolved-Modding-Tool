@@ -19,4 +19,9 @@ namespace Common.Data
     {
         public static List<CraftData> RefineryRecipes = new List<CraftData>();
     }
+    public static class GACDataHolder
+    {
+        public static GenericAutoCrafterDataEntry GAC = new GenericAutoCrafterDataEntry();
+        public static List<GenericAutoCrafterDataEntry> GACList = new List<GenericAutoCrafterDataEntry>();
+    }
 }

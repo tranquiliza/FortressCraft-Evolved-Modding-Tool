@@ -86,12 +86,12 @@ namespace FortressCraftEvolved_Modding_Tool {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string AutoCrafterPath {
+        public string GACXmlPath {
             get {
-                return ((string)(this["AutoCrafterPath"]));
+                return ((string)(this["GACXmlPath"]));
             }
             set {
-                this["AutoCrafterPath"] = value;
+                this["GACXmlPath"] = value;
             }
         }
     }

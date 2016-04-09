@@ -13,6 +13,7 @@ namespace FortressCraftEvolved_Modding_Tool
         UserControl_Manufacturer ManufacturerWindow;
         UserControl_Items ItemsWindow;
         UserControl_TerrainData TerrainDataWindow;
+        UserControl_GAC GACWindow;
 
         public MainWindow()
         {
@@ -22,13 +23,12 @@ namespace FortressCraftEvolved_Modding_Tool
             ManufacturerRecipesReader.ReadManufactoringXML(User.Default.ManufactorerXmlPath);
             ItemsReader.ReadItems(User.Default.ItemsXmlPath);
             TerrainDataReader.ReadTerrainDataEntry(User.Default.TerrainDataXmlPath);
-
             ManufacturerRecipesReader.ReadRefineryRecipes(User.Default.RefineryXmlPath);
-
             ResearchWindow = new UserControl_Research();
             ManufacturerWindow = new UserControl_Manufacturer();
             ItemsWindow = new UserControl_Items();
             TerrainDataWindow = new UserControl_TerrainData();
+            GACWindow = new UserControl_GAC();
 
             //Let the user know to update the paths, mainly ownly shows on first time use!
             if (User.Default.ResearchXmlPath == "")
@@ -99,7 +99,10 @@ namespace FortressCraftEvolved_Modding_Tool
             string url = "www.twitchalerts.com/donate/djarcas";
             System.Diagnostics.Process.Start(url);
         }
-
+        private void button_LoadGAC_Click(object sender, RoutedEventArgs e)
+        {
+            ContentMain.Content = GACWindow;
+        }
         private void button_GenerateCreativeSurvival_Click(object sender, RoutedEventArgs e)
         {
             Common.ModLogics.CreativeSurvivalMod.ConvertRecipes();
@@ -113,5 +116,6 @@ namespace FortressCraftEvolved_Modding_Tool
 
             MessageBox.Show("Generated Creative Survival!");
         }
+
     }
 }

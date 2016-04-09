@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="FortressCraftEvolved_Modding_Tool.Forms.UserControl_GAC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FortressCraftEvolved_Modding_Tool.Forms"
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="400*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="479*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="label_FriendlyName" Content="Friendly Name:" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label x:Name="label_SpawnObject" Content="SpawnObject:" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <Label x:Name="label_LoadingAnim" Content="Loading Animation:" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+        <Label x:Name="label_WorkingAnim" Content="Working Animation:" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top"/>
+        <Label x:Name="label_UnloadingAnimation" Content="Unloading Animation:" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="5" VerticalAlignment="Top"/>
+        <Label x:Name="label_CraftingString" Content="Crafting String:" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="6" VerticalAlignment="Top"/>
+        <Label x:Name="label_Value" Content="Value:" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="7" VerticalAlignment="Top"/>
+        <Label x:Name="label_PowerUsePerSec" Content="Power Use Per Second:" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="8" VerticalAlignment="Top"/>
+        <Label x:Name="label_PowerTransferPerSec" Content="Power Transfer Per Second:" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="9" VerticalAlignment="Top"/>
+        <Label x:Name="label_MaxPowerStorage" Content="Max Power Storage:" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="10" VerticalAlignment="Top"/>
+        <Label x:Name="label_CraftTime" Content="Craft Time:" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="11" VerticalAlignment="Top"/>
+        <Label x:Name="label_OptionalIngredients" Content="Optional Ingredients:" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="12" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_FriendlyName" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_SpawnObject" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_LoadingAnim" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_WorkingAnim" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="4" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_UnloadingAnim" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="5" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_CraftingString" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="6" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Value" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="7" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_PowerUsePerSec" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="8" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_PowerTransferPerSec" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="9" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_MaxPowerStorage" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="10" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_CraftTime" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="11" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_OptionalIngredients" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="12" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Button x:Name="button_SelectGAC" Content="Select" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="40" Width="180" Click="button_SelectGAC_Click"/>
+        <Label x:Name="label_Recipe" Content="Recipe" Grid.Column="2" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Key" Content="Key:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label x:Name="label_CraftedKey" Content="Crafted Key:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <Label x:Name="label_CraftedAmount" Content="Crafted Amount:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+        <Label x:Name="label_Desc" Content="Description" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top"/>
+        <Label x:Name="label_Costs" Content="Costs" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="5" VerticalAlignment="Top"/>
+        <ListBox x:Name="listBox_RecipeCosts" Grid.Column="3" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" Grid.Row="5" Grid.RowSpan="3" VerticalAlignment="Top" Width="200"/>
+        <TextBlock x:Name="textBlock_RecipeKey" Grid.Column="3" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_RecipeCraftedKey" Grid.Column="3" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_RecipeCraftedAmount" Grid.Column="3" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_RecipeDesc" Grid.Column="3" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="4" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+    </Grid>
+</UserControl>

@@ -240,6 +240,7 @@
             this.Controls.Add(this.textBox_ResearchXML);
             this.Controls.Add(this.button_Manufacturer);
             this.Controls.Add(this.button_SelectResearch);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_PathSelector";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
