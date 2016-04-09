@@ -18,8 +18,8 @@ namespace FortressCraftEvolved_Modding_Tool
         public MainWindow()
         {
             InitializeComponent();
-
-            User.Default.Reset();
+            //Uncomment to Reset users information! (This is for debugging)
+            //User.Default.Reset();
 
             ResearchReader.ReadResearchXML(User.Default.ResearchXmlPath);
             ManufacturerRecipesReader.ReadManufactoringXML(User.Default.ManufactorerXmlPath);

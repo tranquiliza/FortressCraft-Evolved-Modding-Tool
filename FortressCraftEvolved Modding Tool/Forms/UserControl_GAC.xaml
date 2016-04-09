@@ -9,27 +9,27 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="400*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="400"/>
             <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="120"/>
             <ColumnDefinition Width="479*"/>
         </Grid.ColumnDefinitions>
         <Label x:Name="label_FriendlyName" Content="Friendly Name:" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
@@ -63,7 +63,7 @@
         <Label x:Name="label_CraftedAmount" Content="Crafted Amount:" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top"/>
         <Label x:Name="label_Desc" Content="Description" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top"/>
         <Label x:Name="label_Costs" Content="Costs" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="5" VerticalAlignment="Top"/>
-        <ListBox x:Name="listBox_RecipeCosts" Grid.Column="3" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" Grid.Row="5" Grid.RowSpan="3" VerticalAlignment="Top" Width="200"/>
+        <ListBox x:Name="listBox_RecipeCosts" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,10" Grid.Row="5" Width="200"/>
         <TextBlock x:Name="textBlock_RecipeKey" Grid.Column="3" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock_RecipeCraftedKey" Grid.Column="3" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock_RecipeCraftedAmount" Grid.Column="3" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>

@@ -61,6 +61,11 @@ namespace Common.GameLogics
         public string Description { get; set; }
         public int ResearchValue { get; set; }
         public float Hardness { get; set; }
+
+        public string Text()
+        {
+            return Name + " (" + Key + ")";
+        }
     }
 
     public enum SegmentRendererLayerType
