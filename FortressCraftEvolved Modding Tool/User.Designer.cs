@@ -94,5 +94,29 @@ namespace FortressCraftEvolved_Modding_Tool {
                 this["GACXmlPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WritePath {
+            get {
+                return ((string)(this["WritePath"]));
+            }
+            set {
+                this["WritePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string GameData {
+            get {
+                return ((string)(this["GameData"]));
+            }
+            set {
+                this["GameData"] = value;
+            }
+        }
     }
 }

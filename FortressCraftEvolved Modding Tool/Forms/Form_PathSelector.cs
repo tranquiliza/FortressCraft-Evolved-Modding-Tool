@@ -14,12 +14,18 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             textBox_ItemsPath.Text = User.Default.ItemsXmlPath;
             textBox_DataEntries.Text = User.Default.TerrainDataXmlPath;
             textBox_RefRec.Text = User.Default.RefineryXmlPath;
+            textBox_WritePath.Text = User.Default.WritePath;
+            textBox_DataPath.Text = "Example: 'E:\\SteamLibrary\\SteamApps\\common\\FortressCraft\\64\\Default\\Data'";
         }
 
         private void button_Close_Click(object sender, EventArgs e)
         {
             User.Default.Save();
             ResearchReader.ReadResearchXML(User.Default.ResearchXmlPath);
+            ManufacturerRecipesReader.ReadManufactoringXML(User.Default.ManufactorerXmlPath);
+            ItemsReader.ReadItems(User.Default.ItemsXmlPath);
+            TerrainDataReader.ReadTerrainDataEntry(User.Default.TerrainDataXmlPath);
+            ManufacturerRecipesReader.ReadRefineryRecipes(User.Default.RefineryXmlPath);
             this.Close();
         }
 
@@ -57,6 +63,36 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             openFileDialog_RefRec.ShowDialog();
             User.Default.RefineryXmlPath = openFileDialog_RefRec.FileName;
             textBox_RefRec.Text = User.Default.RefineryXmlPath;
+        }
+
+        private void button_WritePath_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog_WritePath.ShowDialog();
+            User.Default.WritePath = folderBrowserDialog_WritePath.SelectedPath + "\\";
+            textBox_WritePath.Text = User.Default.WritePath;
+        }
+
+        private void button_DataPath_Click(object sender, EventArgs e)
+        {
+            //This should allow users to just select the folder rather than every file we need to read!
+            folderBrowserDialog_GameData.ShowDialog();
+            User.Default.GameData = folderBrowserDialog_GameData.SelectedPath + "\\";
+
+            User.Default.ResearchXmlPath = User.Default.GameData + "Research.xml";
+            User.Default.ItemsXmlPath = User.Default.GameData + "Items.xml";
+            User.Default.ManufactorerXmlPath = User.Default.GameData + "ManufacturerRecipes.xml";
+            User.Default.TerrainDataXmlPath = User.Default.GameData + "TerrainData.xml";
+            User.Default.RefineryXmlPath = User.Default.GameData + "RefineryRecipes.xml";
+
+            //Mostly for debuggin purposes!
+            textBox_ResearchXML.Text = User.Default.ResearchXmlPath;
+            textBox_Manufacturer.Text = User.Default.ManufactorerXmlPath;
+            textBox_ItemsPath.Text = User.Default.ItemsXmlPath;
+            textBox_DataEntries.Text = User.Default.TerrainDataXmlPath;
+            textBox_RefRec.Text = User.Default.RefineryXmlPath;
+            textBox_WritePath.Text = User.Default.WritePath;
+
+            textBox_DataPath.Text = User.Default.GameData;
         }
     }
 }
