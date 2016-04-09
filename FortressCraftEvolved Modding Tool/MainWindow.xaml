@@ -14,7 +14,7 @@
     </Controls:MetroWindow.RightWindowCommands>
     <Grid>
         <Button x:Name="button_LoadResearch" Content="Research" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="125" Click="button_LoadResearch_Click" Height="35" FontSize="12"/>
-        <TextBlock x:Name="textBlock_Welcome" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Welcome to the FortressCraft Evolved Modding tool!" VerticalAlignment="Top" Height="75" Width="500" FontSize="16"/>
+        <TextBlock x:Name="textBlock_Welcome" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Welcome to the FortressCraft Evolved Modding tool" VerticalAlignment="Top" Height="75" Width="500" FontSize="16"/>
         <ContentControl Name="ContentMain" Margin="140,90,10,10"  Width="Auto" Height="Auto" Opacity="1" Background="Transparent" >
 
         </ContentControl>
