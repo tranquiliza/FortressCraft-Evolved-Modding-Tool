@@ -4,6 +4,7 @@ using FortressCraftEvolved_Modding_Tool.Forms;
 using Common.XmlLogic;
 using System.IO;
 using System.Collections.Generic;
+using Common.Data;
 
 namespace FortressCraftEvolved_Modding_Tool
 {
@@ -20,7 +21,6 @@ namespace FortressCraftEvolved_Modding_Tool
             InitializeComponent();
             //Uncomment to Reset users information! (This is for debugging)
             //User.Default.Reset();
-
             ResearchReader.ReadResearchXML(User.Default.ResearchXmlPath);
             ManufacturerRecipesReader.ReadManufactoringXML(User.Default.ManufactorerXmlPath);
             ItemsReader.ReadItems(User.Default.ItemsXmlPath);
@@ -57,6 +57,7 @@ namespace FortressCraftEvolved_Modding_Tool
             //    MessageBox.Show("You have not selected a path for the program to write files to! \n You can do so in the settings!");
             //}
             //A nice welcome message! :D -> Could display version name here?!
+            textBlock_Welcome.Text += Version.Value;
             textBlock_Welcome.Text += "\n Browse the application by using the buttons below!";
             textBlock_Welcome.Text += "\n Use F5 to reset this window!";
         }

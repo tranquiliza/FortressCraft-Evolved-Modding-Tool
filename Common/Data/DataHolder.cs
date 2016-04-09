@@ -7,6 +7,12 @@ using Common.GameLogics;
 
 namespace Common.Data
 {
+    public static class Version
+    {
+        //0.0.0
+        //Release.Beta.Revision
+        public static string Value = " V0.1.0";
+    }
     public static class DataHolder
     {
         //These hold all the data, and only needs to be assigned values once per run!
