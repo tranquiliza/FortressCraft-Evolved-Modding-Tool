@@ -5,6 +5,7 @@ using Common.XmlLogic;
 using System.IO;
 using System.Collections.Generic;
 using Common.Data;
+using Common.ModWriter;
 
 namespace FortressCraftEvolved_Modding_Tool
 {

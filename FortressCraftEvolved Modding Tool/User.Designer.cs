@@ -118,5 +118,17 @@ namespace FortressCraftEvolved_Modding_Tool {
                 this["GameData"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string AuthorID {
+            get {
+                return ((string)(this["AuthorID"]));
+            }
+            set {
+                this["AuthorID"] = value;
+            }
+        }
     }
 }
