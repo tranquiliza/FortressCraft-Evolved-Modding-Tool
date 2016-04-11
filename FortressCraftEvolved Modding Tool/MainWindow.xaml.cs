@@ -124,21 +124,33 @@ namespace FortressCraftEvolved_Modding_Tool
             Common.ModLogics.CreativeSurvivalMod.ConvertItems();
             Common.ModLogics.CreativeSurvivalMod.AddExtraRecipes(); //Currently only adds ores to ManufacturerPlant!
 
-            string recipes = XMLSerializer.Serialize(Common.ModLogics.CreativeSurvivalMod.ModdedRecipes);
-            string items = XMLSerializer.Serialize(Common.ModLogics.CreativeSurvivalMod.ModdedItems);
+            string recipes = XMLSerializer.Serialize(Common.ModLogics.CreativeSurvivalMod.ModdedRecipes, true);
+            string items = XMLSerializer.Serialize(Common.ModLogics.CreativeSurvivalMod.ModdedItems, true);
 
-            ModCreator.AuthorID = "tranq";
-            ModCreator.ModName = "CreativeSurvival";
-            ModCreator.Version = "1";
-            ModCreator.GenerateDirectory(User.Default.WritePath);
+            ModConfiguration CreativeSurvival = new ModConfiguration();
+            CreativeSurvival.Id = User.Default.AuthorID + "." + "CreativeSurvival";
+            CreativeSurvival.Name = "Creative Survival";
+            CreativeSurvival.Version = "1";
 
-            string xmlfilepath = Path.Combine(User.Default.WritePath, ModCreator.MainFolder);
-            xmlfilepath = Path.Combine(xmlfilepath, ModCreator.Version);
+            string ConfigFile = XMLSerializer.Serialize(CreativeSurvival, false);
+
+            ModCreator.GenerateDirectory(User.Default.WritePath, CreativeSurvival);
+
+            //This is where we save the xml files!
+            string xmlfilepath = Path.Combine(User.Default.WritePath, CreativeSurvival.Id);
+            xmlfilepath = Path.Combine(xmlfilepath, CreativeSurvival.Version);
             xmlfilepath = Path.Combine(xmlfilepath, ModCreator.Xml);
             xmlfilepath += "\\";
+            //This is where we save the config file
+            string configfilepath = Path.Combine(User.Default.WritePath, CreativeSurvival.Id);
+            configfilepath = Path.Combine(configfilepath, CreativeSurvival.Version);
+            configfilepath += "\\";
+
 
             File.WriteAllText(xmlfilepath + "ManufacturerRecipes.xml", recipes);
             File.WriteAllText(xmlfilepath + "Items.xml", items);
+            File.WriteAllText(configfilepath + "Mod.Config", ConfigFile);
+
             string Message = "Generated Creative Survival Files in the root folder!";
             if (User.Default.WritePath != "")
             {
@@ -152,18 +164,23 @@ namespace FortressCraftEvolved_Modding_Tool
             //This is what we call when creating a new mod folder!
             Form_ModCreator popup = new Form_ModCreator();
             popup.ShowDialog();
+            ModConfiguration Config = ModWriterDataHolder.Config;
             if (User.Default.AuthorID == "")
             {
                 MessageBox.Show("No Mod AuthorID Found!");
                 return;
             }
-            if (ModCreator.ModName == null)
+            if (Config.Id == null)
             {
                 MessageBox.Show("Modname was null");
                 return;
             }
-            ModCreator.AuthorID = User.Default.AuthorID;
-            ModCreator.GenerateDirectory(User.Default.WritePath);
+            ModCreator.GenerateDirectory(User.Default.WritePath, Config);
+            string configfilepath = Path.Combine(User.Default.WritePath, Config.Id);
+            configfilepath = Path.Combine(configfilepath, Config.Version);
+            configfilepath += "\\";
+            string configFile = XMLSerializer.Serialize(Config, false);
+            File.WriteAllText(configfilepath + "Mod.Config", configFile);
             ContentMain.Content = null;
         }
     }
