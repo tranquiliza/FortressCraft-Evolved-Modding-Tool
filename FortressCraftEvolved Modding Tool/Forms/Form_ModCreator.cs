@@ -24,14 +24,19 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             if (textBox_ModName.Text != "")
             {
                 NewMod.Name = textBox_ModName.Text;
-                NewMod.Id = User.Default.AuthorID + "." + NewMod.Name;
+                string KeyFriendlyName = NewMod.Name.Replace(" ", "");
+                NewMod.Id = User.Default.AuthorID + "." + KeyFriendlyName;
                 NewMod.Version = numericUpDown_ModVersion.Value.ToString();
-                //TODO:
-                NewMod.IsLocalMod = false;
-                NewMod.IsServerOnlyMod = false;
+                NewMod.IsLocalMod = checkBox_IsLocalMod.Checked;
+                NewMod.IsServerOnlyMod = checkBox_IsServerOnlyMod.Checked;
             }
             ModWriterDataHolder.Config = NewMod;
-            this.Close();
+            Close();
+        }
+
+        private void button_Cancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -96,5 +96,19 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
 
             textBox_DataPath.Text = User.Default.GameData;
         }
+
+        private void button_Reset_Click(object sender, EventArgs e)
+        {
+            User.Default.Reset();
+            textBox_ResearchXML.Text = User.Default.ResearchXmlPath;
+            textBox_Manufacturer.Text = User.Default.ManufactorerXmlPath;
+            textBox_ItemsPath.Text = User.Default.ItemsXmlPath;
+            textBox_DataEntries.Text = User.Default.TerrainDataXmlPath;
+            textBox_RefRec.Text = User.Default.RefineryXmlPath;
+            textBox_WritePath.Text = User.Default.WritePath;
+            //textBox_DataPath.Text = "Example: 'E:\\SteamLibrary\\SteamApps\\common\\FortressCraft\\64\\Default\\Data'";
+            textBox_ModAuthorID.Text = User.Default.AuthorID;
+            User.Default.Save();
+        }
     }
 }

@@ -59,6 +59,7 @@
             this.folderBrowserDialog_GameData = new System.Windows.Forms.FolderBrowserDialog();
             this.label_AuthorID = new System.Windows.Forms.Label();
             this.textBox_ModAuthorID = new System.Windows.Forms.TextBox();
+            this.button_Reset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_SelectResearch
@@ -319,14 +320,25 @@
             this.textBox_ModAuthorID.Size = new System.Drawing.Size(462, 20);
             this.textBox_ModAuthorID.TabIndex = 22;
             // 
+            // button_Reset
+            // 
+            this.button_Reset.Location = new System.Drawing.Point(399, 129);
+            this.button_Reset.Name = "button_Reset";
+            this.button_Reset.Size = new System.Drawing.Size(75, 23);
+            this.button_Reset.TabIndex = 24;
+            this.button_Reset.Text = "Reset";
+            this.button_Reset.UseVisualStyleBackColor = true;
+            this.button_Reset.Click += new System.EventHandler(this.button_Reset_Click);
+            // 
             // Form_PathSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(570, 135);
+            this.ClientSize = new System.Drawing.Size(570, 179);
             this.ControlBox = false;
+            this.Controls.Add(this.button_Reset);
             this.Controls.Add(this.label_AuthorID);
             this.Controls.Add(this.textBox_ModAuthorID);
             this.Controls.Add(this.button_DataPath);
@@ -356,6 +368,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Path Selector";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -394,5 +407,6 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog_GameData;
         private System.Windows.Forms.Label label_AuthorID;
         private System.Windows.Forms.TextBox textBox_ModAuthorID;
+        private System.Windows.Forms.Button button_Reset;
     }
 }

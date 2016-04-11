@@ -30,7 +30,9 @@ namespace FortressCraftEvolved_Modding_Tool
             //Let the user know to update the paths, mainly ownly shows on first time use!
             if (User.Default.GameData == "")
             {
-                MessageBox.Show("Please go to settings at specify where the games data is located! \n Example: E:\\SteamLibrary\\SteamApps\\common\\FortressCraft\\64\\Default\\Data");
+                Form_PathSelector Settings = new Form_PathSelector();
+                Settings.ShowDialog();
+                //MessageBox.Show("Please go to settings at specify where the games data is located! \n Example: E:\\SteamLibrary\\SteamApps\\common\\FortressCraft\\64\\Default\\Data");
             }
             textBlock_Welcome.Text += " " + Version.Value;
             textBlock_Welcome.Text += "\n Browse the application by using the buttons below!";
@@ -110,16 +112,13 @@ namespace FortressCraftEvolved_Modding_Tool
         }
         private void button_GenerateCreativeSurvival_Click(object sender, RoutedEventArgs e)
         {
-            if (User.Default.ManufactorerXmlPath == "")
+            if (User.Default.GameData == "")
             {
-                MessageBox.Show("Cannot write Creative Survial without a ManufacturerRecipes.xml Path! \n Please check your settings!");
+                MessageBox.Show("GameData path was empty. Please check your settings!");
                 return;
             }
-            if (User.Default.ItemsXmlPath == "")
-            {
-                MessageBox.Show("Cannot write Creative Survial without a Items.xml Path! \n Please check your settings!");
-                return;
-            }
+
+            Common.ModLogics.CreativeSurvivalMod.AuthorID = "Tranq";
             Common.ModLogics.CreativeSurvivalMod.ConvertRecipes();
             Common.ModLogics.CreativeSurvivalMod.ConvertItems();
             Common.ModLogics.CreativeSurvivalMod.AddExtraRecipes(); //Currently only adds ores to ManufacturerPlant!
@@ -128,7 +127,7 @@ namespace FortressCraftEvolved_Modding_Tool
             string items = XMLSerializer.Serialize(Common.ModLogics.CreativeSurvivalMod.ModdedItems, true);
 
             ModConfiguration CreativeSurvival = new ModConfiguration();
-            CreativeSurvival.Id = User.Default.AuthorID + "." + "CreativeSurvival";
+            CreativeSurvival.Id = Common.ModLogics.CreativeSurvivalMod.AuthorID + "." + "CreativeSurvival";
             CreativeSurvival.Name = "Creative Survival";
             CreativeSurvival.Version = "1";
 
@@ -164,15 +163,15 @@ namespace FortressCraftEvolved_Modding_Tool
             //This is what we call when creating a new mod folder!
             Form_ModCreator popup = new Form_ModCreator();
             popup.ShowDialog();
+            //Config is also used for making the directory of the mod! (Cause it contains all the values :D )
             ModConfiguration Config = ModWriterDataHolder.Config;
             if (User.Default.AuthorID == "")
             {
-                MessageBox.Show("No Mod AuthorID Found!");
+                MessageBox.Show("No Mod AuthorID Found, please check the settings!");
                 return;
             }
-            if (Config.Id == null)
+            if (Config == null)
             {
-                MessageBox.Show("Modname was null");
                 return;
             }
             ModCreator.GenerateDirectory(User.Default.WritePath, Config);

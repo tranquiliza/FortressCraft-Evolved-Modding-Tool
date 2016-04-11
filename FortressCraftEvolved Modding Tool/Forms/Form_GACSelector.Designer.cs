@@ -80,6 +80,7 @@
             this.Name = "Form_GACSelector";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Generic AutoCrafter Selector";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 

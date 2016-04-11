@@ -12,10 +12,6 @@ namespace Common.ModWriter
         private static string GenericAutoCrafterFolder = "GenericAutoCrafter";
         static public void GenerateDirectory(string OutputPath, ModConfiguration Config)
         {
-            if (OutputPath == "")
-            {
-                return;
-            }
             if (Config.Id == null)
             {
                 return;
