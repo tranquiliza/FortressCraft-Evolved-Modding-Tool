@@ -21,6 +21,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
     /// </summary>
     public partial class UserControl_TerrainData : UserControl
     {
+        //This form has issues with low resolutions!
         string SearchString;
         public UserControl_TerrainData()
         {
