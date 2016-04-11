@@ -27,37 +27,11 @@ namespace FortressCraftEvolved_Modding_Tool
             ItemsReader.ReadItems(User.Default.ItemsXmlPath);
             TerrainDataReader.ReadTerrainDataEntry(User.Default.TerrainDataXmlPath);
             ManufacturerRecipesReader.ReadRefineryRecipes(User.Default.RefineryXmlPath);
-
             //Let the user know to update the paths, mainly ownly shows on first time use!
             if (User.Default.GameData == "")
             {
                 MessageBox.Show("Please go to settings at specify where the games data is located! \n Example: E:\\SteamLibrary\\SteamApps\\common\\FortressCraft\\64\\Default\\Data");
             }
-            //if (User.Default.ResearchXmlPath == "")
-            //{
-            //    MessageBox.Show("Research.XML path not found, please check settings!");
-            //}
-            //if (User.Default.ManufactorerXmlPath == "")
-            //{
-            //    MessageBox.Show("ManufacturerRecipes.xml path not found, please check settings!");
-            //}
-            //if (User.Default.ItemsXmlPath == "")
-            //{
-            //    MessageBox.Show("Items.xml path not found, please check settings!");
-            //}
-            //if (User.Default.TerrainDataXmlPath == "")
-            //{
-            //    MessageBox.Show("TerrainData.xml path not found, please check settings!");
-            //}
-            //if (User.Default.RefineryXmlPath == "")
-            //{
-            //    MessageBox.Show("RefineryRecipes.xml path not found, Please check settings!");
-            //}
-            //if (User.Default.WritePath == "")
-            //{
-            //    MessageBox.Show("You have not selected a path for the program to write files to! \n You can do so in the settings!");
-            //}
-            //A nice welcome message! :D -> Could display version name here?!
             textBlock_Welcome.Text += " " + Version.Value;
             textBlock_Welcome.Text += "\n Browse the application by using the buttons below!";
             textBlock_Welcome.Text += "\n Use F5 to reset this window!";
@@ -153,8 +127,18 @@ namespace FortressCraftEvolved_Modding_Tool
             string recipes = XMLSerializer.Serialize(Common.ModLogics.CreativeSurvivalMod.ModdedRecipes);
             string items = XMLSerializer.Serialize(Common.ModLogics.CreativeSurvivalMod.ModdedItems);
 
-            File.WriteAllText(User.Default.WritePath + "ManufacturerRecipes.xml", recipes);
-            File.WriteAllText(User.Default.WritePath + "Items.xml", items);
+            ModCreator.AuthorID = "tranq";
+            ModCreator.ModName = "CreativeSurvival";
+            ModCreator.Version = "1";
+            ModCreator.GenerateDirectory(User.Default.WritePath);
+
+            string xmlfilepath = Path.Combine(User.Default.WritePath, ModCreator.MainFolder);
+            xmlfilepath = Path.Combine(xmlfilepath, ModCreator.Version);
+            xmlfilepath = Path.Combine(xmlfilepath, ModCreator.Xml);
+            xmlfilepath += "\\";
+
+            File.WriteAllText(xmlfilepath + "ManufacturerRecipes.xml", recipes);
+            File.WriteAllText(xmlfilepath + "Items.xml", items);
             string Message = "Generated Creative Survival Files in the root folder!";
             if (User.Default.WritePath != "")
             {
@@ -163,5 +147,24 @@ namespace FortressCraftEvolved_Modding_Tool
             MessageBox.Show(Message);
         }
 
+        private void button_CreateMod_Click(object sender, RoutedEventArgs e)
+        {
+            //This is what we call when creating a new mod folder!
+            Form_ModCreator popup = new Form_ModCreator();
+            popup.ShowDialog();
+            if (User.Default.AuthorID == "")
+            {
+                MessageBox.Show("No Mod AuthorID Found!");
+                return;
+            }
+            if (ModCreator.ModName == null)
+            {
+                MessageBox.Show("Modname was null");
+                return;
+            }
+            ModCreator.AuthorID = User.Default.AuthorID;
+            ModCreator.GenerateDirectory(User.Default.WritePath);
+            ContentMain.Content = null;
+        }
     }
 }

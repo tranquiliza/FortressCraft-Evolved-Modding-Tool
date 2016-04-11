@@ -16,10 +16,12 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             textBox_RefRec.Text = User.Default.RefineryXmlPath;
             textBox_WritePath.Text = User.Default.WritePath;
             textBox_DataPath.Text = "Example: 'E:\\SteamLibrary\\SteamApps\\common\\FortressCraft\\64\\Default\\Data'";
+            textBox_ModAuthorID.Text = User.Default.AuthorID;
         }
 
         private void button_Close_Click(object sender, EventArgs e)
         {
+            User.Default.AuthorID = textBox_ModAuthorID.Text;
             User.Default.Save();
             ResearchReader.ReadResearchXML(User.Default.ResearchXmlPath);
             ManufacturerRecipesReader.ReadManufactoringXML(User.Default.ManufactorerXmlPath);

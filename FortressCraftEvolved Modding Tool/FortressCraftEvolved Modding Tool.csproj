@@ -71,6 +71,12 @@
     <Compile Include="Forms\Form_GACSelector.Designer.cs">
       <DependentUpon>Form_GACSelector.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Form_ModCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_ModCreator.Designer.cs">
+      <DependentUpon>Form_ModCreator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Form_PathSelector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\Form_GACSelector.resx">
       <DependentUpon>Form_GACSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_ModCreator.resx">
+      <DependentUpon>Form_ModCreator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_PathSelector.resx">
       <DependentUpon>Form_PathSelector.cs</DependentUpon>

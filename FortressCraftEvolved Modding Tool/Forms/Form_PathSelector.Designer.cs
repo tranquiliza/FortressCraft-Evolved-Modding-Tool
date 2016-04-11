@@ -57,11 +57,13 @@
             this.label_DataPath = new System.Windows.Forms.Label();
             this.textBox_DataPath = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog_GameData = new System.Windows.Forms.FolderBrowserDialog();
+            this.label_AuthorID = new System.Windows.Forms.Label();
+            this.textBox_ModAuthorID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button_SelectResearch
             // 
-            this.button_SelectResearch.Location = new System.Drawing.Point(480, 136);
+            this.button_SelectResearch.Location = new System.Drawing.Point(480, 208);
             this.button_SelectResearch.Name = "button_SelectResearch";
             this.button_SelectResearch.Size = new System.Drawing.Size(75, 23);
             this.button_SelectResearch.TabIndex = 0;
@@ -72,7 +74,7 @@
             // 
             // button_Manufacturer
             // 
-            this.button_Manufacturer.Location = new System.Drawing.Point(480, 175);
+            this.button_Manufacturer.Location = new System.Drawing.Point(480, 247);
             this.button_Manufacturer.Name = "button_Manufacturer";
             this.button_Manufacturer.Size = new System.Drawing.Size(75, 23);
             this.button_Manufacturer.TabIndex = 1;
@@ -83,7 +85,7 @@
             // 
             // textBox_ResearchXML
             // 
-            this.textBox_ResearchXML.Location = new System.Drawing.Point(12, 138);
+            this.textBox_ResearchXML.Location = new System.Drawing.Point(12, 210);
             this.textBox_ResearchXML.Name = "textBox_ResearchXML";
             this.textBox_ResearchXML.ReadOnly = true;
             this.textBox_ResearchXML.Size = new System.Drawing.Size(462, 20);
@@ -92,7 +94,7 @@
             // 
             // textBox_Manufacturer
             // 
-            this.textBox_Manufacturer.Location = new System.Drawing.Point(12, 177);
+            this.textBox_Manufacturer.Location = new System.Drawing.Point(12, 249);
             this.textBox_Manufacturer.Name = "textBox_Manufacturer";
             this.textBox_Manufacturer.ReadOnly = true;
             this.textBox_Manufacturer.Size = new System.Drawing.Size(462, 20);
@@ -102,7 +104,7 @@
             // label_ResearchXML
             // 
             this.label_ResearchXML.AutoSize = true;
-            this.label_ResearchXML.Location = new System.Drawing.Point(12, 122);
+            this.label_ResearchXML.Location = new System.Drawing.Point(12, 194);
             this.label_ResearchXML.Name = "label_ResearchXML";
             this.label_ResearchXML.Size = new System.Drawing.Size(78, 13);
             this.label_ResearchXML.TabIndex = 4;
@@ -112,7 +114,7 @@
             // label_Manufacturer
             // 
             this.label_Manufacturer.AutoSize = true;
-            this.label_Manufacturer.Location = new System.Drawing.Point(12, 161);
+            this.label_Manufacturer.Location = new System.Drawing.Point(12, 233);
             this.label_Manufacturer.Name = "label_Manufacturer";
             this.label_Manufacturer.Size = new System.Drawing.Size(95, 13);
             this.label_Manufacturer.TabIndex = 5;
@@ -121,7 +123,7 @@
             // 
             // button_Close
             // 
-            this.button_Close.Location = new System.Drawing.Point(480, 91);
+            this.button_Close.Location = new System.Drawing.Point(480, 101);
             this.button_Close.Name = "button_Close";
             this.button_Close.Size = new System.Drawing.Size(75, 23);
             this.button_Close.TabIndex = 6;
@@ -140,7 +142,7 @@
             // label_Items
             // 
             this.label_Items.AutoSize = true;
-            this.label_Items.Location = new System.Drawing.Point(12, 200);
+            this.label_Items.Location = new System.Drawing.Point(12, 272);
             this.label_Items.Name = "label_Items";
             this.label_Items.Size = new System.Drawing.Size(57, 13);
             this.label_Items.TabIndex = 8;
@@ -149,7 +151,7 @@
             // 
             // textBox_ItemsPath
             // 
-            this.textBox_ItemsPath.Location = new System.Drawing.Point(12, 216);
+            this.textBox_ItemsPath.Location = new System.Drawing.Point(12, 288);
             this.textBox_ItemsPath.Name = "textBox_ItemsPath";
             this.textBox_ItemsPath.ReadOnly = true;
             this.textBox_ItemsPath.Size = new System.Drawing.Size(462, 20);
@@ -158,7 +160,7 @@
             // 
             // button_SelectItems
             // 
-            this.button_SelectItems.Location = new System.Drawing.Point(480, 214);
+            this.button_SelectItems.Location = new System.Drawing.Point(480, 286);
             this.button_SelectItems.Name = "button_SelectItems";
             this.button_SelectItems.Size = new System.Drawing.Size(75, 23);
             this.button_SelectItems.TabIndex = 9;
@@ -174,7 +176,7 @@
             // label_DataEntriesPath
             // 
             this.label_DataEntriesPath.AutoSize = true;
-            this.label_DataEntriesPath.Location = new System.Drawing.Point(12, 239);
+            this.label_DataEntriesPath.Location = new System.Drawing.Point(12, 311);
             this.label_DataEntriesPath.Name = "label_DataEntriesPath";
             this.label_DataEntriesPath.Size = new System.Drawing.Size(87, 13);
             this.label_DataEntriesPath.TabIndex = 11;
@@ -183,7 +185,7 @@
             // 
             // textBox_DataEntries
             // 
-            this.textBox_DataEntries.Location = new System.Drawing.Point(12, 255);
+            this.textBox_DataEntries.Location = new System.Drawing.Point(12, 327);
             this.textBox_DataEntries.Name = "textBox_DataEntries";
             this.textBox_DataEntries.ReadOnly = true;
             this.textBox_DataEntries.Size = new System.Drawing.Size(462, 20);
@@ -192,7 +194,7 @@
             // 
             // button_DataEntrySelect
             // 
-            this.button_DataEntrySelect.Location = new System.Drawing.Point(480, 253);
+            this.button_DataEntrySelect.Location = new System.Drawing.Point(480, 325);
             this.button_DataEntrySelect.Name = "button_DataEntrySelect";
             this.button_DataEntrySelect.Size = new System.Drawing.Size(75, 23);
             this.button_DataEntrySelect.TabIndex = 12;
@@ -207,7 +209,7 @@
             // 
             // button_RefRec
             // 
-            this.button_RefRec.Location = new System.Drawing.Point(480, 292);
+            this.button_RefRec.Location = new System.Drawing.Point(480, 364);
             this.button_RefRec.Name = "button_RefRec";
             this.button_RefRec.Size = new System.Drawing.Size(75, 23);
             this.button_RefRec.TabIndex = 15;
@@ -219,7 +221,7 @@
             // label_RefPath
             // 
             this.label_RefPath.AutoSize = true;
-            this.label_RefPath.Location = new System.Drawing.Point(12, 278);
+            this.label_RefPath.Location = new System.Drawing.Point(12, 350);
             this.label_RefPath.Name = "label_RefPath";
             this.label_RefPath.Size = new System.Drawing.Size(108, 13);
             this.label_RefPath.TabIndex = 14;
@@ -228,7 +230,7 @@
             // 
             // textBox_RefRec
             // 
-            this.textBox_RefRec.Location = new System.Drawing.Point(12, 294);
+            this.textBox_RefRec.Location = new System.Drawing.Point(12, 366);
             this.textBox_RefRec.Name = "textBox_RefRec";
             this.textBox_RefRec.ReadOnly = true;
             this.textBox_RefRec.Size = new System.Drawing.Size(462, 20);
@@ -301,14 +303,32 @@
             // 
             this.folderBrowserDialog_GameData.Description = "Select the Games Data folder";
             // 
+            // label_AuthorID
+            // 
+            this.label_AuthorID.AutoSize = true;
+            this.label_AuthorID.Location = new System.Drawing.Point(12, 87);
+            this.label_AuthorID.Name = "label_AuthorID";
+            this.label_AuthorID.Size = new System.Drawing.Size(76, 13);
+            this.label_AuthorID.TabIndex = 23;
+            this.label_AuthorID.Text = "Mod Author ID";
+            // 
+            // textBox_ModAuthorID
+            // 
+            this.textBox_ModAuthorID.Location = new System.Drawing.Point(12, 103);
+            this.textBox_ModAuthorID.Name = "textBox_ModAuthorID";
+            this.textBox_ModAuthorID.Size = new System.Drawing.Size(462, 20);
+            this.textBox_ModAuthorID.TabIndex = 22;
+            // 
             // Form_PathSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(570, 121);
+            this.ClientSize = new System.Drawing.Size(570, 135);
             this.ControlBox = false;
+            this.Controls.Add(this.label_AuthorID);
+            this.Controls.Add(this.textBox_ModAuthorID);
             this.Controls.Add(this.button_DataPath);
             this.Controls.Add(this.label_DataPath);
             this.Controls.Add(this.textBox_DataPath);
@@ -334,7 +354,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_PathSelector";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Path Selector";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -372,5 +392,7 @@
         private System.Windows.Forms.Label label_DataPath;
         private System.Windows.Forms.TextBox textBox_DataPath;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog_GameData;
+        private System.Windows.Forms.Label label_AuthorID;
+        private System.Windows.Forms.TextBox textBox_ModAuthorID;
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using Common.XmlLogic;
 using Common.GameLogics;
+using Common.ModWriter;
 using System.IO;
 using System.Collections.Generic;
 
@@ -37,6 +38,15 @@ namespace Tests
             List<TerrainDataEntry> ListOfTerrainDataEntry = XMLSerializer.Deserialize<List<TerrainDataEntry>>(File.ReadAllText(FilePath));
             Assert.IsNotNull(ListOfTerrainDataEntry[0]);
             Assert.IsNotNull(ListOfTerrainDataEntry[0].tags[0]);
+        }
+
+        [Test ()]
+        public void TestFileDirectory()
+        {
+            string path = "C:\\Users\\DanielP\\Desktop\\WriteHere";
+            ModCreator.SetMainFolderName("tranq", "testMod");
+            ModCreator.SetVersion("2");
+            ModCreator.GenerateDirectory(path);
         }
 	}
 }

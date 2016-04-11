@@ -6,22 +6,21 @@ using System.Threading.Tasks;
 
 namespace Common.ModWriter
 {
-    public static class DirectoryCreator
+    public static class ModCreator
     {
-        private static string MainFolder;
-        private static string Version;
-        private static string Xml = "Xml";
+        public static string AuthorID { get; set; }
+        public static string ModName { get; set; }
+        public static string Version { get; set; }
+        public static string MainFolder;
+        public static string Xml = "Xml";
         private static string GenericAutoCrafterFolder = "GenericAutoCrafter";
-        static public void SetMainFolderName(string AuthorID, string ModName)
+        static private void SetMainFolderName()
         {
             MainFolder = AuthorID + "." + ModName;
         }
-        static public void SetVersion(string Number)
-        {
-            Version = Number;
-        }
         static public void GenerateDirectory(string OutputPath)
         {
+            SetMainFolderName();
             if (OutputPath == "")
             {
                 return;
