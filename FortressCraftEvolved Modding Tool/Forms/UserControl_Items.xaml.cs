@@ -94,11 +94,11 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             }
             textBlock_Plural.Text = SelectedItem.Plural;
 
-            textBlock_Type.Text = SelectedItem.Type;
+            textBlock_Type.Text = SelectedItem.Type.ToString();
             textBlock_Hidden.Text = SelectedItem.Hidden.ToString();
-            textBlock_Object.Text = SelectedItem.Object;
+            textBlock_Object.Text = SelectedItem.Object.ToString();
             textBlock_Sprite.Text = SelectedItem.Sprite;
-            textBlock_Category.Text = SelectedItem.Category;
+            textBlock_Category.Text = SelectedItem.Category.ToString();
 
 
             if (SelectedItem.ResearchRequirements.Count == 0)

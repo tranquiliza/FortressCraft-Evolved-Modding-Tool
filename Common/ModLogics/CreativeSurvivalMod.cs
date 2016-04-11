@@ -34,7 +34,6 @@ namespace Common.ModLogics
                 Holder.Category = DataHolder.ManufacturerEntries[i].Category;
                 Holder.Tier = DataHolder.ManufacturerEntries[i].Tier;
                 Holder.CraftedKey = DataHolder.ManufacturerEntries[i].CraftedKey;
-                //Holder.CraftedName = DataHolder.ManufacturerEntries[i].CraftedName;
                 Holder.CraftedAmount = DataHolder.ManufacturerEntries[i].CraftedAmount;
                 Holder.CraftTime = DataHolder.ManufacturerEntries[i].CraftTime;
 
@@ -87,12 +86,20 @@ namespace Common.ModLogics
                 Holder.Key = DataHolder.ItemEntries[i].Key;
                 Holder.Name = DataHolder.ItemEntries[i].Name;
                 Holder.Plural = DataHolder.ItemEntries[i].Plural;
-                Holder.Type = DataHolder.ItemEntries[i].Type;
+                Holder.Type = (ItemType)DataHolder.ItemEntries[i].Type;
                 Holder.Hidden = DataHolder.ItemEntries[i].Hidden;
-                Holder.Object = DataHolder.ItemEntries[i].Object;
+                Holder.Object = (SpawnableObjectEnum)DataHolder.ItemEntries[i].Object;
                 Holder.Sprite = DataHolder.ItemEntries[i].Sprite;
-                Holder.Category = DataHolder.ItemEntries[i].Category;
-
+                Holder.Atlas = DataHolder.ItemEntries[i].Atlas;
+                Holder.Category = (MaterialCategories)DataHolder.ItemEntries[i].Category;
+                Holder.Description = DataHolder.ItemEntries[i].Description;
+                Holder.UnknownHint = DataHolder.ItemEntries[i].UnknownHint;
+                Holder.MaxDurability = DataHolder.ItemEntries[i].MaxDurability;
+                Holder.MaxStack = DataHolder.ItemEntries[i].MaxStack;
+                Holder.SuitUpgrade = (SuitUpgradeEnum)DataHolder.ItemEntries[i].SuitUpgrade;
+                Holder.ItemAction = (ItemActions)DataHolder.ItemEntries[i].ItemAction;
+                Holder.ActionParameter = DataHolder.ItemEntries[i].ActionParameter;
+                Holder.DecomposeValue = DataHolder.ItemEntries[i].DecomposeValue;
                 Holder.RemoveResearchRequirements = new List<string>();
                 for (int j = 0; j < DataHolder.ItemEntries[i].ResearchRequirements.Count; j++)
                 {
