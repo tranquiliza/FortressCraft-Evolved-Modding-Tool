@@ -16,6 +16,7 @@ namespace FortressCraftEvolved_Modding_Tool
         UserControl_Items ItemsWindow;
         UserControl_TerrainData TerrainDataWindow;
         UserControl_GAC GACWindow;
+        UserControl_ModInterface ModWindow;
 
         public MainWindow()
         {
@@ -123,8 +124,8 @@ namespace FortressCraftEvolved_Modding_Tool
             Common.ModLogics.CreativeSurvivalMod.ConvertItems();
             Common.ModLogics.CreativeSurvivalMod.AddExtraRecipes(); //Currently only adds ores to ManufacturerPlant!
 
-            string recipes = XMLSerializer.Serialize(Common.ModLogics.CreativeSurvivalMod.ModdedRecipes, true);
-            string items = XMLSerializer.Serialize(Common.ModLogics.CreativeSurvivalMod.ModdedItems, true);
+            string recipes = XMLSerializer.Serialize(Common.ModLogics.CreativeSurvivalMod.ModdedRecipes, false);
+            string items = XMLSerializer.Serialize(Common.ModLogics.CreativeSurvivalMod.ModdedItems, false);
 
             ModConfiguration CreativeSurvival = new ModConfiguration();
             CreativeSurvival.Id = Common.ModLogics.CreativeSurvivalMod.AuthorID + "." + "CreativeSurvival";
@@ -161,26 +162,31 @@ namespace FortressCraftEvolved_Modding_Tool
         private void button_CreateMod_Click(object sender, RoutedEventArgs e)
         {
             //This is what we call when creating a new mod folder!
-            Form_ModCreator popup = new Form_ModCreator();
-            popup.ShowDialog();
-            //Config is also used for making the directory of the mod! (Cause it contains all the values :D )
-            ModConfiguration Config = ModWriterDataHolder.Config;
-            if (User.Default.AuthorID == "")
+            //Form_ModCreator popup = new Form_ModCreator();
+            //popup.ShowDialog();
+            ////Config is also used for making the directory of the mod! (Cause it contains all the values :D )
+            //ModConfiguration Config = ModWriterDataHolder.Config;
+            //if (User.Default.AuthorID == "")
+            //{
+            //    MessageBox.Show("No Mod AuthorID Found, please check the settings!");
+            //    return;
+            //}
+            //if (Config == null)
+            //{
+            //    return;
+            //}
+            //ModCreator.GenerateDirectory(User.Default.WritePath, Config);
+            //string configfilepath = Path.Combine(User.Default.WritePath, Config.Id);
+            //configfilepath = Path.Combine(configfilepath, Config.Version);
+            //configfilepath += "\\";
+            //string configFile = XMLSerializer.Serialize(Config, false);
+            //File.WriteAllText(configfilepath + "Mod.Config", configFile);
+
+            if (ModWindow == null)
             {
-                MessageBox.Show("No Mod AuthorID Found, please check the settings!");
-                return;
+                ModWindow = new UserControl_ModInterface();
             }
-            if (Config == null)
-            {
-                return;
-            }
-            ModCreator.GenerateDirectory(User.Default.WritePath, Config);
-            string configfilepath = Path.Combine(User.Default.WritePath, Config.Id);
-            configfilepath = Path.Combine(configfilepath, Config.Version);
-            configfilepath += "\\";
-            string configFile = XMLSerializer.Serialize(Config, false);
-            File.WriteAllText(configfilepath + "Mod.Config", configFile);
-            ContentMain.Content = null;
+            ContentMain.Content = ModWindow;
         }
     }
 }

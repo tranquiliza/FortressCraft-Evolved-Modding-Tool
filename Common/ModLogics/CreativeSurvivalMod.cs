@@ -110,7 +110,7 @@ namespace Common.ModLogics
         {
 
             CraftData CopperOre = new CraftData();
-            CopperOre.Key = AuthorID + "CopperOre";
+            CopperOre.Key = AuthorID + ".CopperOre";
             CopperOre.CraftedName = "Copper Ore";
             CopperOre.CraftedAmount = 1;
             CopperOre.CraftTime = 0;
@@ -119,7 +119,7 @@ namespace Common.ModLogics
             CopperOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
             CraftData TinOre = new CraftData();
-            TinOre.Key = AuthorID + "TinOre";
+            TinOre.Key = AuthorID + ".TinOre";
             TinOre.CraftedName = "Tin Ore";
             TinOre.CraftedAmount = 1;
             TinOre.CraftTime = 0;
@@ -128,7 +128,7 @@ namespace Common.ModLogics
             TinOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
             CraftData IronOre = new CraftData();
-            IronOre.Key = AuthorID + "IronOre";
+            IronOre.Key = AuthorID + ".IronOre";
             IronOre.CraftedName = "Iron Ore";
             IronOre.CraftedAmount = 1;
             IronOre.CraftTime = 0;
@@ -137,7 +137,7 @@ namespace Common.ModLogics
             IronOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
             CraftData LithiumOre = new CraftData();
-            LithiumOre.Key = AuthorID + "LithiumOre";
+            LithiumOre.Key = AuthorID + ".LithiumOre";
             LithiumOre.CraftedName = "Lithium Ore";
             LithiumOre.CraftedAmount = 1;
             LithiumOre.CraftTime = 0;
@@ -146,7 +146,7 @@ namespace Common.ModLogics
             LithiumOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
             CraftData GoldOre = new CraftData();
-            GoldOre.Key = AuthorID + "GoldOre";
+            GoldOre.Key = AuthorID + ".GoldOre";
             GoldOre.CraftedName = "Gold Ore";
             GoldOre.CraftedAmount = 1;
             GoldOre.CraftTime = 0;
@@ -155,7 +155,7 @@ namespace Common.ModLogics
             GoldOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
             CraftData NickelOre = new CraftData();
-            NickelOre.Key = AuthorID + "NickelOre";
+            NickelOre.Key = AuthorID + ".NickelOre";
             NickelOre.CraftedName = "Nickel Ore";
             NickelOre.CraftedAmount = 1;
             NickelOre.CraftTime = 0;
@@ -164,7 +164,7 @@ namespace Common.ModLogics
             NickelOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
             CraftData TitaniumOre = new CraftData();
-            TitaniumOre.Key = AuthorID + "TitaniumOre";
+            TitaniumOre.Key = AuthorID + ".TitaniumOre";
             TitaniumOre.CraftedName = "Titanium Ore";
             TitaniumOre.CraftedAmount = 1;
             TitaniumOre.CraftTime = 0;
@@ -173,7 +173,7 @@ namespace Common.ModLogics
             TitaniumOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
             CraftData CrystalDeposit = new CraftData();
-            CrystalDeposit.Key = AuthorID + "CrystalDeposit";
+            CrystalDeposit.Key = AuthorID + ".CrystalDeposit";
             CrystalDeposit.CraftedName = "Crystal Deposit";
             CrystalDeposit.CraftedAmount = 1;
             CrystalDeposit.CraftTime = 0;
@@ -182,7 +182,7 @@ namespace Common.ModLogics
             CrystalDeposit.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
             CraftData BiomassGrowth = new CraftData();
-            BiomassGrowth.Key = AuthorID + "BiomassGrowth";
+            BiomassGrowth.Key = AuthorID + ".BiomassGrowth";
             BiomassGrowth.CraftedName = "Biomass Growth";
             BiomassGrowth.CraftedAmount = 1;
             BiomassGrowth.CraftTime = 0;

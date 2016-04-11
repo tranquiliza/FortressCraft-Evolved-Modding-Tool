@@ -38,7 +38,10 @@
     <Compile Include="GameLogics\TerrainDataEntry.cs" />
     <Compile Include="ModLogics\CraftData.cs" />
     <Compile Include="ModLogics\CreativeSurvivalMod.cs" />
+    <Compile Include="ModLogics\GenericAutoCrafterDataEntry.cs" />
     <Compile Include="ModLogics\ItemEntry.cs" />
+    <Compile Include="ModLogics\ResearchDataEntry.cs" />
+    <Compile Include="ModLogics\TerrainDataEntry.cs" />
     <Compile Include="ModWriter\ModWriterDataHolder.cs" />
     <Compile Include="ModWriter\ModConfiguration.cs" />
     <Compile Include="ModWriter\ModCreator.cs" />

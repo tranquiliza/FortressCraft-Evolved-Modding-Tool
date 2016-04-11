@@ -128,7 +128,10 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                     }
                 }
             }
-
+            if (SelectedEntry == null)
+            {
+                return;
+            }
             //Textblock stuff!
             if (SelectedEntry.Category != null)
             {

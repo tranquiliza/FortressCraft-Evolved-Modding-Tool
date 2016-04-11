@@ -92,6 +92,9 @@
     <Compile Include="Forms\UserControl_Manufacturer.xaml.cs">
       <DependentUpon>UserControl_Manufacturer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserControl_ModInterface.xaml.cs">
+      <DependentUpon>UserControl_ModInterface.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserControl_Research.xaml.cs">
       <DependentUpon>UserControl_Research.xaml</DependentUpon>
     </Compile>
@@ -112,6 +115,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\UserControl_Manufacturer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\UserControl_ModInterface.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -20,13 +20,11 @@ namespace Common.ModLogics
         public string Object { get; set; }
         public string Sprite { get; set; }
         public string Category { get; set; }
-        [XmlArray("ResearchRequirements")]
-        [XmlArrayItem("Research", typeof(string))]
+        [XmlArray, XmlArrayItem("Research")]
         public List<string> ResearchRequirements { get; set; }
         [XmlArray, XmlArrayItem("Research")]
         public List<string> RemoveResearchRequirements { get; set; }
-        [XmlArray("ScanRequirements")]
-        [XmlArrayItem("Scan", typeof(string))]
+        [XmlArray, XmlArrayItem("Scan")]
         public List<string> ScanRequirements { get; set; }
         [XmlArray, XmlArrayItem("Scan")]
         public List<string> RemoveScanRequirements { get; set; }

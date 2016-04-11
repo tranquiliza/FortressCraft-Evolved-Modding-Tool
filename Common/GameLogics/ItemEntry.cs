@@ -3,17 +3,6 @@ using System.Xml.Serialization;
 
 namespace Common.GameLogics
 {
-    // We dont need:
-    //[Serializable()]
-    //public class ArrayOfItemEntry
-    //{
-    //	[XmlArray("ArrayOfItemEntry")]
-    //	[XmlArrayItem("ItemEntry", typeof(ItemEntry))]
-    //	public ItemEntry[] ItemEntry { get; set; }
-    //}
-    //[XmlRoot("ArrayOfItemEntry")]
-    //[Serializable()]
-    //Appearntly the code above is not needed?!
     public class ItemEntry
     {
         public int ItemID { get; set; }
