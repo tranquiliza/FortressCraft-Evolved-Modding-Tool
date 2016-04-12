@@ -116,87 +116,133 @@ namespace Common.ModLogics
         public static void AddExtraRecipes()
         {
 
+            //Missiles
+
+            CraftData BasicMissile = new CraftData();
+            BasicMissile.Key = AuthorID + ".BasicMissile";
+            BasicMissile.CraftedKey = "BasicMissile";
+            BasicMissile.CraftedAmount = 1;
+            BasicMissile.CraftTime = 0;
+            BasicMissile.Category = "defences";
+            BasicMissile.Tier = 5;
+            BasicMissile.Description = "Because Making a factory takes a while...";
+
+            CraftData ArmourPiercingMissile = new CraftData();
+            ArmourPiercingMissile.Key = AuthorID + ".ArmourPiercingMissile";
+            ArmourPiercingMissile.CraftedKey = "ArmourPiercingMissile";
+            ArmourPiercingMissile.CraftedAmount = 1;
+            ArmourPiercingMissile.CraftTime = 0;
+            ArmourPiercingMissile.Category = "defences";
+            ArmourPiercingMissile.Tier = 5;
+            ArmourPiercingMissile.Description = "Wub Wub Wub!";
+
+            CraftData PlasmaImbuedMissile = new CraftData();
+            PlasmaImbuedMissile.Key = AuthorID + ".PlasmaImbuedMissile";
+            PlasmaImbuedMissile.CraftedKey = "PlasmaImbuedMissile";
+            PlasmaImbuedMissile.CraftedAmount = 1;
+            PlasmaImbuedMissile.CraftTime = 0;
+            PlasmaImbuedMissile.Category = "defences";
+            PlasmaImbuedMissile.Tier = 5;
+            PlasmaImbuedMissile.Description = "Make it sting!";
+
+
+            ModdedRecipes.Add(BasicMissile);
+            ModdedRecipes.Add(PlasmaImbuedMissile);
+            ModdedRecipes.Add(ArmourPiercingMissile);
+
+            //Ores:
+
+            CraftData CoalOre = new CraftData();
+            CoalOre.Key = AuthorID + ".CoalOre";
+            CoalOre.CraftedKey = "CoalOre";
+            CoalOre.CraftedAmount = 1;
+            CoalOre.CraftTime = 0;
+            CoalOre.Category = "decoration";
+            CoalOre.Tier = 5;
+            CoalOre.Description = "Just Coal";
+
             CraftData CopperOre = new CraftData();
             CopperOre.Key = AuthorID + ".CopperOre";
-            CopperOre.CraftedName = "Copper Ore";
+            CopperOre.CraftedKey = "CopperOre";
             CopperOre.CraftedAmount = 1;
             CopperOre.CraftTime = 0;
             CopperOre.Category = "decoration";
             CopperOre.Tier = 5;
-            CopperOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+            CopperOre.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
             CraftData TinOre = new CraftData();
             TinOre.Key = AuthorID + ".TinOre";
-            TinOre.CraftedName = "Tin Ore";
+            TinOre.CraftedKey = "TinOre";
             TinOre.CraftedAmount = 1;
             TinOre.CraftTime = 0;
             TinOre.Category = "decoration";
             TinOre.Tier = 5;
-            TinOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+            TinOre.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
             CraftData IronOre = new CraftData();
             IronOre.Key = AuthorID + ".IronOre";
-            IronOre.CraftedName = "Iron Ore";
+            IronOre.CraftedKey = "IronOre";
             IronOre.CraftedAmount = 1;
             IronOre.CraftTime = 0;
             IronOre.Category = "decoration";
             IronOre.Tier = 5;
-            IronOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+            IronOre.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
             CraftData LithiumOre = new CraftData();
             LithiumOre.Key = AuthorID + ".LithiumOre";
-            LithiumOre.CraftedName = "Lithium Ore";
+            LithiumOre.CraftedKey = "LithiumOre";
             LithiumOre.CraftedAmount = 1;
             LithiumOre.CraftTime = 0;
             LithiumOre.Category = "decoration";
             LithiumOre.Tier = 5;
-            LithiumOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+            LithiumOre.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
             CraftData GoldOre = new CraftData();
             GoldOre.Key = AuthorID + ".GoldOre";
-            GoldOre.CraftedName = "Gold Ore";
+            GoldOre.CraftedKey = "GoldOre";
             GoldOre.CraftedAmount = 1;
             GoldOre.CraftTime = 0;
             GoldOre.Category = "decoration";
             GoldOre.Tier = 5;
-            GoldOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+            GoldOre.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
             CraftData NickelOre = new CraftData();
             NickelOre.Key = AuthorID + ".NickelOre";
-            NickelOre.CraftedName = "Nickel Ore";
+            NickelOre.CraftedKey = "NickelOre";
             NickelOre.CraftedAmount = 1;
             NickelOre.CraftTime = 0;
             NickelOre.Category = "decoration";
             NickelOre.Tier = 5;
-            NickelOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+            NickelOre.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
             CraftData TitaniumOre = new CraftData();
             TitaniumOre.Key = AuthorID + ".TitaniumOre";
-            TitaniumOre.CraftedName = "Titanium Ore";
+            TitaniumOre.CraftedKey = "TitaniumOre";
             TitaniumOre.CraftedAmount = 1;
             TitaniumOre.CraftTime = 0;
             TitaniumOre.Category = "decoration";
             TitaniumOre.Tier = 5;
-            TitaniumOre.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+            TitaniumOre.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
             CraftData CrystalDeposit = new CraftData();
             CrystalDeposit.Key = AuthorID + ".CrystalDeposit";
-            CrystalDeposit.CraftedName = "Crystal Deposit";
+            CrystalDeposit.CraftedKey = "CrystalDeposit";
             CrystalDeposit.CraftedAmount = 1;
             CrystalDeposit.CraftTime = 0;
             CrystalDeposit.Category = "decoration";
             CrystalDeposit.Tier = 5;
-            CrystalDeposit.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+            CrystalDeposit.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
             CraftData BiomassGrowth = new CraftData();
             BiomassGrowth.Key = AuthorID + ".BiomassGrowth";
-            BiomassGrowth.CraftedName = "Biomass Growth";
+            BiomassGrowth.CraftedKey = "BiomassGrowth";
             BiomassGrowth.CraftedAmount = 1;
             BiomassGrowth.CraftTime = 0;
             BiomassGrowth.Category = "decoration";
             BiomassGrowth.Tier = 5;
-            BiomassGrowth.Hint = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+            BiomassGrowth.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
+            ModdedRecipes.Add(CoalOre);
             ModdedRecipes.Add(CopperOre);
             ModdedRecipes.Add(TinOre);
             ModdedRecipes.Add(IronOre);
@@ -206,6 +252,185 @@ namespace Common.ModLogics
             ModdedRecipes.Add(TitaniumOre);
             ModdedRecipes.Add(CrystalDeposit);
             ModdedRecipes.Add(BiomassGrowth);
+
+            //Organics:consumables
+
+            CraftData PristineHeavyChitin = new CraftData();
+            PristineHeavyChitin.Key = AuthorID + ".PristineHeavyChitin";
+            PristineHeavyChitin.CraftedKey = "PristineHeavyChitin";
+            PristineHeavyChitin.CraftedAmount = 1;
+            PristineHeavyChitin.CraftTime = 0;
+            PristineHeavyChitin.Category = "consumables";
+            PristineHeavyChitin.Tier = 5;
+            PristineHeavyChitin.Description = "Bug parts for everyone!";
+
+            ModdedRecipes.Add(PristineHeavyChitin);
+
+            CraftData RuinedHeavyChitin = new CraftData();
+            RuinedHeavyChitin.Key = AuthorID + ".RuinedHeavyChitin";
+            RuinedHeavyChitin.CraftedKey = "RuinedHeavyChitin";
+            RuinedHeavyChitin.CraftedAmount = 1;
+            RuinedHeavyChitin.CraftTime = 0;
+            RuinedHeavyChitin.Category = "consumables";
+            RuinedHeavyChitin.Tier = 5;
+            RuinedHeavyChitin.Description = "Bug parts for everyone!";
+
+            ModdedRecipes.Add(RuinedHeavyChitin);
+
+            CraftData PristineLightChitin = new CraftData();
+            PristineLightChitin.Key = AuthorID + ".PristineLightChitin";
+            PristineLightChitin.CraftedKey = "PristineLightChitin";
+            PristineLightChitin.CraftedAmount = 1;
+            PristineLightChitin.CraftTime = 0;
+            PristineLightChitin.Category = "consumables";
+            PristineLightChitin.Tier = 5;
+            PristineLightChitin.Description = "Bug parts for everyone!";
+
+            ModdedRecipes.Add(PristineLightChitin);
+
+            CraftData RuinedLightChitin = new CraftData();
+            RuinedLightChitin.Key = AuthorID + ".RuinedLightChitin";
+            RuinedLightChitin.CraftedKey = "RuinedLightChitin";
+            RuinedLightChitin.CraftedAmount = 1;
+            RuinedLightChitin.CraftTime = 0;
+            RuinedLightChitin.Category = "consumables";
+            RuinedLightChitin.Tier = 5;
+            RuinedLightChitin.Description = "Bug parts for everyone!";
+
+            ModdedRecipes.Add(RuinedLightChitin);
+
+            CraftData PristineStinger = new CraftData();
+            PristineStinger.Key = AuthorID + ".PristineStinger";
+            PristineStinger.CraftedKey = "PristineStinger";
+            PristineStinger.CraftedAmount = 1;
+            PristineStinger.CraftTime = 0;
+            PristineStinger.Category = "consumables";
+            PristineStinger.Tier = 5;
+            PristineStinger.Description = "Bug parts for everyone!";
+
+            ModdedRecipes.Add(PristineStinger);
+
+            CraftData RuinedStinger = new CraftData();
+            RuinedStinger.Key = AuthorID + ".RuinedStinger";
+            RuinedStinger.CraftedKey = "RuinedStinger";
+            RuinedStinger.CraftedAmount = 1;
+            RuinedStinger.CraftTime = 0;
+            RuinedStinger.Category = "consumables";
+            RuinedStinger.Tier = 5;
+            RuinedStinger.Description = "Bug parts for everyone!";
+
+            ModdedRecipes.Add(RuinedStinger);
+
+            CraftData PristineFacetedEye = new CraftData();
+            PristineFacetedEye.Key = AuthorID + ".PristineFacetedEye";
+            PristineFacetedEye.CraftedKey = "PristineFacetedEye";
+            PristineFacetedEye.CraftedAmount = 1;
+            PristineFacetedEye.CraftTime = 0;
+            PristineFacetedEye.Category = "consumables";
+            PristineFacetedEye.Tier = 5;
+            PristineFacetedEye.Description = "Bug parts for everyone!";
+
+            ModdedRecipes.Add(PristineFacetedEye);
+
+            CraftData RuinedFacetedEye = new CraftData();
+            RuinedFacetedEye.Key = AuthorID + ".RuinedFacetedEye";
+            RuinedFacetedEye.CraftedKey = "RuinedFacetedEye";
+            RuinedFacetedEye.CraftedAmount = 1;
+            RuinedFacetedEye.CraftTime = 0;
+            RuinedFacetedEye.Category = "consumables";
+            RuinedFacetedEye.Tier = 5;
+            RuinedFacetedEye.Description = "Bug parts for everyone!";
+
+            ModdedRecipes.Add(RuinedFacetedEye);
+
+            CraftData PristinePhosphorescentGland = new CraftData();
+            PristinePhosphorescentGland.Key = AuthorID + ".PristinePhosphorescentGland";
+            PristinePhosphorescentGland.CraftedKey = "PristinePhosphorescentGland";
+            PristinePhosphorescentGland.CraftedAmount = 1;
+            PristinePhosphorescentGland.CraftTime = 0;
+            PristinePhosphorescentGland.Category = "consumables";
+            PristinePhosphorescentGland.Tier = 5;
+            PristinePhosphorescentGland.Description = "Bug parts for everyone!";
+
+            ModdedRecipes.Add(PristinePhosphorescentGland);
+
+            CraftData RuinedPhosphorescentGland = new CraftData();
+            RuinedPhosphorescentGland.Key = AuthorID + ".RuinedPhosphorescentGland";
+            RuinedPhosphorescentGland.CraftedKey = "RuinedPhosphorescentGland";
+            RuinedPhosphorescentGland.CraftedAmount = 1;
+            RuinedPhosphorescentGland.CraftTime = 0;
+            RuinedPhosphorescentGland.Category = "consumables";
+            RuinedPhosphorescentGland.Tier = 5;
+            RuinedPhosphorescentGland.Description = "Bug parts for everyone!";
+
+            ModdedRecipes.Add(RuinedPhosphorescentGland);
+
+            CraftData PerfectFacetedEye = new CraftData();
+            PerfectFacetedEye.Key = AuthorID + ".PerfectFacetedEye";
+            PerfectFacetedEye.CraftedKey = "PerfectFacetedEye";
+            PerfectFacetedEye.CraftedAmount = 1;
+            PerfectFacetedEye.CraftTime = 0;
+            PerfectFacetedEye.Category = "consumables";
+            PerfectFacetedEye.Tier = 5;
+            PerfectFacetedEye.Description = "Bug parts for everyone!";
+
+            ModdedRecipes.Add(PerfectFacetedEye);
+
+            CraftData MassiveFacetedEye = new CraftData();
+            MassiveFacetedEye.Key = AuthorID + ".MassiveFacetedEye";
+            MassiveFacetedEye.CraftedKey = "MassiveFacetedEye";
+            MassiveFacetedEye.CraftedAmount = 1;
+            MassiveFacetedEye.CraftTime = 0;
+            MassiveFacetedEye.Category = "consumables";
+            MassiveFacetedEye.Tier = 5;
+            MassiveFacetedEye.Description = "Bug parts for everyone!";
+
+            ModdedRecipes.Add(MassiveFacetedEye);
+
+            CraftData HiveBrainMatter = new CraftData();
+            HiveBrainMatter.Key = AuthorID + ".HiveBrainMatter";
+            HiveBrainMatter.CraftedKey = "HiveBrainMatter";
+            HiveBrainMatter.CraftedAmount = 1;
+            HiveBrainMatter.CraftTime = 0;
+            HiveBrainMatter.Category = "consumables";
+            HiveBrainMatter.Tier = 5;
+            HiveBrainMatter.Description = "Bug parts for everyone!";
+
+            ModdedRecipes.Add(HiveBrainMatter);
+
+            CraftData RefinedLiquidResin = new CraftData();
+            RefinedLiquidResin.Key = AuthorID + ".RefinedLiquidResin";
+            RefinedLiquidResin.CraftedKey = "RefinedLiquidResin";
+            RefinedLiquidResin.CraftedAmount = 1;
+            RefinedLiquidResin.CraftTime = 0;
+            RefinedLiquidResin.Category = "consumables";
+            RefinedLiquidResin.Tier = 5;
+            RefinedLiquidResin.Description = "Bug parts for everyone!";
+
+            ModdedRecipes.Add(RefinedLiquidResin);
+
+            CraftData SpoiledOrganicRemains = new CraftData();
+            SpoiledOrganicRemains.Key = AuthorID + ".SpoiledOrganicRemains";
+            SpoiledOrganicRemains.CraftedKey = "SpoiledOrganicRemains";
+            SpoiledOrganicRemains.CraftedAmount = 1;
+            SpoiledOrganicRemains.CraftTime = 0;
+            SpoiledOrganicRemains.Category = "consumables";
+            SpoiledOrganicRemains.Tier = 5;
+            SpoiledOrganicRemains.Description = "Bug parts for everyone!";
+
+            ModdedRecipes.Add(SpoiledOrganicRemains);
+
+            CraftData RecombinedOrganicMatter = new CraftData();
+            RecombinedOrganicMatter.Key = AuthorID + ".RecombinedOrganicMatter";
+            RecombinedOrganicMatter.CraftedKey = "RecombinedOrganicMatter";
+            RecombinedOrganicMatter.CraftedAmount = 1;
+            RecombinedOrganicMatter.CraftTime = 0;
+            RecombinedOrganicMatter.Category = "consumables";
+            RecombinedOrganicMatter.Tier = 5;
+            RecombinedOrganicMatter.Description = "Bug parts for everyone!";
+
+            ModdedRecipes.Add(RecombinedOrganicMatter);
+
         }
     }
 }

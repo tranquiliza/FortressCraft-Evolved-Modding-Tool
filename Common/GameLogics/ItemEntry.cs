@@ -28,7 +28,7 @@ namespace Common.GameLogics
         public List<string> ScanRequirements { get; set; }
         public string UnknownHint { get; set; }
         public int MaxDurability { get; set; }
-        public int MaxStack { get; set; }
+        public int MaxStack = 100;
         public SuitUpgradeEnum SuitUpgrade { get; set; }
         public ItemActions ItemAction { get; set; }
         public string ActionParameter { get; set; }
