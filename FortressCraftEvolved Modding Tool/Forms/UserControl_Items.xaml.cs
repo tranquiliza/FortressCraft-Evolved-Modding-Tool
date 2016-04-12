@@ -128,6 +128,19 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             {
                 listBox_ScanReq.Items.Add(SelectedItem.ScanRequirements[i]);
             }
+
+
+            listBox_ItemUsedIn.Items.Clear();
+            for (int i = 0; i < DataHolder.ManufacturerEntries.Count; i++)
+            {
+                for (int j = 0; j < DataHolder.ManufacturerEntries[i].Costs.Count; j++)
+                {
+                    if (SelectedItem.Key == DataHolder.ManufacturerEntries[i].Costs[j].Key)
+                    {
+                        listBox_ItemUsedIn.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
+                    }
+                }
+            }
         }
     }
 }
