@@ -21,14 +21,32 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
 
         private void button_Close_Click(object sender, EventArgs e)
         {
-            User.Default.AuthorID = textBox_ModAuthorID.Text;
-            User.Default.Save();
-            ResearchReader.ReadResearchXML(User.Default.ResearchXmlPath);
-            ManufacturerRecipesReader.ReadManufactoringXML(User.Default.ManufactorerXmlPath);
-            ItemsReader.ReadItems(User.Default.ItemsXmlPath);
-            TerrainDataReader.ReadTerrainDataEntry(User.Default.TerrainDataXmlPath);
-            ManufacturerRecipesReader.ReadRefineryRecipes(User.Default.RefineryXmlPath);
-            this.Close();
+            //If the path selected is not a valid path, we need to not die...
+            if (User.Default.GameData.Contains("FortressCraft\\64\\Default\\Data") || User.Default.GameData.Contains("FortressCraft\\32\\Default\\Data"))
+            {
+                User.Default.AuthorID = textBox_ModAuthorID.Text;
+                User.Default.Save();
+                ResearchReader.ReadResearchXML(User.Default.ResearchXmlPath);
+                ManufacturerRecipesReader.ReadManufactoringXML(User.Default.ManufactorerXmlPath);
+                ItemsReader.ReadItems(User.Default.ItemsXmlPath);
+                TerrainDataReader.ReadTerrainDataEntry(User.Default.TerrainDataXmlPath);
+                ManufacturerRecipesReader.ReadRefineryRecipes(User.Default.RefineryXmlPath);
+
+                //MessageBox.Show("Correct!");
+                Close();
+            }
+            else
+            {
+                User.Default.AuthorID = textBox_ModAuthorID.Text;
+                User.Default.GameData = "";
+                User.Default.ResearchXmlPath = User.Default.GameData;
+                User.Default.ItemsXmlPath = User.Default.GameData;
+                User.Default.ManufactorerXmlPath = User.Default.GameData;
+                User.Default.TerrainDataXmlPath = User.Default.GameData;
+                User.Default.RefineryXmlPath = User.Default.GameData;
+                //MessageBox.Show("False!");
+                Close();
+            }
         }
 
         private void button_SelectResearch_Click(object sender, EventArgs e)

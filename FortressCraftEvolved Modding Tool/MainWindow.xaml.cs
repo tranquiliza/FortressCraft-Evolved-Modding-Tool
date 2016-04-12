@@ -23,21 +23,24 @@ namespace FortressCraftEvolved_Modding_Tool
             InitializeComponent();
             //Uncomment to Reset users information! (This is for debugging)
             //User.Default.Reset();
-            ResearchReader.ReadResearchXML(User.Default.ResearchXmlPath);
-            ManufacturerRecipesReader.ReadManufactoringXML(User.Default.ManufactorerXmlPath);
-            ItemsReader.ReadItems(User.Default.ItemsXmlPath);
-            TerrainDataReader.ReadTerrainDataEntry(User.Default.TerrainDataXmlPath);
-            ManufacturerRecipesReader.ReadRefineryRecipes(User.Default.RefineryXmlPath);
-            //Let the user know to update the paths, mainly ownly shows on first time use!
-            if (User.Default.GameData == "")
-            {
-                Form_PathSelector Settings = new Form_PathSelector();
-                Settings.ShowDialog();
-                //MessageBox.Show("Please go to settings at specify where the games data is located! \n Example: E:\\SteamLibrary\\SteamApps\\common\\FortressCraft\\64\\Default\\Data");
-            }
+            //---
             textBlock_Welcome.Text += " " + Version.Value;
             textBlock_Welcome.Text += "\n Browse the application by using the buttons below!";
             textBlock_Welcome.Text += "\n Use F5 to reset this window!";
+            //Let the user know to update the paths, mainly ownly shows on first time use!
+            if (User.Default.GameData.Contains("FortressCraft\\64\\Default\\Data") || User.Default.GameData.Contains("FortressCraft\\32\\Default\\Data"))
+            {
+                ResearchReader.ReadResearchXML(User.Default.ResearchXmlPath);
+                ManufacturerRecipesReader.ReadManufactoringXML(User.Default.ManufactorerXmlPath);
+                ItemsReader.ReadItems(User.Default.ItemsXmlPath);
+                TerrainDataReader.ReadTerrainDataEntry(User.Default.TerrainDataXmlPath);
+                ManufacturerRecipesReader.ReadRefineryRecipes(User.Default.RefineryXmlPath);
+            }
+            else
+            {
+                Form_PathSelector Settings = new Form_PathSelector();
+                Settings.ShowDialog();
+            }
         }
 
 

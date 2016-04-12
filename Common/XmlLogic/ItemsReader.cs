@@ -15,11 +15,14 @@ namespace Common.XmlLogic
     {
 		public static void ReadItems(string path)
         {
-            if (path == "")
+            if (path.Contains("Items.xml"))
+            {
+                DataHolder.ItemEntries = XMLSerializer.Deserialize<List<ItemEntry>>(File.ReadAllText(path));
+            }
+            else
             {
                 return;
             }
-            DataHolder.ItemEntries = XMLSerializer.Deserialize<List<ItemEntry>>(File.ReadAllText(path));
         }
     }
 }

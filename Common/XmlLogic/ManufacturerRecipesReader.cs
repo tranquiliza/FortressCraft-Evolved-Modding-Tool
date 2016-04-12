@@ -11,19 +11,25 @@ namespace Common.XmlLogic
     {
 		public static void ReadManufactoringXML(string ManufactorerXmlPath)
         {
-            if (ManufactorerXmlPath == "")
+            if (ManufactorerXmlPath.Contains("ManufacturerRecipes.xml"))
+            {
+                DataHolder.ManufacturerEntries = XMLSerializer.Deserialize<List<CraftData>>(File.ReadAllText(ManufactorerXmlPath));
+            }
+            else
             {
                 return;
             }
-            DataHolder.ManufacturerEntries = XMLSerializer.Deserialize<List<CraftData>>(File.ReadAllText(ManufactorerXmlPath));
         }
         public static void ReadRefineryRecipes(string RefineryPath)
         {
-            if (RefineryPath == "")
+            if (RefineryPath.Contains("RefineryRecipes.xml"))
+            {
+                ModDataHolder.RefineryRecipes = XMLSerializer.Deserialize<List<CraftData>>(File.ReadAllText(RefineryPath));
+            }
+            else
             {
                 return;
             }
-            ModDataHolder.RefineryRecipes = XMLSerializer.Deserialize<List<CraftData>>(File.ReadAllText(RefineryPath));
         }
     }
 }

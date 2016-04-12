@@ -11,11 +11,14 @@ namespace Common.XmlLogic
     {
 		public static void ReadResearchXML(string ResearchXmlPath)
         {
-            if (ResearchXmlPath == "")
+            if (ResearchXmlPath.Contains("Research.xml"))
+            {
+                DataHolder.ResearchEntries = XMLSerializer.Deserialize<List<ResearchDataEntry>>(File.ReadAllText(ResearchXmlPath));
+            }
+            else
             {
                 return;
             }
-            DataHolder.ResearchEntries = XMLSerializer.Deserialize<List<ResearchDataEntry>>(File.ReadAllText(ResearchXmlPath));
         }
 
     }

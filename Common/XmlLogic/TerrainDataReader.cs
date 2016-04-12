@@ -13,11 +13,14 @@ namespace Common.XmlLogic
     {
         public static void ReadTerrainDataEntry(string TerrainDataPath)
         {
-            if (TerrainDataPath == "")
+            if (TerrainDataPath.Contains("TerrainData.xml"))
+            {
+                DataHolder.TerrainDataEntries = XMLSerializer.Deserialize<List<TerrainDataEntry>>(File.ReadAllText(TerrainDataPath));
+            }
+            else
             {
                 return;
             }
-            DataHolder.TerrainDataEntries = XMLSerializer.Deserialize<List<TerrainDataEntry>>(File.ReadAllText(TerrainDataPath));
         }
     }
 }
