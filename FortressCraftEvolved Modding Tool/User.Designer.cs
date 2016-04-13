@@ -130,5 +130,17 @@ namespace FortressCraftEvolved_Modding_Tool {
                 this["AuthorID"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ConfigFilePath {
+            get {
+                return ((string)(this["ConfigFilePath"]));
+            }
+            set {
+                this["ConfigFilePath"] = value;
+            }
+        }
     }
 }
