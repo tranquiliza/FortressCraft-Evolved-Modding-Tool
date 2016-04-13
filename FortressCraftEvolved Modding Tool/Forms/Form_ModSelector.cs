@@ -23,7 +23,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             openFileDialog_ModConfig.ShowDialog();
             User.Default.ConfigFilePath = openFileDialog_ModConfig.FileName;
             User.Default.Save();
-            this.Close();
+            Close();
         }
     }
 }

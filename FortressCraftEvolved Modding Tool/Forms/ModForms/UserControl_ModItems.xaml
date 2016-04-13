@@ -20,6 +20,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="40*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -29,14 +30,14 @@
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="200*" />
         </Grid.ColumnDefinitions>
-        
-        <ListBox x:Name="listBox_Items" HorizontalAlignment="Left" Height="460" Margin="10,10,0,0" Grid.RowSpan="8" VerticalAlignment="Top" Width="200"/>
+
+        <ListBox x:Name="listBox_Items" HorizontalAlignment="Left" Height="300" Margin="10,10,0,0" Grid.RowSpan="8" VerticalAlignment="Top" Width="200" SelectionChanged="listBox_Items_SelectionChanged"/>
         <Button x:Name="button_AddItem" Content="Add New Item" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="8" VerticalAlignment="Top" Width="200"/>
         <Label x:Name="label_IsOverride" Content="IsOverride:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_ItemID" Content="ItemId:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Label x:Name="label_Key" Content="Key:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"/>
         <Label x:Name="label_Name" Content="Name:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top"/>
-        <Label x:Name="label_Plural" Content="Plural" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top"/>
+        <Label x:Name="label_Plural" Content="Plural:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top"/>
         <Label x:Name="label_Type" Content="Type:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="5" VerticalAlignment="Top"/>
         <Label x:Name="label_Hidden" Content="Hidden:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="6" VerticalAlignment="Top"/>
         <Label x:Name="label_Object" Content="Object:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="7" VerticalAlignment="Top"/>
@@ -49,6 +50,24 @@
         <Label x:Name="label_ItemAction" Content="Item Action:" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Label x:Name="label_ActionParameter" Content="Action Parameter:" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"/>
         <Label x:Name="label_DecomposeValue" Content="DecomposeValue" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+
+        <TextBlock x:Name="textBlock_IsOverride" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_ItemId" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Key" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Name" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Plural" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="4" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Type" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="5" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Hidden" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="6" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Object" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="7" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Sprite" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="8" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Category" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="9" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Desc" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="10" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_UnknownHint" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="11" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_MaxDurability" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="12" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_MaxStack" Grid.Column="4" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_ItemAction" Grid.Column="4" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_ActionParameter" Grid.Column="4" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_DecomposeValue" Grid.Column="4" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
 
     </Grid>
 </UserControl>
