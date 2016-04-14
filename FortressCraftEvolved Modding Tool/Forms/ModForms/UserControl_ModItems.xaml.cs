@@ -16,6 +16,7 @@ using Common.XmlLogic;
 using Common.ModLogics;
 using System.IO;
 using Common.ModWriter;
+using Common.Data;
 
 namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
 {
@@ -118,6 +119,18 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             textBox_ActionParameter.Visibility = Visibility.Hidden;
             textBox_DecomposeValue.Visibility = Visibility.Hidden;
 
+            //For new items:
+            textBox_Key.Visibility = Visibility.Hidden;
+            comboBox_Key.Visibility = Visibility.Hidden;
+            checkBox_IsOverride.Visibility = Visibility.Hidden;
+
+            //Scan/Research Buttons:
+            button_AddScan.Visibility = Visibility.Hidden;
+            button_RemoveScan.Visibility = Visibility.Hidden;
+            button_AddResearch.Visibility = Visibility.Hidden;
+            button_RemoveResearch.Visibility = Visibility.Hidden;
+
+
             textBox_Name.Text = "";
             textBox_Plural.Text = "";
             comboBox_Types.Text = "";
@@ -131,6 +144,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             comboBox_ItemAction.Text = "";
             textBox_ActionParameter.Text = "";
             textBox_DecomposeValue.Text = "";
+            textBox_Key.Text = "";
         }
 
         //When we select an Item:
@@ -240,6 +254,8 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 comboBox_ItemAction.Text = ActiveItem.ItemAction.ToString();
                 textBox_ActionParameter.Text = ActiveItem.ActionParameter;
                 textBox_DecomposeValue.Text = ActiveItem.DecomposeValue.ToString();
+                
+                
                 //Visibility
                 textBox_Name.Visibility = Visibility.Visible;
                 textBox_Plural.Visibility = Visibility.Visible;
@@ -254,6 +270,11 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 comboBox_ItemAction.Visibility = Visibility.Visible;
                 textBox_ActionParameter.Visibility = Visibility.Visible;
                 textBox_DecomposeValue.Visibility = Visibility.Visible;
+
+                button_AddScan.Visibility = Visibility.Visible;
+                button_RemoveScan.Visibility = Visibility.Visible;
+                button_AddResearch.Visibility = Visibility.Visible;
+                button_RemoveResearch.Visibility = Visibility.Visible;
             }
         }
 
@@ -281,6 +302,51 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             button_Confirm.Visibility = Visibility.Visible;
             button_EditItem.Visibility = Visibility.Hidden;
             button_AddItem.Visibility = Visibility.Hidden;
+
+            listBox_RemoveResearchReq.Items.Clear();
+            listBox_RemoveScanReq.Items.Clear();
+            listBox_ResearchReq.Items.Clear();
+            listBox_ScanReq.Items.Clear();
+            
+            textBox_Name.Visibility = Visibility.Visible;
+            textBox_Plural.Visibility = Visibility.Visible;
+            comboBox_Types.Visibility = Visibility.Visible;
+            checkBox_Hidden.Visibility = Visibility.Visible;
+            comboBox_Object.Visibility = Visibility.Visible;
+            comboBox_Sprites.Visibility = Visibility.Visible;
+            comboBox_Category.Visibility = Visibility.Visible;
+            textBox_Desc.Visibility = Visibility.Visible;
+            textBox_MaxDurability.Visibility = Visibility.Visible;
+            textBox_MaxStack.Visibility = Visibility.Visible;
+            comboBox_ItemAction.Visibility = Visibility.Visible;
+            textBox_ActionParameter.Visibility = Visibility.Visible;
+            textBox_DecomposeValue.Visibility = Visibility.Visible;
+
+
+            //textBox_Key.Visibility = Visibility.Visible;
+            //comboBox_Key.Visibility = Visibility.Visible;
+            checkBox_IsOverride.Visibility = Visibility.Visible;
+
+            button_AddScan.Visibility = Visibility.Visible;
+            button_RemoveScan.Visibility = Visibility.Visible;
+            button_AddResearch.Visibility = Visibility.Visible;
+            button_RemoveResearch.Visibility = Visibility.Visible;
+
+            textBox_Name.Text = "";
+            textBox_Plural.Text = "";
+            comboBox_Types.Text = "";
+            checkBox_Hidden.IsChecked = false;
+            comboBox_Object.Text = "";
+            comboBox_Sprites.Text = "";
+            comboBox_Category.Text = "";
+            textBox_Desc.Text = "";
+            textBox_MaxDurability.Text = "";
+            textBox_MaxStack.Text = "";
+            comboBox_ItemAction.Text = "";
+            textBox_ActionParameter.Text = "";
+            textBox_DecomposeValue.Text = "";
+            textBox_Key.Text = "";
+
         }
 
 
@@ -340,6 +406,102 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             comboBox_ItemAction.Visibility = Visibility.Hidden;
             textBox_ActionParameter.Visibility = Visibility.Hidden;
             textBox_DecomposeValue.Visibility = Visibility.Hidden;
+
+
+            textBox_Key.Visibility = Visibility.Hidden;
+            comboBox_Key.Visibility = Visibility.Hidden;
+            checkBox_IsOverride.Visibility = Visibility.Hidden;
+
+            button_AddScan.Visibility = Visibility.Hidden;
+            button_RemoveScan.Visibility = Visibility.Hidden;
+            button_AddResearch.Visibility = Visibility.Hidden;
+            button_RemoveResearch.Visibility = Visibility.Hidden;
+
+        }
+
+        private void checkBox_IsOverride_Checked(object sender, RoutedEventArgs e)
+        {
+            textBox_Key.Visibility = Visibility.Hidden;
+            comboBox_Key.Visibility = Visibility.Visible;
+            comboBox_Key.Items.Clear();
+            for (int i = 0; i < DataHolder.ItemEntries.Count; i++)
+            {
+                comboBox_Key.Items.Add(DataHolder.ItemEntries[i].Key);
+            }
+        }
+
+        private void checkBox_IsOverride_Unchecked(object sender, RoutedEventArgs e)
+        {
+            comboBox_Key.Visibility = Visibility.Hidden;
+            textBox_Key.Visibility = Visibility.Visible;
+
+            textBlock_ItemId.Text = "";
+            textBox_Name.Text = "";
+            textBox_Plural.Text = "";
+            comboBox_Types.Text = "";
+            checkBox_Hidden.IsChecked = false;
+            comboBox_Object.Text = "";
+            comboBox_Sprites.Text = "";
+            comboBox_Category.Text = "";
+            textBox_Desc.Text = "";
+            textBox_MaxDurability.Text = "";
+            textBox_MaxStack.Text = "";
+            comboBox_ItemAction.Text = "";
+            textBox_ActionParameter.Text = "";
+            textBox_DecomposeValue.Text = "";
+        }
+
+        private void comboBox_Key_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Common.GameLogics.ItemEntry SelectedItem = null;
+            if (comboBox_Key.SelectedItem != null)
+            {
+                for (int i = 0; i < DataHolder.ItemEntries.Count; i++)
+                {
+                    if (DataHolder.ItemEntries[i].Key == comboBox_Key.SelectedItem.ToString())
+                    {
+                        SelectedItem = DataHolder.ItemEntries[i];
+                    }
+                }
+                textBlock_ItemId.Text = SelectedItem.ItemID.ToString();
+                textBox_Name.Text = SelectedItem.Name;
+                textBox_Plural.Text = SelectedItem.Plural;
+                comboBox_Types.Text = SelectedItem.Type.ToString();
+                checkBox_Hidden.IsChecked = SelectedItem.Hidden;
+                comboBox_Object.Text = SelectedItem.Object.ToString();
+                comboBox_Sprites.Text = SelectedItem.Sprite;
+                comboBox_Category.Text = SelectedItem.Category.ToString();
+                textBox_Desc.Text = SelectedItem.Description;
+                textBox_MaxDurability.Text = SelectedItem.MaxDurability.ToString();
+                textBox_MaxStack.Text = SelectedItem.MaxStack.ToString();
+                comboBox_ItemAction.Text = SelectedItem.ItemAction.ToString();
+                textBox_ActionParameter.Text = SelectedItem.ActionParameter;
+                textBox_DecomposeValue.Text = SelectedItem.DecomposeValue.ToString();
+
+                listBox_ResearchReq.Items.Clear();
+                for (int i = 0; i < SelectedItem.ResearchRequirements.Count; i++)
+                {
+                    listBox_ResearchReq.Items.Add(SelectedItem.ResearchRequirements[i]);
+                }
+
+                listBox_ScanReq.Items.Clear();
+                for (int i = 0; i < SelectedItem.ScanRequirements.Count; i++)
+                {
+                    listBox_ScanReq.Items.Add(SelectedItem.ScanRequirements[i]);
+                }
+
+                listBox_RemoveResearchReq.Items.Clear();
+                for (int i = 0; i < SelectedItem.RemoveResearchRequirements.Count; i++)
+                {
+                    listBox_RemoveResearchReq.Items.Add(SelectedItem.RemoveResearchRequirements[i]);
+                }
+
+                listBox_RemoveScanReq.Items.Clear();
+                for (int i = 0; i < SelectedItem.RemoveScanRequirements.Count; i++)
+                {
+                    listBox_RemoveScanReq.Items.Add(SelectedItem.RemoveScanRequirements[i]);
+                }
+            }
         }
     }
 }

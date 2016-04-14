@@ -56,11 +56,16 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             configfilepath += "\\";
             string configFile = XMLSerializer.Serialize(Config, false);
             File.WriteAllText(configfilepath + "Mod.Config", configFile);
-
-
+            User.Default.ConfigFilePath = configfilepath += "\\Mod.Config";
+            User.Default.Save();
 
             string[] IdSplit = Config.Id.Split('.');
             textBlock_SelectedMod.Text = "Mod: " + Config.Name + ", By " + IdSplit[0] + ", Version: " + Config.Version;
+
+            button_SelectMod.Visibility = Visibility.Collapsed;
+            button_CreateMod.Visibility = Visibility.Collapsed;
+            button_Items.Visibility = Visibility.Visible;
+            ModItemsWindow = new UserControl_ModItems();
         }
 
         private void button_SelectMod_Click(object sender, RoutedEventArgs e)
@@ -84,7 +89,10 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             {
                 return;
             }
+            button_CreateMod.Visibility = Visibility.Collapsed;
+            button_SelectMod.Visibility = Visibility.Collapsed;
             button_Items.Visibility = Visibility.Visible;
+            ModItemsWindow = new UserControl_ModItems();
         }
 
         private void button_Items_Click(object sender, RoutedEventArgs e)
