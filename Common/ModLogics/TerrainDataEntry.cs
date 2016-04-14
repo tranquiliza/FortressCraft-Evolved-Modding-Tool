@@ -96,8 +96,7 @@ namespace Common.ModLogics
         Consumable,
         Minecarts,
         Manufacturing,
-        Rockets,
-        Num
+        Rockets
     }
     public enum eBlockWalkAudioType
     {
@@ -106,8 +105,7 @@ namespace Common.ModLogics
         Sand,
         Gravel,
         Wood,
-        Metal,
-        Num
+        Metal
     }
     public enum eBlockBuildAudioType
     {
@@ -115,8 +113,7 @@ namespace Common.ModLogics
         Metal,
         Stone,
         Wood,
-        Dirt,
-        NumTypes
+        Dirt
     }
     public enum eBlockDestroyAudioType
     {
@@ -125,8 +122,7 @@ namespace Common.ModLogics
         Stone,
         Metal,
         Wood,
-        Canvas,
-        Num
+        Canvas
     }
     public class TerrainData
     {

@@ -15,7 +15,22 @@ namespace Common.ModWriter
         public static List<ItemEntry> Items = new List<ItemEntry>();
         public static List<ResearchDataEntry> ResearchEntires = new List<ResearchDataEntry>();
         public static List<TerrainDataEntry> TerrainDataEntries = new List<TerrainDataEntry>();
-        //Not sure how to manage this? 
+        //Not sure how to manage this?  Maybe load a single at a time?
         public static List<GenericAutoCrafterDataEntry> GACMachines = new List<GenericAutoCrafterDataEntry>();
+
+
+        public static string[] Sprites()
+        {
+            string[] IconNames = null;
+            try
+            {
+                IconNames = System.IO.File.ReadAllLines("IconNames.txt");
+            }
+            catch (Exception x)
+            {
+                System.IO.File.WriteAllText("SpriteReaderError", x.ToString());
+            }
+            return IconNames;
+        }
     }
 }

@@ -38,6 +38,7 @@ namespace Common.ModLogics
         public ItemActions ItemAction { get; set; }
         public string ActionParameter { get; set; }
         public int DecomposeValue { get; set; }
+
     }
     public enum ItemType
     {

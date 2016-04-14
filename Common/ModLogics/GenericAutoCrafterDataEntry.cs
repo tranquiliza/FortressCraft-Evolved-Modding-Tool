@@ -434,9 +434,5 @@ namespace Common.ModLogics
         SolarPanel_T2_Organic,
         RefinedLiquidResin,
         LiquidResinRefiner,
-        Num,
-        XXX,
-        XXXX,
-        Error
     }
 }
