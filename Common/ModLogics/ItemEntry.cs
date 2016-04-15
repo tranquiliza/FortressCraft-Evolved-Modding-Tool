@@ -10,7 +10,7 @@ namespace Common.ModLogics
     [Serializable()]
     public class ItemEntry
     {
-        public string IsOverride { get; set; }
+        public bool IsOverride { get; set; }
         [XmlArray, XmlArrayItem("Research")]
         public List<string> RemoveResearchRequirements { get; set; }
 

@@ -74,7 +74,8 @@ namespace Common.GameLogics
         SecondaryTerrain,
         Transparent,
         Water,
-        Lava
+        Lava,
+        ColdCreep
     }
     public class TerrainDataStageEntry
     {
@@ -144,6 +145,8 @@ namespace Common.GameLogics
             Fantasy,
             Decoration,
             Machinery,
+            Mining,
+            MultiBlock,
             Lights,
             Effect,
             Urban,

@@ -81,7 +81,7 @@ namespace Common.ModLogics
             for (int i = 0; i < DataHolder.ItemEntries.Count; i++)
             {
                 ItemEntry Holder = new ItemEntry();
-                Holder.IsOverride = "true";
+                Holder.IsOverride = true;
                 Holder.ItemID = DataHolder.ItemEntries[i].ItemID;
                 Holder.Key = DataHolder.ItemEntries[i].Key;
                 Holder.Name = DataHolder.ItemEntries[i].Name;
@@ -430,6 +430,86 @@ namespace Common.ModLogics
             RecombinedOrganicMatter.Description = "Bug parts for everyone!";
 
             ModdedRecipes.Add(RecombinedOrganicMatter);
+
+            CraftData CopperBar = new CraftData();
+            CopperBar.Key = AuthorID + ".CopperBar";
+            CopperBar.CraftedKey = "CopperBar";
+            CopperBar.CraftedAmount = 1;
+            CopperBar.CraftTime = 0;
+            CopperBar.Category = "decoration";
+            CopperBar.Tier = 5;
+            CopperBar.Description = "Woo!";
+            ModdedRecipes.Add(CopperBar);
+
+            CraftData TinBar = new CraftData();
+            TinBar.Key = AuthorID + ".TinBar";
+            TinBar.CraftedKey = "TinBar";
+            TinBar.CraftedAmount = 1;
+            TinBar.CraftTime = 0;
+            TinBar.Category = "decoration";
+            TinBar.Tier = 5;
+            TinBar.Description = "Woo!";
+            ModdedRecipes.Add(TinBar);
+
+            CraftData IronBar = new CraftData();
+            IronBar.Key = AuthorID + ".IronBar";
+            IronBar.CraftedKey = "IronBar";
+            IronBar.CraftedAmount = 1;
+            IronBar.CraftTime = 0;
+            IronBar.Category = "decoration";
+            IronBar.Tier = 5;
+            IronBar.Description = "Woo!";
+            ModdedRecipes.Add(IronBar);
+
+            CraftData LithiumBar = new CraftData();
+            LithiumBar.Key = AuthorID + ".LithiumBar";
+            LithiumBar.CraftedKey = "LithiumBar";
+            LithiumBar.CraftedAmount = 1;
+            LithiumBar.CraftTime = 0;
+            LithiumBar.Category = "decoration";
+            LithiumBar.Tier = 5;
+            LithiumBar.Description = "Woo!";
+            ModdedRecipes.Add(LithiumBar);
+
+            CraftData GoldBar = new CraftData();
+            GoldBar.Key = AuthorID + ".GoldBar";
+            GoldBar.CraftedKey = "GoldBar";
+            GoldBar.CraftedAmount = 1;
+            GoldBar.CraftTime = 0;
+            GoldBar.Category = "decoration";
+            GoldBar.Tier = 5;
+            GoldBar.Description = "Woo!";
+            ModdedRecipes.Add(GoldBar);
+
+            CraftData NickelBar = new CraftData();
+            NickelBar.Key = AuthorID + ".NickelBar";
+            NickelBar.CraftedKey = "NickelBar";
+            NickelBar.CraftedAmount = 1;
+            NickelBar.CraftTime = 0;
+            NickelBar.Category = "decoration";
+            NickelBar.Tier = 5;
+            NickelBar.Description = "Woo!";
+            ModdedRecipes.Add(NickelBar);
+
+            CraftData TitaniumBar = new CraftData();
+            TitaniumBar.Key = AuthorID + ".TitaniumBar";
+            TitaniumBar.CraftedKey = "TitaniumBar";
+            TitaniumBar.CraftedAmount = 1;
+            TitaniumBar.CraftTime = 0;
+            TitaniumBar.Category = "decoration";
+            TitaniumBar.Tier = 5;
+            TitaniumBar.Description = "Woo!";
+            ModdedRecipes.Add(TitaniumBar);
+
+            CraftData RackRail = new CraftData();
+            RackRail.Key = AuthorID + ".RackRail";
+            RackRail.CraftedKey = "RackRail";
+            RackRail.CraftedAmount = 1;
+            RackRail.CraftTime = 0;
+            RackRail.Category = "decoration";
+            RackRail.Tier = 5;
+            RackRail.Description = "Woo!";
+            ModdedRecipes.Add(RackRail);
 
         }
     }
