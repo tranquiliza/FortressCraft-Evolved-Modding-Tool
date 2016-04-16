@@ -145,7 +145,6 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             EditMode(false);
             
         }
-
         private void EditMode(bool IsEditing)
         {
             if (IsEditing)
@@ -366,7 +365,8 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             NewScanReq = new List<string>();
             NewRemoveResearchReq = new List<string>();
             NewRemoveScanReq = new List<string>();
-            
+
+            checkBox_IsOverride.IsChecked = false;
 
             listBox_ResearchReq.Items.Clear();
             for (int i = 0; i < NewResearchReq.Count; i++)
@@ -388,8 +388,8 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             textBox_Key.Visibility = Visibility.Visible;
             checkBox_IsOverride.Visibility = Visibility.Visible;
 
-            listBox_RemoveResearchReq.Visibility = Visibility.Hidden;
-            listBox_RemoveScanReq.Visibility = Visibility.Hidden;
+            //listBox_RemoveResearchReq.Visibility = Visibility.Hidden;
+            //listBox_RemoveScanReq.Visibility = Visibility.Hidden;
 
             textBox_Name.Text = "";
             textBox_Plural.Text = "";
@@ -480,7 +480,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 lNewItem.Sprite = comboBox_Sprites.SelectedItem.ToString();
                 lNewItem.Category = (MaterialCategories)comboBox_Category.SelectedItem;
                 lNewItem.Description = textBox_Desc.Text;
-                int lnMaxDura = 1;
+                int lnMaxDura = 0;
                 if (textBox_MaxDurability.Text != "")
                 {
                     Int32.TryParse(textBox_MaxDurability.Text, out lnMaxDura);
@@ -564,10 +564,10 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                     if (DataHolder.ItemEntries[i].Key == comboBox_Key.SelectedItem.ToString())
                     {
                         SelectedItem = DataHolder.ItemEntries[i];
-                        //NewResearchReq = DataHolder.ItemEntries[i].ResearchRequirements;
-                        //NewRemoveResearchReq = DataHolder.ItemEntries[i].RemoveResearchRequirements;
-                        //NewScanReq = DataHolder.ItemEntries[i].ScanRequirements;
-                        //NewRemoveScanReq = DataHolder.ItemEntries[i].RemoveScanRequirements;
+                        NewResearchReq = DataHolder.ItemEntries[i].ResearchRequirements;
+                        NewRemoveResearchReq = DataHolder.ItemEntries[i].RemoveResearchRequirements;
+                        NewScanReq = DataHolder.ItemEntries[i].ScanRequirements;
+                        NewRemoveScanReq = DataHolder.ItemEntries[i].RemoveScanRequirements;
                     }
                 }
                 textBlock_ItemId.Text = SelectedItem.ItemID.ToString();
@@ -586,27 +586,29 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 textBox_DecomposeValue.Text = SelectedItem.DecomposeValue.ToString();
 
                 listBox_ResearchReq.Items.Clear();
-                for (int i = 0; i < SelectedItem.ResearchRequirements.Count; i++)
+
+
+                for (int i = 0; i < NewResearchReq.Count; i++)
                 {
-                    listBox_ResearchReq.Items.Add(SelectedItem.ResearchRequirements[i]);
+                    listBox_ResearchReq.Items.Add(NewResearchReq[i]);
                 }
 
                 listBox_ScanReq.Items.Clear();
-                for (int i = 0; i < SelectedItem.ScanRequirements.Count; i++)
+                for (int i = 0; i < NewScanReq.Count; i++)
                 {
-                    listBox_ScanReq.Items.Add(SelectedItem.ScanRequirements[i]);
+                    listBox_ScanReq.Items.Add(NewScanReq[i]);
                 }
 
                 listBox_RemoveResearchReq.Items.Clear();
-                for (int i = 0; i < SelectedItem.RemoveResearchRequirements.Count; i++)
+                for (int i = 0; i < NewRemoveResearchReq.Count; i++)
                 {
-                    listBox_RemoveResearchReq.Items.Add(SelectedItem.RemoveResearchRequirements[i]);
+                    listBox_RemoveResearchReq.Items.Add(NewRemoveResearchReq[i]);
                 }
 
                 listBox_RemoveScanReq.Items.Clear();
-                for (int i = 0; i < SelectedItem.RemoveScanRequirements.Count; i++)
+                for (int i = 0; i < NewRemoveScanReq.Count; i++)
                 {
-                    listBox_RemoveScanReq.Items.Add(SelectedItem.RemoveScanRequirements[i]);
+                    listBox_RemoveScanReq.Items.Add(NewRemoveScanReq[i]);
                 }
             }
         }
@@ -648,11 +650,13 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                     {
                         //Adding the item to RemoveResearchList:
                         NewRemoveResearchReq.Add(listBox_ResearchReq.SelectedItem.ToString());
+
                         listBox_RemoveResearchReq.Items.Clear();
                         for (int i = 0; i < NewRemoveResearchReq.Count; i++)
                         {
                             listBox_RemoveResearchReq.Items.Add(NewRemoveResearchReq[i]);
                         }
+
                         //Removing The Item.
                         NewResearchReq.Remove(listBox_ResearchReq.SelectedItem.ToString());
                         listBox_ResearchReq.Items.Clear();
@@ -685,8 +689,6 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                     }
                 }
             }
-
-
             //Removing RemoveResearchReqs
             if (listBox_RemoveResearchReq.SelectedItem != null)
             {
@@ -720,9 +722,9 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                             listBox_ResearchReq.Items.Add(NewResearchReq[i]);
                         }
 
-
                         //Remove the Item
                         NewRemoveResearchReq.Remove(listBox_RemoveResearchReq.SelectedItem.ToString());
+
                         listBox_RemoveResearchReq.Items.Clear();
                         for (int i = 0; i < NewRemoveResearchReq.Count; i++)
                         {
