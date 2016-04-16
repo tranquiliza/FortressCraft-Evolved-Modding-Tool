@@ -82,7 +82,7 @@ namespace Common.ModLogics
             {
                 ItemEntry Holder = new ItemEntry();
                 Holder.IsOverride = true;
-                Holder.ItemID = DataHolder.ItemEntries[i].ItemID;
+                //Holder.ItemID = DataHolder.ItemEntries[i].ItemID;
                 Holder.Key = DataHolder.ItemEntries[i].Key;
                 Holder.Name = DataHolder.ItemEntries[i].Name;
                 Holder.Plural = DataHolder.ItemEntries[i].Plural;

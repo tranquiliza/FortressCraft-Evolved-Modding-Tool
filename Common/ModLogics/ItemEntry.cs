@@ -16,7 +16,7 @@ namespace Common.ModLogics
 
         [XmlArray, XmlArrayItem("Scan")]
         public List<string> RemoveScanRequirements { get; set; }
-        public int ItemID { get; set; }
+        //public int ItemID { get; set; }
         public string Key { get; set; }
         public string Name { get; set; }
         public string Plural { get; set; }

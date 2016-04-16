@@ -30,6 +30,13 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
         bool mbIsOverride;
         string ItemsXmlPath;
 
+        List<string> NewResearchReq;
+        List<string> NewScanReq;
+        List<string> NewRemoveResearchReq;
+        List<string> NewRemoveScanReq;
+
+
+
         public UserControl_ModItems()
         {
             InitializeComponent();
@@ -110,7 +117,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             {
                 comboBox_Sprites.Items.Add(ModWriterDataHolder.Sprites()[i]);
             }
-
+            //This is possibly wrong. Maybe not.
             comboBox_Category.Items.Clear();
             foreach (MaterialCategories enumValue in Enum.GetValues(typeof(MaterialCategories)))
             {
@@ -123,14 +130,29 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 comboBox_ItemAction.Items.Add(enumValue);
             }
 
+            //Research Dropdown!
+            comboBox_Research.Items.Clear();
+            for (int i = 0; i < DataHolder.ResearchEntries.Count; i++)
+            {
+                comboBox_Research.Items.Add(DataHolder.ResearchEntries[i].Key);
+            }
+            for (int i = 0; i < ModWriterDataHolder.ResearchEntires.Count; i++)
+            {
+                comboBox_Research.Items.Add(ModWriterDataHolder.ResearchEntires[i].Key);
+            }
+
+
             EditMode(false);
             
         }
 
-        private void EditMode(bool state)
+        private void EditMode(bool IsEditing)
         {
-            if (state)
+            if (IsEditing)
             {
+                button_Delete.Visibility = Visibility.Hidden;
+                button_Write.Visibility = Visibility.Hidden;
+                button_DeleteResearch.Visibility = Visibility.Visible;
                 listBox_Items.Visibility = Visibility.Hidden;
                 //textBlock_IsOverride.Visibility = Visibility.Hidden;
                 //textBlock_ItemId.Visibility = Visibility.Hidden;
@@ -173,9 +195,14 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 button_Cancel.Visibility = Visibility.Visible;
                 button_EditItem.Visibility = Visibility.Hidden;
                 button_AddItem.Visibility = Visibility.Hidden;
+
+                comboBox_Research.Visibility = Visibility.Visible;
             }
             else
             {
+                button_Delete.Visibility = Visibility.Visible;
+                button_Write.Visibility = Visibility.Visible;
+                button_DeleteResearch.Visibility = Visibility.Hidden;
                 listBox_Items.Visibility = Visibility.Visible;
                 textBlock_IsOverride.Visibility = Visibility.Visible;
                 textBlock_ItemId.Visibility = Visibility.Visible;
@@ -214,7 +241,6 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 textBox_ActionParameter.Visibility = Visibility.Hidden;
                 textBox_DecomposeValue.Visibility = Visibility.Hidden;
 
-
                 textBox_Key.Visibility = Visibility.Hidden;
                 comboBox_Key.Visibility = Visibility.Hidden;
                 checkBox_IsOverride.Visibility = Visibility.Hidden;
@@ -223,6 +249,11 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 button_RemoveScan.Visibility = Visibility.Hidden;
                 button_AddResearch.Visibility = Visibility.Hidden;
                 button_RemoveResearch.Visibility = Visibility.Hidden;
+                
+                comboBox_Research.Visibility = Visibility.Hidden;
+
+                listBox_RemoveResearchReq.Visibility = Visibility.Visible;
+                listBox_RemoveScanReq.Visibility = Visibility.Visible;
             }
         }
 
@@ -241,7 +272,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 }
                 mbIsOverride = SelectedItem.IsOverride;
                 textBlock_IsOverride.Text = SelectedItem.IsOverride.ToString();
-                textBlock_ItemId.Text = SelectedItem.ItemID.ToString();
+                //textBlock_ItemId.Text = SelectedItem.ItemID.ToString();
                 textBlock_Key.Text = SelectedItem.Key;
                 textBlock_Name.Text = SelectedItem.Name;
                 textBlock_Plural.Text = SelectedItem.Plural;
@@ -326,45 +357,39 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
         private void button_AddItem_Click(object sender, RoutedEventArgs e)
         {
             Editing = false;
+
             EditMode(true);
 
+            button_DeleteResearch.Visibility = Visibility.Hidden;
 
-            List<string> TempResearchReq = new List<string>();
-            List<string> TempRemoveResearchReq = new List<string>();
-            List<string> TempScanReg = new List<string>();
-            List<string> TempRemoveScanReq = new List<string>();
+            NewResearchReq = new List<string>();
+            NewScanReq = new List<string>();
+            NewRemoveResearchReq = new List<string>();
+            NewRemoveScanReq = new List<string>();
             
-            TempResearchReq.Clear();
-            TempRemoveResearchReq.Clear();
-            TempScanReg.Clear();
-            TempRemoveScanReq.Clear();
-
 
             listBox_ResearchReq.Items.Clear();
-            for (int i = 0; i < TempResearchReq.Count; i++)
+            for (int i = 0; i < NewResearchReq.Count; i++)
             {
-                listBox_ResearchReq.Items.Add(TempResearchReq[i]);
+                listBox_ResearchReq.Items.Add(NewResearchReq[i]);
             }
             listBox_RemoveResearchReq.Items.Clear();
-            for (int i = 0; i < TempRemoveResearchReq.Count; i++)
+            for (int i = 0; i < NewScanReq.Count; i++)
             {
-                listBox_RemoveResearchReq.Items.Add(TempRemoveResearchReq[i]);
+                listBox_ScanReq.Items.Add(NewScanReq[i]);
             }
-            listBox_ScanReq.Items.Clear();
-            for (int i = 0; i < TempScanReg.Count; i++)
-            {
-                listBox_ScanReq.Items.Add(TempScanReg[i]);
-            }
+
             listBox_RemoveScanReq.Items.Clear();
-            for (int i = 0; i < TempRemoveScanReq.Count; i++)
-            {
-                listBox_RemoveScanReq.Items.Add(TempRemoveScanReq[i]);
-            }
+            listBox_ScanReq.Items.Clear();
 
             textBlock_IsOverride.Visibility = Visibility.Hidden;
             textBlock_ItemId.Visibility = Visibility.Hidden;
             textBlock_Key.Visibility = Visibility.Hidden;
+            textBox_Key.Visibility = Visibility.Visible;
             checkBox_IsOverride.Visibility = Visibility.Visible;
+
+            listBox_RemoveResearchReq.Visibility = Visibility.Hidden;
+            listBox_RemoveScanReq.Visibility = Visibility.Hidden;
 
             textBox_Name.Text = "";
             textBox_Plural.Text = "";
@@ -456,10 +481,16 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 lNewItem.Category = (MaterialCategories)comboBox_Category.SelectedItem;
                 lNewItem.Description = textBox_Desc.Text;
                 int lnMaxDura = 1;
-                Int32.TryParse(textBox_MaxDurability.Text, out lnMaxDura);
+                if (textBox_MaxDurability.Text != "")
+                {
+                    Int32.TryParse(textBox_MaxDurability.Text, out lnMaxDura);
+                }
                 lNewItem.MaxDurability = lnMaxDura;
                 int lnMaxStack = 100;
-                Int32.TryParse(textBox_MaxStack.Text, out lnMaxStack);
+                if (textBox_MaxStack.Text != "")
+                {
+                    Int32.TryParse(textBox_MaxStack.Text, out lnMaxStack);
+                }
                 lNewItem.MaxStack = lnMaxStack;
                 lNewItem.ItemAction = (ItemActions)comboBox_ItemAction.SelectedIndex;
                 lNewItem.ActionParameter = textBox_ActionParameter.Text;
@@ -469,10 +500,10 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
 
                 //Lists yay!
 
-                lNewItem.ResearchRequirements = new List<string>();
-                lNewItem.RemoveResearchRequirements = new List<string>();
-                lNewItem.ScanRequirements = new List<string>();
-                lNewItem.RemoveScanRequirements = new List<string>();
+                lNewItem.ResearchRequirements = NewResearchReq;
+                lNewItem.RemoveResearchRequirements = NewRemoveResearchReq;
+                lNewItem.ScanRequirements = NewScanReq;
+                lNewItem.RemoveScanRequirements = NewRemoveScanReq;
 
                 //Before we do this create new ItemEntry instance, and add values to this!
                 ModWriterDataHolder.Items.Add(lNewItem);
@@ -533,6 +564,10 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                     if (DataHolder.ItemEntries[i].Key == comboBox_Key.SelectedItem.ToString())
                     {
                         SelectedItem = DataHolder.ItemEntries[i];
+                        //NewResearchReq = DataHolder.ItemEntries[i].ResearchRequirements;
+                        //NewRemoveResearchReq = DataHolder.ItemEntries[i].RemoveResearchRequirements;
+                        //NewScanReq = DataHolder.ItemEntries[i].ScanRequirements;
+                        //NewRemoveScanReq = DataHolder.ItemEntries[i].RemoveScanRequirements;
                     }
                 }
                 textBlock_ItemId.Text = SelectedItem.ItemID.ToString();
@@ -592,41 +627,61 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             {
                 if (mbIsOverride)
                 {
-                    for (int i = 0; i < ActiveItem.ResearchRequirements.Count; i++)
+                    if (Editing)
                     {
-                        if (ActiveItem.ResearchRequirements[i] == listBox_ResearchReq.SelectedItem.ToString())
+                        //Adding the Item to Remove List, so that the game will override!
+                        ActiveItem.RemoveResearchRequirements.Add(listBox_ResearchReq.SelectedItem.ToString());
+                        listBox_RemoveResearchReq.Items.Clear();
+                        for (int i = 0; i < ActiveItem.RemoveResearchRequirements.Count; i++)
                         {
-                            ActiveItem.RemoveResearchRequirements.Add(ActiveItem.ResearchRequirements[i]);
-                            ActiveItem.ResearchRequirements.RemoveAt(i);
+                            listBox_RemoveResearchReq.Items.Add(ActiveItem.RemoveResearchRequirements[i]);
+                        }
+                        //Removing the item.
+                        ActiveItem.ResearchRequirements.Remove(listBox_ResearchReq.SelectedItem.ToString());
+                        listBox_ResearchReq.Items.Clear();
+                        for (int i = 0; i < ActiveItem.ResearchRequirements.Count; i++)
+                        {
+                            listBox_ResearchReq.Items.Add(ActiveItem.ResearchRequirements[i]);
                         }
                     }
-
-                    //Reset View:
-                    listBox_ResearchReq.Items.Clear();
-                    for (int i = 0; i < ActiveItem.ResearchRequirements.Count; i++)
+                    else
                     {
-                        listBox_ResearchReq.Items.Add(ActiveItem.ResearchRequirements[i]);
-                    }
-                    listBox_RemoveResearchReq.Items.Clear();
-                    for (int i = 0; i < ActiveItem.RemoveResearchRequirements.Count; i++)
-                    {
-                        listBox_RemoveResearchReq.Items.Add(ActiveItem.RemoveResearchRequirements[i]);
+                        //Adding the item to RemoveResearchList:
+                        NewRemoveResearchReq.Add(listBox_ResearchReq.SelectedItem.ToString());
+                        listBox_RemoveResearchReq.Items.Clear();
+                        for (int i = 0; i < NewRemoveResearchReq.Count; i++)
+                        {
+                            listBox_RemoveResearchReq.Items.Add(NewRemoveResearchReq[i]);
+                        }
+                        //Removing The Item.
+                        NewResearchReq.Remove(listBox_ResearchReq.SelectedItem.ToString());
+                        listBox_ResearchReq.Items.Clear();
+                        for (int i = 0; i < NewResearchReq.Count; i++)
+                        {
+                            listBox_ResearchReq.Items.Add(NewResearchReq[i]);
+                        }
                     }
                 }
-                else
+
+                if(mbIsOverride == false)
                 {
-                    for (int i = 0; i < ActiveItem.ResearchRequirements.Count; i++)
+                    if (Editing)
                     {
-                        if (ActiveItem.ResearchRequirements[i] == listBox_ResearchReq.SelectedItem.ToString())
+                        ActiveItem.ResearchRequirements.Remove(listBox_ResearchReq.SelectedItem.ToString());
+                        listBox_ResearchReq.Items.Clear();
+                        for (int i = 0; i < ActiveItem.ResearchRequirements.Count; i++)
                         {
-                            ActiveItem.ResearchRequirements.RemoveAt(i);
+                            listBox_ResearchReq.Items.Add(ActiveItem.ResearchRequirements[i]);
                         }
                     }
-
-                    listBox_ResearchReq.Items.Clear();
-                    for (int i = 0; i < ActiveItem.ResearchRequirements.Count; i++)
+                    else
                     {
-                        listBox_ResearchReq.Items.Add(ActiveItem.ResearchRequirements[i]);
+                        NewResearchReq.Remove(listBox_ResearchReq.SelectedItem.ToString());
+                        listBox_ResearchReq.Items.Clear();
+                        for (int i = 0; i < NewResearchReq.Count; i++)
+                        {
+                            listBox_ResearchReq.Items.Add(NewResearchReq[i]);
+                        }
                     }
                 }
             }
@@ -637,20 +692,66 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             {
                 if (mbIsOverride)
                 {
-                    for (int i = 0; i < ActiveItem.RemoveResearchRequirements.Count; i++)
+
+                    if (Editing)
                     {
-                        if (ActiveItem.RemoveResearchRequirements[i] == listBox_RemoveResearchReq.SelectedItem.ToString())
+                        //Add it back to ResearchReqs (Cause It's an Override, and we want to see this)
+                        ActiveItem.ResearchRequirements.Add(listBox_RemoveResearchReq.SelectedItem.ToString());
+                        listBox_ResearchReq.Items.Clear();
+                        for (int i = 0; i < ActiveItem.ResearchRequirements.Count; i++)
                         {
-                            ActiveItem.ResearchRequirements.Add(ActiveItem.RemoveResearchRequirements[i]);
-                            ActiveItem.RemoveResearchRequirements.RemoveAt(i);
+                            listBox_ResearchReq.Items.Add(ActiveItem.ResearchRequirements[i]);
+                        }
+                        //Remove the Items
+                        ActiveItem.RemoveResearchRequirements.Remove(listBox_RemoveResearchReq.SelectedItem.ToString());
+                        listBox_RemoveResearchReq.Items.Clear();
+                        for (int i = 0; i < ActiveItem.RemoveResearchRequirements.Count; i++)
+                        {
+                            listBox_RemoveResearchReq.Items.Add(ActiveItem.RemoveResearchRequirements[i]);
                         }
                     }
-
-                    listBox_RemoveResearchReq.Items.Clear();
-                    for (int i = 0; i < ActiveItem.RemoveResearchRequirements.Count; i++)
+                    else
                     {
-                        listBox_RemoveResearchReq.Items.Add(ActiveItem.RemoveResearchRequirements[i]);
+                        //Add the item to Research Reqs, on the new item!
+                        NewResearchReq.Add(listBox_RemoveResearchReq.SelectedItem.ToString());
+                        listBox_ResearchReq.Items.Clear();
+                        for (int i = 0; i < NewResearchReq.Count; i++)
+                        {
+                            listBox_ResearchReq.Items.Add(NewResearchReq[i]);
+                        }
+
+
+                        //Remove the Item
+                        NewRemoveResearchReq.Remove(listBox_RemoveResearchReq.SelectedItem.ToString());
+                        listBox_RemoveResearchReq.Items.Clear();
+                        for (int i = 0; i < NewRemoveResearchReq.Count; i++)
+                        {
+                            listBox_RemoveResearchReq.Items.Add(NewRemoveResearchReq[i]);
+                        }
                     }
+                }
+                if(mbIsOverride == false)
+                {
+                    //We don't do anything, because we don't use remove on newly created items. This is only used on Overrides!
+                }
+            }
+        }
+
+        private void button_Write_Click(object sender, RoutedEventArgs e)
+        {
+            //This needs to be a Dialogbox that informs user about overwriting already existing file!
+            MessageBox.Show("Writing to disk!");
+            string AllItems = XMLSerializer.Serialize(ModWriterDataHolder.Items, false);
+            File.WriteAllText(ItemsXmlPath, AllItems);
+        }
+
+        private void button_AddResearch_Click(object sender, RoutedEventArgs e)
+        {
+            if (comboBox_Research.SelectedItem != null)
+            {
+                if (Editing)
+                {
+                    ActiveItem.ResearchRequirements.Add(comboBox_Research.SelectedItem.ToString());
                     listBox_ResearchReq.Items.Clear();
                     for (int i = 0; i < ActiveItem.ResearchRequirements.Count; i++)
                     {
@@ -659,27 +760,75 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 }
                 else
                 {
-                    for (int i = 0; i < ActiveItem.RemoveResearchRequirements.Count; i++)
+                    NewResearchReq.Add(comboBox_Research.SelectedItem.ToString());
+                    listBox_ResearchReq.Items.Clear();
+                    for (int i = 0; i < NewResearchReq.Count; i++)
                     {
-                        if (ActiveItem.RemoveResearchRequirements[i] == listBox_RemoveResearchReq.SelectedItem.ToString())
-                        {
-                            ActiveItem.RemoveResearchRequirements.RemoveAt(i);
-                        }
+                        listBox_ResearchReq.Items.Add(NewResearchReq[i]);
                     }
+                }
+            }
+        }
+
+        private void button_DeleteResearch_Click(object sender, RoutedEventArgs e)
+        {
+            if (listBox_ResearchReq.SelectedItem != null)
+            {
+                if (Editing)
+                {
+                    ActiveItem.ResearchRequirements.Remove(listBox_ResearchReq.SelectedItem.ToString());
+                    listBox_ResearchReq.Items.Clear();
+                    for (int i = 0; i < ActiveItem.ResearchRequirements.Count; i++)
+                    {
+                        listBox_ResearchReq.Items.Add(ActiveItem.ResearchRequirements[i]);
+                    }
+                }
+                else
+                {
+                    NewResearchReq.Remove(listBox_ResearchReq.SelectedItem.ToString());
+                    listBox_ResearchReq.Items.Clear();
+                    for (int i = 0; i < NewResearchReq.Count; i++)
+                    {
+                        listBox_ResearchReq.Items.Add(NewResearchReq[i]);
+                    }
+                }
+            }
+            if (listBox_RemoveResearchReq.SelectedItem != null)
+            {
+                if (Editing)
+                {
+                    ActiveItem.RemoveResearchRequirements.Remove(listBox_RemoveResearchReq.SelectedItem.ToString());
                     listBox_RemoveResearchReq.Items.Clear();
                     for (int i = 0; i < ActiveItem.RemoveResearchRequirements.Count; i++)
                     {
                         listBox_RemoveResearchReq.Items.Add(ActiveItem.RemoveResearchRequirements[i]);
                     }
                 }
+                else
+                {
+
+                }
             }
         }
 
-        private void button_Write_Click(object sender, RoutedEventArgs e)
+        private void button_Delete_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Writing to disk!");
-            string AllItems = XMLSerializer.Serialize(ModWriterDataHolder.Items, false);
-            File.WriteAllText(ItemsXmlPath, AllItems);
+            if (listBox_Items.SelectedItem != null)
+            {
+                for (int i = 0; i < ModWriterDataHolder.Items.Count; i++)
+                {
+                    if (ModWriterDataHolder.Items[i].Name == listBox_Items.SelectedItem.ToString())
+                    {
+                        ModWriterDataHolder.Items.RemoveAt(i);
+                    }
+                }
+                listBox_Items.SelectedItem = null;
+                listBox_Items.Items.Clear();
+                for (int i = 0; i < ModWriterDataHolder.Items.Count; i++)
+                {
+                    listBox_Items.Items.Add(ModWriterDataHolder.Items[i].Name);
+                }
+            }
         }
     }
 }

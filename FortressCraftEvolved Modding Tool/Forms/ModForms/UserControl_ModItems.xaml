@@ -102,13 +102,15 @@
         <TextBox x:Name="textBox_Key" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
         <ComboBox x:Name="comboBox_Key" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="200" SelectionChanged="comboBox_Key_SelectionChanged"/>
 
-        <Button x:Name="button_AddResearch" Content="Add Research" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="125"/>
+        <Button x:Name="button_AddResearch" Content="Add Research" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="125" Click="button_AddResearch_Click"/>
         <Button x:Name="button_RemoveResearch" Content="Remove Research" Grid.Column="5" HorizontalAlignment="Left" Margin="10,8,0,0" Grid.Row="5" VerticalAlignment="Top" Width="125" Click="button_RemoveResearch_Click"/>
         <Button x:Name="button_AddScan" Content="Add Scan" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="8" VerticalAlignment="Top" Width="125"/>
         <Button x:Name="button_RemoveScan" Content="Remove Scan" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="9" VerticalAlignment="Top" Width="125"/>
         <Button Visibility="Hidden" x:Name="button_Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="80,10,0,0" Grid.Row="12" VerticalAlignment="Top" Width="130" Grid.Column="4" Click="button_Cancel_Click"/>
-        <Button x:Name="button_Delete" Content="Delete Selected Item" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="10" VerticalAlignment="Top" Width="200"/>
+        <Button x:Name="button_Delete" Content="Delete Selected Item" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="10" VerticalAlignment="Top" Width="200" Click="button_Delete_Click"/>
         <Button x:Name="button_Write" Content="Save Items.xml" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="11" VerticalAlignment="Top" Width="200" Click="button_Write_Click"/>
+        <ComboBox x:Name="comboBox_Research" Grid.Column="6" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="175"/>
+        <Button x:Name="button_DeleteResearch" Content="Delete Research" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="6" VerticalAlignment="Top" Width="125" Click="button_DeleteResearch_Click"/>
 
 
     </Grid>
