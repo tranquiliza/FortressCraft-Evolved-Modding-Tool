@@ -64,18 +64,21 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             {
                 for (int i = 0; i < DataHolder.TerrainDataEntries.Count; i++)
                 {
-                    if (SearchString == DataHolder.TerrainDataEntries[i].Name.ToLower())
+                    if (DataHolder.TerrainDataEntries[i].Name != null)
                     {
-                        listBox_TerrainData.Items.Add(DataHolder.TerrainDataEntries[i].Name);
-                        break;
-                    }
-                    string[] ItemStrings = DataHolder.TerrainDataEntries[i].Name.Split(' ');
-                    for (int j = 0; j < ItemStrings.Length; j++)
-                    {
-                        if (SearchString == ItemStrings[j].ToLower())
+                        if (SearchString == DataHolder.TerrainDataEntries[i].Name.ToLower())
                         {
                             listBox_TerrainData.Items.Add(DataHolder.TerrainDataEntries[i].Name);
                             break;
+                        }
+                        string[] ItemStrings = DataHolder.TerrainDataEntries[i].Name.Split(' ');
+                        for (int j = 0; j < ItemStrings.Length; j++)
+                        {
+                            if (SearchString == ItemStrings[j].ToLower())
+                            {
+                                listBox_TerrainData.Items.Add(DataHolder.TerrainDataEntries[i].Name);
+                                break;
+                            }
                         }
                     }
                 }

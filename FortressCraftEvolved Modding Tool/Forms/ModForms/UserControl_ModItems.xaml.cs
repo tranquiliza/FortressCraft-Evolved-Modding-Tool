@@ -141,21 +141,47 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 comboBox_Research.Items.Add(ModWriterDataHolder.ResearchEntires[i].Key);
             }
 
-
+            //Scan Dropdown!
+            comboBox_Scan.Items.Clear();
+            for (int i = 0; i < DataHolder.TerrainDataEntries.Count; i++)
+            {
+                if (DataHolder.TerrainDataEntries[i].Values != null)
+                {
+                    for (int j = 0; j < DataHolder.TerrainDataEntries[i].Values.Count; j++)
+                    {
+                        comboBox_Scan.Items.Add(DataHolder.TerrainDataEntries[i].Values[j].Key);
+                    }
+                }
+                else
+                {
+                    comboBox_Scan.Items.Add(DataHolder.TerrainDataEntries[i].Key);
+                }
+            }
+            for (int i = 0; i < ModWriterDataHolder.TerrainDataEntries.Count; i++)
+            {
+                if (ModWriterDataHolder.TerrainDataEntries[i].Values != null)
+                {
+                    for (int j = 0; j < ModWriterDataHolder.TerrainDataEntries[i].Values.Count; j++)
+                    {
+                        comboBox_Scan.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Values[j].Key);
+                    }
+                }
+                else
+                {
+                    comboBox_Scan.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Key);
+                }
+            }
             EditMode(false);
-            
         }
         private void EditMode(bool IsEditing)
         {
             if (IsEditing)
             {
+                comboBox_Scan.Visibility = Visibility.Visible;
                 button_Delete.Visibility = Visibility.Hidden;
                 button_Write.Visibility = Visibility.Hidden;
                 button_DeleteResearch.Visibility = Visibility.Visible;
                 listBox_Items.Visibility = Visibility.Hidden;
-                //textBlock_IsOverride.Visibility = Visibility.Hidden;
-                //textBlock_ItemId.Visibility = Visibility.Hidden;
-                //textBlock_Key.Visibility = Visibility.Hidden;
                 textBlock_Name.Visibility = Visibility.Hidden;
                 textBlock_Plural.Visibility = Visibility.Hidden;
                 textBlock_Type.Visibility = Visibility.Hidden;
@@ -199,6 +225,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             }
             else
             {
+                comboBox_Scan.Visibility = Visibility.Hidden;
                 button_Delete.Visibility = Visibility.Visible;
                 button_Write.Visibility = Visibility.Visible;
                 button_DeleteResearch.Visibility = Visibility.Hidden;
@@ -387,9 +414,6 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             textBlock_Key.Visibility = Visibility.Hidden;
             textBox_Key.Visibility = Visibility.Visible;
             checkBox_IsOverride.Visibility = Visibility.Visible;
-
-            //listBox_RemoveResearchReq.Visibility = Visibility.Hidden;
-            //listBox_RemoveScanReq.Visibility = Visibility.Hidden;
 
             textBox_Name.Text = "";
             textBox_Plural.Text = "";
@@ -622,8 +646,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
         //Remove research, works for both Research Lists
         private void button_RemoveResearch_Click(object sender, RoutedEventArgs e)
         {
-            //These changes are immidiate and will not be undone if person chooses to cancel! TODO Why does this not work?!
-
+            //This updates the items instantly. (Not writing to disk)
             //ResearchReqs
             if (listBox_ResearchReq.SelectedItem != null)
             {
@@ -829,6 +852,159 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 for (int i = 0; i < ModWriterDataHolder.Items.Count; i++)
                 {
                     listBox_Items.Items.Add(ModWriterDataHolder.Items[i].Name);
+                }
+            }
+        }
+
+
+        //This happens when we add a scanreq!
+        private void button_AddScan_Click(object sender, RoutedEventArgs e)
+        {
+            if (comboBox_Scan.SelectedItem != null)
+            {
+                if (Editing)
+                {
+                    ActiveItem.ScanRequirements.Add(comboBox_Scan.SelectedItem.ToString());
+
+                    listBox_ScanReq.Items.Clear();
+                    for (int i = 0; i < ActiveItem.ScanRequirements.Count; i++)
+                    {
+                        listBox_ScanReq.Items.Add(ActiveItem.ScanRequirements[i]);
+                    }
+                }
+                else
+                {
+                    NewScanReq.Add(comboBox_Scan.SelectedItem.ToString());
+
+                    listBox_ScanReq.Items.Clear();
+                    for (int i = 0; i < NewScanReq.Count; i++)
+                    {
+                        listBox_ScanReq.Items.Add(NewScanReq[i]);
+                    }
+                }
+            }
+        }
+
+
+        //Removing Scans:
+        private void button_RemoveScan_Click(object sender, RoutedEventArgs e)
+        {
+            //Removing Scan Reqs:
+            if (listBox_ScanReq.SelectedItem != null)
+            {
+                if (mbIsOverride) //If the item is an override
+                {
+                    if (Editing) //If the item is an already existing item, that we edit!
+                    {
+                        //Adding the Item to Remove List, so that the game will override!
+                        ActiveItem.RemoveScanRequirements.Add(listBox_ScanReq.SelectedItem.ToString());
+
+                        listBox_RemoveScanReq.Items.Clear();
+                        for (int i = 0; i < ActiveItem.RemoveResearchRequirements.Count; i++)
+                        {
+                            listBox_RemoveScanReq.Items.Add(ActiveItem.RemoveResearchRequirements[i]);
+                        }
+
+                        //Removing the item.
+                        ActiveItem.ScanRequirements.Remove(listBox_ScanReq.SelectedItem.ToString());
+                        listBox_ScanReq.Items.Clear();
+                        for (int i = 0; i < ActiveItem.ScanRequirements.Count; i++)
+                        {
+                            listBox_ScanReq.Items.Add(ActiveItem.ScanRequirements[i]);
+                        }
+                    }
+                    else //When the item is new we use this part:
+                    {
+                        //Adding the item to RemoveScanList:
+                        NewRemoveScanReq.Add(listBox_ScanReq.SelectedItem.ToString());
+
+                        listBox_RemoveScanReq.Items.Clear();
+                        for (int i = 0; i < NewRemoveScanReq.Count; i++)
+                        {
+                            listBox_RemoveScanReq.Items.Add(NewRemoveScanReq[i]);
+                        }
+
+                        //Removing The Item.
+                        NewScanReq.Remove(listBox_ScanReq.SelectedItem.ToString());
+                        listBox_ScanReq.Items.Clear();
+                        for (int i = 0; i < NewScanReq.Count; i++)
+                        {
+                            listBox_ScanReq.Items.Add(NewScanReq[i]);
+                        }
+                    }
+                }
+                
+                //If its not an override :
+                if (mbIsOverride == false)
+                {
+                    if (Editing) //Already existing Item:
+                    {
+                        ActiveItem.ScanRequirements.Remove(listBox_ScanReq.SelectedItem.ToString());
+                        listBox_ScanReq.Items.Clear();
+                        for (int i = 0; i < ActiveItem.ScanRequirements.Count; i++)
+                        {
+                            listBox_ScanReq.Items.Add(ActiveItem.ScanRequirements[i]);
+                        }
+                    }
+                    else //If new item:
+                    {
+                        NewScanReq.Remove(listBox_ScanReq.SelectedItem.ToString());
+                        listBox_ScanReq.Items.Clear();
+                        for (int i = 0; i < NewScanReq.Count; i++)
+                        {
+                            listBox_ScanReq.Items.Add(NewScanReq[i]);
+                        }
+                    }
+                }
+            }
+
+
+            //Removing RemoveScanReq -> When removing Removed Scan Entries:
+            if (listBox_RemoveScanReq.SelectedItem != null)
+            {
+                if (mbIsOverride)
+                {
+                    if (Editing)
+                    {
+                        //Add it back to ResearchReqs (Cause It's an Override, and we want to see this)
+                        ActiveItem.ScanRequirements.Add(listBox_RemoveScanReq.SelectedItem.ToString());
+                        listBox_ScanReq.Items.Clear();
+                        for (int i = 0; i < ActiveItem.ScanRequirements.Count; i++)
+                        {
+                            listBox_ScanReq.Items.Add(ActiveItem.ScanRequirements[i]);
+                        }
+
+                        //Remove the Items
+                        ActiveItem.RemoveScanRequirements.Remove(listBox_RemoveScanReq.SelectedItem.ToString());
+                        listBox_RemoveScanReq.Items.Clear();
+                        for (int i = 0; i < ActiveItem.RemoveScanRequirements.Count; i++)
+                        {
+                            listBox_RemoveScanReq.Items.Add(ActiveItem.RemoveScanRequirements[i]);
+                        }
+                    }
+                    else
+                    {
+                        //Add the item to Research Reqs, on the new item!
+                        NewScanReq.Add(listBox_RemoveScanReq.SelectedItem.ToString());
+                        listBox_ResearchReq.Items.Clear();
+                        for (int i = 0; i < NewScanReq.Count; i++)
+                        {
+                            listBox_ResearchReq.Items.Add(NewScanReq[i]);
+                        }
+
+                        //Remove the Item
+                        NewRemoveScanReq.Remove(listBox_RemoveScanReq.SelectedItem.ToString());
+
+                        listBox_RemoveScanReq.Items.Clear();
+                        for (int i = 0; i < NewRemoveScanReq.Count; i++)
+                        {
+                            listBox_RemoveScanReq.Items.Add(NewRemoveScanReq[i]);
+                        }
+                    }
+                }
+                if (mbIsOverride == false)
+                {
+                    //We don't do anything, because we don't use remove on newly created items. This is only used on Overrides!
                 }
             }
         }
