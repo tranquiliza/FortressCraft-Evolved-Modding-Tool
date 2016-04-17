@@ -92,6 +92,9 @@
     <Compile Include="Forms\ModForms\UserControl_ModItems.xaml.cs">
       <DependentUpon>UserControl_ModItems.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ModForms\UserControl_ModRecipes.xaml.cs">
+      <DependentUpon>UserControl_ModRecipes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserControl_GAC.xaml.cs">
       <DependentUpon>UserControl_GAC.xaml</DependentUpon>
     </Compile>
@@ -116,6 +119,10 @@
       <DependentUpon>User.settings</DependentUpon>
     </Compile>
     <Page Include="Forms\ModForms\UserControl_ModItems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\ModForms\UserControl_ModRecipes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

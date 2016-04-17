@@ -28,11 +28,29 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
         ModConfiguration Config = null;
 
         UserControl_ModItems ModItemsWindow = null;
+        UserControl_ModRecipes ModRecipesWindow = null;
         public UserControl_ModInterface()
         {
             InitializeComponent();
             textBlock_SelectedMod.Text = "";
-            button_Items.Visibility = Visibility.Hidden;
+            SelectedMod(false);
+        }
+
+
+        private void SelectedMod(bool lIsSelected)
+        {
+            if (lIsSelected)
+            {
+                button_Items.Visibility = Visibility.Visible;
+                button_Recipes.Visibility = Visibility.Visible;
+                button_SelectMod.Visibility = Visibility.Collapsed;
+                button_CreateMod.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                button_Items.Visibility = Visibility.Hidden;
+                button_Recipes.Visibility = Visibility.Hidden;
+            }
         }
 
         private void button_CreateMod_Click(object sender, RoutedEventArgs e)
@@ -61,10 +79,8 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
 
             string[] IdSplit = Config.Id.Split('.');
             textBlock_SelectedMod.Text = "Mod: " + Config.Name + ", By " + IdSplit[0] + ", Version: " + Config.Version;
-
-            button_SelectMod.Visibility = Visibility.Collapsed;
-            button_CreateMod.Visibility = Visibility.Collapsed;
-            button_Items.Visibility = Visibility.Visible;
+            
+            SelectedMod(true);
             ModItemsWindow = new UserControl_ModItems();
         }
 
@@ -89,9 +105,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             {
                 return;
             }
-            button_CreateMod.Visibility = Visibility.Collapsed;
-            button_SelectMod.Visibility = Visibility.Collapsed;
-            button_Items.Visibility = Visibility.Visible;
+            SelectedMod(true);
             ModItemsWindow = new UserControl_ModItems();
         }
 
@@ -102,6 +116,15 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                 ModItemsWindow = new UserControl_ModItems();
             }
             ContentMain.Content = ModItemsWindow;
+        }
+
+        private void button_Recipes_Click(object sender, RoutedEventArgs e)
+        {
+            if (ModRecipesWindow == null)
+            {
+                ModRecipesWindow = new UserControl_ModRecipes();
+            }
+            ContentMain.Content = ModRecipesWindow;
         }
     }
 }

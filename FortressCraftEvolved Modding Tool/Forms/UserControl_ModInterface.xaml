@@ -9,24 +9,25 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="400*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="170"/>
             <ColumnDefinition Width="200*" />
         </Grid.ColumnDefinitions>
-        <ContentControl Name="ContentMain" Opacity="1" Background="Transparent" Grid.Column="1" Grid.Row="1" Margin="10" Grid.RowSpan="11" />
-        <Button x:Name="button_CreateMod" Content="New Mod" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="150" Height="40" Click="button_CreateMod_Click" Grid.Row="1"/>
-        <TextBlock x:Name="textBlock_SelectedMod" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="580" Height="40"/>
-        <Button x:Name="button_SelectMod" Content="Select Mod" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="150" Height="40" Grid.Row="2" Click="button_SelectMod_Click"/>
+        <ContentControl Name="ContentMain" Opacity="1" Background="Transparent" Grid.Column="1" Grid.Row="1" Grid.RowSpan="8" />
+        <Button x:Name="button_CreateMod" Content="New Mod" HorizontalAlignment="Left" Margin="10,0,0,55" VerticalAlignment="Bottom" Width="150" Height="40" Click="button_CreateMod_Click" Grid.Row="8"/>
+        <TextBlock x:Name="textBlock_SelectedMod" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="580" Height="21"/>
+        <Button x:Name="button_SelectMod" Content="Select Mod" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="150" Height="40" Grid.Row="8" Click="button_SelectMod_Click"/>
         <Label x:Name="label_SelectedMod" Content="Selected Mod:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button_Items" Content="Items" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="150" Height="30" Grid.Row="3" Click="button_Items_Click"/>
+        <Button x:Name="button_Items" Content="Items" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="150" Height="30" Grid.Row="1" Click="button_Items_Click"/>
+        <Button x:Name="button_Recipes" Content="Recipes" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="150" Height="30" Grid.Row="2" Click="button_Recipes_Click"/>
     </Grid>
 </UserControl>

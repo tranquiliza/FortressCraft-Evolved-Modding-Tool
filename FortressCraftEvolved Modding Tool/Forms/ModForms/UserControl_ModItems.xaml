@@ -8,19 +8,19 @@
              d:DesignHeight="600" d:DesignWidth="1300">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="40*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -33,7 +33,7 @@
             <ColumnDefinition Width="200*"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox x:Name="listBox_Items" HorizontalAlignment="Left" Height="300" Margin="10,10,0,0" Grid.RowSpan="8" VerticalAlignment="Top" Width="200" SelectionChanged="listBox_Items_SelectionChanged"/>
+        <ListBox x:Name="listBox_Items" HorizontalAlignment="Left" Height="340" Margin="10,10,0,0" Grid.RowSpan="9" VerticalAlignment="Top" Width="200" SelectionChanged="listBox_Items_SelectionChanged"/>
         <Label x:Name="label_IsOverride" Content="IsOverride:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_ItemID" Content="ItemId:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Label x:Name="label_Key" Content="Key:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"/>
@@ -68,8 +68,8 @@
         <TextBlock x:Name="textBlock_ActionParameter" Grid.Column="4" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock_DecomposeValue" Grid.Column="4" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <!--Buttons!-->
-        <Button x:Name="button_AddItem" Content="Add New Item" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="8" VerticalAlignment="Top" Width="200" Click="button_AddItem_Click"/>
-        <Button x:Name="button_EditItem" Content="Edit Selected Item" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="9" VerticalAlignment="Top" Width="200" Click="button_EditItem_Click"/>
+        <Button x:Name="button_AddItem" Content="Add New Item" HorizontalAlignment="Left" Margin="10,1,0,0" Grid.Row="9" VerticalAlignment="Top" Width="200" Click="button_AddItem_Click"/>
+        <Button x:Name="button_EditItem" Content="Edit Selected Item" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="10" VerticalAlignment="Top" Width="200" Click="button_EditItem_Click"/>
         <Button Visibility="Visible" x:Name="button_Confirm" Content="Confirm Changes" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="12" VerticalAlignment="Top" Width="130" Grid.Column="5" Click="button_Confirm_Click"/>
         <!--Editing Controls-->
         <TextBox x:Name="textBox_Name" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,11,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
@@ -107,8 +107,8 @@
         <Button x:Name="button_AddScan" Content="Add Scan" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="8" VerticalAlignment="Top" Width="125" Click="button_AddScan_Click"/>
         <Button x:Name="button_RemoveScan" Content="Remove Scan" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="9" VerticalAlignment="Top" Width="125" Click="button_RemoveScan_Click"/>
         <Button Visibility="Hidden" x:Name="button_Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="80,10,0,0" Grid.Row="12" VerticalAlignment="Top" Width="130" Grid.Column="4" Click="button_Cancel_Click"/>
-        <Button x:Name="button_Delete" Content="Delete Selected Item" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="10" VerticalAlignment="Top" Width="200" Click="button_Delete_Click"/>
-        <Button x:Name="button_Write" Content="Save Items.xml" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="11" VerticalAlignment="Top" Width="200" Click="button_Write_Click"/>
+        <Button x:Name="button_Delete" Content="Delete Selected Item" HorizontalAlignment="Left" Margin="10,1,0,0" Grid.Row="11" VerticalAlignment="Top" Width="200" Click="button_Delete_Click"/>
+        <Button x:Name="button_Write" Content="Save Items.xml" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="200" Click="button_Write_Click"/>
         <ComboBox x:Name="comboBox_Research" Grid.Column="6" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="175"/>
         <Button x:Name="button_DeleteResearch" Content="Delete Research" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="6" VerticalAlignment="Top" Width="125" Click="button_DeleteResearch_Click"/>
         <ComboBox x:Name="comboBox_Scan" Grid.Column="6" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="8" VerticalAlignment="Top" Width="175"/>
