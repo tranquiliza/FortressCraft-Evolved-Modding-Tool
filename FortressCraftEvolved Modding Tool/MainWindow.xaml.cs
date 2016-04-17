@@ -26,7 +26,7 @@ namespace FortressCraftEvolved_Modding_Tool
             //---
             textBlock_Welcome.Text += " " + Version.Value;
             textBlock_Welcome.Text += "\n Browse the application by using the buttons below!";
-            textBlock_Welcome.Text += "\n Use F5 to reset this window!";
+            //textBlock_Welcome.Text += "\n Use F5 to reset this window!";
             //Let the user know to update the paths, mainly ownly shows on first time use!
             if (User.Default.GameData.Contains("FortressCraft\\64\\Default\\Data") || User.Default.GameData.Contains("FortressCraft\\32\\Default\\Data"))
             {
