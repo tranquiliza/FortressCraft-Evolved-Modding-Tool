@@ -100,6 +100,8 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             textBox_Key.Text = "";
 
 
+
+            //Add these to a function that is called upon startup, and then add a key specific input that calls them again for refresh?!
             comboBox_Types.Items.Clear();
             foreach (ItemType enumValue in Enum.GetValues(typeof(ItemType)))
             {

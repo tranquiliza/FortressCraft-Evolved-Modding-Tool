@@ -115,9 +115,19 @@ namespace Common.ModLogics
         }
         public static void AddExtraRecipes()
         {
+            //Special
+            CraftData RackRail = new CraftData();
+            RackRail.Key = AuthorID + ".RackRail";
+            RackRail.CraftedKey = "RackRail";
+            RackRail.CraftedAmount = 1;
+            RackRail.CraftTime = 0;
+            RackRail.Category = "decoration";
+            RackRail.Tier = 5;
+            RackRail.Description = "Woo!";
+            ModdedRecipes.Add(RackRail);
 
             //Missiles
-
+            #region Missiles
             CraftData BasicMissile = new CraftData();
             BasicMissile.Key = AuthorID + ".BasicMissile";
             BasicMissile.CraftedKey = "BasicMissile";
@@ -149,15 +159,15 @@ namespace Common.ModLogics
             ModdedRecipes.Add(BasicMissile);
             ModdedRecipes.Add(PlasmaImbuedMissile);
             ModdedRecipes.Add(ArmourPiercingMissile);
-
+            #endregion
             //Ores:
-
+            #region Ores
             CraftData CoalOre = new CraftData();
             CoalOre.Key = AuthorID + ".CoalOre";
             CoalOre.CraftedKey = "CoalOre";
             CoalOre.CraftedAmount = 1;
             CoalOre.CraftTime = 0;
-            CoalOre.Category = "decoration";
+            CoalOre.Category = "CraftingIngredient";
             CoalOre.Tier = 5;
             CoalOre.Description = "Just Coal";
 
@@ -166,7 +176,7 @@ namespace Common.ModLogics
             CopperOre.CraftedKey = "CopperOre";
             CopperOre.CraftedAmount = 1;
             CopperOre.CraftTime = 0;
-            CopperOre.Category = "decoration";
+            CopperOre.Category = "CraftingIngredient";
             CopperOre.Tier = 5;
             CopperOre.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
@@ -175,7 +185,7 @@ namespace Common.ModLogics
             TinOre.CraftedKey = "TinOre";
             TinOre.CraftedAmount = 1;
             TinOre.CraftTime = 0;
-            TinOre.Category = "decoration";
+            TinOre.Category = "CraftingIngredient";
             TinOre.Tier = 5;
             TinOre.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
@@ -184,7 +194,7 @@ namespace Common.ModLogics
             IronOre.CraftedKey = "IronOre";
             IronOre.CraftedAmount = 1;
             IronOre.CraftTime = 0;
-            IronOre.Category = "decoration";
+            IronOre.Category = "CraftingIngredient";
             IronOre.Tier = 5;
             IronOre.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
@@ -193,7 +203,7 @@ namespace Common.ModLogics
             LithiumOre.CraftedKey = "LithiumOre";
             LithiumOre.CraftedAmount = 1;
             LithiumOre.CraftTime = 0;
-            LithiumOre.Category = "decoration";
+            LithiumOre.Category = "CraftingIngredient";
             LithiumOre.Tier = 5;
             LithiumOre.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
@@ -202,7 +212,7 @@ namespace Common.ModLogics
             GoldOre.CraftedKey = "GoldOre";
             GoldOre.CraftedAmount = 1;
             GoldOre.CraftTime = 0;
-            GoldOre.Category = "decoration";
+            GoldOre.Category = "CraftingIngredient";
             GoldOre.Tier = 5;
             GoldOre.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
@@ -211,7 +221,7 @@ namespace Common.ModLogics
             NickelOre.CraftedKey = "NickelOre";
             NickelOre.CraftedAmount = 1;
             NickelOre.CraftTime = 0;
-            NickelOre.Category = "decoration";
+            NickelOre.Category = "CraftingIngredient";
             NickelOre.Tier = 5;
             NickelOre.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
@@ -220,7 +230,7 @@ namespace Common.ModLogics
             TitaniumOre.CraftedKey = "TitaniumOre";
             TitaniumOre.CraftedAmount = 1;
             TitaniumOre.CraftTime = 0;
-            TitaniumOre.Category = "decoration";
+            TitaniumOre.Category = "CraftingIngredient";
             TitaniumOre.Tier = 5;
             TitaniumOre.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
@@ -229,7 +239,7 @@ namespace Common.ModLogics
             CrystalDeposit.CraftedKey = "CrystalDeposit";
             CrystalDeposit.CraftedAmount = 1;
             CrystalDeposit.CraftTime = 0;
-            CrystalDeposit.Category = "decoration";
+            CrystalDeposit.Category = "CraftingIngredient";
             CrystalDeposit.Tier = 5;
             CrystalDeposit.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
@@ -238,7 +248,7 @@ namespace Common.ModLogics
             BiomassGrowth.CraftedKey = "BiomassGrowth";
             BiomassGrowth.CraftedAmount = 1;
             BiomassGrowth.CraftTime = 0;
-            BiomassGrowth.Category = "decoration";
+            BiomassGrowth.Category = "CraftingIngredient";
             BiomassGrowth.Tier = 5;
             BiomassGrowth.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
 
@@ -252,9 +262,9 @@ namespace Common.ModLogics
             ModdedRecipes.Add(TitaniumOre);
             ModdedRecipes.Add(CrystalDeposit);
             ModdedRecipes.Add(BiomassGrowth);
-
+            #endregion
             //Organics:consumables
-
+            #region Organics
             CraftData PristineHeavyChitin = new CraftData();
             PristineHeavyChitin.Key = AuthorID + ".PristineHeavyChitin";
             PristineHeavyChitin.CraftedKey = "PristineHeavyChitin";
@@ -430,13 +440,15 @@ namespace Common.ModLogics
             RecombinedOrganicMatter.Description = "Bug parts for everyone!";
 
             ModdedRecipes.Add(RecombinedOrganicMatter);
-
+            #endregion
+            //Bars
+            #region Bars
             CraftData CopperBar = new CraftData();
             CopperBar.Key = AuthorID + ".CopperBar";
             CopperBar.CraftedKey = "CopperBar";
             CopperBar.CraftedAmount = 1;
             CopperBar.CraftTime = 0;
-            CopperBar.Category = "decoration";
+            CopperBar.Category = "CraftingIngredient";
             CopperBar.Tier = 5;
             CopperBar.Description = "Woo!";
             ModdedRecipes.Add(CopperBar);
@@ -446,7 +458,7 @@ namespace Common.ModLogics
             TinBar.CraftedKey = "TinBar";
             TinBar.CraftedAmount = 1;
             TinBar.CraftTime = 0;
-            TinBar.Category = "decoration";
+            TinBar.Category = "CraftingIngredient";
             TinBar.Tier = 5;
             TinBar.Description = "Woo!";
             ModdedRecipes.Add(TinBar);
@@ -456,7 +468,7 @@ namespace Common.ModLogics
             IronBar.CraftedKey = "IronBar";
             IronBar.CraftedAmount = 1;
             IronBar.CraftTime = 0;
-            IronBar.Category = "decoration";
+            IronBar.Category = "CraftingIngredient";
             IronBar.Tier = 5;
             IronBar.Description = "Woo!";
             ModdedRecipes.Add(IronBar);
@@ -466,7 +478,7 @@ namespace Common.ModLogics
             LithiumBar.CraftedKey = "LithiumBar";
             LithiumBar.CraftedAmount = 1;
             LithiumBar.CraftTime = 0;
-            LithiumBar.Category = "decoration";
+            LithiumBar.Category = "CraftingIngredient";
             LithiumBar.Tier = 5;
             LithiumBar.Description = "Woo!";
             ModdedRecipes.Add(LithiumBar);
@@ -476,7 +488,7 @@ namespace Common.ModLogics
             GoldBar.CraftedKey = "GoldBar";
             GoldBar.CraftedAmount = 1;
             GoldBar.CraftTime = 0;
-            GoldBar.Category = "decoration";
+            GoldBar.Category = "CraftingIngredient";
             GoldBar.Tier = 5;
             GoldBar.Description = "Woo!";
             ModdedRecipes.Add(GoldBar);
@@ -486,7 +498,7 @@ namespace Common.ModLogics
             NickelBar.CraftedKey = "NickelBar";
             NickelBar.CraftedAmount = 1;
             NickelBar.CraftTime = 0;
-            NickelBar.Category = "decoration";
+            NickelBar.Category = "CraftingIngredient";
             NickelBar.Tier = 5;
             NickelBar.Description = "Woo!";
             ModdedRecipes.Add(NickelBar);
@@ -496,20 +508,301 @@ namespace Common.ModLogics
             TitaniumBar.CraftedKey = "TitaniumBar";
             TitaniumBar.CraftedAmount = 1;
             TitaniumBar.CraftTime = 0;
-            TitaniumBar.Category = "decoration";
+            TitaniumBar.Category = "CraftingIngredient";
             TitaniumBar.Tier = 5;
             TitaniumBar.Description = "Woo!";
             ModdedRecipes.Add(TitaniumBar);
+            #endregion
+            //Wires
+            #region Wires
+            // Wires
+            CraftData CopperWire = new CraftData();
+            CopperWire.Key = AuthorID + ".CopperWire";
+            CopperWire.CraftedKey = "CopperWire";
+            CopperWire.CraftedAmount = 1;
+            CopperWire.CraftTime = 0;
+            CopperWire.Category = "CraftingIngredient";
+            CopperWire.Tier = 5;
+            CopperWire.Description = "Make sure to make neat bundles!";
+            ModdedRecipes.Add(CopperWire);
 
-            CraftData RackRail = new CraftData();
-            RackRail.Key = AuthorID + ".RackRail";
-            RackRail.CraftedKey = "RackRail";
-            RackRail.CraftedAmount = 1;
-            RackRail.CraftTime = 0;
-            RackRail.Category = "decoration";
-            RackRail.Tier = 5;
-            RackRail.Description = "Woo!";
-            ModdedRecipes.Add(RackRail);
+            CraftData TinWire = new CraftData();
+            TinWire.Key = AuthorID + ".TinWire";
+            TinWire.CraftedKey = "TinWire";
+            TinWire.CraftedAmount = 1;
+            TinWire.CraftTime = 0;
+            TinWire.Category = "CraftingIngredient";
+            TinWire.Tier = 5;
+            TinWire.Description = "Make sure to make neat bundles!";
+            ModdedRecipes.Add(TinWire);
+
+            CraftData IronWire = new CraftData();
+            IronWire.Key = AuthorID + ".IronWire";
+            IronWire.CraftedKey = "IronWire";
+            IronWire.CraftedAmount = 1;
+            IronWire.CraftTime = 0;
+            IronWire.Category = "CraftingIngredient";
+            IronWire.Tier = 5;
+            IronWire.Description = "Make sure to make neat bundles!";
+            ModdedRecipes.Add(IronWire);
+
+            CraftData LithiumWire = new CraftData();
+            LithiumWire.Key = AuthorID + ".LithiumWire";
+            LithiumWire.CraftedKey = "LithiumWire";
+            LithiumWire.CraftedAmount = 1;
+            LithiumWire.CraftTime = 0;
+            LithiumWire.Category = "CraftingIngredient";
+            LithiumWire.Tier = 5;
+            LithiumWire.Description = "Make sure to make neat bundles!";
+            ModdedRecipes.Add(LithiumWire);
+
+            CraftData GoldWire = new CraftData();
+            GoldWire.Key = AuthorID + ".GoldWire";
+            GoldWire.CraftedKey = "GoldWire";
+            GoldWire.CraftedAmount = 1;
+            GoldWire.CraftTime = 0;
+            GoldWire.Category = "CraftingIngredient";
+            GoldWire.Tier = 5;
+            GoldWire.Description = "Make sure to make neat bundles!";
+            ModdedRecipes.Add(GoldWire);
+
+            CraftData NickelWire = new CraftData();
+            NickelWire.Key = AuthorID + ".NickelWire";
+            NickelWire.CraftedKey = "NickelWire";
+            NickelWire.CraftedAmount = 1;
+            NickelWire.CraftTime = 0;
+            NickelWire.Category = "CraftingIngredient";
+            NickelWire.Tier = 5;
+            NickelWire.Description = "Make sure to make neat bundles!";
+            ModdedRecipes.Add(NickelWire);
+
+            CraftData TitaniumWire = new CraftData();
+            TitaniumWire.Key = AuthorID + ".TitaniumWire";
+            TitaniumWire.CraftedKey = "TitaniumWire";
+            TitaniumWire.CraftedAmount = 1;
+            TitaniumWire.CraftTime = 0;
+            TitaniumWire.Category = "CraftingIngredient";
+            TitaniumWire.Tier = 5;
+            TitaniumWire.Description = "Make sure to make neat bundles!";
+            ModdedRecipes.Add(TitaniumWire);
+            #endregion
+            //Coils
+            #region Coils
+            CraftData CopperCoil = new CraftData();
+            CopperCoil.Key = AuthorID + ".CopperCoil";
+            CopperCoil.CraftedKey = "CopperCoil";
+            CopperCoil.CraftedAmount = 1;
+            CopperCoil.CraftTime = 0;
+            CopperCoil.Category = "CraftingIngredient";
+            CopperCoil.Tier = 5;
+            CopperCoil.Description = "Cause sometimes, wires are better in a coil!";
+            ModdedRecipes.Add(CopperCoil);
+
+            CraftData TinCoil = new CraftData();
+            TinCoil.Key = AuthorID + ".TinCoil";
+            TinCoil.CraftedKey = "TinCoil";
+            TinCoil.CraftedAmount = 1;
+            TinCoil.CraftTime = 0;
+            TinCoil.Category = "CraftingIngredient";
+            TinCoil.Tier = 5;
+            TinCoil.Description = "Make sure to make neat bundles!";
+            ModdedRecipes.Add(TinCoil);
+
+            CraftData IronCoil = new CraftData();
+            IronCoil.Key = AuthorID + ".IronCoil";
+            IronCoil.CraftedKey = "IronCoil";
+            IronCoil.CraftedAmount = 1;
+            IronCoil.CraftTime = 0;
+            IronCoil.Category = "CraftingIngredient";
+            IronCoil.Tier = 5;
+            IronCoil.Description = "Cause sometimes, wires are better in a coil!";
+            ModdedRecipes.Add(IronCoil);
+
+            CraftData LithiumCoil = new CraftData();
+            LithiumCoil.Key = AuthorID + ".LithiumCoil";
+            LithiumCoil.CraftedKey = "LithiumCoil";
+            LithiumCoil.CraftedAmount = 1;
+            LithiumCoil.CraftTime = 0;
+            LithiumCoil.Category = "CraftingIngredient";
+            LithiumCoil.Tier = 5;
+            LithiumCoil.Description = "Cause sometimes, wires are better in a coil!";
+            ModdedRecipes.Add(LithiumCoil);
+
+            CraftData GoldCoil = new CraftData();
+            GoldCoil.Key = AuthorID + ".GoldCoil";
+            GoldCoil.CraftedKey = "GoldCoil";
+            GoldCoil.CraftedAmount = 1;
+            GoldCoil.CraftTime = 0;
+            GoldCoil.Category = "CraftingIngredient";
+            GoldCoil.Tier = 5;
+            GoldCoil.Description = "Cause sometimes, wires are better in a coil!";
+            ModdedRecipes.Add(GoldCoil);
+
+            CraftData NickelCoil = new CraftData();
+            NickelCoil.Key = AuthorID + ".NickelCoil";
+            NickelCoil.CraftedKey = "NickelCoil";
+            NickelCoil.CraftedAmount = 1;
+            NickelCoil.CraftTime = 0;
+            NickelCoil.Category = "CraftingIngredient";
+            NickelCoil.Tier = 5;
+            NickelCoil.Description = "Cause sometimes, wires are better in a coil!";
+            ModdedRecipes.Add(NickelCoil);
+
+            CraftData TitaniumCoil = new CraftData();
+            TitaniumCoil.Key = AuthorID + ".TitaniumCoil";
+            TitaniumCoil.CraftedKey = "TitaniumCoil";
+            TitaniumCoil.CraftedAmount = 1;
+            TitaniumCoil.CraftTime = 0;
+            TitaniumCoil.Category = "CraftingIngredient";
+            TitaniumCoil.Tier = 5;
+            TitaniumCoil.Description = "Cause sometimes, wires are better in a coil!";
+            ModdedRecipes.Add(TitaniumCoil);
+            #endregion
+            //PBCs
+            #region PCBs
+            CraftData BasicPCB = new CraftData();
+            BasicPCB.Key = AuthorID + ".BasicPCB";
+            BasicPCB.CraftedKey = "BasicPCB";
+            BasicPCB.CraftedAmount = 1;
+            BasicPCB.CraftTime = 0;
+            BasicPCB.Category = "CraftingIngredient";
+            BasicPCB.Tier = 5;
+            BasicPCB.Description = "Who doesnt love Printed Circuits?";
+            ModdedRecipes.Add(BasicPCB);
+
+            CraftData PrimaryPCB = new CraftData();
+            PrimaryPCB.Key = AuthorID + ".PrimaryPCB";
+            PrimaryPCB.CraftedKey = "PrimaryPCB";
+            PrimaryPCB.CraftedAmount = 1;
+            PrimaryPCB.CraftTime = 0;
+            PrimaryPCB.Category = "CraftingIngredient";
+            PrimaryPCB.Tier = 5;
+            PrimaryPCB.Description = "Who doesnt love Printed Circuits?";
+            ModdedRecipes.Add(PrimaryPCB);
+
+            CraftData HardenedPCB = new CraftData();
+            HardenedPCB.Key = AuthorID + ".HardenedPCB";
+            HardenedPCB.CraftedKey = "HardenedPCB";
+            HardenedPCB.CraftedAmount = 1;
+            HardenedPCB.CraftTime = 0;
+            HardenedPCB.Category = "CraftingIngredient";
+            HardenedPCB.Tier = 5;
+            HardenedPCB.Description = "Who doesnt love Printed Circuits?";
+            ModdedRecipes.Add(HardenedPCB);
+
+            CraftData ConductivePCB = new CraftData();
+            ConductivePCB.Key = AuthorID + ".ConductivePCB";
+            ConductivePCB.CraftedKey = "ConductivePCB";
+            ConductivePCB.CraftedAmount = 1;
+            ConductivePCB.CraftTime = 0;
+            ConductivePCB.Category = "CraftingIngredient";
+            ConductivePCB.Tier = 5;
+            ConductivePCB.Description = "Who doesnt love Printed Circuits?";
+            ModdedRecipes.Add(ConductivePCB);
+
+            CraftData ChargedPCB = new CraftData();
+            ChargedPCB.Key = AuthorID + ".ChargedPCB";
+            ChargedPCB.CraftedKey = "ChargedPCB";
+            ChargedPCB.CraftedAmount = 1;
+            ChargedPCB.CraftTime = 0;
+            ChargedPCB.Category = "CraftingIngredient";
+            ChargedPCB.Tier = 5;
+            ChargedPCB.Description = "Who doesnt love Printed Circuits?";
+            ModdedRecipes.Add(ChargedPCB);
+
+            CraftData FortifiedPCB = new CraftData();
+            FortifiedPCB.Key = AuthorID + ".FortifiedPCB";
+            FortifiedPCB.CraftedKey = "FortifiedPCB";
+            FortifiedPCB.CraftedAmount = 1;
+            FortifiedPCB.CraftTime = 0;
+            FortifiedPCB.Category = "CraftingIngredient";
+            FortifiedPCB.Tier = 5;
+            FortifiedPCB.Description = "Who doesnt love Printed Circuits?";
+            ModdedRecipes.Add(FortifiedPCB);
+
+            CraftData LightweightPCB = new CraftData();
+            LightweightPCB.Key = AuthorID + ".LightweightPCB";
+            LightweightPCB.CraftedKey = "LightweightPCB";
+            LightweightPCB.CraftedAmount = 1;
+            LightweightPCB.CraftTime = 0;
+            LightweightPCB.Category = "CraftingIngredient";
+            LightweightPCB.Tier = 5;
+            LightweightPCB.Description = "Who doesnt love Printed Circuits?";
+            ModdedRecipes.Add(LightweightPCB);
+            #endregion
+            //Plates
+            #region Plates
+            CraftData CopperPlate = new CraftData();
+            CopperPlate.Key = AuthorID + ".CopperPlate";
+            CopperPlate.CraftedKey = "CopperPlate";
+            CopperPlate.CraftedAmount = 1;
+            CopperPlate.CraftTime = 0;
+            CopperPlate.Category = "CraftingIngredient";
+            CopperPlate.Tier = 5;
+            CopperPlate.Description = "Cause flat bars are cool too!";
+            ModdedRecipes.Add(CopperPlate);
+
+            CraftData TinPlate = new CraftData();
+            TinPlate.Key = AuthorID + ".TinPlate";
+            TinPlate.CraftedKey = "TinPlate";
+            TinPlate.CraftedAmount = 1;
+            TinPlate.CraftTime = 0;
+            TinPlate.Category = "CraftingIngredient";
+            TinPlate.Tier = 5;
+            TinPlate.Description = "Cause flat bars are cool too!";
+            ModdedRecipes.Add(TinPlate);
+
+            CraftData IronPlate = new CraftData();
+            IronPlate.Key = AuthorID + ".IronPlate";
+            IronPlate.CraftedKey = "IronPlate";
+            IronPlate.CraftedAmount = 1;
+            IronPlate.CraftTime = 0;
+            IronPlate.Category = "CraftingIngredient";
+            IronPlate.Tier = 5;
+            IronPlate.Description = "Cause flat bars are cool too!";
+            ModdedRecipes.Add(IronPlate);
+
+            CraftData LithiumPlate = new CraftData();
+            LithiumPlate.Key = AuthorID + ".LithiumPlate";
+            LithiumPlate.CraftedKey = "LithiumPlate";
+            LithiumPlate.CraftedAmount = 1;
+            LithiumPlate.CraftTime = 0;
+            LithiumPlate.Category = "CraftingIngredient";
+            LithiumPlate.Tier = 5;
+            LithiumPlate.Description = "Cause flat bars are cool too!";
+            ModdedRecipes.Add(LithiumPlate);
+
+            CraftData GoldPlate = new CraftData();
+            GoldPlate.Key = AuthorID + ".GoldPlate";
+            GoldPlate.CraftedKey = "GoldPlate";
+            GoldPlate.CraftedAmount = 1;
+            GoldPlate.CraftTime = 0;
+            GoldPlate.Category = "CraftingIngredient";
+            GoldPlate.Tier = 5;
+            GoldPlate.Description = "Cause flat bars are cool too!";
+            ModdedRecipes.Add(GoldPlate);
+
+            CraftData NickelPlate = new CraftData();
+            NickelPlate.Key = AuthorID + ".NickelPlate";
+            NickelPlate.CraftedKey = "NickelPlate";
+            NickelPlate.CraftedAmount = 1;
+            NickelPlate.CraftTime = 0;
+            NickelPlate.Category = "CraftingIngredient";
+            NickelPlate.Tier = 5;
+            NickelPlate.Description = "Cause flat bars are cool too!";
+            ModdedRecipes.Add(NickelPlate);
+
+            CraftData TitaniumPlate = new CraftData();
+            TitaniumPlate.Key = AuthorID + ".TitaniumPlate";
+            TitaniumPlate.CraftedKey = "TitaniumPlate";
+            TitaniumPlate.CraftedAmount = 1;
+            TitaniumPlate.CraftTime = 0;
+            TitaniumPlate.Category = "CraftingIngredient";
+            TitaniumPlate.Tier = 5;
+            TitaniumPlate.Description = "Cause flat bars are cool too!";
+            ModdedRecipes.Add(TitaniumPlate);
+            #endregion
+            //Research Pods
 
         }
     }

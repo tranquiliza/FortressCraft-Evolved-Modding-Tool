@@ -148,6 +148,7 @@ namespace Common.GameLogics
             Mining,
             MultiBlock,
             Lights,
+            Defences,
             Effect,
             Urban,
             Outdoor,

@@ -63,15 +63,15 @@ namespace FortressCraftEvolved_Modding_Tool
 
         private void KeyPress(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            if (e.Key == System.Windows.Input.Key.F5)
-            {
-                ContentMain.Content = null;
-                ResearchWindow = null;
-                ManufacturerWindow = null;
-                ItemsWindow = null;
-                TerrainDataWindow = null;
-                GACWindow = null;
-            }
+            //if (e.Key == System.Windows.Input.Key.F5)
+            //{
+            //    ContentMain.Content = null;
+            //    ResearchWindow = null;
+            //    ManufacturerWindow = null;
+            //    ItemsWindow = null;
+            //    TerrainDataWindow = null;
+            //    GACWindow = null;
+            //}
         }
 
         private void button_LoadManufacturer_Click(object sender, RoutedEventArgs e)
@@ -164,27 +164,6 @@ namespace FortressCraftEvolved_Modding_Tool
 
         private void button_CreateMod_Click(object sender, RoutedEventArgs e)
         {
-            //This is what we call when creating a new mod folder!
-            //Form_ModCreator popup = new Form_ModCreator();
-            //popup.ShowDialog();
-            ////Config is also used for making the directory of the mod! (Cause it contains all the values :D )
-            //ModConfiguration Config = ModWriterDataHolder.Config;
-            //if (User.Default.AuthorID == "")
-            //{
-            //    MessageBox.Show("No Mod AuthorID Found, please check the settings!");
-            //    return;
-            //}
-            //if (Config == null)
-            //{
-            //    return;
-            //}
-            //ModCreator.GenerateDirectory(User.Default.WritePath, Config);
-            //string configfilepath = Path.Combine(User.Default.WritePath, Config.Id);
-            //configfilepath = Path.Combine(configfilepath, Config.Version);
-            //configfilepath += "\\";
-            //string configFile = XMLSerializer.Serialize(Config, false);
-            //File.WriteAllText(configfilepath + "Mod.Config", configFile);
-
             if (ModWindow == null)
             {
                 ModWindow = new UserControl_ModInterface();
