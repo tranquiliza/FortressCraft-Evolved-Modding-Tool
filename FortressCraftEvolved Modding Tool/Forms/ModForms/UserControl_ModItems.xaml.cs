@@ -179,11 +179,12 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
         {
             if (IsEditing)
             {
+                listBox_Items.IsEnabled = false;
                 comboBox_Scan.Visibility = Visibility.Visible;
                 button_Delete.Visibility = Visibility.Hidden;
                 button_Write.Visibility = Visibility.Hidden;
                 button_DeleteResearch.Visibility = Visibility.Visible;
-                listBox_Items.Visibility = Visibility.Hidden;
+                //listBox_Items.Visibility = Visibility.Hidden;
                 textBlock_Name.Visibility = Visibility.Hidden;
                 textBlock_Plural.Visibility = Visibility.Hidden;
                 textBlock_Type.Visibility = Visibility.Hidden;
@@ -227,11 +228,12 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             }
             else
             {
+                listBox_Items.IsEnabled = true;
                 comboBox_Scan.Visibility = Visibility.Hidden;
                 button_Delete.Visibility = Visibility.Visible;
                 button_Write.Visibility = Visibility.Visible;
                 button_DeleteResearch.Visibility = Visibility.Hidden;
-                listBox_Items.Visibility = Visibility.Visible;
+                //listBox_Items.Visibility = Visibility.Visible;
                 textBlock_IsOverride.Visibility = Visibility.Visible;
                 textBlock_ItemId.Visibility = Visibility.Visible;
                 textBlock_Key.Visibility = Visibility.Visible;

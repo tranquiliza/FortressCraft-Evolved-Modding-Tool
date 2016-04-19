@@ -68,7 +68,7 @@ namespace Common.ModLogics
             {
                 CraftData Holder = new CraftData();
                 Holder.IsOverride = "false";
-                Holder.Key = "tranq." + ModDataHolder.RefineryRecipes[i].Key;
+                Holder.Key = AuthorID + "." + ModDataHolder.RefineryRecipes[i].Key;
                 Holder.Category = "CraftingIngredient";
                 Holder.CraftedKey = ModDataHolder.RefineryRecipes[i].CraftedKey;
                 Holder.CraftedAmount = ModDataHolder.RefineryRecipes[i].CraftedAmount;

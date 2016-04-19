@@ -18,7 +18,6 @@ namespace Common.ModWriter
         //Not sure how to manage this?  Maybe load a single at a time?
         public static List<GenericAutoCrafterDataEntry> GACMachines = new List<GenericAutoCrafterDataEntry>();
 
-
         public static string[] Sprites()
         {
             string[] IconNames = null;
@@ -28,7 +27,7 @@ namespace Common.ModWriter
             }
             catch (Exception x)
             {
-                System.IO.File.WriteAllText("SpriteReaderError", x.ToString());
+                System.IO.File.WriteAllText("SpriteReaderError.txt", x.ToString());
             }
             return IconNames;
         }

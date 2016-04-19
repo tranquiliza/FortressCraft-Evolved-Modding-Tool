@@ -69,4 +69,17 @@ namespace Common.ModLogics
         Incubator = 70,
         AssemblyStation = 80
     }
+    public enum Category
+    {
+        mining,
+        power,
+        logistics,
+        upgrades,
+        defences,
+        consumables,
+        CraftingIngredient,
+        minecarts,
+        manufacturing,
+        decoration
+    }
 }
