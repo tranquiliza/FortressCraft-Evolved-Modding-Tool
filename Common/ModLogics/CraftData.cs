@@ -58,7 +58,16 @@ namespace Common.ModLogics
         public uint Amount { get; set; }
         public string Readable()
         {
-            return Amount + " x " + Key;
+            string DeleteAble;
+            if (Delete == "true")
+            {
+                DeleteAble = "-";
+            }
+            else
+            {
+                DeleteAble = "+";
+            }
+            return Amount + " x " + Key + " : " + DeleteAble;
         }
     }
     public enum eManufacturingPlantModule

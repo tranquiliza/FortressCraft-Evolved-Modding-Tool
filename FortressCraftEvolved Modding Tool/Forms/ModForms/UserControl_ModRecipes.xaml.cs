@@ -53,7 +53,6 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             RefreshItemsLists();
 
             //Textblocks:
-            textBlock_IsOverride.Text = "";
             textBlock_Key.Text = "";
             textBlock_Tier.Text = "";
             textBlock_CraftedKey.Text = "";
@@ -62,8 +61,74 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             textBlock_ResearchCost.Text = "";
             textBlock_Desc.Text = "";
             textBlock_Hint.Text = "";
+
+
+            //Textboxes
+            textBox_Key.Text = "";
+            textBox_CraftedAmount.Text = "1";
+            textBox_CraftTime.Text = "";
+            textBox_Desc.Text = "";
+            textBox_Hint.Text = "";
+
+            //ComboBox Values:
+            comboBox_ResearchCost.Items.Clear();
+            for (int i = 0; i < 41; i++)
+            {
+                comboBox_ResearchCost.Items.Add(i);
+            }
+            comboBox_Tier.Items.Clear();
+            for (int i = 0; i < 8; i++)
+            {
+                comboBox_Tier.Items.Add(i);
+            }
+            comboBox_CraftedKey.Items.Clear();
+            for (int i = 0; i < DataHolder.ItemEntries.Count; i++)
+            {
+                comboBox_CraftedKey.Items.Add(DataHolder.ItemEntries[i].Key);
+            }
+            for (int i = 0; i < ModWriterDataHolder.Items.Count; i++)
+            {
+                comboBox_CraftedKey.Items.Add(ModWriterDataHolder.Items[i].Key);
+            }
+            for (int i = 0; i < DataHolder.TerrainDataEntries.Count; i++)
+            {
+                if (DataHolder.TerrainDataEntries[i].Values != null)
+                {
+                    for (int j = 0; j < DataHolder.TerrainDataEntries[i].Values.Count; j++)
+                    {
+                        comboBox_CraftedKey.Items.Add(DataHolder.TerrainDataEntries[i].Values[j].Key);
+                    }
+                }
+                else
+                {
+                    comboBox_CraftedKey.Items.Add(DataHolder.TerrainDataEntries[i].Key);
+                }
+            }
+            for (int i = 0; i < ModWriterDataHolder.TerrainDataEntries.Count; i++)
+            {
+                if (ModWriterDataHolder.TerrainDataEntries[i].Values != null)
+                {
+                    for (int j = 0; j < ModWriterDataHolder.TerrainDataEntries[i].Values.Count; j++)
+                    {
+                        comboBox_CraftedKey.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Values[j].Key);
+                    }
+                }
+                else
+                {
+                    comboBox_CraftedKey.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Key);
+                }
+            }
+
+
             Refresh();
             EditMode(false);
+
+
+            //Special Things, because we dont use these at all?? 
+
+            textBlock_CraftTime.Visibility = Visibility.Hidden;
+            label_CraftTime.Visibility = Visibility.Hidden;
+            textBox_CraftTime.Visibility = Visibility.Hidden;
         }
 
         private void Refresh()
@@ -118,7 +183,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
 
         private void EditMode(bool lbIsCrafting) //This function Controls VIS and interaction of the form
         {
-            if (lbIsCrafting)
+            if (lbIsCrafting) //If we're editing an item:
             {
                 listBox_Recipes.IsEnabled = false;
                 checkBox_Delete.IsEnabled = true;
@@ -128,12 +193,12 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 listBox_RemoveResearchReq.IsEnabled = true;
                 listBox_ScanReq.IsEnabled = true;
                 listBox_RemoveScanReq.IsEnabled = true;
-                textBlock_IsOverride.Visibility = Visibility.Hidden;
+                checkBox_IsOverride.IsEnabled = true;
                 textBlock_Key.Visibility = Visibility.Hidden;
                 textBlock_Tier.Visibility = Visibility.Hidden;
                 textBlock_CraftedKey.Visibility = Visibility.Hidden;
                 textBlock_CraftedAmount.Visibility = Visibility.Hidden;
-                textBlock_CraftTime.Visibility = Visibility.Hidden;
+                //textBlock_CraftTime.Visibility = Visibility.Hidden;
                 textBlock_ResearchCost.Visibility = Visibility.Hidden;
                 textBlock_Desc.Visibility = Visibility.Hidden;
                 textBlock_Hint.Visibility = Visibility.Hidden;
@@ -154,8 +219,17 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 button_EditRecipe.Visibility = Visibility.Hidden;
                 button_DeleteCost.Visibility = Visibility.Visible;
                 button_AddCost.Visibility = Visibility.Visible;
+                
+
+                textBox_CraftedAmount.Visibility = Visibility.Visible;
+                //textBox_CraftTime.Visibility = Visibility.Visible;
+                textBox_Desc.Visibility = Visibility.Visible;
+                textBox_Hint.Visibility = Visibility.Visible;
+                comboBox_ResearchCost.Visibility = Visibility.Visible;
+                comboBox_CraftedKey.Visibility = Visibility.Visible;
+                comboBox_Tier.Visibility = Visibility.Visible;
             }
-            else
+            else //If not editing item:
             {
                 listBox_Recipes.IsEnabled = true;
                 checkBox_Delete.IsEnabled = false;
@@ -165,12 +239,12 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 listBox_RemoveResearchReq.IsEnabled = false;
                 listBox_ScanReq.IsEnabled = false;
                 listBox_RemoveScanReq.IsEnabled = false;
-                textBlock_IsOverride.Visibility = Visibility.Visible;
+                checkBox_IsOverride.IsEnabled = false;
                 textBlock_Key.Visibility = Visibility.Visible;
                 textBlock_Tier.Visibility = Visibility.Visible;
                 textBlock_CraftedKey.Visibility = Visibility.Visible;
                 textBlock_CraftedAmount.Visibility = Visibility.Visible;
-                textBlock_CraftTime.Visibility = Visibility.Visible;
+                //textBlock_CraftTime.Visibility = Visibility.Visible;
                 textBlock_ResearchCost.Visibility = Visibility.Visible;
                 textBlock_Desc.Visibility = Visibility.Visible;
                 textBlock_Hint.Visibility = Visibility.Visible;
@@ -193,6 +267,17 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 button_EditRecipe.Visibility = Visibility.Visible;
                 button_DeleteCost.Visibility = Visibility.Hidden;
                 button_AddCost.Visibility = Visibility.Hidden;
+                
+                textBox_Key.Visibility = Visibility.Hidden; //We dont do this automaticly, different depending wither its an override or not!
+
+                textBox_CraftedAmount.Visibility = Visibility.Hidden;
+                //textBox_CraftTime.Visibility = Visibility.Hidden;
+                textBox_Desc.Visibility = Visibility.Hidden;
+                textBox_Hint.Visibility = Visibility.Hidden;
+                comboBox_ResearchCost.Visibility = Visibility.Hidden;
+                comboBox_CraftedKey.Visibility = Visibility.Hidden;
+                comboBox_Tier.Visibility = Visibility.Hidden;
+                comboBox_Key.Visibility = Visibility.Hidden;
             }
         }
 
@@ -235,8 +320,28 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
 
         private void button_EditRecipe_Click(object sender, RoutedEventArgs e)
         {
-            mbEditing = true;
-            EditMode(true);
+            if (SelectedRecipe != null)
+            {
+                ActiveRecipe = SelectedRecipe;
+                mbEditing = true;
+                EditMode(true);
+                checkBox_IsOverride.IsEnabled = false;
+                if (mbIsOverride)
+                {
+                    checkBox_Delete.IsEnabled = true;
+                }
+                else
+                {
+                    checkBox_Delete.IsEnabled = false;
+                }
+                textBlock_Key.Visibility = Visibility.Visible;
+                comboBox_CraftedKey.Visibility = Visibility.Hidden;
+                textBlock_CraftedKey.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void button_Cancel_Click(object sender, RoutedEventArgs e)
@@ -257,7 +362,16 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                     }
                 }
                 mbIsOverride = Convert.ToBoolean(SelectedRecipe.IsOverride);
-                textBlock_IsOverride.Text = SelectedRecipe.IsOverride;
+
+                if (SelectedRecipe.IsOverride == "true")
+                {
+                    checkBox_IsOverride.IsChecked = true;
+                }
+                else
+                {
+                    checkBox_IsOverride.IsChecked = false;
+                }
+
                 textBlock_Key.Text = SelectedRecipe.Key;
                 textBlock_Tier.Text = SelectedRecipe.Tier.ToString();
                 textBlock_CraftedKey.Text = SelectedRecipe.CraftedKey;
@@ -308,6 +422,53 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                     checkBox_Delete.Visibility = Visibility.Hidden;
                 }
             }
+        }
+
+        private void button_Confirm_Click(object sender, RoutedEventArgs e)
+        {
+            if (mbEditing) //Editing Already existing item, we override Active Item:
+            {
+
+            }
+            else //we create new values and add to the list!
+            {
+
+            }
+        }
+
+        private void button_AddRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            EditMode(true);
+            checkBox_IsOverride.IsChecked = false;
+            checkBox_Delete.Visibility = Visibility.Hidden;
+            textBox_Key.Visibility = Visibility.Visible;
+        }
+
+        private void checkBox_IsOverride_Checked(object sender, RoutedEventArgs e)
+        {
+            mbIsOverride = true;
+            if (mbEditing == false)
+            {
+                comboBox_Key.Visibility = Visibility.Visible;
+                textBox_Key.Visibility = Visibility.Hidden;
+                checkBox_Delete.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void checkBox_IsOverride_Unchecked(object sender, RoutedEventArgs e)
+        {
+            mbIsOverride = false;
+            if (mbEditing == false)
+            {
+                comboBox_Key.Visibility = Visibility.Hidden;
+                textBox_Key.Visibility = Visibility.Visible;
+                checkBox_Delete.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void comboBox_Key_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //When we select a key, this happens! (For creating new items using Override!) We're going to change textboxes to the active items values
         }
     }
 }

@@ -36,7 +36,7 @@
             <ColumnDefinition Width="200*"/>
         </Grid.ColumnDefinitions>
         <ListBox x:Name="listBox_Recipes" HorizontalAlignment="Left" Height="340" Margin="10,10,0,0" Grid.RowSpan="9" VerticalAlignment="Top" Width="200" SelectionChanged="listBox_Recipes_SelectionChanged"/>
-        <Button x:Name="button_AddRecipe" Content="Add Recipe" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="9" VerticalAlignment="Top" Width="200"/>
+        <Button x:Name="button_AddRecipe" Content="Add Recipe" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="9" VerticalAlignment="Top" Width="200" Click="button_AddRecipe_Click"/>
         <Button x:Name="button_EditRecipe" Content="Edit Recipe" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="10" VerticalAlignment="Top" Width="200" Click="button_EditRecipe_Click"/>
         <Button x:Name="button_DeleteRecipe" Content="Delete Recipe" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="11" VerticalAlignment="Top" Width="200"/>
         <Button x:Name="button_Save" Content="Save Manufacturer Xml" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="200"/>
@@ -62,7 +62,6 @@
         <TextBlock x:Name="textBlock_ResearchCost" Grid.Column="4" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="4" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock_Desc" Grid.Column="4" HorizontalAlignment="Left" Margin="10,18,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock_Hint" Grid.Column="4" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock_IsOverride" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.Row="1"/>
         <Label x:Name="label_Delete" Content="Delete:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkBox_Delete" Content="Delete" Grid.Column="2" HorizontalAlignment="Left" Margin="10,14,0,0" Grid.Row="2" VerticalAlignment="Top"/>
         <Label x:Name="label_CraftCost" Content="Craft Costs:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="9" VerticalAlignment="Top"/>
@@ -83,7 +82,7 @@
         <ComboBox x:Name="comboBox_Scan" Grid.Column="6" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="9" VerticalAlignment="Top" Width="175"/>
 
         <Button x:Name="button_Cancel" Content="Cancel" Grid.Column="4" HorizontalAlignment="Left" Margin="85,10,0,0" Grid.Row="13" VerticalAlignment="Top" Width="125" Click="button_Cancel_Click"/>
-        <Button x:Name="button_Confirm" Content="Confirm Changes" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="13" VerticalAlignment="Top" Width="125"/>
+        <Button x:Name="button_Confirm" Content="Confirm Changes" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="13" VerticalAlignment="Top" Width="125" Click="button_Confirm_Click"/>
         <Button x:Name="button_AddResearch" Content="Add Research" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="125"/>
         <Button x:Name="button_RemoveResearch" Content="Remove Research" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="6" VerticalAlignment="Top" Width="125"/>
         <Button x:Name="button_DeleteResearch" Content="Delete Research" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="7" VerticalAlignment="Top" Width="125"/>
@@ -92,6 +91,18 @@
 
         <Button x:Name="button_DeleteCost" Content="Delete Cost" Grid.Column="1" HorizontalAlignment="Left" Margin="15,10,0,0" Grid.Row="13" VerticalAlignment="Top" Width="125"/>
         <Button x:Name="button_AddCost" Content="Add Cost" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="13" VerticalAlignment="Top" Width="125"/>
+
+        <TextBox x:Name="textBox_Key" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="textBox_CraftedAmount" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="7" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="textBox_CraftTime" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="8" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="textBox_Desc" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="textBox_Hint" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+
+        <ComboBox x:Name="comboBox_CraftedKey" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="6" VerticalAlignment="Top" Width="200"/>
+        <ComboBox x:Name="comboBox_Tier" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="200"/>
+        <CheckBox x:Name="checkBox_IsOverride" Content="IsOverride" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="1" VerticalAlignment="Top" Checked="checkBox_IsOverride_Checked" Unchecked="checkBox_IsOverride_Unchecked"/>
+        <ComboBox x:Name="comboBox_ResearchCost" Grid.Column="4" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="200"/>
+        <ComboBox x:Name="comboBox_Key" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="200" SelectionChanged="comboBox_Key_SelectionChanged"/>
 
     </Grid>
 </UserControl>
