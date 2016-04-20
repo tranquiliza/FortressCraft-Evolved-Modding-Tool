@@ -148,16 +148,42 @@ namespace FortressCraftEvolved_Modding_Tool
             string configfilepath = Path.Combine(User.Default.WritePath, CreativeSurvival.Id);
             configfilepath = Path.Combine(configfilepath, CreativeSurvival.Version);
             configfilepath += "\\";
-
+            
 
             File.WriteAllText(xmlfilepath + "ManufacturerRecipes.xml", recipes);
             File.WriteAllText(xmlfilepath + "Items.xml", items);
             File.WriteAllText(configfilepath + "Mod.Config", ConfigFile);
+            
+            Common.ModLogics.FreeDecorMod.AuthorID = "Tranq";
+            Common.ModLogics.FreeDecorMod.CreateRecipes();
+            string FreeDecorRecipes = XMLSerializer.Serialize(Common.ModLogics.FreeDecorMod.ModdedRecipes, false);
+
+            ModConfiguration FreeDecor = new ModConfiguration();
+            FreeDecor.Id = Common.ModLogics.FreeDecorMod.AuthorID + "." + "FreeDecorMod";
+            FreeDecor.Name = "Free Decor Mod";
+            FreeDecor.Version = "1";
+
+            string FreeDecorConfig = XMLSerializer.Serialize(FreeDecor, false);
+            ModCreator.GenerateDirectory(User.Default.WritePath, FreeDecor);
+
+            //This is where we save the xml files!
+            string FreeDecorXmlfilepath = Path.Combine(User.Default.WritePath, FreeDecor.Id);
+            FreeDecorXmlfilepath = Path.Combine(FreeDecorXmlfilepath, FreeDecor.Version);
+            FreeDecorXmlfilepath = Path.Combine(FreeDecorXmlfilepath, ModCreator.Xml);
+            FreeDecorXmlfilepath += "\\";
+           
+            //This is where we save the config file
+            string FreeDecorConfigfilepath = Path.Combine(User.Default.WritePath, FreeDecor.Id);
+            FreeDecorConfigfilepath = Path.Combine(FreeDecorConfigfilepath, FreeDecor.Version);
+            FreeDecorConfigfilepath += "\\";
+            
+            File.WriteAllText(FreeDecorXmlfilepath + "ManufacturerRecipes.xml", FreeDecorRecipes);
+            File.WriteAllText(FreeDecorConfigfilepath + "Mod.Config", FreeDecorConfig);
 
             string Message = "Generated Creative Survival Files in the root folder!";
             if (User.Default.WritePath != "")
             {
-               Message = "Generated Creative Survival Files in: " + User.Default.WritePath + ".";
+               Message = "Generated Creative Survival and Free Decor Mod Files in: " + User.Default.WritePath + ".";
             }
             MessageBox.Show(Message);
         }

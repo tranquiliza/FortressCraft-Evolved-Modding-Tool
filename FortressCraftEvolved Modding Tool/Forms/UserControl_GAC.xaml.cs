@@ -69,27 +69,30 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             textBlock_CraftTime.Text = GACDataHolder.GAC.CraftTime.ToString();
             textBlock_MaxPowerStorage.Text = GACDataHolder.GAC.MaxPowerStorage.ToString();
             textBlock_OptionalIngredients.Text = GACDataHolder.GAC.OptionalIngredients.ToString();
-            
+
             //Recipe Start;
-            textBlock_RecipeKey.Text = GACDataHolder.GAC.Recipe.Key;
-            string lsCraftedName = "";
-            if (GACDataHolder.GAC.Recipe.CraftedKey == null)
+            if (GACDataHolder.GAC.Recipe != null)
             {
-                lsCraftedName = GACDataHolder.GAC.Recipe.CraftedName;
-            }
-            else
-            {
-                lsCraftedName = GACDataHolder.GAC.Recipe.CraftedKey;
-            }
+                textBlock_RecipeKey.Text = GACDataHolder.GAC.Recipe.Key;
+                string lsCraftedName = "";
+                if (GACDataHolder.GAC.Recipe.CraftedKey == null)
+                {
+                    lsCraftedName = GACDataHolder.GAC.Recipe.CraftedName;
+                }
+                else
+                {
+                    lsCraftedName = GACDataHolder.GAC.Recipe.CraftedKey;
+                }
 
-            textBlock_RecipeCraftedKey.Text = lsCraftedName;
+                textBlock_RecipeCraftedKey.Text = lsCraftedName;
 
-            textBlock_RecipeCraftedAmount.Text = GACDataHolder.GAC.Recipe.CraftedAmount.ToString();
-            textBlock_RecipeDesc.Text = GACDataHolder.GAC.Recipe.Description;
-            listBox_RecipeCosts.Items.Clear();
-            for (int i = 0; i < GACDataHolder.GAC.Recipe.Costs.Count; i++)
-            {
-                listBox_RecipeCosts.Items.Add(GACDataHolder.GAC.Recipe.Costs[i].Text());
+                textBlock_RecipeCraftedAmount.Text = GACDataHolder.GAC.Recipe.CraftedAmount.ToString();
+                textBlock_RecipeDesc.Text = GACDataHolder.GAC.Recipe.Description;
+                listBox_RecipeCosts.Items.Clear();
+                for (int i = 0; i < GACDataHolder.GAC.Recipe.Costs.Count; i++)
+                {
+                    listBox_RecipeCosts.Items.Add(GACDataHolder.GAC.Recipe.Costs[i].Text());
+                }
             }
         }
     }

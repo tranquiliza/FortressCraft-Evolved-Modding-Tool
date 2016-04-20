@@ -126,6 +126,16 @@ namespace Common.ModLogics
             RackRail.Description = "Woo!";
             ModdedRecipes.Add(RackRail);
 
+            CraftData HiveCore = new CraftData();
+            HiveCore.Key = AuthorID + ".HiveCore";
+            HiveCore.CraftedKey = "HiveCore";
+            HiveCore.CraftedAmount = 1;
+            HiveCore.CraftTime = 0;
+            HiveCore.Category = "decoration";
+            HiveCore.Tier = 5;
+            HiveCore.Description = "Be careful where you place this, will probably encase itself in resin.";
+            ModdedRecipes.Add(HiveCore);
+
             //Missiles
             #region Missiles
             CraftData BasicMissile = new CraftData();
@@ -803,7 +813,145 @@ namespace Common.ModLogics
             ModdedRecipes.Add(TitaniumPlate);
             #endregion
             //Research Pods
+            #region ResearchPods
 
+            CraftData BasicExperimentalPod = new CraftData();
+            BasicExperimentalPod.Key = AuthorID + ".BasicExperimentalPod";
+            BasicExperimentalPod.CraftedKey = "BasicExperimentalPod";
+            BasicExperimentalPod.CraftedAmount = 1;
+            BasicExperimentalPod.CraftTime = 0;
+            BasicExperimentalPod.Category = "CraftingIngredient";
+            BasicExperimentalPod.Tier = 5;
+            BasicExperimentalPod.Description = "Pods Fo days!";
+            ModdedRecipes.Add(BasicExperimentalPod);
+
+            CraftData SimplifiedExperimentalPod = new CraftData();
+            SimplifiedExperimentalPod.Key = AuthorID + ".SimplifiedExperimentalPod";
+            SimplifiedExperimentalPod.CraftedKey = "SimplifiedExperimentalPod";
+            SimplifiedExperimentalPod.CraftedAmount = 1;
+            SimplifiedExperimentalPod.CraftTime = 0;
+            SimplifiedExperimentalPod.Category = "CraftingIngredient";
+            SimplifiedExperimentalPod.Tier = 5;
+            SimplifiedExperimentalPod.Description = "Pods Fo days!";
+            ModdedRecipes.Add(SimplifiedExperimentalPod);
+
+            CraftData IntermediateExperimentalPod = new CraftData();
+            IntermediateExperimentalPod.Key = AuthorID + ".IntermediateExperimentalPod";
+            IntermediateExperimentalPod.CraftedKey = "IntermediateExperimentalPod";
+            IntermediateExperimentalPod.CraftedAmount = 1;
+            IntermediateExperimentalPod.CraftTime = 0;
+            IntermediateExperimentalPod.Category = "CraftingIngredient";
+            IntermediateExperimentalPod.Tier = 5;
+            IntermediateExperimentalPod.Description = "Pods Fo days!";
+            ModdedRecipes.Add(IntermediateExperimentalPod);
+
+            CraftData ComplexExperimentalPod = new CraftData();
+            ComplexExperimentalPod.Key = AuthorID + ".ComplexExperimentalPod";
+            ComplexExperimentalPod.CraftedKey = "ComplexExperimentalPod";
+            ComplexExperimentalPod.CraftedAmount = 1;
+            ComplexExperimentalPod.CraftTime = 0;
+            ComplexExperimentalPod.Category = "CraftingIngredient";
+            ComplexExperimentalPod.Tier = 5;
+            ComplexExperimentalPod.Description = "Pods Fo days!";
+            ModdedRecipes.Add(ComplexExperimentalPod);
+
+            CraftData AdvancedExperimentalPod = new CraftData();
+            AdvancedExperimentalPod.Key = AuthorID + ".AdvancedExperimentalPod";
+            AdvancedExperimentalPod.CraftedKey = "AdvancedExperimentalPod";
+            AdvancedExperimentalPod.CraftedAmount = 1;
+            AdvancedExperimentalPod.CraftTime = 0;
+            AdvancedExperimentalPod.Category = "CraftingIngredient";
+            AdvancedExperimentalPod.Tier = 5;
+            AdvancedExperimentalPod.Description = "Pods Fo days!";
+            ModdedRecipes.Add(AdvancedExperimentalPod);
+
+            CraftData XLExperimentalPod = new CraftData();
+            XLExperimentalPod.Key = AuthorID + ".XLExperimentalPod";
+            XLExperimentalPod.CraftedKey = "XLExperimentalPod";
+            XLExperimentalPod.CraftedAmount = 1;
+            XLExperimentalPod.CraftTime = 0;
+            XLExperimentalPod.Category = "CraftingIngredient";
+            XLExperimentalPod.Tier = 5;
+            XLExperimentalPod.Description = "Pods Fo days!";
+            ModdedRecipes.Add(XLExperimentalPod);
+
+            CraftData UltimateExperimentalPod = new CraftData();
+            UltimateExperimentalPod.Key = AuthorID + ".UltimateExperimentalPod";
+            UltimateExperimentalPod.CraftedKey = "UltimateExperimentalPod";
+            UltimateExperimentalPod.CraftedAmount = 1;
+            UltimateExperimentalPod.CraftTime = 0;
+            UltimateExperimentalPod.Category = "CraftingIngredient";
+            UltimateExperimentalPod.Tier = 5;
+            UltimateExperimentalPod.Description = "Pods Fo days!";
+            ModdedRecipes.Add(UltimateExperimentalPod);
+            #endregion
+
+        }
+    }
+
+    public static class FreeDecorMod
+    {
+        public static List<CraftData> ModdedRecipes = new List<CraftData>();
+        public static string AuthorID { get; set; }
+        public static void CreateRecipes()
+        {
+            for (int i = 0; i < DataHolder.ManufacturerEntries.Count; i++)
+            {
+                if (DataHolder.ManufacturerEntries[i].Category == "decoration")
+                {
+                    CraftData Holder = new CraftData();
+                    Holder.Key = DataHolder.ManufacturerEntries[i].Key;
+                    Holder.IsOverride = "true";
+                    Holder.Category = DataHolder.ManufacturerEntries[i].Category;
+                    Holder.Tier = DataHolder.ManufacturerEntries[i].Tier;
+                    Holder.CraftedKey = DataHolder.ManufacturerEntries[i].CraftedKey;
+                    Holder.CraftedAmount = DataHolder.ManufacturerEntries[i].CraftedAmount;
+                    Holder.CraftTime = DataHolder.ManufacturerEntries[i].CraftTime;
+                    Holder.Costs = new List<CraftCost>();
+                    for (int j = 0; j < DataHolder.ManufacturerEntries[i].Costs.Count; j++)
+                    {
+                        CraftCost CostHolder = new CraftCost();
+                        CostHolder.Delete = "true";
+                        CostHolder.Key = DataHolder.ManufacturerEntries[i].Costs[j].Key;
+                        CostHolder.Amount = DataHolder.ManufacturerEntries[i].Costs[j].Amount;
+                        Holder.Costs.Add(CostHolder);
+                    }
+                    Holder.ResearchCost = 0;
+                    Holder.Description = DataHolder.ManufacturerEntries[i].Description;
+                    Holder.Hint = DataHolder.ManufacturerEntries[i].Hint;
+                    Holder.CanCraftAnywhere = DataHolder.ManufacturerEntries[i].CanCraftAnywhere;
+                    Holder.CanBeAutomated = true;
+                    Holder.MasterRecipe = DataHolder.ManufacturerEntries[i].MasterRecipe;
+                    ModdedRecipes.Add(Holder);
+                }
+                if (DataHolder.ManufacturerEntries[i].CanCraftAnywhere == true && DataHolder.ManufacturerEntries[i].Category == "defences")
+                {
+                    CraftData Holder = new CraftData();
+                    Holder.Key = DataHolder.ManufacturerEntries[i].Key;
+                    Holder.IsOverride = "true";
+                    Holder.Category = DataHolder.ManufacturerEntries[i].Category;
+                    Holder.Tier = DataHolder.ManufacturerEntries[i].Tier;
+                    Holder.CraftedKey = DataHolder.ManufacturerEntries[i].CraftedKey;
+                    Holder.CraftedAmount = DataHolder.ManufacturerEntries[i].CraftedAmount;
+                    Holder.CraftTime = DataHolder.ManufacturerEntries[i].CraftTime;
+                    Holder.Costs = new List<CraftCost>();
+                    for (int j = 0; j < DataHolder.ManufacturerEntries[i].Costs.Count; j++)
+                    {
+                        CraftCost CostHolder = new CraftCost();
+                        CostHolder.Delete = "true";
+                        CostHolder.Key = DataHolder.ManufacturerEntries[i].Costs[j].Key;
+                        CostHolder.Amount = DataHolder.ManufacturerEntries[i].Costs[j].Amount;
+                        Holder.Costs.Add(CostHolder);
+                    }
+                    Holder.ResearchCost = 0;
+                    Holder.Description = DataHolder.ManufacturerEntries[i].Description;
+                    Holder.Hint = DataHolder.ManufacturerEntries[i].Hint;
+                    Holder.CanCraftAnywhere = DataHolder.ManufacturerEntries[i].CanCraftAnywhere;
+                    Holder.CanBeAutomated = true;
+                    Holder.MasterRecipe = DataHolder.ManufacturerEntries[i].MasterRecipe;
+                    ModdedRecipes.Add(Holder);
+                }
+            }
         }
     }
 }

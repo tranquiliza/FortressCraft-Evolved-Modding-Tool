@@ -26,6 +26,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
     public partial class UserControl_ModRecipes : UserControl
     {
         CraftData ActiveRecipe = null;
+        CraftData SelectedRecipe = null;
         bool mbEditing;
         bool mbIsOverride;
         bool mbIsSelfCraft = false;
@@ -122,7 +123,6 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 listBox_Recipes.IsEnabled = false;
                 checkBox_Delete.IsEnabled = true;
                 checkBox_IsSelfCraft.IsEnabled = true;
-                checkBox_CanBeAutomated.IsEnabled = true;
                 listBox_CraftCost.IsEnabled = true;
                 listBox_ResearchReq.IsEnabled = true;
                 listBox_RemoveResearchReq.IsEnabled = true;
@@ -152,13 +152,14 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 button_RemoveScan.Visibility = Visibility.Visible;
                 button_AddRecipe.Visibility = Visibility.Hidden;
                 button_EditRecipe.Visibility = Visibility.Hidden;
+                button_DeleteCost.Visibility = Visibility.Visible;
+                button_AddCost.Visibility = Visibility.Visible;
             }
             else
             {
                 listBox_Recipes.IsEnabled = true;
                 checkBox_Delete.IsEnabled = false;
                 checkBox_IsSelfCraft.IsEnabled = true;
-                checkBox_CanBeAutomated.IsEnabled = false;
                 listBox_CraftCost.IsEnabled = false;
                 listBox_ResearchReq.IsEnabled = false;
                 listBox_RemoveResearchReq.IsEnabled = false;
@@ -190,11 +191,14 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 button_RemoveScan.Visibility = Visibility.Hidden;
                 button_AddRecipe.Visibility = Visibility.Visible;
                 button_EditRecipe.Visibility = Visibility.Visible;
+                button_DeleteCost.Visibility = Visibility.Hidden;
+                button_AddCost.Visibility = Visibility.Hidden;
             }
         }
 
         private void RefreshItemsLists() //Function refreshes the main list.
         {
+            listBox_Recipes.SelectedItem = null;
             listBox_Recipes.Items.Clear();
             for (int i = 0; i < ModWriterDataHolder.ManufacturerEntries.Count; i++)
             {
@@ -239,6 +243,71 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
         {
             mbEditing = false;
             EditMode(false);
+        }
+
+        private void listBox_Recipes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listBox_Recipes.SelectedItem != null)
+            {
+                for (int i = 0; i < ModWriterDataHolder.ManufacturerEntries.Count; i++)
+                {
+                    if (ModWriterDataHolder.ManufacturerEntries[i].CraftedKey == listBox_Recipes.SelectedItem.ToString())
+                    {
+                        SelectedRecipe = ModWriterDataHolder.ManufacturerEntries[i];
+                    }
+                }
+                mbIsOverride = Convert.ToBoolean(SelectedRecipe.IsOverride);
+                textBlock_IsOverride.Text = SelectedRecipe.IsOverride;
+                textBlock_Key.Text = SelectedRecipe.Key;
+                textBlock_Tier.Text = SelectedRecipe.Tier.ToString();
+                textBlock_CraftedKey.Text = SelectedRecipe.CraftedKey;
+                textBlock_CraftedAmount.Text = SelectedRecipe.CraftedAmount.ToString();
+                textBlock_CraftTime.Text = SelectedRecipe.CraftTime.ToString();
+                textBlock_ResearchCost.Text = SelectedRecipe.ResearchCost.ToString();
+                textBlock_Desc.Text = SelectedRecipe.Description;
+                textBlock_Hint.Text = SelectedRecipe.Hint;
+                //This might cause issues later.
+                checkBox_Delete.IsChecked = SelectedRecipe.Delete;
+                //checkBox_IsSelfCraft.IsChecked = SelectedRecipe.CanCraftAnywhere;
+
+                listBox_CraftCost.Items.Clear();
+                for (int i = 0; i < SelectedRecipe.Costs.Count; i++)
+                {
+                    listBox_CraftCost.Items.Add(SelectedRecipe.Costs[i].Readable());
+                }
+
+                listBox_RemoveResearchReq.Items.Clear();
+                for (int i = 0; i < SelectedRecipe.RemoveResearchRequirements.Count; i++)
+                {
+                    listBox_RemoveResearchReq.Items.Add(SelectedRecipe.RemoveResearchRequirements[i]);
+                }
+
+                listBox_RemoveScanReq.Items.Clear();
+                for (int i = 0; i < SelectedRecipe.RemoveScanRequirements.Count; i++)
+                {
+                    listBox_RemoveScanReq.Items.Add(SelectedRecipe.RemoveScanRequirements[i]);
+                }
+
+                listBox_ResearchReq.Items.Clear();
+                for (int i = 0; i < SelectedRecipe.ResearchRequirements.Count; i++)
+                {
+                    listBox_ResearchReq.Items.Add(SelectedRecipe.ResearchRequirements[i]);
+                }
+
+                listBox_ScanReq.Items.Clear();
+                for (int i = 0; i < SelectedRecipe.ScanRequirements.Count; i++)
+                {
+                    listBox_ScanReq.Items.Add(SelectedRecipe.ScanRequirements[i]);
+                }
+                if (mbIsOverride == true)
+                {
+                    checkBox_Delete.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    checkBox_Delete.Visibility = Visibility.Hidden;
+                }
+            }
         }
     }
 }
