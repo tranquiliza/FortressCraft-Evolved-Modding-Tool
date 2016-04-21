@@ -38,7 +38,7 @@ namespace Common.GameLogics
         public string Key { get; set; }
         public string Name { get; set; }
         public uint Amount { get; set; }
-        public string Text()
+        public override string ToString()
         {
             return this.Amount + " x " + (this.Key ?? this.Name);
         }

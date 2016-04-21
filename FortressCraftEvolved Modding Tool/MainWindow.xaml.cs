@@ -33,7 +33,7 @@ namespace FortressCraftEvolved_Modding_Tool
         private async void MainWindow_OnLoaded(Object sender, RoutedEventArgs e)
         {
             var pathStructure = Path.Combine("FortressCraft", "{0}", "Default", "Data");
-            if (!User.Default.GameData.Contains(string.Format(pathStructure, "64")) ||
+            if (!User.Default.GameData.Contains(string.Format(pathStructure, "64")) &&
                 !User.Default.GameData.Contains(string.Format(pathStructure, "32")))
             {
                 var dialog = new PathSelectorDialog();
@@ -51,6 +51,8 @@ namespace FortressCraftEvolved_Modding_Tool
                 User.Default.ManufactorerXmlPath = Path.Combine(dialog.GamePath, "ManufacturerRecipes.xml");
                 User.Default.TerrainDataXmlPath = Path.Combine(dialog.GamePath, "TerrainData.xml");
                 User.Default.RefineryXmlPath = Path.Combine(dialog.GamePath, "RefineryRecipes.xml");
+                User.Default.AuthorID = dialog.AuthorId;
+                User.Default.WritePath = dialog.DataPath;
 
                 User.Default.Save();
             }

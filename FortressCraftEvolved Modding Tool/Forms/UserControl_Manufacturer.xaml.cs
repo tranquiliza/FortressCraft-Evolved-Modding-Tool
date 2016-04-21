@@ -203,7 +203,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             listBox_CraftingCost.Items.Clear();
             for (int i = 0; i < SelectedEntry.Costs.Count; i++)
             {
-                listBox_CraftingCost.Items.Add(SelectedEntry.Costs[i].Text());
+                listBox_CraftingCost.Items.Add(SelectedEntry.Costs[i].ToString());
             }
         }
 

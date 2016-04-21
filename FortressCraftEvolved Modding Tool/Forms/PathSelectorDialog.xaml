@@ -53,7 +53,7 @@
                 Grid.Column="1"
                 Width="75px"
                 Margin="5"
-                Command="local:CustomCommands.GamePathBrowseCommand"
+                Command="local:CustomCommands.DataPathBrowseCommand"
                 Content="Select" />
 
         <TextBlock Grid.Row="2"
@@ -69,7 +69,7 @@
                 Grid.Column="1"
                 Width="75px"
                 Margin="5"
-                Command="local:CustomCommands.DataPathBrowseCommand"
+                Command="local:CustomCommands.GamePathBrowseCommand"
                 Content="Select" />
 
         <TextBlock Grid.Row="4"

@@ -93,7 +93,6 @@
         <Button x:Name="button_AddCost" Content="Add Cost" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="13" VerticalAlignment="Top" Width="125"/>
 
         <TextBox x:Name="textBox_Key" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-        <TextBox x:Name="textBox_CraftedAmount" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="7" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
         <TextBox x:Name="textBox_CraftTime" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="8" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
         <TextBox x:Name="textBox_Desc" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
         <TextBox x:Name="textBox_Hint" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
@@ -103,6 +102,8 @@
         <CheckBox x:Name="checkBox_IsOverride" Content="IsOverride" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="1" VerticalAlignment="Top" Checked="checkBox_IsOverride_Checked" Unchecked="checkBox_IsOverride_Unchecked"/>
         <ComboBox x:Name="comboBox_ResearchCost" Grid.Column="4" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="200"/>
         <ComboBox x:Name="comboBox_Key" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="200" SelectionChanged="comboBox_Key_SelectionChanged"/>
+        <TextBlock x:Name="textBlock_IsOverride" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboBox_CraftedAmount" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="7" VerticalAlignment="Top" Width="200"/>
 
     </Grid>
 </UserControl>

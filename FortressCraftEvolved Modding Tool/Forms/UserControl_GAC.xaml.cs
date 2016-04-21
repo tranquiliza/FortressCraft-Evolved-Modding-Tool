@@ -91,7 +91,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                 listBox_RecipeCosts.Items.Clear();
                 for (int i = 0; i < GACDataHolder.GAC.Recipe.Costs.Count; i++)
                 {
-                    listBox_RecipeCosts.Items.Add(GACDataHolder.GAC.Recipe.Costs[i].Text());
+                    listBox_RecipeCosts.Items.Add(GACDataHolder.GAC.Recipe.Costs[i].ToString());
                 }
             }
         }
