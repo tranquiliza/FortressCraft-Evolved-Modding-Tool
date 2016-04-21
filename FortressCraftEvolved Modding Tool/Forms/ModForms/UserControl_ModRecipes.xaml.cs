@@ -226,6 +226,11 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             comboBox_ResearchCost.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;Visibility.Visible;
             comboBox_CraftedKey.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;Visibility.Visible;
             comboBox_Tier.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;Visibility.Visible;
+            
+            // This was hard coded to the false statement only it appears, not sure why.
+            if (!lbIsCrafting) {
+                textBox_Key.Visibility = Visibility.Hidden; //We dont do this automaticly, different depending wither its an override or not!
+            }
         }
 
         private void RefreshItemsLists() //Function refreshes the main list.
