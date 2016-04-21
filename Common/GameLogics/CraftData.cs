@@ -40,14 +40,7 @@ namespace Common.GameLogics
         public uint Amount { get; set; }
         public string Text()
         {
-            if (Key == null)
-            {
-                return Amount + " x " + Name;
-            }
-            else
-            {
-                return Amount + " x " + Key;
-            }
+            return this.Amount + " x " + (this.Key ?? this.Name);
         }
     }
     public enum eManufacturingPlantModule
