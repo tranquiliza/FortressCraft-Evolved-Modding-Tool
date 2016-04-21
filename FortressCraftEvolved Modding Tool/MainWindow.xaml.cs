@@ -1,11 +1,12 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using MahApps.Metro.Controls;
 using FortressCraftEvolved_Modding_Tool.Forms;
 using Common.XmlLogic;
 using System.IO;
-using System.Collections.Generic;
-using Common.Data;
 using Common.ModWriter;
+using MahApps.Metro.Controls.Dialogs;
+using Version = Common.Data.Version;
 
 namespace FortressCraftEvolved_Modding_Tool
 {
@@ -27,22 +28,39 @@ namespace FortressCraftEvolved_Modding_Tool
             textBlock_Welcome.Text += " " + Version.Value;
             textBlock_Welcome.Text += "\n Browse the application by using the buttons below!";
             //textBlock_Welcome.Text += "\n Use F5 to reset this window!";
-            //Let the user know to update the paths, mainly ownly shows on first time use!
-            if (User.Default.GameData.Contains("FortressCraft\\64\\Default\\Data") || User.Default.GameData.Contains("FortressCraft\\32\\Default\\Data"))
-            {
-                ResearchReader.ReadResearchXML(User.Default.ResearchXmlPath);
-                ManufacturerRecipesReader.ReadManufactoringXML(User.Default.ManufactorerXmlPath);
-                ItemsReader.ReadItems(User.Default.ItemsXmlPath);
-                TerrainDataReader.ReadTerrainDataEntry(User.Default.TerrainDataXmlPath);
-                ManufacturerRecipesReader.ReadRefineryRecipes(User.Default.RefineryXmlPath);
-            }
-            else
-            {
-                Form_PathSelector Settings = new Form_PathSelector();
-                Settings.ShowDialog();
-            }
         }
 
+        private async void MainWindow_OnLoaded(Object sender, RoutedEventArgs e)
+        {
+            var pathStructure = Path.Combine("FortressCraft", "{0}", "Default", "Data");
+            if (!User.Default.GameData.Contains(string.Format(pathStructure, "64")) ||
+                !User.Default.GameData.Contains(string.Format(pathStructure, "32")))
+            {
+                var dialog = new PathSelectorDialog();
+                await this.Dispatcher.Invoke(async () =>
+                {
+                    await this.ShowMetroDialogAsync(dialog);
+                    await dialog.Task;
+                    await this.HideMetroDialogAsync(dialog);
+                });
+
+                User.Default.GameData = dialog.GamePath + Path.DirectorySeparatorChar;
+
+                User.Default.ResearchXmlPath = Path.Combine(dialog.GamePath, "Research.xml");
+                User.Default.ItemsXmlPath = Path.Combine(dialog.GamePath, "Items.xml");
+                User.Default.ManufactorerXmlPath = Path.Combine(dialog.GamePath, "ManufacturerRecipes.xml");
+                User.Default.TerrainDataXmlPath = Path.Combine(dialog.GamePath, "TerrainData.xml");
+                User.Default.RefineryXmlPath = Path.Combine(dialog.GamePath, "RefineryRecipes.xml");
+
+                User.Default.Save();
+            }
+
+            ResearchReader.ReadResearchXML(User.Default.ResearchXmlPath);
+            ManufacturerRecipesReader.ReadManufactoringXML(User.Default.ManufactorerXmlPath);
+            ItemsReader.ReadItems(User.Default.ItemsXmlPath);
+            TerrainDataReader.ReadTerrainDataEntry(User.Default.TerrainDataXmlPath);
+            ManufacturerRecipesReader.ReadRefineryRecipes(User.Default.RefineryXmlPath);
+        }
 
         //When user clicks the settings button currently only shows path. Maybe add possible change of style (Dark / Light?)
         private void Button_Settings(object sender, RoutedEventArgs e)

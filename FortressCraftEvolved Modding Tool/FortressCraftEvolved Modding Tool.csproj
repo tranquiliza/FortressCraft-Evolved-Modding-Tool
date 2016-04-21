@@ -40,6 +40,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -95,6 +96,9 @@
     <Compile Include="Forms\ModForms\UserControl_ModRecipes.xaml.cs">
       <DependentUpon>UserControl_ModRecipes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PathSelectorDialog.xaml.cs">
+      <DependentUpon>PathSelectorDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserControl_GAC.xaml.cs">
       <DependentUpon>UserControl_GAC.xaml</DependentUpon>
     </Compile>
@@ -123,6 +127,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\ModForms\UserControl_ModRecipes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\PathSelectorDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
