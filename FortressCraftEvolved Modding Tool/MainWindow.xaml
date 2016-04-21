@@ -6,7 +6,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FortressCraftEvolved_Modding_Tool"
         mc:Ignorable="d"
-        Title="FortressCraft Evolved Modding Tool" Visibility="Visible" Icon="Resources/MynockIcon.ico" WindowStartupLocation="CenterScreen" WindowState="Maximized" KeyDown="KeyPress" Height="689.868" Width="975.162">
+        Title="FortressCraft Evolved Modding Tool" Visibility="Visible" Icon="Resources/MynockIcon.ico" WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        KeyDown="KeyPress" Height="689.868" Width="975.162"
+        Loaded="MainWindow_OnLoaded">
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button Content="Settings" Click="Button_Settings" />
