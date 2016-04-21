@@ -13,7 +13,7 @@ namespace Common.XmlLogic
     {
         public static void ReadGAC(string path)
         {
-            if (path == "")
+            if (string.IsNullOrEmpty(path) || !File.Exists(path))
             {
                 return;
             }

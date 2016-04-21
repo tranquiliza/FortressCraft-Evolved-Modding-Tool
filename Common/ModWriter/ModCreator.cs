@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,22 +15,19 @@ namespace Common.ModWriter
         private static string GenericAutoCrafterFolder = "GenericAutoCrafter";
         static public void GenerateDirectory(string OutputPath, ModConfiguration Config)
         {
-            if (Config.Id == null)
+            if (string.IsNullOrEmpty(Config.Id) || string.IsNullOrEmpty(Config.Version))
             {
                 return;
             }
-            if (Config.Version == null)
-            {
-                return;
-            }
-            string XmlFolder = null;
-            string ModFolder = System.IO.Path.Combine(OutputPath, Config.Id);
-            ModFolder = System.IO.Path.Combine(ModFolder, Config.Version);
-            ModFolder = System.IO.Path.Combine(ModFolder, Xml);
-            XmlFolder = ModFolder + "\\";
-            ModFolder = System.IO.Path.Combine(ModFolder, GenericAutoCrafterFolder);
-            System.IO.Directory.CreateDirectory(ModFolder);
-            GenerateXmlFiles(XmlFolder);
+
+            // Only one Path.Combine is required, since we are not on .Net 2.0
+            string ModFolder = Path.Combine(OutputPath, Config.Id, Config.Version, Xml);
+
+            GenerateXmlFiles(ModFolder);
+
+            ModFolder = Path.Combine(ModFolder, GenericAutoCrafterFolder);
+
+            Directory.CreateDirectory(ModFolder);
         }
         private static void GenerateXmlFiles(string XmlFilePath)
         {
@@ -38,10 +36,12 @@ namespace Common.ModWriter
             string ResearchData = XMLSerializer.Serialize(ModWriterDataHolder.ResearchEntires, false);
             string TerrainData = XMLSerializer.Serialize(ModWriterDataHolder.TerrainDataEntries, false);
 
-            System.IO.File.WriteAllText(XmlFilePath + "ManufacturerRecipes.xml", CraftData);
-            System.IO.File.WriteAllText(XmlFilePath + "Items.xml", ItemData);
-            System.IO.File.WriteAllText(XmlFilePath + "Research.xml", ResearchData);
-            System.IO.File.WriteAllText(XmlFilePath + "TerrainData.xml", TerrainData);
+            string basePath = Path.Combine(XmlFilePath, "{0}.xml");
+
+            File.WriteAllText(string.Format(basePath, "ManufacturerRecipes"), CraftData);
+            File.WriteAllText(string.Format(basePath, "Items"), ItemData);
+            File.WriteAllText(string.Format(basePath, "Research"), ResearchData);
+            File.WriteAllText(string.Format(basePath, "TerrainData"), TerrainData);
         }
     }
 }

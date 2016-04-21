@@ -13,8 +13,12 @@ namespace Common.XmlLogic
 {
     public class ItemsReader
     {
-		public static void ReadItems(string path)
+        public static void ReadItems(string path)
         {
+            if (string.IsNullOrEmpty(path) || !File.Exists(path))
+            {
+                return;
+            }
             if (path.Contains("Items.xml"))
             {
                 DataHolder.ItemEntries = XMLSerializer.Deserialize<List<ItemEntry>>(File.ReadAllText(path));

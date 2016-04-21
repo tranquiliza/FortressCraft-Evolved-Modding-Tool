@@ -183,101 +183,53 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
 
         private void EditMode(bool lbIsCrafting) //This function Controls VIS and interaction of the form
         {
-            if (lbIsCrafting) //If we're editing an item:
-            {
-                listBox_Recipes.IsEnabled = false;
-                checkBox_Delete.IsEnabled = true;
-                checkBox_IsSelfCraft.IsEnabled = true;
-                listBox_CraftCost.IsEnabled = true;
-                listBox_ResearchReq.IsEnabled = true;
-                listBox_RemoveResearchReq.IsEnabled = true;
-                listBox_ScanReq.IsEnabled = true;
-                listBox_RemoveScanReq.IsEnabled = true;
-                checkBox_IsOverride.IsEnabled = true;
-                textBlock_Key.Visibility = Visibility.Hidden;
-                textBlock_Tier.Visibility = Visibility.Hidden;
-                textBlock_CraftedKey.Visibility = Visibility.Hidden;
-                textBlock_CraftedAmount.Visibility = Visibility.Hidden;
-                //textBlock_CraftTime.Visibility = Visibility.Hidden;
-                textBlock_ResearchCost.Visibility = Visibility.Hidden;
-                textBlock_Desc.Visibility = Visibility.Hidden;
-                textBlock_Hint.Visibility = Visibility.Hidden;
-                button_Save.Visibility = Visibility.Hidden;
-                button_DeleteRecipe.Visibility = Visibility.Hidden;
-                button_Confirm.Visibility = Visibility.Visible;
-                button_Cancel.Visibility = Visibility.Visible;
-                comboBox_Research.Visibility = Visibility.Visible;
-                comboBox_Scan.Visibility = Visibility.Visible;
-                button_Cancel.Visibility = Visibility.Visible;
-                button_Confirm.Visibility = Visibility.Visible;
-                button_AddResearch.Visibility = Visibility.Visible;
-                button_RemoveResearch.Visibility = Visibility.Visible;
-                button_DeleteResearch.Visibility = Visibility.Visible;
-                button_AddScan.Visibility = Visibility.Visible;
-                button_RemoveScan.Visibility = Visibility.Visible;
-                button_AddRecipe.Visibility = Visibility.Hidden;
-                button_EditRecipe.Visibility = Visibility.Hidden;
-                button_DeleteCost.Visibility = Visibility.Visible;
-                button_AddCost.Visibility = Visibility.Visible;
-                
+            listBox_Recipes.IsEnabled = !lbIsCrafting;
+            checkBox_Delete.IsEnabled = lbIsCrafting;
+            checkBox_IsSelfCraft.IsEnabled = lbIsCrafting;
+            listBox_CraftCost.IsEnabled = lbIsCrafting;
+            listBox_ResearchReq.IsEnabled = lbIsCrafting;
+            listBox_RemoveResearchReq.IsEnabled = lbIsCrafting;
+            listBox_ScanReq.IsEnabled = lbIsCrafting;
+            listBox_RemoveScanReq.IsEnabled = lbIsCrafting;
+            checkBox_IsOverride.IsEnabled = lbIsCrafting;
+            textBlock_Key.Visibility = lbIsCrafting ? Visibility.Hidden : Visibility.Visible;
+            textBlock_Tier.Visibility = lbIsCrafting ? Visibility.Hidden : Visibility.Visible;
+            textBlock_CraftedKey.Visibility = lbIsCrafting ? Visibility.Hidden : Visibility.Visible;
+            textBlock_CraftedAmount.Visibility = lbIsCrafting ? Visibility.Hidden : Visibility.Visible;
+            //textBlock_CraftTime.Visibility = Visibility.Hidden; // lbIsCrafting ? Visibility.Hidden : Visibility.Visible
+            textBlock_ResearchCost.Visibility = lbIsCrafting ? Visibility.Hidden : Visibility.Visible;
+            textBlock_Desc.Visibility = lbIsCrafting ? Visibility.Hidden : Visibility.Visible;
+            textBlock_Hint.Visibility = lbIsCrafting ? Visibility.Hidden : Visibility.Visible;
+            button_Save.Visibility = lbIsCrafting ? Visibility.Hidden : Visibility.Visible;
+            button_DeleteRecipe.Visibility = lbIsCrafting ? Visibility.Hidden : Visibility.Visible;
+            button_Confirm.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            button_Cancel.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            comboBox_Research.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            comboBox_Scan.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            button_Cancel.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            button_Confirm.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            button_AddResearch.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            button_RemoveResearch.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            button_DeleteResearch.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            button_AddScan.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            button_RemoveScan.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            button_AddRecipe.Visibility = lbIsCrafting ? Visibility.Hidden : Visibility.Visible;
+            button_EditRecipe.Visibility = lbIsCrafting ? Visibility.Hidden : Visibility.Visible;
+            button_DeleteCost.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            button_AddCost.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            
 
-                textBox_CraftedAmount.Visibility = Visibility.Visible;
-                //textBox_CraftTime.Visibility = Visibility.Visible;
-                textBox_Desc.Visibility = Visibility.Visible;
-                textBox_Hint.Visibility = Visibility.Visible;
-                comboBox_ResearchCost.Visibility = Visibility.Visible;
-                comboBox_CraftedKey.Visibility = Visibility.Visible;
-                comboBox_Tier.Visibility = Visibility.Visible;
-            }
-            else //If not editing item:
-            {
-                listBox_Recipes.IsEnabled = true;
-                checkBox_Delete.IsEnabled = false;
-                checkBox_IsSelfCraft.IsEnabled = true;
-                listBox_CraftCost.IsEnabled = false;
-                listBox_ResearchReq.IsEnabled = false;
-                listBox_RemoveResearchReq.IsEnabled = false;
-                listBox_ScanReq.IsEnabled = false;
-                listBox_RemoveScanReq.IsEnabled = false;
-                checkBox_IsOverride.IsEnabled = false;
-                textBlock_Key.Visibility = Visibility.Visible;
-                textBlock_Tier.Visibility = Visibility.Visible;
-                textBlock_CraftedKey.Visibility = Visibility.Visible;
-                textBlock_CraftedAmount.Visibility = Visibility.Visible;
-                //textBlock_CraftTime.Visibility = Visibility.Visible;
-                textBlock_ResearchCost.Visibility = Visibility.Visible;
-                textBlock_Desc.Visibility = Visibility.Visible;
-                textBlock_Hint.Visibility = Visibility.Visible;
-                button_AddRecipe.Visibility = Visibility.Visible;
-                button_EditRecipe.Visibility = Visibility.Visible;
-                button_Save.Visibility = Visibility.Visible;
-                button_DeleteRecipe.Visibility = Visibility.Visible;
-                button_Confirm.Visibility = Visibility.Hidden;
-                button_Cancel.Visibility = Visibility.Hidden;
-                comboBox_Research.Visibility = Visibility.Hidden;
-                comboBox_Scan.Visibility = Visibility.Hidden;
-                button_Cancel.Visibility = Visibility.Hidden;
-                button_Confirm.Visibility = Visibility.Hidden;
-                button_AddResearch.Visibility = Visibility.Hidden;
-                button_RemoveResearch.Visibility = Visibility.Hidden;
-                button_DeleteResearch.Visibility = Visibility.Hidden;
-                button_AddScan.Visibility = Visibility.Hidden;
-                button_RemoveScan.Visibility = Visibility.Hidden;
-                button_AddRecipe.Visibility = Visibility.Visible;
-                button_EditRecipe.Visibility = Visibility.Visible;
-                button_DeleteCost.Visibility = Visibility.Hidden;
-                button_AddCost.Visibility = Visibility.Hidden;
-                
+            textBox_CraftedAmount.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            //textBox_CraftTime.Visibility = Visibility.Visible; // lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            textBox_Desc.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            textBox_Hint.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            comboBox_ResearchCost.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            comboBox_CraftedKey.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            comboBox_Tier.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            
+            // This was hard coded to the false statement only it appears, not sure why.
+            if (!lbIsCrafting) {
                 textBox_Key.Visibility = Visibility.Hidden; //We dont do this automaticly, different depending wither its an override or not!
-
-                textBox_CraftedAmount.Visibility = Visibility.Hidden;
-                //textBox_CraftTime.Visibility = Visibility.Hidden;
-                textBox_Desc.Visibility = Visibility.Hidden;
-                textBox_Hint.Visibility = Visibility.Hidden;
-                comboBox_ResearchCost.Visibility = Visibility.Hidden;
-                comboBox_CraftedKey.Visibility = Visibility.Hidden;
-                comboBox_Tier.Visibility = Visibility.Hidden;
-                comboBox_Key.Visibility = Visibility.Hidden;
             }
         }
 
