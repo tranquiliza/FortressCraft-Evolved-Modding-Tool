@@ -213,19 +213,19 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             button_DeleteResearch.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
             button_AddScan.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
             button_RemoveScan.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
-            button_AddRecipe.Visibility = lbIsCrafting ? Visibility.Hidden : Visibility.Visible
-            button_EditRecipe.Visibility = lbIsCrafting ? Visibility.Hidden : Visibility.Visible
+            button_AddRecipe.Visibility = lbIsCrafting ? Visibility.Hidden : Visibility.Visible;
+            button_EditRecipe.Visibility = lbIsCrafting ? Visibility.Hidden : Visibility.Visible;
             button_DeleteCost.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
             button_AddCost.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
             
 
-            textBox_CraftedAmount.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;Visibility.Visible;
+            textBox_CraftedAmount.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
             //textBox_CraftTime.Visibility = Visibility.Visible; // lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
-            textBox_Desc.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;Visibility.Visible;
-            textBox_Hint.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden; Visibility.Visible;
-            comboBox_ResearchCost.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;Visibility.Visible;
-            comboBox_CraftedKey.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;Visibility.Visible;
-            comboBox_Tier.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;Visibility.Visible;
+            textBox_Desc.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            textBox_Hint.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            comboBox_ResearchCost.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            comboBox_CraftedKey.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
+            comboBox_Tier.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
             
             // This was hard coded to the false statement only it appears, not sure why.
             if (!lbIsCrafting) {
