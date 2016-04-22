@@ -38,7 +38,7 @@
         <ListBox x:Name="listBox_Recipes" HorizontalAlignment="Left" Height="340" Margin="10,10,0,0" Grid.RowSpan="9" VerticalAlignment="Top" Width="200" SelectionChanged="listBox_Recipes_SelectionChanged"/>
         <Button x:Name="button_AddRecipe" Content="Add Recipe" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="9" VerticalAlignment="Top" Width="200" Click="button_AddRecipe_Click"/>
         <Button x:Name="button_EditRecipe" Content="Edit Recipe" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="10" VerticalAlignment="Top" Width="200" Click="button_EditRecipe_Click"/>
-        <Button x:Name="button_DeleteRecipe" Content="Delete Recipe" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="11" VerticalAlignment="Top" Width="200"/>
+        <Button x:Name="button_DeleteRecipe" Content="Delete Recipe" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="11" VerticalAlignment="Top" Width="200" Click="button_DeleteRecipe_Click"/>
         <Button x:Name="button_Save" Content="Save Manufacturer Xml" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="200"/>
 
         <CheckBox x:Name="checkBox_IsSelfCraft" Content="IsSelfCraft" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="checkBox_IsSelfCraft_Checked" Unchecked="checkBox_IsSelfCraft_Unchecked"/>
@@ -89,7 +89,7 @@
         <Button x:Name="button_AddScan" Content="Add Scan" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="9" VerticalAlignment="Top" Width="125"/>
         <Button x:Name="button_RemoveScan" Content="Remove Scan" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="125"/>
 
-        <Button x:Name="button_DeleteCost" Content="Delete Cost" Grid.Column="1" HorizontalAlignment="Left" Margin="15,10,0,0" Grid.Row="13" VerticalAlignment="Top" Width="125"/>
+        <Button x:Name="button_DeleteCost" Content="Delete Cost" Grid.Column="1" HorizontalAlignment="Left" Margin="15,10,0,0" Grid.Row="13" VerticalAlignment="Top" Width="125" Click="button_DeleteCost_Click"/>
         <Button x:Name="button_AddCost" Content="Add Cost" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="13" VerticalAlignment="Top" Width="125"/>
 
         <TextBox x:Name="textBox_Key" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
@@ -104,6 +104,8 @@
         <ComboBox x:Name="comboBox_Key" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="200" SelectionChanged="comboBox_Key_SelectionChanged"/>
         <TextBlock x:Name="textBlock_IsOverride" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <ComboBox x:Name="comboBox_CraftedAmount" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="7" VerticalAlignment="Top" Width="200"/>
+        <ComboBox x:Name="comboBox_CraftCostItem" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="14" VerticalAlignment="Top" Width="200"/>
+        <ComboBox x:Name="comboBox_CraftCostAmount" Grid.Column="1" HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Row="14" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </UserControl>

@@ -56,6 +56,8 @@ namespace Common.ModLogics
         public string Delete { get; set; }
         public string Key { get; set; }
         public uint Amount { get; set; }
+        [XmlIgnore]
+        public bool IsNew { get; set; }
         public override string ToString()
         {
             string DeleteAble;

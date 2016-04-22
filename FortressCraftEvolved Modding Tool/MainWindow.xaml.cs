@@ -65,11 +65,31 @@ namespace FortressCraftEvolved_Modding_Tool
         }
 
         //When user clicks the settings button currently only shows path. Maybe add possible change of style (Dark / Light?)
-        private void Button_Settings(object sender, RoutedEventArgs e)
+        private async void Button_Settings(object sender, RoutedEventArgs e)
         {
+            var dialog = new PathSelectorDialog();
+            await this.Dispatcher.Invoke(async () =>
+            {
+                await this.ShowMetroDialogAsync(dialog);
+                await dialog.Task;
+                await this.HideMetroDialogAsync(dialog);
+            });
+
+            User.Default.GameData = dialog.GamePath + Path.DirectorySeparatorChar;
+
+            User.Default.ResearchXmlPath = Path.Combine(dialog.GamePath, "Research.xml");
+            User.Default.ItemsXmlPath = Path.Combine(dialog.GamePath, "Items.xml");
+            User.Default.ManufactorerXmlPath = Path.Combine(dialog.GamePath, "ManufacturerRecipes.xml");
+            User.Default.TerrainDataXmlPath = Path.Combine(dialog.GamePath, "TerrainData.xml");
+            User.Default.RefineryXmlPath = Path.Combine(dialog.GamePath, "RefineryRecipes.xml");
+            User.Default.AuthorID = dialog.AuthorId;
+            User.Default.WritePath = dialog.DataPath;
+
+            User.Default.Save();
+            //Do nothing for now!
             //Prompts people with the fileselector Windows Form. This is a windows form cause they have OpenFileDialog Controls!!
-            Form_PathSelector Settings = new Form_PathSelector();
-            Settings.ShowDialog();
+            // Form_PathSelector Settings = new Form_PathSelector();
+            // Settings.ShowDialog();
         }
 
         private void button_LoadResearch_Click(object sender, RoutedEventArgs e)
