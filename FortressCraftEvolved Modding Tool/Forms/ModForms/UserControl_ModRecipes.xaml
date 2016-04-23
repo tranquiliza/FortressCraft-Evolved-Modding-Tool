@@ -90,7 +90,7 @@
         <Button x:Name="button_RemoveScan" Content="Remove Scan" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="125"/>
 
         <Button x:Name="button_DeleteCost" Content="Delete Cost" Grid.Column="1" HorizontalAlignment="Left" Margin="15,10,0,0" Grid.Row="13" VerticalAlignment="Top" Width="125" Click="button_DeleteCost_Click"/>
-        <Button x:Name="button_AddCost" Content="Add Cost" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="13" VerticalAlignment="Top" Width="125"/>
+        <Button x:Name="button_AddCost" Content="Add Cost" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="13" VerticalAlignment="Top" Width="125" Click="button_AddCost_Click"/>
 
         <TextBox x:Name="textBox_Key" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
         <TextBox x:Name="textBox_CraftTime" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="8" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>

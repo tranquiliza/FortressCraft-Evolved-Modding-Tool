@@ -460,7 +460,8 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
         private void button_AddRecipe_Click(object sender, RoutedEventArgs e)
         {
             EditMode(true);
-            checkBox_IsOverride.IsChecked = false;
+            mbIsOverride = false;
+            checkBox_IsOverride.IsChecked = mbIsOverride;
             checkBox_Delete.Visibility = Visibility.Hidden;
             textBox_Key.Visibility = Visibility.Visible;
             textBlock_IsOverride.Visibility = Visibility.Hidden;
@@ -531,6 +532,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                         TempRemoveResearchReq = new List<string>();
                         TempScanReq = DataHolder.ManufacturerEntries[i].ScanRequirements;
                         TempRemoveScanReq = new List<string>();
+                        TempCraftCost = new List<CraftCost>();
                     }
                 }
 
@@ -669,6 +671,45 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                             listBox_CraftCost.Items.Add(TempCraftCost[i].ToString());
                         }
                     }
+                }
+            }
+        }
+
+        private void button_AddCost_Click(object sender, RoutedEventArgs e)
+        {
+            if (mbEditing)
+            {
+                if (comboBox_CraftCostItem.SelectedItem != null && comboBox_CraftCostAmount.SelectedItem != null)
+                {
+                    CraftCost lNewCost = new CraftCost();
+                    lNewCost.Key = comboBox_CraftCostItem.SelectedItem.ToString();
+                    uint lAmount = 1;
+                    UInt32.TryParse(comboBox_CraftCostAmount.SelectedItem.ToString(), out lAmount);
+                    lNewCost.Amount = lAmount;
+                    lNewCost.IsNew = true;
+                    ActiveRecipe.Costs.Add(lNewCost);
+                    listBox_CraftCost.Items.Clear();
+                    for (int i = 0; i < ActiveRecipe.Costs.Count; i++)
+                    {
+                        listBox_CraftCost.Items.Add(ActiveRecipe.Costs[i].ToString());
+                    }
+                }
+            }
+            else
+            {
+                CraftCost lNewCost = new CraftCost();
+                if (comboBox_CraftCostItem.SelectedItem != null && comboBox_CraftCostAmount.SelectedItem != null)
+                {
+                    lNewCost.Key = comboBox_CraftCostItem.SelectedItem.ToString();
+                    uint lAmount = 1;
+                    UInt32.TryParse(comboBox_CraftCostAmount.SelectedItem.ToString(), out lAmount);
+                    lNewCost.Amount = lAmount;
+                    TempCraftCost.Add(lNewCost);
+                }
+                listBox_CraftCost.Items.Clear();
+                for (int i = 0; i < TempCraftCost.Count; i++)
+                {
+                    listBox_CraftCost.Items.Add(TempCraftCost[i].ToString());
                 }
             }
         }

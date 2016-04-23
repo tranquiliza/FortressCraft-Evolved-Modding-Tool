@@ -60,28 +60,9 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             {
                 for (int i = 0; i < DataHolder.ManufacturerEntries.Count; i++)
                 {
-                    if (SearchString == DataHolder.ManufacturerEntries[i].CraftedKey.ToLower()) //SearchString == Items[i].CraftedName.ToLower()
+                    if (DataHolder.ManufacturerEntries[i].CraftedKey != null)
                     {
-                        if (DataHolder.ManufacturerEntries[i].CanCraftAnywhere == CanCraftAnywhere)
-                        {
-                            if (DataHolder.ManufacturerEntries[i].Tier == Tier)
-                            {
-                                listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
-                            }
-                            else
-                            {
-                                if (Tier == -1)
-                                {
-                                    listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
-                                }
-                            }
-                        }
-                        break;
-                    }
-                    string[] SearchStrings = DataHolder.ManufacturerEntries[i].CraftedKey.Split(' ');
-                    for (int j = 0; j < SearchStrings.Length; j++)
-                    {
-                        if (SearchString.ToLower() == SearchStrings[j].ToLower()) //SearchString.ToLower() == SearchStrings[j].ToLower()
+                        if (SearchString == DataHolder.ManufacturerEntries[i].CraftedKey.ToLower()) //SearchString == Items[i].CraftedName.ToLower()
                         {
                             if (DataHolder.ManufacturerEntries[i].CanCraftAnywhere == CanCraftAnywhere)
                             {
@@ -94,6 +75,31 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                                     if (Tier == -1)
                                     {
                                         listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    if (DataHolder.ManufacturerEntries[i].CraftedKey != null)
+                    {
+                        string[] SearchStrings = DataHolder.ManufacturerEntries[i].CraftedKey.Split(' ');
+                        for (int j = 0; j < SearchStrings.Length; j++)
+                        {
+                            if (SearchString.ToLower() == SearchStrings[j].ToLower()) //SearchString.ToLower() == SearchStrings[j].ToLower()
+                            {
+                                if (DataHolder.ManufacturerEntries[i].CanCraftAnywhere == CanCraftAnywhere)
+                                {
+                                    if (DataHolder.ManufacturerEntries[i].Tier == Tier)
+                                    {
+                                        listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
+                                    }
+                                    else
+                                    {
+                                        if (Tier == -1)
+                                        {
+                                            listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
+                                        }
                                     }
                                 }
                             }
