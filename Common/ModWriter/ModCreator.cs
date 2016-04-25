@@ -22,12 +22,10 @@ namespace Common.ModWriter
 
             // Only one Path.Combine is required, since we are not on .Net 2.0
             string ModFolder = Path.Combine(OutputPath, Config.Id, Config.Version, Xml);
-
-            GenerateXmlFiles(ModFolder);
-
+            string XmlFolder = ModFolder;
             ModFolder = Path.Combine(ModFolder, GenericAutoCrafterFolder);
-
             Directory.CreateDirectory(ModFolder);
+            GenerateXmlFiles(XmlFolder);
         }
         private static void GenerateXmlFiles(string XmlFilePath)
         {
@@ -38,10 +36,10 @@ namespace Common.ModWriter
 
             string basePath = Path.Combine(XmlFilePath, "{0}.xml");
 
-            File.WriteAllText(string.Format(basePath, "ManufacturerRecipes"), CraftData);
-            File.WriteAllText(string.Format(basePath, "Items"), ItemData);
-            File.WriteAllText(string.Format(basePath, "Research"), ResearchData);
-            File.WriteAllText(string.Format(basePath, "TerrainData"), TerrainData);
+            //File.WriteAllText(string.Format(basePath, "ManufacturerRecipes"), CraftData);
+            //File.WriteAllText(string.Format(basePath, "Items"), ItemData);
+            //File.WriteAllText(string.Format(basePath, "Research"), ResearchData);
+            //File.WriteAllText(string.Format(basePath, "TerrainData"), TerrainData);
         }
     }
 }

@@ -115,9 +115,16 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             }
 
             comboBox_Sprites.Items.Clear();
-            for (int i = 0; i < ModWriterDataHolder.Sprites().Length; i++)
+            if (ModWriterDataHolder.Sprites() != null)
             {
-                comboBox_Sprites.Items.Add(ModWriterDataHolder.Sprites()[i]);
+                for (int i = 0; i < ModWriterDataHolder.Sprites().Length; i++)
+                {
+                    comboBox_Sprites.Items.Add(ModWriterDataHolder.Sprites()[i]);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sprites Diddn't load!");
             }
             //This is possibly wrong. Maybe not.
             comboBox_Category.Items.Clear();

@@ -30,9 +30,10 @@ namespace Common.ModLogics
         public string Key { get; set; }
         public string Category { get; set; }
         public ushort Tier { get; set; }
-        public string CraftedName { get; set; }
+        //public string CraftedName { get; set; }
         public string CraftedKey { get; set; }
         public int CraftedAmount { get; set; }
+        [XmlIgnore]
         public float CraftTime { get; set; }
         [XmlArray, XmlArrayItem("CraftCost")]
         public List<CraftCost> Costs { get; set; }
@@ -48,7 +49,9 @@ namespace Common.ModLogics
         [DefaultValue(false)]
         public bool CanCraftAnywhere { get; set; }
         [DefaultValue(true)]
+        [XmlIgnore]
         public bool CanBeAutomated { get; set; }
+
         public string MasterRecipe { get; set; }
     }
     public class CraftCost
