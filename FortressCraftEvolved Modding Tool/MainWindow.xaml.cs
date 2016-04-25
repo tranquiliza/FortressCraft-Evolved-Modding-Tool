@@ -234,6 +234,14 @@ namespace FortressCraftEvolved_Modding_Tool
             {
                 ModWindow = new UserControl_ModInterface();
             }
+            else
+            {
+                MessageBoxResult lResult = MessageBox.Show("Reset mod interface?", "IMPORTANT", MessageBoxButton.YesNo);
+                if (lResult == MessageBoxResult.Yes)
+                {
+                    ModWindow = new UserControl_ModInterface();
+                }
+            }
             ContentMain.Content = ModWindow;
         }
     }

@@ -126,6 +126,7 @@ namespace Common.ModLogics
             RackRail.Description = "Woo!";
             ModdedRecipes.Add(RackRail);
 
+            //This Recipe requires a TerrainData Override, to make sure that HiveCore hardness is below 500. Otherwise players cannot place.
             CraftData HiveCore = new CraftData();
             HiveCore.Key = AuthorID + ".HiveCore";
             HiveCore.CraftedKey = "HiveCore";
@@ -261,6 +262,29 @@ namespace Common.ModLogics
             BiomassGrowth.Category = "CraftingIngredient";
             BiomassGrowth.Tier = 5;
             BiomassGrowth.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+
+
+            //This might cause issues later? (If DJ changes the name of the fucking thing and the key? Probably not)
+            CraftData HardRock = new CraftData();
+            HardRock.Key = AuthorID + ".HardRock";
+            HardRock.CraftedKey = "HardRock";
+            HardRock.CraftedAmount = 1;
+            HardRock.CraftTime = 0;
+            HardRock.Category = "CraftingIngredient";
+            HardRock.Tier = 5;
+            HardRock.Description = "Woo!";
+            ModdedRecipes.Add(HardRock);
+
+            CraftData VeryHardRock = new CraftData();
+            VeryHardRock.Key = AuthorID + ".VeryHardRock";
+            VeryHardRock.CraftedKey = "VeryHardRock";
+            VeryHardRock.CraftedAmount = 1;
+            VeryHardRock.CraftTime = 0;
+            VeryHardRock.Category = "CraftingIngredient";
+            VeryHardRock.Tier = 5;
+            VeryHardRock.Description = "Woo!";
+            ModdedRecipes.Add(VeryHardRock);
+            //End of problem area?
 
             ModdedRecipes.Add(CoalOre);
             ModdedRecipes.Add(CopperOre);
@@ -522,6 +546,27 @@ namespace Common.ModLogics
             TitaniumBar.Tier = 5;
             TitaniumBar.Description = "Woo!";
             ModdedRecipes.Add(TitaniumBar);
+
+            CraftData ChromiumBar = new CraftData();
+            ChromiumBar.Key = AuthorID + ".ChromiumBar";
+            ChromiumBar.CraftedKey = "ChromiumBar";
+            ChromiumBar.CraftedAmount = 1;
+            ChromiumBar.CraftTime = 0;
+            ChromiumBar.Category = "CraftingIngredient";
+            ChromiumBar.Tier = 5;
+            ChromiumBar.Description = "Woo!";
+            ModdedRecipes.Add(ChromiumBar);
+
+            CraftData MolybdenumBar = new CraftData();
+            MolybdenumBar.Key = AuthorID + ".MolybdenumBar";
+            MolybdenumBar.CraftedKey = "MolybdenumBar";
+            MolybdenumBar.CraftedAmount = 1;
+            MolybdenumBar.CraftTime = 0;
+            MolybdenumBar.Category = "CraftingIngredient";
+            MolybdenumBar.Tier = 5;
+            MolybdenumBar.Description = "Woo!";
+            ModdedRecipes.Add(MolybdenumBar);
+
             #endregion
             //Wires
             #region Wires

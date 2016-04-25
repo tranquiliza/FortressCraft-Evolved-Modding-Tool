@@ -5,25 +5,25 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FortressCraftEvolved_Modding_Tool.Forms.ModForms"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="1300">
+             d:DesignHeight="800" d:DesignWidth="1400">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="40*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -31,15 +31,15 @@
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="220"/>
             <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="145"/>
             <ColumnDefinition Width="200*"/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="listBox_Recipes" HorizontalAlignment="Left" Height="340" Margin="10,10,0,0" Grid.RowSpan="9" VerticalAlignment="Top" Width="200" SelectionChanged="listBox_Recipes_SelectionChanged"/>
-        <Button x:Name="button_AddRecipe" Content="Add Recipe" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="9" VerticalAlignment="Top" Width="200" Click="button_AddRecipe_Click"/>
-        <Button x:Name="button_EditRecipe" Content="Edit Recipe" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="10" VerticalAlignment="Top" Width="200" Click="button_EditRecipe_Click"/>
-        <Button x:Name="button_DeleteRecipe" Content="Delete Recipe" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="11" VerticalAlignment="Top" Width="200" Click="button_DeleteRecipe_Click"/>
-        <Button x:Name="button_Save" Content="Save Manufacturer Xml" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="12" VerticalAlignment="Top" Width="200"/>
+        <ListBox x:Name="listBox_Recipes" Height="400" HorizontalAlignment="Left" Margin="10,10,0,10" Grid.RowSpan="11" Width="200" SelectionChanged="listBox_Recipes_SelectionChanged"/>
+        <Button x:Name="button_AddRecipe" Content="Add Recipe" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="11" VerticalAlignment="Top" Width="200" Click="button_AddRecipe_Click"/>
+        <Button x:Name="button_EditRecipe" Content="Edit Recipe" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="12" VerticalAlignment="Top" Width="200" Click="button_EditRecipe_Click"/>
+        <Button x:Name="button_DeleteRecipe" Content="Delete Recipe" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="13" VerticalAlignment="Top" Width="200" Click="button_DeleteRecipe_Click"/>
+        <Button x:Name="button_Save" Content="Save Manufacturer Xml" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="14" VerticalAlignment="Top" Width="200" Click="button_Save_Click"/>
 
         <CheckBox x:Name="checkBox_IsSelfCraft" Content="IsSelfCraft" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="checkBox_IsSelfCraft_Checked" Unchecked="checkBox_IsSelfCraft_Unchecked"/>
         <ComboBox x:Name="comboBox_Category" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="200" SelectionChanged="comboBox_Category_SelectionChanged"/>
@@ -60,8 +60,8 @@
         <TextBlock x:Name="textBlock_CraftedAmount" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="7" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock_CraftTime" Grid.Column="2" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="8" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock_ResearchCost" Grid.Column="4" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="4" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock_Desc" Grid.Column="4" HorizontalAlignment="Left" Margin="10,18,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock_Hint" Grid.Column="4" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Desc" Grid.Column="4" HorizontalAlignment="Left" Margin="10,18,0,6" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" Height="Auto" Width="280"/>
+        <TextBlock x:Name="textBlock_Hint" Grid.Column="4" HorizontalAlignment="Left" Margin="10,15,0,8" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" Height="Auto" Width="280"/>
         <Label x:Name="label_Delete" Content="Delete:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkBox_Delete" Content="Delete" Grid.Column="2" HorizontalAlignment="Left" Margin="10,14,0,0" Grid.Row="2" VerticalAlignment="Top"/>
         <Label x:Name="label_CraftCost" Content="Craft Costs:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="9" VerticalAlignment="Top"/>
@@ -83,10 +83,10 @@
 
         <Button x:Name="button_Cancel" Content="Cancel" Grid.Column="4" HorizontalAlignment="Left" Margin="85,10,0,0" Grid.Row="13" VerticalAlignment="Top" Width="125" Click="button_Cancel_Click"/>
         <Button x:Name="button_Confirm" Content="Confirm Changes" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="13" VerticalAlignment="Top" Width="125" Click="button_Confirm_Click"/>
-        <Button x:Name="button_AddResearch" Content="Add Research" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="125"/>
-        <Button x:Name="button_RemoveResearch" Content="Remove Research" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="6" VerticalAlignment="Top" Width="125"/>
+        <Button x:Name="button_AddResearch" Content="Add Research" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="125" Click="button_AddResearch_Click"/>
+        <Button x:Name="button_RemoveResearch" Content="Remove Research" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="6" VerticalAlignment="Top" Width="125" Click="button_RemoveResearch_Click"/>
         <Button x:Name="button_DeleteResearch" Content="Delete Research" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="7" VerticalAlignment="Top" Width="125"/>
-        <Button x:Name="button_AddScan" Content="Add Scan" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="9" VerticalAlignment="Top" Width="125"/>
+        <Button x:Name="button_AddScan" Content="Add Scan" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="9" VerticalAlignment="Top" Width="125" Click="button_AddScan_Click"/>
         <Button x:Name="button_RemoveScan" Content="Remove Scan" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="125"/>
 
         <Button x:Name="button_DeleteCost" Content="Delete Cost" Grid.Column="1" HorizontalAlignment="Left" Margin="15,10,0,0" Grid.Row="13" VerticalAlignment="Top" Width="125" Click="button_DeleteCost_Click"/>
@@ -94,8 +94,8 @@
 
         <TextBox x:Name="textBox_Key" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
         <TextBox x:Name="textBox_CraftTime" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="8" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-        <TextBox x:Name="textBox_Desc" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
-        <TextBox x:Name="textBox_Hint" Grid.Column="4" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="textBox_Desc" Grid.Column="4" HorizontalAlignment="Left" Height="Auto" Margin="10,10,0,7" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" Width="280"/>
+        <TextBox x:Name="textBox_Hint" Grid.Column="4" HorizontalAlignment="Left" Height="Auto" Margin="10,10,0,6" Grid.Row="2" TextWrapping="Wrap" Text="TextBox" Width="280"/>
 
         <ComboBox x:Name="comboBox_CraftedKey" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="6" VerticalAlignment="Top" Width="200"/>
         <ComboBox x:Name="comboBox_Tier" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="200"/>

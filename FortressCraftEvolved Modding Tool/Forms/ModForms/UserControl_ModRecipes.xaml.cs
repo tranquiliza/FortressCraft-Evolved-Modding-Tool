@@ -327,15 +327,19 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 ActiveRecipe = SelectedRecipe;
                 mbEditing = true;
                 EditMode(true);
+                bool lIsOverride;
+                bool.TryParse(ActiveRecipe.IsOverride, out lIsOverride);
+                mbIsOverride = lIsOverride;
                 checkBox_IsOverride.IsEnabled = false;
                 checkBox_IsOverride.Visibility = Visibility.Hidden;
-                checkBox_Delete.Visibility = Visibility.Hidden;
                 if (mbIsOverride)
                 {
-                    checkBox_Delete.IsEnabled = true;
+                    checkBox_Delete.Visibility = Visibility.Visible;
+                    checkBox_Delete.IsEnabled = false;
                 }
                 else
                 {
+                    checkBox_Delete.Visibility = Visibility.Hidden;
                     checkBox_Delete.IsEnabled = false;
                 }
                 textBlock_Key.Visibility = Visibility.Visible;
@@ -380,16 +384,13 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                         SelectedRecipe = ModWriterDataHolder.ManufacturerEntries[i];
                     }
                 }
-                mbIsOverride = Convert.ToBoolean(SelectedRecipe.IsOverride);
+                bool lIsOverride;
+                bool.TryParse(SelectedRecipe.IsOverride, out lIsOverride);
+                mbIsOverride = lIsOverride;
 
-                //if (SelectedRecipe.IsOverride == "true")
-                //{
-                //    checkBox_IsOverride.IsChecked = true;
-                //}
-                //else
-                //{
-                //    checkBox_IsOverride.IsChecked = false;
-                //}
+                bool lDelete;
+                bool.TryParse(SelectedRecipe.Delete, out lDelete);
+                checkBox_Delete.IsChecked = lDelete;
 
                 textBlock_IsOverride.Text = SelectedRecipe.IsOverride;
 
@@ -401,9 +402,10 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 textBlock_ResearchCost.Text = SelectedRecipe.ResearchCost.ToString();
                 textBlock_Desc.Text = SelectedRecipe.Description;
                 textBlock_Hint.Text = SelectedRecipe.Hint;
-                //This might cause issues later.
-                checkBox_Delete.IsChecked = SelectedRecipe.Delete;
-                //checkBox_IsSelfCraft.IsChecked = SelectedRecipe.CanCraftAnywhere;
+
+                bool lIsDelete = false;
+                bool.TryParse(SelectedRecipe.Delete, out lIsDelete);
+                checkBox_Delete.IsChecked = lIsDelete;
 
                 listBox_CraftCost.Items.Clear();
                 for (int i = 0; i < SelectedRecipe.Costs.Count; i++)
@@ -412,27 +414,39 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 }
 
                 listBox_RemoveResearchReq.Items.Clear();
-                for (int i = 0; i < SelectedRecipe.RemoveResearchRequirements.Count; i++)
+                if (SelectedRecipe.RemoveResearchRequirements != null)
                 {
-                    listBox_RemoveResearchReq.Items.Add(SelectedRecipe.RemoveResearchRequirements[i]);
+                    for (int i = 0; i < SelectedRecipe.RemoveResearchRequirements.Count; i++)
+                    {
+                        listBox_RemoveResearchReq.Items.Add(SelectedRecipe.RemoveResearchRequirements[i]);
+                    }
                 }
 
                 listBox_RemoveScanReq.Items.Clear();
-                for (int i = 0; i < SelectedRecipe.RemoveScanRequirements.Count; i++)
+                if (SelectedRecipe.RemoveScanRequirements != null)
                 {
-                    listBox_RemoveScanReq.Items.Add(SelectedRecipe.RemoveScanRequirements[i]);
+                    for (int i = 0; i < SelectedRecipe.RemoveScanRequirements.Count; i++)
+                    {
+                        listBox_RemoveScanReq.Items.Add(SelectedRecipe.RemoveScanRequirements[i]);
+                    }
                 }
 
                 listBox_ResearchReq.Items.Clear();
-                for (int i = 0; i < SelectedRecipe.ResearchRequirements.Count; i++)
+                if (SelectedRecipe.ResearchRequirements != null)
                 {
-                    listBox_ResearchReq.Items.Add(SelectedRecipe.ResearchRequirements[i]);
+                    for (int i = 0; i < SelectedRecipe.ResearchRequirements.Count; i++)
+                    {
+                        listBox_ResearchReq.Items.Add(SelectedRecipe.ResearchRequirements[i]);
+                    }
                 }
 
                 listBox_ScanReq.Items.Clear();
-                for (int i = 0; i < SelectedRecipe.ScanRequirements.Count; i++)
+                if (SelectedRecipe.ScanRequirements != null)
                 {
-                    listBox_ScanReq.Items.Add(SelectedRecipe.ScanRequirements[i]);
+                    for (int i = 0; i < SelectedRecipe.ScanRequirements.Count; i++)
+                    {
+                        listBox_ScanReq.Items.Add(SelectedRecipe.ScanRequirements[i]);
+                    }
                 }
                 if (mbIsOverride == true)
                 {
@@ -449,11 +463,66 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
         {
             if (mbEditing) //Editing Already existing item, we override Active Item:
             {
-
+                //TODO
             }
             else //we create new values and add to the list!
             {
+                CraftData lNewRecipe = new CraftData();
+                lNewRecipe.IsOverride = mbIsOverride.ToString();
+                if (mbIsOverride == true)
+                {
+                    if (comboBox_Key.SelectedItem != null)
+                    {
+                        lNewRecipe.Key = comboBox_Key.SelectedItem.ToString();
+                        lNewRecipe.RemoveResearchRequirements = TempRemoveResearchReq;
+                        lNewRecipe.RemoveScanRequirements = TempRemoveScanReq;
+                        bool? lIsDelete = checkBox_Delete.IsChecked;
+                        lNewRecipe.Delete = lIsDelete.Value.ToString();
+                    }
+                }
+                else
+                {
+                    lNewRecipe.Key = textBlock_Key.Text;
+                }
 
+                lNewRecipe.Category = comboBox_Category.SelectedItem.ToString();
+
+                ushort lTier = 0;
+                ushort.TryParse(comboBox_Tier.SelectedItem.ToString(), out lTier);
+                lNewRecipe.Tier = lTier;
+                if (mbIsOverride)
+                {
+                    lNewRecipe.CraftedKey = textBlock_CraftedKey.Text;
+                }
+                else
+                {
+                    if (comboBox_CraftedKey.SelectedItem != null)
+                    {
+                        lNewRecipe.CraftedKey = comboBox_CraftedKey.SelectedItem.ToString();
+                    }
+                }
+
+                int lCraftedAmount = 1;
+                int.TryParse(comboBox_CraftedAmount.ToString(), out lCraftedAmount);
+                lNewRecipe.CraftedAmount = lCraftedAmount;
+
+                lNewRecipe.Costs = TempCraftCost;
+
+                lNewRecipe.ResearchRequirements = TempResearchReq;
+                lNewRecipe.ScanRequirements = TempScanReq;
+
+                int lResearchCost = 0;
+                int.TryParse(comboBox_ResearchCost.ToString(), out lResearchCost);
+                lNewRecipe.ResearchCost = lResearchCost;
+
+                lNewRecipe.Description = textBox_Desc.Text;
+                lNewRecipe.Hint = textBox_Hint.Text;
+
+                lNewRecipe.CanCraftAnywhere = mbIsSelfCraft;
+                //*****************
+                ModWriterDataHolder.ManufacturerEntries.Add(lNewRecipe);
+                RefreshItemsLists();
+                EditMode(false);
             }
         }
 
@@ -461,8 +530,10 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
         {
             EditMode(true);
             mbIsOverride = false;
+            mbEditing = false;
             checkBox_IsOverride.IsChecked = mbIsOverride;
             checkBox_Delete.Visibility = Visibility.Hidden;
+            checkBox_Delete.IsChecked = false;
             textBox_Key.Visibility = Visibility.Visible;
             textBlock_IsOverride.Visibility = Visibility.Hidden;
 
@@ -522,17 +593,26 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                             CraftCost Holder = new CraftCost();
                             Holder.Amount = DataHolder.ManufacturerEntries[i].Costs[j].Amount;
                             Holder.Key = DataHolder.ManufacturerEntries[i].Costs[j].Key;
+                            if (mbIsOverride)
+                            {
+                                Holder.Delete = "false";
+                            }
                             TempCraftCost.Add(Holder);
                         }
                         comboBox_ResearchCost.SelectedItem = DataHolder.ManufacturerEntries[i].ResearchCost;
                         textBox_Desc.Text = DataHolder.ManufacturerEntries[i].Description;
                         textBox_Hint.Text = DataHolder.ManufacturerEntries[i].Hint;
 
+                        listBox_CraftCost.Items.Clear();
+                        for (int j = 0; j < TempCraftCost.Count; j++)
+                        {
+                            listBox_CraftCost.Items.Add(TempCraftCost[j].ToString());
+                        }
+
                         TempResearchReq = DataHolder.ManufacturerEntries[i].ResearchRequirements;
                         TempRemoveResearchReq = new List<string>();
                         TempScanReq = DataHolder.ManufacturerEntries[i].ScanRequirements;
                         TempRemoveScanReq = new List<string>();
-                        TempCraftCost = new List<CraftCost>();
                     }
                 }
 
@@ -712,6 +792,185 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                     listBox_CraftCost.Items.Add(TempCraftCost[i].ToString());
                 }
             }
+        }
+
+        private void button_Save_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Writing to disk!");
+            string AllRecipes = XMLSerializer.Serialize(ModWriterDataHolder.ManufacturerEntries, false);
+            File.WriteAllText(ManufacturerXmlPath, AllRecipes);
+        }
+
+        //Research and Scan reqs + removal part
+        private void RefreshRequirementsLists()
+        {
+            if (mbEditing)
+            {
+                listBox_RemoveResearchReq.Items.Clear();
+                listBox_RemoveScanReq.Items.Clear();
+                listBox_ResearchReq.Items.Clear();
+                listBox_ScanReq.Items.Clear();
+                if (ActiveRecipe.RemoveResearchRequirements != null)
+                {
+                    for (int i = 0; i < ActiveRecipe.RemoveResearchRequirements.Count; i++)
+                    {
+                        listBox_RemoveResearchReq.Items.Add(ActiveRecipe.RemoveResearchRequirements[i]);
+                    }
+                }
+                if (ActiveRecipe.RemoveScanRequirements != null)
+                {
+                    for (int i = 0; i < ActiveRecipe.RemoveScanRequirements.Count; i++)
+                    {
+                        listBox_RemoveScanReq.Items.Add(ActiveRecipe.RemoveScanRequirements[i]);
+                    }
+                }
+                if (ActiveRecipe.ResearchRequirements != null)
+                {
+                    for (int i = 0; i < ActiveRecipe.ResearchRequirements.Count; i++)
+                    {
+                        listBox_ResearchReq.Items.Add(ActiveRecipe.ResearchRequirements[i]);
+                    }
+                }
+                if (ActiveRecipe.ScanRequirements != null)
+                {
+                    for (int i = 0; i < ActiveRecipe.ScanRequirements.Count; i++)
+                    {
+                        listBox_ScanReq.Items.Add(ActiveRecipe.ScanRequirements[i]);
+                    }
+                }
+            }
+            else
+            {
+                listBox_RemoveResearchReq.Items.Clear();
+                listBox_RemoveScanReq.Items.Clear();
+                listBox_ResearchReq.Items.Clear();
+                listBox_ScanReq.Items.Clear();
+                if (TempRemoveResearchReq != null)
+                {
+                    for (int i = 0; i < TempRemoveResearchReq.Count; i++)
+                    {
+                        listBox_RemoveResearchReq.Items.Add(TempRemoveResearchReq[i]);
+                    }
+                }
+                if (TempRemoveScanReq != null)
+                {
+                    for (int i = 0; i < TempRemoveScanReq.Count; i++)
+                    {
+                        listBox_RemoveScanReq.Items.Add(TempRemoveScanReq[i]);
+                    }
+                }
+                if (TempResearchReq != null)
+                {
+                    for (int i = 0; i < TempResearchReq.Count; i++)
+                    {
+                        listBox_ResearchReq.Items.Add(TempResearchReq[i]);
+                    }
+                }
+                if (TempScanReq != null)
+                {
+                    for (int i = 0; i < TempScanReq.Count; i++)
+                    {
+                        listBox_ScanReq.Items.Add(TempScanReq[i]);
+                    }
+                }
+            }
+        }
+
+        private void button_AddResearch_Click(object sender, RoutedEventArgs e)
+        {
+            if (comboBox_Research.SelectedItem != null)
+            {
+                if (mbEditing)
+                {
+                    ActiveRecipe.ResearchRequirements.Add(comboBox_Research.SelectedItem.ToString());
+                }
+                else
+                {
+                    TempResearchReq.Add(comboBox_Research.SelectedItem.ToString());
+                }
+                RefreshRequirementsLists();
+            }
+        }
+
+        private void button_AddScan_Click(object sender, RoutedEventArgs e)
+        {
+            if (comboBox_Scan.SelectedItem != null)
+            {
+                if (mbEditing)
+                {
+                    ActiveRecipe.ScanRequirements.Add(comboBox_Research.SelectedItem.ToString());
+                }
+                else
+                {
+                    TempScanReq.Add(comboBox_Scan.SelectedItem.ToString());
+                }
+                RefreshRequirementsLists();
+            }
+        }
+
+        //We call this when we remove a ResearchReq
+        private void button_RemoveResearch_Click(object sender, RoutedEventArgs e)
+        {
+            //If we have something selected in the ResearchReq List
+            if (listBox_ResearchReq.SelectedItem != null)
+            {
+                //We're working with the Listbox for ResearchReq
+                if (mbEditing) //Existing Item
+                {
+                    if (mbIsOverride) //Item is an Override of existing Recipe
+                    {
+                        ActiveRecipe.RemoveResearchRequirements.Add(listBox_ResearchReq.SelectedItem.ToString());
+                        ActiveRecipe.ResearchRequirements.Remove(listBox_ResearchReq.SelectedItem.ToString());
+                    }
+                    else //Is a selfmade item (Should not need RemoveResearchReq
+                    {
+                        ActiveRecipe.ResearchRequirements.Remove(listBox_ResearchReq.SelectedItem.ToString());
+                    }
+                }
+                else //New Item
+                {
+                    if (mbIsOverride) //New Item that is an override
+                    {
+                        TempRemoveResearchReq.Add(listBox_ResearchReq.SelectedItem.ToString());
+                        TempResearchReq.Remove(listBox_ResearchReq.SelectedItem.ToString());
+                    }
+                    else //New item, shouldn't add  
+                    {
+                        TempResearchReq.Remove(listBox_ResearchReq.SelectedItem.ToString());
+                    }
+                }
+            }
+
+            //If we want to remove something from the RemoveResearchReq list:
+            if (listBox_RemoveResearchReq.SelectedItem != null)
+            {
+                //Here we're working with the RemoveResearchReq
+                if (mbEditing) //Existing Item
+                {
+                    if (mbIsOverride) //Item is an Override of existing Recipe
+                    {
+                        ActiveRecipe.ResearchRequirements.Add(listBox_RemoveResearchReq.SelectedItem.ToString());
+                        ActiveRecipe.RemoveResearchRequirements.Remove(listBox_RemoveResearchReq.SelectedItem.ToString());
+                    }
+                    else //Is a selfmade item (Should not need RemoveResearchReq
+                    {
+                        ActiveRecipe.RemoveResearchRequirements.Remove(listBox_RemoveResearchReq.SelectedItem.ToString());
+                    }
+                }
+                else //New Item
+                {
+                    if (mbIsOverride) //New Item that is an override
+                    {
+                        TempResearchReq.Add(listBox_RemoveResearchReq.SelectedItem.ToString());
+                        TempRemoveResearchReq.Remove(listBox_RemoveResearchReq.SelectedItem.ToString());
+                    }
+                    else // This should never active?!
+                    {
+                        TempRemoveResearchReq.Remove(listBox_RemoveResearchReq.SelectedItem.ToString());
+                    }
+                }
+            }
+            RefreshRequirementsLists();
         }
     }
 }

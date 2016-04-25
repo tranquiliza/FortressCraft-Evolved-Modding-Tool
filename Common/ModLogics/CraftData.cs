@@ -17,7 +17,7 @@ namespace Common.ModLogics
         // Modded Variables:
         public string IsOverride { get; set; }
         [DefaultValue(false)]
-        public bool Delete { get; set; }
+        public string Delete { get; set; }
         //Lists to remove Research Req and Scan Req!
 
         [XmlArray, XmlArrayItem("Research")]
