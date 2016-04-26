@@ -23,7 +23,7 @@ namespace Common.XmlLogic
             }
             catch (Exception x)
             {
-                File.WriteAllText("Error.txt", "User failed to select a GAC Path" + x);
+                Error.Log("Error: GAC failed to deserialize: " + path + Environment.NewLine + x);
             }
         }
     }

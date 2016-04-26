@@ -54,7 +54,8 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             }
             catch (Exception x)
             {
-                File.WriteAllText("ModRecipeCreatorError.txt", x.ToString());
+                Common.Error.Log("Error: ManufacturerRecipes Creator did not find file: " + ManufacturerXmlPath + x);
+                //File.WriteAllText("ModRecipeCreatorError.txt", x.ToString());
             }
             RefreshItemsLists();
 

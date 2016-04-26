@@ -62,25 +62,33 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             if (User.Default.AuthorID == "")
             {
                 MessageBox.Show("No Mod AuthorID Found, please check the settings!");
+                Common.Error.Log("Error: No AuthorID Found, missing from settings?");
                 return;
             }
             if (Config == null)
             {
                 return;
             }
-            ModCreator.GenerateDirectory(User.Default.WritePath, Config);
-            string configfilepath = System.IO.Path.Combine(User.Default.WritePath, Config.Id);
-            configfilepath = System.IO.Path.Combine(configfilepath, Config.Version);
-            configfilepath += "\\";
-            string configFile = XMLSerializer.Serialize(Config, false);
-            File.WriteAllText(configfilepath + "Mod.Config", configFile);
-            User.Default.ConfigFilePath = configfilepath += "\\Mod.Config";
-            User.Default.Save();
+            try
+            {
+                ModCreator.GenerateDirectory(User.Default.WritePath, Config);
+                string configfilepath = System.IO.Path.Combine(User.Default.WritePath, Config.Id);
+                configfilepath = System.IO.Path.Combine(configfilepath, Config.Version);
+                configfilepath += "\\";
+                string configFile = XMLSerializer.Serialize(Config, false);
+                File.WriteAllText(configfilepath + "Mod.Config", configFile);
+                User.Default.ConfigFilePath = configfilepath += "\\Mod.Config";
+                User.Default.Save();
 
-            string[] IdSplit = Config.Id.Split('.');
-            textBlock_SelectedMod.Text = "Mod: " + Config.Name + ", By " + IdSplit[0] + ", Version: " + Config.Version;
-            
-            SelectedMod(true);
+                string[] IdSplit = Config.Id.Split('.');
+                textBlock_SelectedMod.Text = "Mod: " + Config.Name + ", By " + IdSplit[0] + ", Version: " + Config.Version;
+
+                SelectedMod(true);
+            }
+            catch (Exception x)
+            {
+                Common.Error.Log("Error: User tried to create a new mod, but was unsuccesfull! " + x);
+            }
             ModItemsWindow = new UserControl_ModItems();
         }
 
@@ -98,7 +106,8 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                 }
                 catch (Exception x)
                 {
-                    File.WriteAllText("ModCreaterError.txt", "Error: " + x);
+                    Common.Error.Log("ModCreatorInterface was unable to deserialize ModConfiguration at: " + User.Default.ConfigFilePath + "\n \t" + x);
+                    //File.WriteAllText("ModCreaterError.txt", "Error: " + x);
                 }
             }
             else

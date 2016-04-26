@@ -30,6 +30,10 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                 NewMod.IsLocalMod = checkBox_IsLocalMod.Checked;
                 NewMod.IsServerOnlyMod = checkBox_IsServerOnlyMod.Checked;
             }
+            else
+            {
+                Common.Error.Log("UserInputError: Modname was not given.");
+            }
             ModWriterDataHolder.Config = NewMod;
             Close();
         }

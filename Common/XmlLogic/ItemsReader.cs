@@ -21,7 +21,14 @@ namespace Common.XmlLogic
             }
             if (path.Contains("Items.xml"))
             {
-                DataHolder.ItemEntries = XMLSerializer.Deserialize<List<ItemEntry>>(File.ReadAllText(path));
+                try
+                {
+                    DataHolder.ItemEntries = XMLSerializer.Deserialize<List<ItemEntry>>(File.ReadAllText(path));
+                }
+                catch (Exception x)
+                {
+                    Error.Log("Error: failed to deserialize Items.xml: " + x);
+                }
             }
             else
             {

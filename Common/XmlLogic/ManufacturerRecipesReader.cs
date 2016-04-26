@@ -17,11 +17,14 @@ namespace Common.XmlLogic
             }
             if (ManufactorerXmlPath.Contains("ManufacturerRecipes.xml"))
             {
-                DataHolder.ManufacturerEntries = XMLSerializer.Deserialize<List<CraftData>>(File.ReadAllText(ManufactorerXmlPath));
-            }
-            else
-            {
-                return;
+                try
+                {
+                    DataHolder.ManufacturerEntries = XMLSerializer.Deserialize<List<CraftData>>(File.ReadAllText(ManufactorerXmlPath));
+                }
+                catch (Exception x)
+                {
+                    Error.Log("Error: failed to deserialize ManufacturerRecipes.xml : " + x);
+                }
             }
         }
         public static void ReadRefineryRecipes(string RefineryPath)
@@ -32,11 +35,14 @@ namespace Common.XmlLogic
             }
             if (RefineryPath.Contains("RefineryRecipes.xml"))
             {
-                ModDataHolder.RefineryRecipes = XMLSerializer.Deserialize<List<CraftData>>(File.ReadAllText(RefineryPath));
-            }
-            else
-            {
-                return;
+                try
+                {
+                    ModDataHolder.RefineryRecipes = XMLSerializer.Deserialize<List<CraftData>>(File.ReadAllText(RefineryPath));
+                }
+                catch (Exception x)
+                {
+                    Error.Log("Error: Failed to Deserialize RefineryRecipes.xml " + x);
+                }
             }
         }
     }

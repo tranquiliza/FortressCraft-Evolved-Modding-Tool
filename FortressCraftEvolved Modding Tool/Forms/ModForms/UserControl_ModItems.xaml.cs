@@ -58,7 +58,8 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             }
             catch (Exception x)
             {
-                File.WriteAllText("ModItemsCreatorError.txt", x.ToString());
+                Common.Error.Log("Error: Items modding interfaace was unable to Deserialize " + x);
+                //File.WriteAllText("ModItemsCreatorError.txt", x.ToString());
             }
             for (int i = 0; i < ModWriterDataHolder.Items.Count; i++)
             {

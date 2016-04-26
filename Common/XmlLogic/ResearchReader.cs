@@ -17,7 +17,14 @@ namespace Common.XmlLogic
             }
             if (ResearchXmlPath.Contains("Research.xml"))
             {
-                DataHolder.ResearchEntries = XMLSerializer.Deserialize<List<ResearchDataEntry>>(File.ReadAllText(ResearchXmlPath));
+                try
+                {
+                    DataHolder.ResearchEntries = XMLSerializer.Deserialize<List<ResearchDataEntry>>(File.ReadAllText(ResearchXmlPath));
+                }
+                catch (Exception x)
+                {
+                    Error.Log("Error: Failed to Deserialize Research.xml" + x);
+                }
             }
             else
             {

@@ -27,7 +27,7 @@ namespace Common.ModWriter
             }
             catch (Exception x)
             {
-                System.IO.File.WriteAllText("SpriteReaderError.txt", x.ToString());
+                Error.Log("Error: Sprites wasn't loaded: " + x);
             }
             return IconNames;
         }

@@ -19,11 +19,14 @@ namespace Common.XmlLogic
             }
             if (TerrainDataPath.Contains("TerrainData.xml"))
             {
-                DataHolder.TerrainDataEntries = XMLSerializer.Deserialize<List<TerrainDataEntry>>(File.ReadAllText(TerrainDataPath));
-            }
-            else
-            {
-                return;
+                try
+                {
+                    DataHolder.TerrainDataEntries = XMLSerializer.Deserialize<List<TerrainDataEntry>>(File.ReadAllText(TerrainDataPath));
+                }
+                catch (Exception x)
+                {
+                    Error.Log("Error: Failed to Deserialze TerrainData.xml" + x);
+                }
             }
         }
     }

@@ -28,6 +28,7 @@ namespace Common.XmlLogic
             }
             catch (Exception ex)
             {
+                Error.Log("Error: Failed to Serialize " + ex);
                 throw new Exception("An error occurred", ex);
             }
         }

@@ -19,7 +19,14 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             listBox_ManufacturerEntries.Items.Clear();
             for (int i = 0; i < DataHolder.ManufacturerEntries.Count; i++)
             {
-                listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
+                if (DataHolder.ManufacturerEntries[i].CraftedKey != null)
+                {
+                    listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
+                }
+                else
+                {
+                    Common.Error.Log("Error: " + DataHolder.ManufacturerEntries[i].CraftedName + " is missing a CraftedKey?");
+                }
             }
             textBlock_Category.Text = "";
             textBlock_CraftAnywhere.Text = "";
@@ -44,13 +51,19 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                     {
                         if (DataHolder.ManufacturerEntries[i].Tier == Tier)
                         {
-                            listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
+                            if (DataHolder.ManufacturerEntries[i].CraftedKey != null)
+                            {
+                                listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
+                            }
                         }
                         else
                         {
                             if (Tier == -1)
                             {
-                                listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
+                                if (DataHolder.ManufacturerEntries[i].CraftedKey != null)
+                                {
+                                    listBox_ManufacturerEntries.Items.Add(DataHolder.ManufacturerEntries[i].CraftedKey);
+                                }
                             }
                         }
                     }
