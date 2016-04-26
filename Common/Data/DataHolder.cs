@@ -11,7 +11,7 @@ namespace Common.Data
     {
         //0.0.0
         //Release.Beta.Revision
-        public static string Value = " V0.1.2";
+        public static string Value = " V0.1.3";
     }
     public static class DataHolder
     {

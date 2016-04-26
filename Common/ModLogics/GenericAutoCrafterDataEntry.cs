@@ -460,6 +460,7 @@ namespace Common.ModLogics
         DeOrbitContainerMob,
         DeOrbitController,
         ResearchParts,
+        OverclockedClockCrystal,
         Num,
         XXX,
         XXXX,

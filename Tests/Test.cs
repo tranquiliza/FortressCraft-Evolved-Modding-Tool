@@ -43,10 +43,10 @@ namespace Tests
         [Test ()]
         public void TestFileDirectory()
         {
-            string path = "C:\\Users\\DanielP\\Desktop\\WriteHere";
-            ModCreator.SetMainFolderName("tranq", "testMod");
-            ModCreator.SetVersion("2");
-            ModCreator.GenerateDirectory(path);
+            //string path = "C:\\Users\\DanielP\\Desktop\\WriteHere";
+            //ModCreator.SetMainFolderName("tranq", "testMod");
+            //ModCreator.SetVersion("2");
+            //ModCreator.GenerateDirectory(path);
         }
 	}
 }

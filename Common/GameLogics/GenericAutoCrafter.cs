@@ -461,6 +461,7 @@ namespace Common.GameLogics
         DeOrbitContainerMob,
         DeOrbitController,
         ResearchParts,
+        OverclockedClockCrystal,
         Num,
         XXX,
         XXXX,
