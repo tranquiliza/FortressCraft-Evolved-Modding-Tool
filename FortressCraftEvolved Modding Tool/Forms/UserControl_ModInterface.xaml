@@ -29,5 +29,6 @@
         <Label x:Name="label_SelectedMod" Content="Selected Mod:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Button x:Name="button_Items" Content="Items" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="150" Height="30" Grid.Row="1" Click="button_Items_Click"/>
         <Button x:Name="button_Recipes" Content="Recipes" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="150" Height="30" Grid.Row="2" Click="button_Recipes_Click"/>
+        <Button x:Name="button_Research" Content="Research" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="150" Height="30" Grid.Row="3" Click="button_Research_Click"/>
     </Grid>
 </UserControl>

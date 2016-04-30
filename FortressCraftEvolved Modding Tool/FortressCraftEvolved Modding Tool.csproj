@@ -96,6 +96,9 @@
     <Compile Include="Forms\ModForms\UserControl_ModRecipes.xaml.cs">
       <DependentUpon>UserControl_ModRecipes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ModForms\UserControl_ModResearch.xaml.cs">
+      <DependentUpon>UserControl_ModResearch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PathSelectorDialog.xaml.cs">
       <DependentUpon>PathSelectorDialog.xaml</DependentUpon>
     </Compile>
@@ -127,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\ModForms\UserControl_ModRecipes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\ModForms\UserControl_ModResearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
