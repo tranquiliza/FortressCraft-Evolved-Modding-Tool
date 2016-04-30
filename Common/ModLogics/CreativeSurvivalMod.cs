@@ -137,6 +137,172 @@ namespace Common.ModLogics
             HiveCore.Description = "Be careful where you place this, will probably encase itself in resin.";
             ModdedRecipes.Add(HiveCore);
 
+            //GAC Machines!
+            #region GAC Recipes
+            CraftData PlasmaCutterHead = new CraftData();
+            PlasmaCutterHead.Key = AuthorID + ".PlasmaCutterHead";
+            PlasmaCutterHead.CraftedKey = "PlasmaCutterHead";
+            PlasmaCutterHead.CraftedAmount = 1;
+            PlasmaCutterHead.CraftTime = 0;
+            PlasmaCutterHead.Category = Category.mining.ToString();
+            PlasmaCutterHead.Tier = 5;
+            PlasmaCutterHead.Description = "Because I'm nice!";
+            ModdedRecipes.Add(PlasmaCutterHead);
+
+
+            CraftData SpiderBotPowerCore = new CraftData();
+            SpiderBotPowerCore.Key = AuthorID + ".SpiderBotPowerCore";
+            SpiderBotPowerCore.CraftedKey = "SpiderBotPowerCore";
+            SpiderBotPowerCore.CraftedAmount = 1;
+            SpiderBotPowerCore.CraftTime = 0;
+            SpiderBotPowerCore.Category = Category.manufacturing.ToString();
+            SpiderBotPowerCore.Tier = 5;
+            SpiderBotPowerCore.Description = "Because I'm nice!";
+            ModdedRecipes.Add(SpiderBotPowerCore);
+
+            CraftData CrystalClock = new CraftData();
+            CrystalClock.Key = AuthorID + ".CrystalClock";
+            CrystalClock.CraftedKey = "CrystalClock";
+            CrystalClock.CraftedAmount = 1;
+            CrystalClock.CraftTime = 0;
+            CrystalClock.Category = Category.manufacturing.ToString();
+            CrystalClock.Tier = 5;
+            CrystalClock.Description = "Because I'm nice!";
+            ModdedRecipes.Add(CrystalClock);
+
+            CraftData OverclockedCrystalClock = new CraftData();
+            OverclockedCrystalClock.Key = AuthorID + ".OverclockedCrystalClock";
+            OverclockedCrystalClock.CraftedKey = "OverclockedCrystalClock";
+            OverclockedCrystalClock.CraftedAmount = 1;
+            OverclockedCrystalClock.CraftTime = 0;
+            OverclockedCrystalClock.Category = Category.manufacturing.ToString();
+            OverclockedCrystalClock.Tier = 5;
+            OverclockedCrystalClock.Description = "Because I'm nice!";
+            ModdedRecipes.Add(OverclockedCrystalClock);
+
+            CraftData PowerBoosterMK1 = new CraftData();
+            PowerBoosterMK1.Key = AuthorID + ".PowerBoosterMK1";
+            PowerBoosterMK1.CraftedKey = "PowerBoosterMK1";
+            PowerBoosterMK1.CraftedAmount = 1;
+            PowerBoosterMK1.CraftTime = 0;
+            PowerBoosterMK1.Category = Category.upgrades.ToString();
+            PowerBoosterMK1.Tier = 5;
+            PowerBoosterMK1.Description = "Power For ARTHER! Yay!";
+            ModdedRecipes.Add(PowerBoosterMK1);
+
+            CraftData PowerBoosterMK2 = new CraftData();
+            PowerBoosterMK2.Key = AuthorID + ".PowerBoosterMK2";
+            PowerBoosterMK2.CraftedKey = "PowerBoosterMK2";
+            PowerBoosterMK2.CraftedAmount = 1;
+            PowerBoosterMK2.CraftTime = 0;
+            PowerBoosterMK2.Category = Category.upgrades.ToString();
+            PowerBoosterMK2.Tier = 5;
+            PowerBoosterMK2.Description = "Power For ARTHER! Yay!";
+            ModdedRecipes.Add(PowerBoosterMK2);
+
+            CraftData PowerBoosterMK3 = new CraftData();
+            PowerBoosterMK3.Key = AuthorID + ".PowerBoosterMK3";
+            PowerBoosterMK3.CraftedKey = "PowerBoosterMK3";
+            PowerBoosterMK3.CraftedAmount = 1;
+            PowerBoosterMK3.CraftTime = 0;
+            PowerBoosterMK3.Category = Category.upgrades.ToString();
+            PowerBoosterMK3.Tier = 5;
+            PowerBoosterMK3.Description = "Power For ARTHER! Yay!";
+            ModdedRecipes.Add(PowerBoosterMK3);
+
+            CraftData PowerBoosterMK4 = new CraftData();
+            PowerBoosterMK4.Key = AuthorID + ".PowerBoosterMK4";
+            PowerBoosterMK4.CraftedKey = "PowerBoosterMK4";
+            PowerBoosterMK4.CraftedAmount = 1;
+            PowerBoosterMK4.CraftTime = 0;
+            PowerBoosterMK4.Category = Category.upgrades.ToString();
+            PowerBoosterMK4.Tier = 5;
+            PowerBoosterMK4.Description = "Power For ARTHER! Yay!";
+            ModdedRecipes.Add(PowerBoosterMK4);
+
+            CraftData PowerBoosterMK5 = new CraftData();
+            PowerBoosterMK5.Key = AuthorID + ".PowerBoosterMK5";
+            PowerBoosterMK5.CraftedKey = "PowerBoosterMK5";
+            PowerBoosterMK5.CraftedAmount = 1;
+            PowerBoosterMK5.CraftTime = 0;
+            PowerBoosterMK5.Category = Category.upgrades.ToString();
+            PowerBoosterMK5.Tier = 5;
+            PowerBoosterMK5.Description = "Power For ARTHER! Yay!";
+            ModdedRecipes.Add(PowerBoosterMK5);
+
+            #endregion
+
+            //Crystal (Diamonds ETC)
+            #region Crystals
+
+            CraftData DiamondCrystal = new CraftData();
+            DiamondCrystal.Key = AuthorID + ".DiamondCrystal";
+            DiamondCrystal.CraftedKey = "DiamondCrystal";
+            DiamondCrystal.CraftedAmount = 1;
+            DiamondCrystal.CraftTime = 0;
+            DiamondCrystal.Category = Category.power.ToString();
+            DiamondCrystal.Tier = 5;
+            DiamondCrystal.Description = "Finding Crystals is a hassle at times. Here have some!";
+            DiamondCrystal.CanCraftAnywhere = true;
+            ModdedRecipes.Add(DiamondCrystal);
+
+            CraftData EmeraldCrystal = new CraftData();
+            EmeraldCrystal.Key = AuthorID + ".EmeraldCrystal";
+            EmeraldCrystal.CraftedKey = "EmeraldCrystal";
+            EmeraldCrystal.CraftedAmount = 1;
+            EmeraldCrystal.CraftTime = 0;
+            EmeraldCrystal.Category = Category.power.ToString();
+            EmeraldCrystal.Tier = 5;
+            EmeraldCrystal.Description = "Finding Crystals is a hassle at times. Here have some!";
+            EmeraldCrystal.CanCraftAnywhere = true;
+            ModdedRecipes.Add(EmeraldCrystal);
+
+            CraftData RubyCrystal = new CraftData();
+            RubyCrystal.Key = AuthorID + ".RubyCrystal";
+            RubyCrystal.CraftedKey = "RubyCrystal";
+            RubyCrystal.CraftedAmount = 1;
+            RubyCrystal.CraftTime = 0;
+            RubyCrystal.Category = Category.power.ToString();
+            RubyCrystal.Tier = 5;
+            RubyCrystal.Description = "Finding Crystals is a hassle at times. Here have some!";
+            RubyCrystal.CanCraftAnywhere = true;
+            ModdedRecipes.Add(RubyCrystal);
+
+            CraftData SapphireCrystal = new CraftData();
+            SapphireCrystal.Key = AuthorID + ".SapphireCrystal";
+            SapphireCrystal.CraftedKey = "SapphireCrystal";
+            SapphireCrystal.CraftedAmount = 1;
+            SapphireCrystal.CraftTime = 0;
+            SapphireCrystal.Category = Category.power.ToString();
+            SapphireCrystal.Tier = 5;
+            SapphireCrystal.Description = "Finding Crystals is a hassle at times. Here have some!";
+            SapphireCrystal.CanCraftAnywhere = true;
+            ModdedRecipes.Add(SapphireCrystal);
+
+            CraftData TopazCrystal = new CraftData();
+            TopazCrystal.Key = AuthorID + ".TopazCrystal";
+            TopazCrystal.CraftedKey = "TopazCrystal";
+            TopazCrystal.CraftedAmount = 1;
+            TopazCrystal.CraftTime = 0;
+            TopazCrystal.Category = Category.power.ToString();
+            TopazCrystal.Tier = 5;
+            TopazCrystal.Description = "Finding Crystals is a hassle at times. Here have some!";
+            TopazCrystal.CanCraftAnywhere = true;
+            ModdedRecipes.Add(TopazCrystal);
+
+            CraftData SugaliteCrystal = new CraftData();
+            SugaliteCrystal.Key = AuthorID + ".SugaliteCrystal";
+            SugaliteCrystal.CraftedKey = "SugaliteCrystal";
+            SugaliteCrystal.CraftedAmount = 1;
+            SugaliteCrystal.CraftTime = 0;
+            SugaliteCrystal.Category = Category.power.ToString();
+            SugaliteCrystal.Tier = 5;
+            SugaliteCrystal.Description = "Finding Crystals is a hassle at times. Here have some!";
+            SugaliteCrystal.CanCraftAnywhere = true;
+            ModdedRecipes.Add(SugaliteCrystal);
+
+            #endregion
+
             //Missiles
             #region Missiles
             CraftData BasicMissile = new CraftData();

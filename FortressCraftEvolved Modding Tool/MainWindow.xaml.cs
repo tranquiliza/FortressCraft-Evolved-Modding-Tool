@@ -28,6 +28,8 @@ namespace FortressCraftEvolved_Modding_Tool
             textBlock_Welcome.Text += " " + Version.Value;
             textBlock_Welcome.Text += "\n Browse the application by using the buttons below!";
             //textBlock_Welcome.Text += "\n Use F5 to reset this window!";
+
+            Common.Error.Log("Program Initiated!");
         }
 
         private async void MainWindow_OnLoaded(Object sender, RoutedEventArgs e)
