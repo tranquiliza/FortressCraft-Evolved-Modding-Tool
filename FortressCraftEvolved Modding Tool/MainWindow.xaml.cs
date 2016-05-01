@@ -145,8 +145,14 @@ namespace FortressCraftEvolved_Modding_Tool
 
         private void button_FeedMynock_Click(object sender, RoutedEventArgs e)
         {
-            string url = "www.twitchalerts.com/donate/djarcas";
-            System.Diagnostics.Process.Start(url);
+            //string DjArcasDonate = "www.twitchalerts.com/donate/djarcas";
+            string TranqDonate = "www.paypal.me/tranquiliza";
+            MessageBoxResult lResult = MessageBox.Show("This will take you to a website, where you can support the developer of this application!", "Notice", MessageBoxButton.OKCancel, MessageBoxImage.Information);
+            if (lResult == MessageBoxResult.OK)
+            {
+                System.Diagnostics.Process.Start(TranqDonate);
+            }
+            //System.Diagnostics.Process.Start(TranqDonate);
         }
         private void button_LoadGAC_Click(object sender, RoutedEventArgs e)
         {

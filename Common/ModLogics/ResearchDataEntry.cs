@@ -36,16 +36,16 @@ namespace Common.ModLogics
         public int Amount { get; set; }
         public override string ToString()
         {
-            string lIsDelete;
+            string DeleteAble;
             if (Delete == "true")
             {
-                lIsDelete = "-";
+                DeleteAble = "-";
             }
             else
             {
-                lIsDelete = "+";
+                DeleteAble = "+";
             }
-            return Amount + " x " + Key + " : " + lIsDelete;
+            return Amount + " x " + Key + " : " + DeleteAble;
         }
     }
 }
