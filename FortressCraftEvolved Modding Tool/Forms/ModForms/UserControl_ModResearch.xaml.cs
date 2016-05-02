@@ -818,13 +818,17 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                         {
                             if (mActiveResearch.ProjectItemRequirements[i].ToString() == listBox_ProjectItemReqs.SelectedItem.ToString())
                             {
-                                if (mActiveResearch.ProjectItemRequirements[i].Delete != null)
+                                if (mActiveResearch.ProjectItemRequirements[i].Delete == "true")
                                 {
-                                    mActiveResearch.ProjectItemRequirements[i].Delete = "true";
+                                    mActiveResearch.ProjectItemRequirements[i].Delete = "false";
+                                }
+                                else if (mActiveResearch.ProjectItemRequirements[i].Delete == null)
+                                {
+                                    mActiveResearch.ProjectItemRequirements.RemoveAt(i);
                                 }
                                 else
                                 {
-                                    mActiveResearch.ProjectItemRequirements.RemoveAt(i);
+                                    mActiveResearch.ProjectItemRequirements[i].Delete = "true";
                                 }
                             }
                         }
