@@ -28,6 +28,8 @@ namespace FortressCraftEvolved_Modding_Tool
             textBlock_Welcome.Text += " " + Version.Value;
             textBlock_Welcome.Text += "\n Browse the application by using the buttons below!";
             //textBlock_Welcome.Text += "\n Use F5 to reset this window!";
+
+            Common.Error.Log("Program Initiated!");
         }
 
         private async void MainWindow_OnLoaded(Object sender, RoutedEventArgs e)
@@ -143,8 +145,14 @@ namespace FortressCraftEvolved_Modding_Tool
 
         private void button_FeedMynock_Click(object sender, RoutedEventArgs e)
         {
-            string url = "www.twitchalerts.com/donate/djarcas";
-            System.Diagnostics.Process.Start(url);
+            //string DjArcasDonate = "www.twitchalerts.com/donate/djarcas";
+            string TranqDonate = "www.paypal.me/tranquiliza";
+            MessageBoxResult lResult = MessageBox.Show("This will take you to a website, where you can support the developer of this application!", "Notice", MessageBoxButton.OKCancel, MessageBoxImage.Information);
+            if (lResult == MessageBoxResult.OK)
+            {
+                System.Diagnostics.Process.Start(TranqDonate);
+            }
+            //System.Diagnostics.Process.Start(TranqDonate);
         }
         private void button_LoadGAC_Click(object sender, RoutedEventArgs e)
         {

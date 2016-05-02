@@ -125,6 +125,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             }
             else
             {
+                Common.Error.Log("Error: Sprites wasn't loaded, Modwriter Items");
                 MessageBox.Show("Sprites Diddn't load!");
             }
             //This is possibly wrong. Maybe not.
@@ -139,7 +140,12 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             {
                 comboBox_ItemAction.Items.Add(enumValue);
             }
+            Refresh();
+            EditMode(false);
+        }
 
+        private void Refresh()
+        {
             //Research Dropdown!
             comboBox_Research.Items.Clear();
             for (int i = 0; i < DataHolder.ResearchEntries.Count; i++)
@@ -181,8 +187,8 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                     comboBox_Scan.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Key);
                 }
             }
-            EditMode(false);
         }
+
         private void EditMode(bool IsEditing)
         {
             if (IsEditing)
@@ -360,6 +366,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
         //This is what happens when we select to edit an item:
         private void button_EditItem_Click(object sender, RoutedEventArgs e)
         {
+            Refresh();
             Editing = true;
             if (listBox_Items.SelectedItem != null)
             {
@@ -394,6 +401,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
         //Add new items:
         private void button_AddItem_Click(object sender, RoutedEventArgs e)
         {
+            Refresh();
             Editing = false;
 
             EditMode(true);

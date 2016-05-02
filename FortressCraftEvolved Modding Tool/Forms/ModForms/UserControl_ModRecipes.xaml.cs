@@ -121,6 +121,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             }
             comboBox_Category.SelectedItem = Category.mining;
 
+
             comboBox_Research.Items.Clear();
             for (int i = 0; i < DataHolder.ResearchEntries.Count; i++)
             {
@@ -128,8 +129,9 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             }
             for (int i = 0; i < ModWriterDataHolder.ResearchEntires.Count; i++)
             {
-                comboBox_Research.Items.Add(DataHolder.ResearchEntries[i].Key);
+                comboBox_Research.Items.Add(ModWriterDataHolder.ResearchEntires[i].Key);
             }
+
             comboBox_Scan.Items.Clear();
             for (int i = 0; i < DataHolder.TerrainDataEntries.Count; i++)
             {

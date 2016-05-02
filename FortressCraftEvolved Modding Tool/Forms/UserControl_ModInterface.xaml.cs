@@ -29,6 +29,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
 
         UserControl_ModItems ModItemsWindow = null;
         UserControl_ModRecipes ModRecipesWindow = null;
+        UserControl_ModResearch ModResearchWindow = null;
         public UserControl_ModInterface()
         {
             InitializeComponent();
@@ -39,18 +40,11 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
 
         private void SelectedMod(bool lIsSelected)
         {
-            if (lIsSelected)
-            {
-                button_Items.Visibility = Visibility.Visible;
-                button_Recipes.Visibility = Visibility.Visible;
-                button_SelectMod.Visibility = Visibility.Collapsed;
-                button_CreateMod.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                button_Items.Visibility = Visibility.Hidden;
-                button_Recipes.Visibility = Visibility.Hidden;
-            }
+            button_Items.Visibility = lIsSelected ? Visibility.Visible : Visibility.Hidden;
+            button_Recipes.Visibility = lIsSelected ? Visibility.Visible : Visibility.Hidden;
+            button_Research.Visibility = lIsSelected ? Visibility.Visible : Visibility.Hidden;
+            button_SelectMod.Visibility = lIsSelected ? Visibility.Hidden : Visibility.Visible;
+            button_CreateMod.Visibility = lIsSelected ? Visibility.Hidden : Visibility.Visible;
         }
 
         private void button_CreateMod_Click(object sender, RoutedEventArgs e)
@@ -134,6 +128,15 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                 ModRecipesWindow = new UserControl_ModRecipes();
             }
             ContentMain.Content = ModRecipesWindow;
+        }
+
+        private void button_Research_Click(object sender, RoutedEventArgs e)
+        {
+            if (ModResearchWindow == null)
+            {
+                ModResearchWindow = new UserControl_ModResearch();
+            }
+            ContentMain.Content = ModResearchWindow;
         }
     }
 }
