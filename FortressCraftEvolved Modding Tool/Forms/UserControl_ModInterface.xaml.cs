@@ -30,6 +30,8 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
         UserControl_ModItems ModItemsWindow = null;
         UserControl_ModRecipes ModRecipesWindow = null;
         UserControl_ModResearch ModResearchWindow = null;
+        UserControl_ModTerrainData ModTerrainDataWindow = null;
+        UserControl_ModGAC ModGACWindow = null;
         public UserControl_ModInterface()
         {
             InitializeComponent();
@@ -43,6 +45,10 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             button_Items.Visibility = lIsSelected ? Visibility.Visible : Visibility.Hidden;
             button_Recipes.Visibility = lIsSelected ? Visibility.Visible : Visibility.Hidden;
             button_Research.Visibility = lIsSelected ? Visibility.Visible : Visibility.Hidden;
+            //WIP Buttons:
+            button_TerrainData.Visibility = lIsSelected ? Visibility.Hidden : Visibility.Hidden; //Set to hidden so we can release without having to worry about people finding unfinished features:
+            button_GAC.Visibility = lIsSelected ? Visibility.Visible : Visibility.Hidden; //Set this to hidden when not working on it!
+            //END WIP
             button_SelectMod.Visibility = lIsSelected ? Visibility.Hidden : Visibility.Visible;
             button_CreateMod.Visibility = lIsSelected ? Visibility.Hidden : Visibility.Visible;
         }
@@ -88,28 +94,39 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
 
         private void button_SelectMod_Click(object sender, RoutedEventArgs e)
         {
-            Form_ModSelector Popup = new Form_ModSelector();
-            Popup.ShowDialog();
-            if (User.Default.ConfigFilePath.Contains("Mod.Config"))
+            //Form_ModSelector Popup = new Form_ModSelector();
+            //Popup.ShowDialog();
+            Microsoft.Win32.OpenFileDialog PathSelector = new Microsoft.Win32.OpenFileDialog();
+            PathSelector.DefaultExt = ".Config";
+            PathSelector.Filter = "Config Files (*.Config)|*.config";
+            PathSelector.InitialDirectory = User.Default.WritePath;
+
+            bool? lResult = PathSelector.ShowDialog();
+            if (lResult == true)
             {
-                try
+                User.Default.ConfigFilePath = PathSelector.FileName;
+                User.Default.Save();
+                if (User.Default.ConfigFilePath.Contains("Mod.Config"))
                 {
-                    Config = XMLSerializer.Deserialize<ModConfiguration>(File.ReadAllText(User.Default.ConfigFilePath));
-                    string[] IdSplit = Config.Id.Split('.');
-                    textBlock_SelectedMod.Text = "Mod: " + Config.Name + ", By " + IdSplit[0] + ", Version: " + Config.Version;
+                    try
+                    {
+                        Config = XMLSerializer.Deserialize<ModConfiguration>(File.ReadAllText(User.Default.ConfigFilePath));
+                        string[] IdSplit = Config.Id.Split('.');
+                        textBlock_SelectedMod.Text = "Mod: " + Config.Name + ", By " + IdSplit[0] + ", Version: " + Config.Version;
+                    }
+                    catch (Exception x)
+                    {
+                        Common.Error.Log("ModCreatorInterface was unable to deserialize ModConfiguration at: " + User.Default.ConfigFilePath + "\n \t" + x);
+                        //File.WriteAllText("ModCreaterError.txt", "Error: " + x);
+                    }
                 }
-                catch (Exception x)
+                else
                 {
-                    Common.Error.Log("ModCreatorInterface was unable to deserialize ModConfiguration at: " + User.Default.ConfigFilePath + "\n \t" + x);
-                    //File.WriteAllText("ModCreaterError.txt", "Error: " + x);
+                    return;
                 }
+                SelectedMod(true);
+                ModItemsWindow = new UserControl_ModItems();
             }
-            else
-            {
-                return;
-            }
-            SelectedMod(true);
-            ModItemsWindow = new UserControl_ModItems();
         }
 
         private void button_Items_Click(object sender, RoutedEventArgs e)
@@ -137,6 +154,24 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                 ModResearchWindow = new UserControl_ModResearch();
             }
             ContentMain.Content = ModResearchWindow;
+        }
+
+        private void button_TerrainData_Click(object sender, RoutedEventArgs e)
+        {
+            if (ModTerrainDataWindow == null)
+            {
+                ModTerrainDataWindow = new UserControl_ModTerrainData();
+            }
+            ContentMain.Content = ModTerrainDataWindow;
+        }
+
+        private void button_GAC_Click(object sender, RoutedEventArgs e)
+        {
+            if (ModGACWindow == null)
+            {
+                ModGACWindow = new UserControl_ModGAC();
+            }
+            ContentMain.Content = ModGACWindow;
         }
     }
 }

@@ -90,6 +90,9 @@
     <Compile Include="Forms\Form_PathSelector.Designer.cs">
       <DependentUpon>Form_PathSelector.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ModForms\UserControl_ModGAC.xaml.cs">
+      <DependentUpon>UserControl_ModGAC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ModForms\UserControl_ModItems.xaml.cs">
       <DependentUpon>UserControl_ModItems.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,9 @@
     </Compile>
     <Compile Include="Forms\ModForms\UserControl_ModResearch.xaml.cs">
       <DependentUpon>UserControl_ModResearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ModForms\UserControl_ModTerrainData.xaml.cs">
+      <DependentUpon>UserControl_ModTerrainData.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\PathSelectorDialog.xaml.cs">
       <DependentUpon>PathSelectorDialog.xaml</DependentUpon>
@@ -125,6 +131,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>User.settings</DependentUpon>
     </Compile>
+    <Page Include="Forms\ModForms\UserControl_ModGAC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\ModForms\UserControl_ModItems.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -134,6 +144,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\ModForms\UserControl_ModResearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\ModForms\UserControl_ModTerrainData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

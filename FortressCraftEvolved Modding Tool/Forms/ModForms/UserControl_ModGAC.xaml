@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="FortressCraftEvolved_Modding_Tool.Forms.ModForms.UserControl_ModGAC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FortressCraftEvolved_Modding_Tool.Forms.ModForms"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="145"/>
+            <ColumnDefinition Width="200*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="label_FriendlyName" Content="Friendly Name:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_SpawnObject" Content="Spawn Object:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label x:Name="label_LoadingAnim" Content="Loading Animation: " Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <Label x:Name="label_WorkingAnim" Content="Working Animation:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+        <Label x:Name="label_UnloadingAnim" Content="Unloading Animation:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top"/>
+        <Label x:Name="label_CraftingString" Content="Crafting String:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="5" VerticalAlignment="Top"/>
+        <Label x:Name="label_Value" Content="Value:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="6" VerticalAlignment="Top"/>
+        <Label x:Name="label_PowerUsePerSecond" Content="Power Use Per Second:" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_PowerTransferPerSecond" Content="Power Transfer Per Second:" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Label x:Name="label_MaxPowerStorage" Content="Max Power Storage:" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <Label x:Name="label_CraftTime" Content="Craft Time:" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+        <Label x:Name="label_OptionalIngredients" Content="Optional Ingredients:" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top"/>
+        <Label x:Name="label_Recipe" Content="Recipe:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,14,0,0" Grid.Row="7" VerticalAlignment="Top"/>
+        <Border BorderBrush="White" BorderThickness="2" Grid.Column="1" HorizontalAlignment="Left" Height="340" Margin="10,10,0,0" Grid.Row="7" Grid.RowSpan="9" VerticalAlignment="Top" Width="400" Grid.ColumnSpan="2"/>
+        <Button x:Name="button_SelectGAC" Content="Select" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200" Click="button_SelectGAC_Click"/>
+
+    </Grid>
+</UserControl>

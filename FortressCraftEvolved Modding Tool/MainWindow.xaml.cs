@@ -55,15 +55,16 @@ namespace FortressCraftEvolved_Modding_Tool
                 User.Default.RefineryXmlPath = Path.Combine(dialog.GamePath, "RefineryRecipes.xml");
                 User.Default.AuthorID = dialog.AuthorId;
                 User.Default.WritePath = dialog.DataPath;
-
                 User.Default.Save();
             }
 
+            Common.Error.Log("Reading Game Data!");
             ResearchReader.ReadResearchXML(User.Default.ResearchXmlPath);
             ManufacturerRecipesReader.ReadManufactoringXML(User.Default.ManufactorerXmlPath);
             ItemsReader.ReadItems(User.Default.ItemsXmlPath);
             TerrainDataReader.ReadTerrainDataEntry(User.Default.TerrainDataXmlPath);
             ManufacturerRecipesReader.ReadRefineryRecipes(User.Default.RefineryXmlPath);
+            Common.Error.Log("Reading Game Data! --- COMPLETE!");
         }
 
         //When user clicks the settings button currently only shows path. Maybe add possible change of style (Dark / Light?)
@@ -86,7 +87,6 @@ namespace FortressCraftEvolved_Modding_Tool
             User.Default.RefineryXmlPath = Path.Combine(dialog.GamePath, "RefineryRecipes.xml");
             User.Default.AuthorID = dialog.AuthorId;
             User.Default.WritePath = dialog.DataPath;
-
             User.Default.Save();
             //Do nothing for now!
             //Prompts people with the fileselector Windows Form. This is a windows form cause they have OpenFileDialog Controls!!

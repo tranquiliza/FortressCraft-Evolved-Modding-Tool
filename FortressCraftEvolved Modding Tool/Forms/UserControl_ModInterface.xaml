@@ -30,5 +30,7 @@
         <Button x:Name="button_Items" Content="Items" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="150" Height="30" Grid.Row="1" Click="button_Items_Click"/>
         <Button x:Name="button_Recipes" Content="Recipes" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="150" Height="30" Grid.Row="2" Click="button_Recipes_Click"/>
         <Button x:Name="button_Research" Content="Research" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="150" Height="30" Grid.Row="3" Click="button_Research_Click"/>
+        <Button x:Name="button_TerrainData" Content="TerrainData" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="150" Height="30" Grid.Row="4" Click="button_TerrainData_Click"/>
+        <Button x:Name="button_GAC" Content="Generic Auto Crafter" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="150" Height="30" Grid.Row="5" Click="button_GAC_Click"/>
     </Grid>
 </UserControl>
