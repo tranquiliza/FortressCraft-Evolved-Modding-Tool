@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Common;
 using Common.ModLogics;
 using Common.XmlLogic;
 using Common.ModWriter;
@@ -52,16 +53,16 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
 
             if (lResult == true)
             {
-                Common.Error.Log(SelectPath.FileName);
+                //Common.Error.Log(SelectPath.FileName);
                 try
                 {
                     mActiveGAC = XMLSerializer.Deserialize<GenericAutoCrafterDataEntry>(System.IO.File.ReadAllText(SelectPath.FileName));
                     lGACPath = SelectPath.FileName;
-                    Common.Error.Log("GAC PATH IS:" + lGACPath);
+                    //Common.Error.Log("GAC PATH IS:" + lGACPath);
                 }
                 catch (Exception x)
                 {
-                    Common.Error.Log("Failed to load GAC in ModGAC" + x);
+                    Error.Log("Failed to load GAC in ModGAC" + x);
                 }
             }
         }
