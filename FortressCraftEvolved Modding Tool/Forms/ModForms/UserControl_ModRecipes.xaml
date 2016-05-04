@@ -106,6 +106,7 @@
         <ComboBox x:Name="comboBox_CraftedAmount" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="7" VerticalAlignment="Top" Width="200"/>
         <ComboBox x:Name="comboBox_CraftCostItem" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="14" VerticalAlignment="Top" Width="200"/>
         <ComboBox x:Name="comboBox_CraftCostAmount" Grid.Column="1" HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Row="14" VerticalAlignment="Top" Width="120"/>
+        <CheckBox x:Name="checkBox_GACMachine" Content="GACMachineRecipe" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="checkBox_GACMachine_Checked" Unchecked="checkBox_GACMachine_Unchecked"/>
 
     </Grid>
 </UserControl>

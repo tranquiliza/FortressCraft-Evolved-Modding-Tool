@@ -36,7 +36,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
         private List<string> TempRemoveResearchReq;
         private List<string> TempRemoveScanReq;
         private List<CraftCost> TempCraftCost;
-        string ManufacturerXmlPath;
+        private string ManufacturerXmlPath;
         public UserControl_ModRecipes()
         {
             InitializeComponent();
@@ -137,6 +137,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             {
                 if (DataHolder.TerrainDataEntries[i].Values != null)
                 {
+                    comboBox_Scan.Items.Add(DataHolder.TerrainDataEntries[i].Key);
                     for (int j = 0; j < DataHolder.TerrainDataEntries[i].Values.Count; j++)
                     {
                         comboBox_Scan.Items.Add(DataHolder.TerrainDataEntries[i].Values[j].Key);
@@ -151,6 +152,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             {
                 if (ModWriterDataHolder.TerrainDataEntries[i].Values != null)
                 {
+                    comboBox_Scan.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Key);
                     for (int j = 0; j < ModWriterDataHolder.TerrainDataEntries[i].Values.Count; j++)
                     {
                         comboBox_Scan.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Values[j].Key);
@@ -164,6 +166,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
 
             //Crafted Key:
             comboBox_CraftedKey.Items.Clear();
+
             comboBox_CraftCostItem.Items.Clear();
             //Add items:
             for (int i = 0; i < DataHolder.ItemEntries.Count; i++)
@@ -183,6 +186,8 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             {
                 if (DataHolder.TerrainDataEntries[i].Values != null)
                 {
+                    comboBox_CraftedKey.Items.Add(DataHolder.TerrainDataEntries[i].Key);
+                    comboBox_CraftCostItem.Items.Add(DataHolder.TerrainDataEntries[i].Key);
                     for (int j = 0; j < DataHolder.TerrainDataEntries[i].Values.Count; j++)
                     {
                         comboBox_CraftedKey.Items.Add(DataHolder.TerrainDataEntries[i].Values[j].Key);
@@ -201,6 +206,8 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             {
                 if (ModWriterDataHolder.TerrainDataEntries[i].Values != null)
                 {
+                    comboBox_CraftedKey.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Key);
+                    comboBox_CraftCostItem.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Key);
                     for (int j = 0; j < ModWriterDataHolder.TerrainDataEntries[i].Values.Count; j++)
                     {
                         comboBox_CraftedKey.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Values[j].Key);
@@ -217,6 +224,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
 
         private void EditMode(bool lbIsCrafting) //This function Controls VIS and interaction of the form
         {
+            checkBox_GACMachine.Visibility = lbIsCrafting ? Visibility.Visible : Visibility.Hidden;
             listBox_Recipes.IsEnabled = !lbIsCrafting;
             checkBox_Delete.IsEnabled = lbIsCrafting;
             //checkBox_IsSelfCraft.IsEnabled = lbIsCrafting;
@@ -1119,6 +1127,26 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 }
             }
             RefreshRequirementsLists();
+        }
+
+        private void checkBox_GACMachine_Checked(object sender, RoutedEventArgs e)
+        {
+            comboBox_CraftedKey.Items.Clear();
+            for (int i = 0; i < ModWriterDataHolder.TerrainDataEntries.Count; i++)
+            {
+                if (ModWriterDataHolder.TerrainDataEntries[i].Key == "GenericAssemblerMachine")
+                {
+                    for (int j = 0; j < ModWriterDataHolder.TerrainDataEntries[i].Values.Count; j++)
+                    {
+                        comboBox_CraftedKey.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Values[j].Key);
+                    }
+                }
+            }
+        }
+
+        private void checkBox_GACMachine_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Refresh();
         }
     }
 }

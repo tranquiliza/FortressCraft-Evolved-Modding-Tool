@@ -9,7 +9,7 @@ namespace Common.ModLogics
 {
     public class TerrainDataEntry
     {
-        public ushort CubeType { get; set; }
+        public bool IsOverride { get; set; }
         public string Key { get; set; }
         public string Name { get; set; }
         public string Plural { get; set; }
@@ -50,7 +50,7 @@ namespace Common.ModLogics
     }
     public class TerrainDataValueEntry
     {
-        public ushort Value { get; set; }
+        //public ushort Value { get; set; }
         public string Key { get; set; }
         public string Name { get; set; }
         public string Plural { get; set; }
