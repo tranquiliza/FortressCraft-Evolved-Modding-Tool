@@ -57,6 +57,30 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 Common.Error.Log("Error: ManufacturerRecipes Creator did not find file: " + ManufacturerXmlPath + x);
                 //File.WriteAllText("ModRecipeCreatorError.txt", x.ToString());
             }
+            #region .TerrainDataLoad.
+            if (ModWriterDataHolder.TerrainDataEntries.Count < 1)
+            {
+                string TerrainDataXmlPath = string.Empty;
+                string[] lSplit = User.Default.ConfigFilePath.Split('\\');
+                TerrainDataXmlPath = string.Empty;
+                for (int i = 0; i < lSplit.Length - 1; i++)
+                {
+                    TerrainDataXmlPath += lSplit[i] + "\\";
+                }
+                TerrainDataXmlPath += "Xml\\";
+                TerrainDataXmlPath += "TerrainData.xml";
+                try
+                {
+                    ModWriterDataHolder.TerrainDataEntries = XMLSerializer.Deserialize<List<TerrainDataEntry>>(File.ReadAllText(TerrainDataXmlPath));
+
+                }
+                catch (Exception x)
+                {
+                    Common.Error.Log("Error: Items modding interfaace was unable to Deserialize " + x);
+                    //File.WriteAllText("ModItemsCreatorError.txt", x.ToString());
+                }
+            }
+            #endregion
             RefreshItemsLists();
 
             //Textblocks:
@@ -358,6 +382,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 textBlock_Key.Visibility = Visibility.Visible;
                 comboBox_CraftedKey.Visibility = Visibility.Hidden;
                 textBlock_CraftedKey.Visibility = Visibility.Visible;
+                checkBox_GACMachine.Visibility = Visibility.Hidden;
                 ActiveRecipe = SelectedRecipe;
                 //Set the textboxes to point at the active items values, as well as comboboxes!
                 textBox_Key.Text = ActiveRecipe.Key;
@@ -373,6 +398,50 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 comboBox_ResearchCost.SelectedItem = ActiveRecipe.ResearchCost;
                 textBox_Desc.Text = ActiveRecipe.Description;
                 textBox_Hint.Text = ActiveRecipe.Hint;
+
+                #region .RefreshScanResearchComboBoxes.
+                comboBox_Research.Items.Clear();
+                for (int i = 0; i < DataHolder.ResearchEntries.Count; i++)
+                {
+                    comboBox_Research.Items.Add(DataHolder.ResearchEntries[i].Key);
+                }
+                for (int i = 0; i < ModWriterDataHolder.ResearchEntires.Count; i++)
+                {
+                    comboBox_Research.Items.Add(ModWriterDataHolder.ResearchEntires[i].Key);
+                }
+
+                comboBox_Scan.Items.Clear();
+                for (int i = 0; i < DataHolder.TerrainDataEntries.Count; i++)
+                {
+                    if (DataHolder.TerrainDataEntries[i].Values != null)
+                    {
+                        comboBox_Scan.Items.Add(DataHolder.TerrainDataEntries[i].Key);
+                        for (int j = 0; j < DataHolder.TerrainDataEntries[i].Values.Count; j++)
+                        {
+                            comboBox_Scan.Items.Add(DataHolder.TerrainDataEntries[i].Values[j].Key);
+                        }
+                    }
+                    else
+                    {
+                        comboBox_Scan.Items.Add(DataHolder.TerrainDataEntries[i].Key);
+                    }
+                }
+                for (int i = 0; i < ModWriterDataHolder.TerrainDataEntries.Count; i++)
+                {
+                    if (ModWriterDataHolder.TerrainDataEntries[i].Values != null)
+                    {
+                        comboBox_Scan.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Key);
+                        for (int j = 0; j < ModWriterDataHolder.TerrainDataEntries[i].Values.Count; j++)
+                        {
+                            comboBox_Scan.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Values[j].Key);
+                        }
+                    }
+                    else
+                    {
+                        comboBox_Scan.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Key);
+                    }
+                }
+                #endregion
             }
             else
             {
@@ -639,6 +708,50 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             listBox_RemoveScanReq.Items.Clear();
             listBox_ResearchReq.Items.Clear();
             listBox_ScanReq.Items.Clear();
+            
+            #region .RefreshScanResearchComboBoxes.
+            comboBox_Research.Items.Clear();
+            for (int i = 0; i < DataHolder.ResearchEntries.Count; i++)
+            {
+                comboBox_Research.Items.Add(DataHolder.ResearchEntries[i].Key);
+            }
+            for (int i = 0; i < ModWriterDataHolder.ResearchEntires.Count; i++)
+            {
+                comboBox_Research.Items.Add(ModWriterDataHolder.ResearchEntires[i].Key);
+            }
+
+            comboBox_Scan.Items.Clear();
+            for (int i = 0; i < DataHolder.TerrainDataEntries.Count; i++)
+            {
+                if (DataHolder.TerrainDataEntries[i].Values != null)
+                {
+                    comboBox_Scan.Items.Add(DataHolder.TerrainDataEntries[i].Key);
+                    for (int j = 0; j < DataHolder.TerrainDataEntries[i].Values.Count; j++)
+                    {
+                        comboBox_Scan.Items.Add(DataHolder.TerrainDataEntries[i].Values[j].Key);
+                    }
+                }
+                else
+                {
+                    comboBox_Scan.Items.Add(DataHolder.TerrainDataEntries[i].Key);
+                }
+            }
+            for (int i = 0; i < ModWriterDataHolder.TerrainDataEntries.Count; i++)
+            {
+                if (ModWriterDataHolder.TerrainDataEntries[i].Values != null)
+                {
+                    comboBox_Scan.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Key);
+                    for (int j = 0; j < ModWriterDataHolder.TerrainDataEntries[i].Values.Count; j++)
+                    {
+                        comboBox_Scan.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Values[j].Key);
+                    }
+                }
+                else
+                {
+                    comboBox_Scan.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Key);
+                }
+            }
+            #endregion
         }
 
         private void checkBox_IsOverride_Checked(object sender, RoutedEventArgs e)

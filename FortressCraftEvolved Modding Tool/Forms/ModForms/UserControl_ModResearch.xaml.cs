@@ -277,6 +277,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 mbEditing = true;
                 checkBox_Delete.Visibility = mbIsOverride ? Visibility.Visible : Visibility.Hidden;
                 checkBox_IsOverride.IsEnabled = false;
+                textBox_Key.IsEnabled = false;
                 if (mbIsOverride)
                 {
                     textBox_Key.IsEnabled = false;

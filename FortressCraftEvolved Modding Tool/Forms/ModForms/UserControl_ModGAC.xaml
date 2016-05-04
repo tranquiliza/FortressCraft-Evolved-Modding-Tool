@@ -49,7 +49,7 @@
         <Label x:Name="label_OptionalIngredients" Content="Optional Ingredients:" Grid.Column="3" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top"/>
         <Label x:Name="label_Recipe" Content="Recipe:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="8" VerticalAlignment="Top"/>
 
-        <Button x:Name="button_SelectGAC" Content="Select" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200" Click="button_SelectGAC_Click"/>
+        <Button x:Name="button_SelectGAC" Content="Select Machine" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="200" Click="button_SelectGAC_Click"/>
         <TextBox x:Name="textBox_FriendlyName" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
         <ComboBox x:Name="comboBox_SpawnObject" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="230"/>
         <TextBox x:Name="textBox_CraftingString" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="10,11,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
@@ -82,5 +82,6 @@
         <ComboBox x:Name="comboBox_Icon" Grid.Column="4" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="130"/>
         <ComboBox x:Name="comboBox_RecipeCraftedKey" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="10" VerticalAlignment="Top" Width="230"/>
         <ComboBox x:Name="comboBox_RecipeCraftedAmount" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="11" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="button_NewGAC" Content="New Machine" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" Click="button_NewGAC_Click"/>
     </Grid>
 </UserControl>

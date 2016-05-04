@@ -39,7 +39,6 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             try
             {
                 ModWriterDataHolder.TerrainDataEntries = XMLSerializer.Deserialize<List<TerrainDataEntry>>(File.ReadAllText(TerrainDataXmlPath));
-
             }
             catch (Exception x)
             {

@@ -198,9 +198,10 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                     {
                         for (int j = 0; j < ModWriterDataHolder.TerrainDataEntries[i].Values.Count; j++)
                         {
-                            if (ModWriterDataHolder.TerrainDataEntries[i].Values[i].Key == mActiveGAC.Value)
+                            if (ModWriterDataHolder.TerrainDataEntries[i].Values[j].Key == mActiveGAC.Value)
                             {
-                                comboBox_Icon.SelectedItem = ModWriterDataHolder.TerrainDataEntries[i].Values[i].IconName;
+                                comboBox_Icon.SelectedItem = ModWriterDataHolder.TerrainDataEntries[i].Values[j].IconName;
+                                break;
                             }
                         }
                     }
@@ -208,14 +209,21 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             }
 
             //Recipe Boxes:
+            if (mActiveGAC.Recipe == null)
+            {
+                mActiveGAC.Recipe = new CraftData();
+            }
             textBox_RecipeKey.Text = mActiveGAC.Recipe.Key;
             comboBox_RecipeCraftedKey.SelectedItem = mActiveGAC.Recipe.CraftedKey;
             comboBox_RecipeCraftedAmount.SelectedItem = mActiveGAC.Recipe.CraftedAmount;
             textBox_RecipeDesc.Text = mActiveGAC.Recipe.Description;
             listBox_RecipeCraftCost.Items.Clear();
-            for (int i = 0; i < mActiveGAC.Recipe.Costs.Count; i++)
+            if (mActiveGAC.Recipe.Costs != null)
             {
-                listBox_RecipeCraftCost.Items.Add(mActiveGAC.Recipe.Costs[i].ToString());
+                for (int i = 0; i < mActiveGAC.Recipe.Costs.Count; i++)
+                {
+                    listBox_RecipeCraftCost.Items.Add(mActiveGAC.Recipe.Costs[i].ToString());
+                }
             }
         }
 
@@ -291,6 +299,10 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 uint lAmount = 1;
                 uint.TryParse(comboBox_CraftingCostAmount.SelectedItem.ToString(), out lAmount);
                 Holder.Amount = lAmount;
+                if (mActiveGAC.Recipe.Costs == null)
+                {
+                    mActiveGAC.Recipe.Costs = new List<CraftCost>();
+                }
                 mActiveGAC.Recipe.Costs.Add(Holder);
             }
             RefreshSelection();
@@ -366,6 +378,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 #endregion
 
                 #region TerrainDataHandling
+
                 TerrainDataEntry lTerrainEntry = null;
                 TerrainDataValueEntry lTerrainDataValue = new TerrainDataValueEntry();
                 if (mbEditingExisting)
@@ -386,8 +399,6 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                     lTerrainDataValue.IconName = "NoIcon";
                 }
                 lTerrainDataValue.Description = textBox_RecipeDesc.Text;
-
-
                 for (int i = 0; i < ModWriterDataHolder.TerrainDataEntries.Count; i++)
                 {
                     if (ModWriterDataHolder.TerrainDataEntries[i].Key == "GenericAssemblerMachine")
@@ -396,24 +407,14 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                         break;
                     }
                 }
-                if (lTerrainEntry != null)
-                {
-                    for (int i = 0; i < lTerrainEntry.Values.Count; i++)
-                    {
-                        if (lTerrainEntry.Values[i].Key == lTerrainDataValue.Key)
-                        {
-                            lTerrainEntry.Values.RemoveAt(i);
-                            lTerrainEntry.Values.Add(lTerrainDataValue);
-                        }
-                    }
-                }
-                else
+                if (lTerrainEntry == null)
                 {
                     //We make an identical entry to the Games Entry. This should work.
                     lTerrainEntry = new TerrainDataEntry();
                     lTerrainEntry.IsOverride = true;
                     lTerrainEntry.Key = "GenericAssemblerMachine";
                     lTerrainEntry.Name = "Generic Assembler Machine";
+                    lTerrainEntry.MaxStack = 100;
                     lTerrainEntry.DefaultValue = 0;
                     lTerrainEntry.LayerType = SegmentRendererLayerType.PrimaryTerrain;
                     lTerrainEntry.TopTexture = 192;
@@ -439,8 +440,45 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                     lTerrainEntry.Values.Add(lTerrainDataValue);
                     ModWriterDataHolder.TerrainDataEntries.Add(lTerrainEntry);
                 }
-                #endregion
+                if (mbEditingExisting)
+                {
+                    for (int i = 0; i < ModWriterDataHolder.TerrainDataEntries.Count; i++)
+                    {
+                        if (ModWriterDataHolder.TerrainDataEntries[i].Key == "GenericAssemblerMachine")
+                        {
+                            if (ModWriterDataHolder.TerrainDataEntries[i].Values != null)
+                            {
+                                for (int j = 0; j < ModWriterDataHolder.TerrainDataEntries[i].Values.Count; j++)
+                                {
+                                    if (ModWriterDataHolder.TerrainDataEntries[i].Values[j].Key == mActiveGAC.Value)
+                                    {
+                                        ModWriterDataHolder.TerrainDataEntries[i].Values[j] = lTerrainDataValue;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < ModWriterDataHolder.TerrainDataEntries.Count; i++)
+                    {
+                        if (ModWriterDataHolder.TerrainDataEntries[i].Key == "GenericAssemblerMachine")
+                        {
+                            if (ModWriterDataHolder.TerrainDataEntries[i].Values == null)
+                            {
+                                throw new NotImplementedException();
+                            }
+                            if (ModWriterDataHolder.TerrainDataEntries[i].Values != null)
+                            {
+                                ModWriterDataHolder.TerrainDataEntries[i].Values.Add(lTerrainDataValue);
+                            }
+                        }
+                    }
+                }
 
+                
+                #endregion
                 string TerrainDataXml = XMLSerializer.Serialize(ModWriterDataHolder.TerrainDataEntries, false);
                 string GACMachine = XMLSerializer.Serialize(mActiveGAC, false);
                 if (!mbEditingExisting)
@@ -452,8 +490,9 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                         mGACPath += Split[i] + "\\";
                     }
                     mGACPath += "Xml\\";
+                    mXMLPath = mGACPath;
                     mGACPath += "GenericAutoCrafter";
-                    mGACPath += "\\" + mActiveGAC.Value;
+                    mGACPath += "\\" + mActiveGAC.Value+ ".xml";
                 }
 
                 File.WriteAllText(mXMLPath + "TerrainData.xml", TerrainDataXml);
@@ -461,6 +500,14 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
 
                 EditMode(false);
             }
+        }
+
+        private void button_NewGAC_Click(object sender, RoutedEventArgs e)
+        {
+            mActiveGAC = new GenericAutoCrafterDataEntry();
+            mbEditingExisting = false;
+            NewGACSelection();
+            EditMode(true);
         }
     }
 }

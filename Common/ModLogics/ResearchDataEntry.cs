@@ -18,14 +18,52 @@ namespace Common.ModLogics
         public int ResearchCost { get; set; }
         public string PreDescription { get; set; }
         public string PostDescription { get; set; }
+
+        public bool ShouldSerializeScanRequirements()
+        {
+            if (ScanRequirements.Count > 0)
+                return true;
+            else
+                return false;
+        }
         [XmlArray, XmlArrayItem("Scan")]
         public List<string> ScanRequirements { get; set; }
+
+        public bool ShouldSerializeRemoveScanRequirements()
+        {
+            if (RemoveScanRequirements != null)
+                return true;
+            else
+                return false;
+        }
         [XmlArray, XmlArrayItem("Scan")]
         public List<string> RemoveScanRequirements { get; set; }
+
+        public bool ShouldSerializeResearchRequirements()
+        {
+            if (ResearchRequirements != null)
+                return true;
+            else
+                return false;
+        }
         [XmlArray, XmlArrayItem("Research")]
         public List<string> ResearchRequirements { get; set; }
+        public bool ShouldSerializeRemoveResearchRequirements()
+        {
+            if (RemoveResearchRequirements != null)
+                return true;
+            else
+                return false;
+        }
         [XmlArray, XmlArrayItem("Research")]
         public List<string> RemoveResearchRequirements { get; set; }
+        bool ShouldSerializeProjectItemRequirements()
+        {
+            if (ProjectItemRequirements != null)
+                return true;
+            else
+                return false;
+        }
         [XmlArray, XmlArrayItem("Requirement")]
         public List<ProjectItemRequirement> ProjectItemRequirements { get; set; }
     }
