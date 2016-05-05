@@ -437,7 +437,6 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                     lTerrainEntry.tags.Add(TerrainData.eTags.Machinery);
                     lTerrainEntry.Values = new List<TerrainDataValueEntry>();
                     //This is the New Machine:
-                    lTerrainEntry.Values.Add(lTerrainDataValue);
                     ModWriterDataHolder.TerrainDataEntries.Add(lTerrainEntry);
                 }
                 if (mbEditingExisting)
