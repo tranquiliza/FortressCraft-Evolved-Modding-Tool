@@ -272,6 +272,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 EditMode(true);
                 mbEditingExisting = true;
                 textBox_Value.IsEnabled = false;
+                button_NewGAC.Visibility = Visibility.Hidden;
             }
         }
 
@@ -319,6 +320,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
 
         private void button_Cancel_Click(object sender, RoutedEventArgs e)
         {
+            button_NewGAC.Visibility = Visibility.Visible;
             EditMode(false);
         }
 

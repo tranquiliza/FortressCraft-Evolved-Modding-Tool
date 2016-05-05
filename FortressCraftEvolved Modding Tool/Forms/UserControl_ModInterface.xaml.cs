@@ -46,7 +46,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             button_Recipes.Visibility = lIsSelected ? Visibility.Visible : Visibility.Hidden;
             button_Research.Visibility = lIsSelected ? Visibility.Visible : Visibility.Hidden;
             //WIP Buttons:
-            button_TerrainData.Visibility = lIsSelected ? Visibility.Visible : Visibility.Hidden; //Set to hidden so we can release without having to worry about people finding unfinished features:
+            button_TerrainData.Visibility = lIsSelected ? Visibility.Hidden : Visibility.Hidden; //Set to hidden so we can release without having to worry about people finding unfinished features:
             button_GAC.Visibility = lIsSelected ? Visibility.Visible : Visibility.Hidden; //Set this to hidden when not working on it!
             //END WIP
             button_SelectMod.Visibility = lIsSelected ? Visibility.Hidden : Visibility.Visible;
