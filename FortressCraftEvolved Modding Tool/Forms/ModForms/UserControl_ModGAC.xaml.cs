@@ -45,15 +45,18 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 }
                 TerrainDataXmlPath += "Xml\\";
                 TerrainDataXmlPath += "TerrainData.xml";
-                try
+                if (File.Exists(TerrainDataXmlPath))
                 {
-                    ModWriterDataHolder.TerrainDataEntries = XMLSerializer.Deserialize<List<TerrainDataEntry>>(File.ReadAllText(TerrainDataXmlPath));
+                    try
+                    {
+                        ModWriterDataHolder.TerrainDataEntries = XMLSerializer.Deserialize<List<TerrainDataEntry>>(File.ReadAllText(TerrainDataXmlPath));
 
-                }
-                catch (Exception x)
-                {
-                    Common.Error.Log("Error: Items modding interfaace was unable to Deserialize " + x);
-                    //File.WriteAllText("ModItemsCreatorError.txt", x.ToString());
+                    }
+                    catch (Exception x)
+                    {
+                        Common.Error.Log("Error: Items modding interfaace was unable to Deserialize " + x);
+                        //File.WriteAllText("ModItemsCreatorError.txt", x.ToString());
+                    }
                 }
             }
             #endregion
@@ -135,12 +138,11 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                     comboBox_RecipeCraftedKey.Items.Add(ModWriterDataHolder.TerrainDataEntries[i].Key);
                 }
             }
-
             //IconNames
             comboBox_Icon.Items.Clear();
-            for (int i = 0; i < ModWriterDataHolder.Sprites().Length; i++)
+            for (int i = 0; i < ModWriterDataHolder.Icons.Length; i++)
             {
-                comboBox_Icon.Items.Add(ModWriterDataHolder.Sprites()[i]);
+                comboBox_Icon.Items.Add(ModWriterDataHolder.Icons[i]);
             }
         }
 

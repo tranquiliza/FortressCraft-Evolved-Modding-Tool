@@ -51,15 +51,17 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             XmlFilePath += "Xml\\";
 
             ItemsXmlPath = XmlFilePath + "Items.xml";
-            try
+            if (File.Exists(XmlFilePath))
             {
-                ModWriterDataHolder.Items = XMLSerializer.Deserialize<List<ItemEntry>>(File.ReadAllText(ItemsXmlPath));
-
-            }
-            catch (Exception x)
-            {
-                Common.Error.Log("Error: Items modding interfaace was unable to Deserialize " + x);
-                //File.WriteAllText("ModItemsCreatorError.txt", x.ToString());
+                try
+                {
+                    ModWriterDataHolder.Items = XMLSerializer.Deserialize<List<ItemEntry>>(File.ReadAllText(ItemsXmlPath));
+                }
+                catch (Exception x)
+                {
+                    Common.Error.Log("Error: Items modding interfaace was unable to Deserialize " + x);
+                    //File.WriteAllText("ModItemsCreatorError.txt", x.ToString());
+                }
             }
             for (int i = 0; i < ModWriterDataHolder.Items.Count; i++)
             {
@@ -116,16 +118,16 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             }
 
             comboBox_Sprites.Items.Clear();
-            if (ModWriterDataHolder.Sprites() != null)
+            if (ModWriterDataHolder.Icons != null)
             {
-                for (int i = 0; i < ModWriterDataHolder.Sprites().Length; i++)
+                for (int i = 0; i < ModWriterDataHolder.Icons.Length; i++)
                 {
-                    comboBox_Sprites.Items.Add(ModWriterDataHolder.Sprites()[i]);
+                    comboBox_Sprites.Items.Add(ModWriterDataHolder.Icons[i]);
                 }
             }
             else
             {
-                Common.Error.Log("Error: Sprites wasn't loaded, Modwriter Items");
+                Common.Error.Log("Error: Sprites wasn't loaded, UserControl_ModItems.xaml.cs");
                 MessageBox.Show("Sprites Diddn't load!");
             }
             //This is possibly wrong. Maybe not.

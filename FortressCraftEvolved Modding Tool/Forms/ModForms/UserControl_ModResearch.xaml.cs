@@ -47,14 +47,17 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             }
             ResearchXmlPath += "Xml\\";
             ResearchXmlPath += "Research.xml";
-            try
+            if (File.Exists(ResearchXmlPath))
             {
-                ModWriterDataHolder.ResearchEntires = XMLSerializer.Deserialize<List<ResearchDataEntry>>(File.ReadAllText(ResearchXmlPath));
-            }
-            catch (Exception x)
-            {
-                Common.Error.Log("Error: ResearchEntry Creator did not find file: " + ResearchXmlPath + x);
-                //File.WriteAllText("ModRecipeCreatorError.txt", x.ToString());
+                try
+                {
+                    ModWriterDataHolder.ResearchEntires = XMLSerializer.Deserialize<List<ResearchDataEntry>>(File.ReadAllText(ResearchXmlPath));
+                }
+                catch (Exception x)
+                {
+                    Common.Error.Log("Error: ResearchEntry Creator did not find file: " + ResearchXmlPath + x);
+                    //File.WriteAllText("ModRecipeCreatorError.txt", x.ToString());
+                }
             }
             RefreshResearchList();
             RefreshComboBoxes();
@@ -80,7 +83,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             {
                 comboBox_ResearchCost.Items.Add(i);
             }
-            string[] lcIconNames = ModWriterDataHolder.Sprites();
+            string[] lcIconNames = ModWriterDataHolder.Icons;
             comboBox_IconName.Items.Clear();
             for (int i = 0; i < lcIconNames.Length; i++)
             {

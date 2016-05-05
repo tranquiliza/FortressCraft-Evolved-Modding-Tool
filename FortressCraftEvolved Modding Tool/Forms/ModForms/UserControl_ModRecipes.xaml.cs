@@ -48,14 +48,17 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             ManufacturerXmlPath += "Xml\\";
 
             ManufacturerXmlPath += "ManufacturerRecipes.xml";
-            try
+            if (File.Exists(ManufacturerXmlPath))
             {
-                ModWriterDataHolder.ManufacturerEntries = XMLSerializer.Deserialize <List<CraftData>>(File.ReadAllText(ManufacturerXmlPath));
-            }
-            catch (Exception x)
-            {
-                Common.Error.Log("Error: ManufacturerRecipes Creator did not find file: " + ManufacturerXmlPath + x);
-                //File.WriteAllText("ModRecipeCreatorError.txt", x.ToString());
+                try
+                {
+                    ModWriterDataHolder.ManufacturerEntries = XMLSerializer.Deserialize<List<CraftData>>(File.ReadAllText(ManufacturerXmlPath));
+                }
+                catch (Exception x)
+                {
+                    Common.Error.Log("Error: ManufacturerRecipes Creator did not find file: " + ManufacturerXmlPath + x);
+                    //File.WriteAllText("ModRecipeCreatorError.txt", x.ToString());
+                }
             }
             #region .TerrainDataLoad.
             if (ModWriterDataHolder.TerrainDataEntries.Count < 1)
@@ -69,15 +72,18 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 }
                 TerrainDataXmlPath += "Xml\\";
                 TerrainDataXmlPath += "TerrainData.xml";
-                try
+                if (File.Exists(TerrainDataXmlPath))
                 {
-                    ModWriterDataHolder.TerrainDataEntries = XMLSerializer.Deserialize<List<TerrainDataEntry>>(File.ReadAllText(TerrainDataXmlPath));
+                    try
+                    {
+                        ModWriterDataHolder.TerrainDataEntries = XMLSerializer.Deserialize<List<TerrainDataEntry>>(File.ReadAllText(TerrainDataXmlPath));
 
-                }
-                catch (Exception x)
-                {
-                    Common.Error.Log("Error: Items modding interfaace was unable to Deserialize " + x);
-                    //File.WriteAllText("ModItemsCreatorError.txt", x.ToString());
+                    }
+                    catch (Exception x)
+                    {
+                        Common.Error.Log("Error: Items modding interfaace was unable to Deserialize " + x);
+                        //File.WriteAllText("ModItemsCreatorError.txt", x.ToString());
+                    }
                 }
             }
             #endregion

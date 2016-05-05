@@ -21,7 +21,9 @@ namespace Common.ModWriter
         //public static List<GenericAutoCrafterDataEntry> GACMachines = new List<GenericAutoCrafterDataEntry>();
 
         public static GenericAutoCrafterDataEntry GACMachine = new GenericAutoCrafterDataEntry();
-        public static string[] Sprites()
+        public static string[] Icons = null;
+
+        public static void LoadSprites()
         {
             string[] IconNames = null;
             if (System.IO.File.Exists("IconList.txt")) //If the file exists already, no reason to read everything again. Faster load
@@ -39,8 +41,9 @@ namespace Common.ModWriter
             {
                 ReadIcons();
             }
-            return IconNames;
+            Icons = IconNames;
         }
+
         private static void ReadIcons()
         {
             List<string> lcIcons = new List<string>();

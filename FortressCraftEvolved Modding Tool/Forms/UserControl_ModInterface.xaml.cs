@@ -37,6 +37,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
             InitializeComponent();
             textBlock_SelectedMod.Text = "";
             SelectedMod(false);
+            ModWriterDataHolder.LoadSprites();
         }
 
 
