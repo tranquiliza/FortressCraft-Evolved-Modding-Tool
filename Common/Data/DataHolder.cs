@@ -11,7 +11,7 @@ namespace Common.Data
     {
         //0.0.0
         //Release.Beta.Revision
-        public static string Value = " V0.1.5";
+        public static string Value = " V0.1.5 : GamePatch 8.02";
     }
     public static class DataHolder
     {
