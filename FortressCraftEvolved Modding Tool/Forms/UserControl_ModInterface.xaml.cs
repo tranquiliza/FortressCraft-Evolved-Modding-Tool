@@ -78,7 +78,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                 configfilepath += "\\";
                 string configFile = XMLSerializer.Serialize(Config, false);
                 File.WriteAllText(configfilepath + "Mod.Config", configFile);
-                User.Default.ConfigFilePath = configfilepath += "\\Mod.Config";
+                User.Default.ConfigFilePath = configfilepath += "Mod.Config";
                 User.Default.Save();
 
                 string[] IdSplit = Config.Id.Split('.');
