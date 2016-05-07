@@ -140,9 +140,16 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             }
             //IconNames
             comboBox_Icon.Items.Clear();
-            for (int i = 0; i < ModWriterDataHolder.Icons.Length; i++)
+            if (ModWriterDataHolder.Icons != null)
             {
-                comboBox_Icon.Items.Add(ModWriterDataHolder.Icons[i]);
+                for (int i = 0; i < ModWriterDataHolder.Icons.Length; i++)
+                {
+                    comboBox_Icon.Items.Add(ModWriterDataHolder.Icons[i]);
+                }
+            }
+            else
+            {
+                Error.Log("Icons wasn't loaded but we tried to read them?? ");
             }
         }
 
