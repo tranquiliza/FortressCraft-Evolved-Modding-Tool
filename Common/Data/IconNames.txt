@@ -1,0 +1,548 @@
+3D Printer
+Ablated Resin
+AI Mover Control
+Anthropological Osteology
+Antimatter Drill Motor
+Aping-89
+Aping-92
+Aping-93
+Aping-94
+Aping-95
+ARTHER Battery Core
+ARTHER Charging Station
+ARTHER Dapper Hat
+ARTHER Dapper Monocle
+ARTHER Dapper Moustache
+ARTHER Dapper Pack
+ARTHER Dapper Upgrade Pack
+ARTHER Power Core
+ARTHER Solar Panel
+ARTHER Turret
+ARTHER Upgrade Pack
+Auto Builder
+Auto Excavator
+Bare Wood Floor 2
+Bare Wood Floor
+Basic Conveyor Belt
+Basic Drill Motor
+Basic Laser Energy Transmitter
+Basic Missile Assembler
+Basic Missile
+Basic Ore Smelter
+Basic PCB
+Basic Quarry
+Battery
+BaubleBerry
+Bedrock
+Beige Canvas
+BFL-9000
+Biomass Growth Ping
+Black Canvas
+Black Grill
+Blank Ore Ping
+BlankGray_Cancel
+Blue Canvas
+Blue GlowPod
+Blue_Metal
+Book Shelf
+Bookshelf
+Bound Metal Crate
+Bound Wooden Crate
+Brain Matter
+Brick
+Brick_Gray
+Brick_Mossy
+Brick_Red
+Brown Canvas
+Build Gun V2
+Butcherboy Floor Stone
+Butcherboy Pebbles
+Butcherboy Stones
+Butcherboy Stonewall
+Butcherboy Wood Planks
+Celtic Black Braid
+Celtic Braid Pillar
+Celtic Concrete Pillar
+Celtic Cross
+Celtic Curved Roof
+Celtic Gold Braid Pillar
+Celtic Knot Tile
+Celtic Tile Roof
+Cement Garden Block
+Cement Garden Tile 2
+Cement Garden Tile 3
+Cement Garden Tile 4
+Cement Garden Tile 5
+Cement Garden Tile 6
+Cement Garden Tile 7
+Cement Garden Tile
+Central Power Hub
+Chargeable Explosive
+Charged PCB
+Chevron Sign 2
+Chevron Sign
+Chip Etcher
+CinderBlock_Gray
+CinderBlock_Red
+Cloth_Black
+Cloth_Blue
+Cloth_Brown
+Cloth_Chartreuse
+Cloth_Cyan
+Cloth_Gray
+Cloth_Green
+Cloth_Indigo
+Cloth_Maroon
+Cloth_Navy
+Cloth_Orange
+Cloth_Pink
+Cloth_Purple
+Cloth_Red
+Cloth_White
+Cloth_Yellow
+Coal Enricher
+Coal Ore Ping
+Coal Ore
+Coal Ore_Depleted
+Coal Ore_Sparse
+Coal
+Coiler Plant
+Cold Cavern Flora 1
+Cold Cavern Flora 2
+Cold Cavern Flora 3
+Cold Cavern Flora 4
+Cold Cavern Flora 5
+Cold Cavern Flora 6
+Cold Cavern Flora 7
+Compressor
+Concrete Wall
+Conductive PCB
+ConfigurableLight
+Construction Crate
+Conveyor Belt Filter
+Conveyor Belt
+Conveyor Turntable
+Copper Bar
+Copper Coil
+Copper Housing
+Copper Ore Ping
+Copper Ore
+Copper Ore_Depleted
+Copper Ore_Sparse
+Copper Plate
+Copper Wire
+Copper Wiring
+copper-63
+Copper_Ore
+Copy Paste
+Crude Organic Lens
+CryoHopper
+Crystal Deposit Ping
+CubeTemplate4-59
+CustomPlaceholder
+DapperFrame
+DapperScale
+DapperVIP
+DapperWall
+DesertGrass
+DesertSand
+Diamond Crystal
+Diamond Focusing Lens
+Diamond Ore
+Diamonds
+Dirt
+Drain Grate
+Electric Light
+Emerald Crystal
+Emerald Focusing Lens
+Emerald Ore
+Emeralds
+Emergency Siren
+Empty Metal Tube
+empty
+EmptyCanister
+Enhanced Drill Motor
+Exceptional Organic Lens
+Extrusion Plant
+FALCOR MK1
+Fallen Leaves
+Field
+Floor_Tile
+Forced Induction
+Forced InductionT2
+Forced InductionT3
+Forced InductionT4
+Forced InductionT5
+Forest
+Fortified PCB
+Fusion Drill Motor
+Garden Packed Rocks
+Garden Sand
+Geiger
+Geological Surveyor
+GlassBlock
+GlowShroom
+Gold Bar
+Gold Box
+Gold Coil
+Gold Housing
+Gold Ore Ping
+Gold Ore
+Gold Ore_Depleted
+Gold Ore_Sparse
+Gold Plate
+Gold Wire
+Gold_Metal
+Gold_Ore
+Grass
+Grass_Dirt
+Green Canvas
+Green GlowPod
+Grey Canvas
+Grey Floor Tile
+Grooved Cement
+Hardened PCB
+Hardened Resin
+Hello_Kitty1
+Hello_Kitty2
+Hello_Kitty3
+Hello_Kitty4
+Hello_Kitty5
+Hello_Kitty6
+Hello_Kitty7
+Hello_Kitty8
+Hello_Kitty9
+High Energy Composite Fuel
+Hydrojet Cutter
+Ice_Dirt
+Improved Minecarts
+Incubator
+Indigo Canvas
+Iron Bar
+Iron Box
+Iron Coil
+Iron Gear-63
+Iron Gear
+Iron Housing
+Iron Ore Ping
+Iron Ore
+Iron Ore_Depleted
+Iron Ore_Sparse
+Iron Plate
+Iron Wire
+Iron_Ore
+Ivy
+Jet Pack
+Laboratory Component-old
+Laboratory Component
+Laser Emitter
+Laser Energy Transmitter MK2
+Laser Energy Transmitter MK3
+Laser Energy Transmitter-old
+Laser Energy Transmitter
+Laser Mirror
+Laser Pressure Pad
+Laser Receptor
+Laser Splitter
+Launchpad-98
+Lava
+Leaves
+Leaves_Dirt
+Leaves_Orange
+Leaves_Red
+Leaves_Yellow
+Lift Compressor
+Lift Manual Control Module
+Lightweight Machine Housing
+Lightweight Machine Plates
+Lightweight PCB
+Lime Yellow Canvas
+Liquified Resin
+Lithium Bar
+Lithium Coil
+Lithium Housing
+Lithium Ore Ping
+Lithium Ore
+Lithium Ore_Depleted
+Lithium Ore_Sparse
+Lithium Plate
+Lithium Wire
+Lithium_Ore
+Location Marker
+Log Wall
+LogisticsHopper
+Logs
+Macerator
+Magma
+Magnetic Drill Motor
+Manufacturing Plant
+Marble Column
+Marble
+Marine Canvas
+Maroon Canvas
+Mass Storage Input Port
+Mass Storage Output Port
+Matter Mover
+Mesh Weaver
+Metal Siding 1
+Metal Siding 2
+Metal_Plate
+Minecart Load
+Minecart Turbo Rail
+Minecart Unload
+Minecart
+Minecart_T2
+Minecart_T3
+MiniHopper
+Missile Fueller
+Missile Turret MK1
+missileassembler
+Mithril Box
+Mithril Ore
+Mithril_Ore
+Mixed Gems
+mk1 robot arm
+MK4 Battery Component
+MK5 Battery Component
+MultiGem
+MultiShade Brick
+My First Basket
+My First Bookcase
+My First Brick
+My First Closet
+My First Flowers
+My First Roof
+My First Wallpaper
+My First Window
+Neon Border
+Neon Circuit
+Neon Core
+Neon Grid
+Nickel Bar
+Nickel Coil
+Nickel Housing
+Nickel Ore Ping
+Nickel Ore
+Nickel Plate
+Nickel Wire
+Nickel-50
+Nickel-51
+NoIcon-91
+NoIcon
+Orange Canvas
+Orange GlowPod
+Orange Leaves
+Orange Warning Light
+Orbital Energy Transmitter
+Orbital Power Transmission
+Ore Extractor
+Ore Smelter
+Organic Lens
+Organic Power Storage
+Organic Reassembler
+Organic Rock
+Organic Solar Panel
+Paper Wrapped Crate
+Partially Ablated Resin
+PCB Assembling Plant
+Peeling Paint Metal
+Peeling Paint Wood
+Peeling Paint
+Pillar_Stone
+Pink Flowers
+Pipe Extrusion Plant
+Plastic Pellet
+Plating
+Plowed_Dirt
+Plum Canvas
+Pop Up Turret MK2
+Pop Up Turret MK3
+Pop Up Turret
+PowerConduitT4
+PowerStorageBlock-old
+PowerStorageBlock
+PowerStorageBlockT2
+PowerStorageBlockT3
+PowerStorageBlockT4
+PowerStorageBlockT5
+Present1
+Present2
+Present3
+Present4
+Primary PCB
+Pumpkin Torch
+Purple Canvas
+Purple GlowPod
+Pyrothermic Generator
+Rainforest
+RecombinedOrganicMatter
+Red Brick
+Red Canvas
+Red Floor Tile
+Red Leaves
+Red Warning Light
+Refinery Controller
+Reinforced Cobble
+Reinforced Rock
+Reinforced Wood
+Research Assembler
+Research Station
+ResearchPod_Advanced
+ResearchPod_Basic
+ResearchPod_Complex
+ResearchPod_Intermediate
+ResearchPod_Simplified
+ResearchPod_Ultimate
+ResearchPod_XL
+Resin Ping
+Robotic Welder
+Rock
+Rock2
+Rock3
+Rock_Case
+Rock_Mossy
+Rough Hewn Rock
+Rounded Roof Shingles
+Rubble
+Rubies
+Ruby Crystal
+Ruby Focusing Lens
+Ruby Ore
+Rusted Concrete
+Sand
+Sapphire Crystal
+Sapphire Focusing Lens
+Savanna
+Scorched Earth
+Servo Motor
+Shrub1
+Shrub2
+Shrub3
+Shrub4
+Sign
+Silver Ore
+Silver_Metal
+Small Bricks
+Snow
+Solar Cell MK1
+Solar Panel MK2
+Solar Panel-old
+Solar Panel
+Space Bubbles
+Space Column
+Space Grille
+Space Hatch
+Space Panel
+Space Siding
+Space Warz Hatch1
+Space Warz Hatch2
+Space Warz Siding1
+Space Warz Siding2
+Space Warz Siding3
+Space Window
+Space1
+Space10
+Space2
+Space3
+Space4
+Space5
+Space6
+Space7
+Space8
+Space9
+Spiderbot Base Component
+Spiderbot Base
+SpiderBot Core Charger
+SpiderBot Defences 1
+SpiderBot Defences 2
+SpiderBot Defences 3
+SpiderBot Power Core
+SpiderBot
+SpoiledOrganicRemains
+Stamper Plant
+Steel Bar
+Steel Cutter HeadOLD
+StorageCrate
+StorageHopper-old
+StorageHopper
+Stucco Swirl
+Sugalite Crystal
+Sugalite Focusing Lens
+Suit Headlight MK1
+Suit Heater MK1
+Suit Power Pack MK1
+SuitUpgrades
+Swampland
+T1 Lift
+Teleporter
+TeleporterOld
+test arm
+Threat Scanner
+Tiles
+Tin Bar
+Tin Coil
+Tin Housing
+Tin Ore Ping
+Tin Ore
+Tin Ore_Depleted
+Tin Ore_Sparse
+Tin Plate
+Tin Wire
+Tin_Ore
+Titanium Bar
+Titanium Coil
+Titanium Housing
+Titanium Ore Ping
+Titanium Ore
+Titanium Ore_Depleted
+Titanium Ore_Sparse
+Titanium Plate
+Titanium Wire
+TNT
+Topaz Crystal
+Topaz Focusing Lens
+Torch
+Toxic Cavern Flora 1
+Toxic Cavern Flora 2
+Toxic Cavern Flora 3
+Toxic Cavern Flora 4
+Toxic Cavern Flora 5
+Toxic Cavern Flora 6
+Toxic Cavern Flora 7
+Toxic Particle Filter
+Track Corner
+Track Slope
+Track Straight
+Trampoline
+Transport Pipe Filter
+Transport Pipe
+Tree Trunk
+Tree_Trunk
+Truss
+Tundra
+Unknown
+Upgraded Power Grid
+Warhead Fitter
+Warhead Imbuer
+WaspEyePristine
+WaspEyeRuined
+WaspGlandPristine
+WaspGlandRuined
+WaspHeavyChitinPristine
+WaspHeavyChitinRuined
+WaspLightChitinPristine
+WaspLightChitinRuined
+WaspStingerPristine
+WaspStingerRuined
+White Canvas
+White Flowers
+Window
+Wooden Crate
+Wooden Inlay
+Wooden Planks
+Wood_Case
+Wood_Case2
+Wood_Planks
+Workshop Placement
+Yellow Canvas
+Yellow Leaves
