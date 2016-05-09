@@ -603,7 +603,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                 CraftData lNewRecipe = new CraftData();
                 if (mbIsOverride)
                 {
-                    lNewRecipe.IsOverride = mbIsOverride.ToString();
+                    lNewRecipe.IsOverride = mbIsOverride.ToString().ToLower();
                 }
                 else
                 {
