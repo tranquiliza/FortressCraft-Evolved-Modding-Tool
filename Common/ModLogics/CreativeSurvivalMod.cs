@@ -428,30 +428,27 @@ namespace Common.ModLogics
             BiomassGrowth.Category = "CraftingIngredient";
             BiomassGrowth.Tier = 5;
             BiomassGrowth.Description = "Use the Manufacturer Plants Auto-Crafting to simulate an Ore Extractor!";
+            
+            CraftData ChromiumOre = new CraftData();
+            ChromiumOre.Key = AuthorID + ".ChromiumOre";
+            ChromiumOre.CraftedKey = "ChromiumOre";
+            ChromiumOre.CraftedAmount = 1;
+            ChromiumOre.CraftTime = 0;
+            ChromiumOre.Category = "CraftingIngredient";
+            ChromiumOre.Tier = 5;
+            ChromiumOre.Description = "Woo!";
+            ModdedRecipes.Add(ChromiumOre);
 
-
-            //This might cause issues later? (If DJ changes the name of the fucking thing and the key? Probably not)
-            CraftData HardRock = new CraftData();
-            HardRock.Key = AuthorID + ".HardRock";
-            HardRock.CraftedKey = "HardRock";
-            HardRock.CraftedAmount = 1;
-            HardRock.CraftTime = 0;
-            HardRock.Category = "CraftingIngredient";
-            HardRock.Tier = 5;
-            HardRock.Description = "Woo!";
-            ModdedRecipes.Add(HardRock);
-
-            CraftData VeryHardRock = new CraftData();
-            VeryHardRock.Key = AuthorID + ".VeryHardRock";
-            VeryHardRock.CraftedKey = "VeryHardRock";
-            VeryHardRock.CraftedAmount = 1;
-            VeryHardRock.CraftTime = 0;
-            VeryHardRock.Category = "CraftingIngredient";
-            VeryHardRock.Tier = 5;
-            VeryHardRock.Description = "Woo!";
-            ModdedRecipes.Add(VeryHardRock);
-            //End of problem area?
-
+            CraftData MolybdenumOre = new CraftData();
+            MolybdenumOre.Key = AuthorID + ".MolybdenumOre";
+            MolybdenumOre.CraftedKey = "MolybdenumOre";
+            MolybdenumOre.CraftedAmount = 1;
+            MolybdenumOre.CraftTime = 0;
+            MolybdenumOre.Category = "CraftingIngredient";
+            MolybdenumOre.Tier = 5;
+            MolybdenumOre.Description = "Woo!";
+            ModdedRecipes.Add(MolybdenumOre);
+            
             ModdedRecipes.Add(CoalOre);
             ModdedRecipes.Add(CopperOre);
             ModdedRecipes.Add(TinOre);
