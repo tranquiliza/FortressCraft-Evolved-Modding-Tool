@@ -20,9 +20,45 @@ namespace Common.ModLogics
         public string Delete { get; set; }
         //Lists to remove Research Req and Scan Req!
 
+        public bool ShouldSerializeRemoveResearchRequirements()
+        {
+            if (RemoveResearchRequirements != null)
+            {
+                if (RemoveResearchRequirements.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
         [XmlArray, XmlArrayItem("Research")]
         public List<string> RemoveResearchRequirements { get; set; }
 
+        public bool ShouldSerializeRemoveScanRequirements()
+        {
+            if (RemoveScanRequirements != null)
+            {
+                if (RemoveScanRequirements.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
         [XmlArray, XmlArrayItem("Scan")]
         public List<string> RemoveScanRequirements { get; set; }
         //Modded Variables End:
@@ -37,14 +73,68 @@ namespace Common.ModLogics
         public float CraftTime { get; set; }
         [XmlArray, XmlArrayItem("CraftCost")]
         public List<CraftCost> Costs { get; set; }
+        public bool ShouldSerializeResearchRequirements()
+        {
+            if (ResearchRequirements != null)
+            {
+                if (ResearchRequirements.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
         [XmlArray, XmlArrayItem("Research")]
         public List<string> ResearchRequirements { get; set; }
+        public bool ShouldSerializeScanRequirements()
+        {
+            if (ScanRequirements != null)
+            {
+                if (ScanRequirements.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
         [XmlArray, XmlArrayItem("Scan")]
         public List<string> ScanRequirements { get; set; }
         //[DefaultValue(0)]
+        public bool ShouldSerializeResearchCost()
+        {
+            if (ResearchCost > 0)
+                return true;
+            else
+                return false;
+        }
         public int ResearchCost { get; set; }
         //public eManufacturingPlantModule RequiredModule;
         public string Description { get; set; }
+        public bool ShouldSerializeHint()
+        {
+            if (Hint != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public string Hint { get; set; }
         [DefaultValue(false)]
         public bool CanCraftAnywhere { get; set; }
@@ -56,6 +146,24 @@ namespace Common.ModLogics
     }
     public class CraftCost
     {
+        public bool ShouldSerializeDelete()
+        {
+            if (Delete != null)
+            {
+                if (Delete.ToLower() == "true")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
         public string Delete { get; set; }
         public string Key { get; set; }
         public uint Amount { get; set; }

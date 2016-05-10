@@ -51,7 +51,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             XmlFilePath += "Xml\\";
 
             ItemsXmlPath = XmlFilePath + "Items.xml";
-            if (File.Exists(XmlFilePath))
+            if (File.Exists(ItemsXmlPath))
             {
                 try
                 {

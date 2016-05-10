@@ -324,7 +324,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                     {
                         if (ModWriterDataHolder.ManufacturerEntries[i].Category == comboBox_Category.SelectedItem.ToString())
                         {
-                            listBox_Recipes.Items.Add(ModWriterDataHolder.ManufacturerEntries[i].CraftedKey);
+                            listBox_Recipes.Items.Add(ModWriterDataHolder.ManufacturerEntries[i].Key);
                         }
                     }
                 }
@@ -467,7 +467,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             {
                 for (int i = 0; i < ModWriterDataHolder.ManufacturerEntries.Count; i++)
                 {
-                    if (ModWriterDataHolder.ManufacturerEntries[i].CraftedKey == listBox_Recipes.SelectedItem.ToString())
+                    if (ModWriterDataHolder.ManufacturerEntries[i].Key == listBox_Recipes.SelectedItem.ToString())
                     {
                         SelectedRecipe = ModWriterDataHolder.ManufacturerEntries[i];
                     }
