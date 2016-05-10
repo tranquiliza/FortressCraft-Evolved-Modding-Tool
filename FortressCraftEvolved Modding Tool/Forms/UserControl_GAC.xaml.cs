@@ -78,7 +78,8 @@ namespace FortressCraftEvolved_Modding_Tool.Forms
                 }
                 catch (Exception x)
                 {
-                    Error.Log("Failed to load GAC in GACReader!" + x);
+                    Error.Log("Failed to load GAC in GACReader!" + Environment.NewLine + x);
+                    return;
                 }
                 textBlock_FriendlyName.Text = mActiveGAC.FriendlyName;
                 textBlock_SpawnObject.Text = mActiveGAC.SpawnObject.ToString();

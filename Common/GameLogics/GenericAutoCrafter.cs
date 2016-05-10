@@ -477,6 +477,7 @@ namespace Common.GameLogics
         PoisonMissileCrafterObj,
         FreezeMissileObj,
         PoisonMissileObj,
+        MiniSmelterObj,
         Num,
         XXX,
         XXXX,

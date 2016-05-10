@@ -36,7 +36,8 @@ namespace FortressCraftEvolved_Modding_Tool
         {
             var pathStructure = Path.Combine("FortressCraft", "{0}", "Default", "Data");
             if (!User.Default.GameData.Contains(string.Format(pathStructure, "64")) &&
-                !User.Default.GameData.Contains(string.Format(pathStructure, "32")))
+                !User.Default.GameData.Contains(string.Format(pathStructure, "32")) || 
+                User.Default.AuthorID == "Tranq")
             {
                 var dialog = new PathSelectorDialog();
                 await this.Dispatcher.Invoke(async () =>
@@ -46,7 +47,7 @@ namespace FortressCraftEvolved_Modding_Tool
                     await this.HideMetroDialogAsync(dialog);
                 });
 
-                User.Default.GameData = dialog.GamePath + Path.DirectorySeparatorChar;
+                User.Default.GameData = dialog.GamePath;// + Path.DirectorySeparatorChar;
 
                 User.Default.ResearchXmlPath = Path.Combine(dialog.GamePath, "Research.xml");
                 User.Default.ItemsXmlPath = Path.Combine(dialog.GamePath, "Items.xml");
@@ -78,7 +79,7 @@ namespace FortressCraftEvolved_Modding_Tool
                 await this.HideMetroDialogAsync(dialog);
             });
 
-            User.Default.GameData = dialog.GamePath + Path.DirectorySeparatorChar;
+            User.Default.GameData = dialog.GamePath;// + Path.DirectorySeparatorChar;
 
             User.Default.ResearchXmlPath = Path.Combine(dialog.GamePath, "Research.xml");
             User.Default.ItemsXmlPath = Path.Combine(dialog.GamePath, "Items.xml");
@@ -242,7 +243,7 @@ namespace FortressCraftEvolved_Modding_Tool
             {
                 ModWindow = new UserControl_ModInterface();
             }
-            //else
+            //else //This will probably be hooked up in the future! 
             //{
             //    MessageBoxResult lResult = MessageBox.Show("Reset mod interface?", "IMPORTANT", MessageBoxButton.YesNo);
             //    if (lResult == MessageBoxResult.Yes)

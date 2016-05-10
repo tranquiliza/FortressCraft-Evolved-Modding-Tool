@@ -476,6 +476,7 @@ namespace Common.ModLogics
         PoisonMissileCrafterObj,
         FreezeMissileObj,
         PoisonMissileObj,
+        MiniSmelterObj,
         Num,
         XXX,
         XXXX,
