@@ -36,8 +36,7 @@ namespace FortressCraftEvolved_Modding_Tool
         {
             var pathStructure = Path.Combine("FortressCraft", "{0}", "Default", "Data");
             if (!User.Default.GameData.Contains(string.Format(pathStructure, "64")) &&
-                !User.Default.GameData.Contains(string.Format(pathStructure, "32")) || 
-                User.Default.AuthorID == "Tranq")
+                !User.Default.GameData.Contains(string.Format(pathStructure, "32"))  )//|| User.Default.AuthorID == "Tranq")
             {
                 var dialog = new PathSelectorDialog();
                 await this.Dispatcher.Invoke(async () =>
@@ -106,15 +105,37 @@ namespace FortressCraftEvolved_Modding_Tool
 
         private void KeyPress(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            //if (e.Key == System.Windows.Input.Key.F5)
-            //{
-            //    ContentMain.Content = null;
-            //    ResearchWindow = null;
-            //    ManufacturerWindow = null;
-            //    ItemsWindow = null;
-            //    TerrainDataWindow = null;
-            //    GACWindow = null;
-            //}
+            if (e.Key == System.Windows.Input.Key.F1)
+            {
+                ModConfiguration CleanMod = new ModConfiguration();
+                CleanMod.Id = User.Default.AuthorID + "." + "CleanMod";
+                CleanMod.Name = "Clean Mod";
+                CleanMod.Version = "1";
+                Common.ModLogics.CleanRecipesMod.GenerateCleanMod();
+
+                string CleanModConfig = XMLSerializer.Serialize(CleanMod, false);
+                ModCreator.GenerateDirectory(User.Default.WritePath, CleanMod);
+
+                //Mod.Config Path.
+                string CleanModConfigPath = Path.Combine(User.Default.WritePath, CleanMod.Id);
+                CleanModConfigPath = Path.Combine(CleanModConfigPath, CleanMod.Version);
+                CleanModConfigPath += "\\Mod.Config";
+                File.WriteAllText(CleanModConfigPath, CleanModConfig);
+
+                //XML Save Path:
+                string CleanModXmlPath = Path.Combine(User.Default.WritePath, CleanMod.Id);
+                CleanModXmlPath = Path.Combine(CleanModXmlPath, CleanMod.Version);
+                CleanModXmlPath = Path.Combine(CleanModXmlPath, ModCreator.Xml);
+                CleanModXmlPath += "\\";
+
+                string CleanModCraftData = XMLSerializer.Serialize(Common.ModLogics.CleanRecipesMod.ModdedRecipes, false);
+                string CleanModResearchData = XMLSerializer.Serialize(Common.ModLogics.CleanRecipesMod.ModdedResearch, false);
+
+                File.WriteAllText(CleanModXmlPath + "ManufacturerRecipes.xml", CleanModCraftData);
+                File.WriteAllText(CleanModXmlPath + "Research.xml", CleanModResearchData);
+
+                MessageBox.Show("Made a Cleanmod in " + User.Default.WritePath);
+            }
         }
 
         private void button_LoadManufacturer_Click(object sender, RoutedEventArgs e)

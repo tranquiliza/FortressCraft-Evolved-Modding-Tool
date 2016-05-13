@@ -21,10 +21,17 @@ namespace Common.ModLogics
 
         public bool ShouldSerializeScanRequirements()
         {
-            if (ScanRequirements.Count > 0)
-                return true;
+            if (ScanRequirements != null)
+            {
+                if (ScanRequirements.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
             else
+            {
                 return false;
+            }
         }
         [XmlArray, XmlArrayItem("Scan")]
         public List<string> ScanRequirements { get; set; }

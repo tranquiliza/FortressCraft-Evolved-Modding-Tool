@@ -1162,4 +1162,44 @@ namespace Common.ModLogics
             }
         }
     }
+
+    public static class CleanRecipesMod
+    {
+        public static List<CraftData> ModdedRecipes = new List<CraftData>();
+        public static List<ResearchDataEntry> ModdedResearch = new List<ResearchDataEntry>();
+
+        public static void GenerateCleanMod()
+        {
+            DeleteRecipes();
+            DeleteResearch();
+        }
+
+        private static void DeleteRecipes()
+        {
+            for (int i = 0; i < DataHolder.ManufacturerEntries.Count; i++)
+            {
+                if (DataHolder.ManufacturerEntries[i].Key == "arther core")
+                {
+                    continue;
+                }
+                CraftData Holder = new CraftData();
+                Holder.IsOverride = "true";
+                Holder.Delete = "true";
+                Holder.Key = DataHolder.ManufacturerEntries[i].Key;
+                ModdedRecipes.Add(Holder);
+            }
+        }
+        
+        private static void DeleteResearch()
+        {
+            for (int i = 0; i < DataHolder.ResearchEntries.Count; i++)
+            {
+                ResearchDataEntry Holder = new ResearchDataEntry();
+                Holder.IsOverride = true;
+                Holder.Delete = "true";
+                Holder.Key = DataHolder.ResearchEntries[i].Key;
+                ModdedResearch.Add(Holder);
+            }
+        }
+    }
 }
