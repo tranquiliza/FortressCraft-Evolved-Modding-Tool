@@ -23,14 +23,10 @@ namespace Common.ModLogics
                 CraftData Holder = new CraftData();
                 if (DataHolder.ManufacturerEntries[i].Key == "arther core")
                 {
-                    Holder.Key = AuthorID + ".arther core";
-                    Holder.IsOverride = "false";
+                    continue;
                 }
-                else
-                {
-                    Holder.IsOverride = "true";
-                    Holder.Key = DataHolder.ManufacturerEntries[i].Key;
-                }
+                Holder.IsOverride = "true";
+                Holder.Key = DataHolder.ManufacturerEntries[i].Key;
                 Holder.Category = DataHolder.ManufacturerEntries[i].Category;
                 Holder.Tier = DataHolder.ManufacturerEntries[i].Tier;
                 Holder.CraftedKey = DataHolder.ManufacturerEntries[i].CraftedKey;

@@ -114,13 +114,13 @@ namespace Common.ModLogics
         [XmlArray, XmlArrayItem("Scan")]
         public List<string> ScanRequirements { get; set; }
         //[DefaultValue(0)]
-        public bool ShouldSerializeResearchCost()
-        {
-            if (ResearchCost > 0)
-                return true;
-            else
-                return false;
-        }
+        //public bool ShouldSerializeResearchCost()
+        //{
+        //    if (ResearchCost > 0)
+        //        return true;
+        //    else
+        //        return false;
+        //}
         public int ResearchCost { get; set; }
         //public eManufacturingPlantModule RequiredModule;
         public string Description { get; set; }

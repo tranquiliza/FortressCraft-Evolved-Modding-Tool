@@ -553,7 +553,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
             {
                 if (checkBox_Delete.IsChecked.Value)
                 {
-                    ActiveRecipe.Delete = checkBox_Delete.IsChecked.Value.ToString();
+                    ActiveRecipe.Delete = checkBox_Delete.IsChecked.Value.ToString().ToLower();
                 }
                 else
                 {
@@ -617,7 +617,7 @@ namespace FortressCraftEvolved_Modding_Tool.Forms.ModForms
                         lNewRecipe.RemoveResearchRequirements = TempRemoveResearchReq;
                         lNewRecipe.RemoveScanRequirements = TempRemoveScanReq;
                         bool? lIsDelete = checkBox_Delete.IsChecked;
-                        lNewRecipe.Delete = lIsDelete.Value.ToString();
+                        lNewRecipe.Delete = lIsDelete.Value.ToString().ToLower();
                     }
                 }
                 else
